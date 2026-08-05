@@ -23,7 +23,7 @@ import featTransfer from "@/assets/feat-transfer.jpg";
 import featTeamAnalytics from "@/assets/feat-team-analytics.jpg";
 import featFilters from "@/assets/feat-filters.jpg";
 import featCallLogs from "@/assets/feat-call-logs.jpg";
-import mark from "@/assets/smartytel-mark.png.asset.json";
+import mark from "@/assets/smartytel-mark.png";
 import showcaseNumbers from "@/assets/showcase-numbers.jpg";
 import showcaseShared from "@/assets/showcase-shared.jpg";
 import showcaseRouting from "@/assets/showcase-routing.jpg";
@@ -330,7 +330,7 @@ function Landing() {
         <div className="mx-auto flex h-16 max-w-6xl items-center gap-8 px-5">
           <a href="/" className="flex items-center gap-2">
             <img
-              src={mark.url}
+              src={mark}
               alt="Smartytel logo"
               width={40}
               height={49}
@@ -615,7 +615,7 @@ function Landing() {
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-5 text-sm text-muted-foreground">
           <span className="flex items-center gap-2 font-display font-bold text-foreground">
             <img
-              src={mark.url}
+              src={mark}
               alt=""
               width={40}
               height={49}
