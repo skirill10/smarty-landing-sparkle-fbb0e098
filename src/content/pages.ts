@@ -23,8 +23,8 @@ export const pages: Record<string, MarketingContent> = {
         "body": "Voicemail-to-text lands in the shared inbox with an AI summary and the caller's history attached."
       }
     ],
-    "metaTitle": "A business phone line your whole team can answer | Smartytel",
-    "metaDescription": "Ring groups, transfers, voicemail and call recording on shiny local numbers across the US, Canada, the UK and every European country."
+    "metaTitle": "Business Phone System for Teams | Smartytel",
+    "metaDescription": "Business phone system with shared numbers, ring groups, transfers, voicemail-to-text and call recording across the US, Canada, the UK and Europe."
   },
   "messaging": {
     "eyebrow": "Messaging",
@@ -48,8 +48,8 @@ export const pages: Record<string, MarketingContent> = {
         "body": "Send automated SMS to a saved segment from $0.01 per message and track replies in the same inbox."
       }
     ],
-    "metaTitle": "Text, WhatsApp and Telegram from your business n | Smartytel",
-    "metaDescription": "One shared inbox for SMS, WhatsApp and Telegram so customers can reply the way they prefer and nothing sits unanswered."
+    "metaTitle": "Business SMS, WhatsApp & Telegram Inbox | Smartytel",
+    "metaDescription": "One shared inbox for business SMS, WhatsApp and Telegram, with templates, assignments and bulk campaigns from your business number."
   },
   "phone-menu": {
     "eyebrow": "Routing",
@@ -73,8 +73,8 @@ export const pages: Record<string, MarketingContent> = {
         "body": "Send overflow to an on-call phone, an outsourced team or another office abroad."
       }
     ],
-    "metaTitle": "Phone menus and routing that match how you work | Smartytel",
-    "metaDescription": "Build IVR menus, business-hours rules, hunt groups and forwarding without waiting on a telecoms engineer."
+    "metaTitle": "IVR Phone Menu & Call Routing | Smartytel",
+    "metaDescription": "Build IVR phone menus, business-hours rules, hunt groups and call forwarding yourself \u2014 no telecoms engineer, no downtime."
   },
   "shared-numbers": {
     "eyebrow": "Collaborate",
@@ -98,8 +98,8 @@ export const pages: Record<string, MarketingContent> = {
         "body": "Run a UK, German and US number side by side from one workspace."
       }
     ],
-    "metaTitle": "Shared numbers, shared context | Smartytel",
-    "metaDescription": "Give teams a number they own together, with permissions, notes and full call history for everyone who needs it."
+    "metaTitle": "Shared Team Phone Number | Smartytel",
+    "metaDescription": "Give your team one shared business phone number: everyone sees every call and text, and the first free person answers."
   },
   "analytics": {
     "eyebrow": "Oversight",
@@ -123,8 +123,8 @@ export const pages: Record<string, MarketingContent> = {
         "body": "Scheduled CSV exports plus Slack or email alerts when volumes spike."
       }
     ],
-    "metaTitle": "Analytics that show what your phone is really do | Smartytel",
-    "metaDescription": "Volume, response times, missed calls and rep activity across every number, team and country."
+    "metaTitle": "Call Analytics & Reporting | Smartytel",
+    "metaDescription": "Call analytics and reporting for missed calls, response times, volumes by hour and per-agent performance across every number."
   },
   "tasks": {
     "eyebrow": "Tasks",
@@ -148,7 +148,7 @@ export const pages: Record<string, MarketingContent> = {
         "body": "Tasks live on the contact, so the next person knows what was promised."
       }
     ],
-    "metaTitle": "Follow-ups that survive the end of the call | Smartytel",
+    "metaTitle": "Call Follow-Up Tasks & Reminders | Smartytel",
     "metaDescription": "Turn calls and messages into tasks with owners and due dates, so promises made on the phone actually happen."
   },
   "ai-agent": {
@@ -173,8 +173,8 @@ export const pages: Record<string, MarketingContent> = {
         "body": "AI assistance from $3.50 per user, transcription from $2.50, with AI call packages as you grow."
       }
     ],
-    "metaTitle": "An AI agent that answers, qualifies and summaris | Smartytel",
-    "metaDescription": "Sona picks up when nobody can, asks the right questions, then hands a clean summary to the right person."
+    "metaTitle": "AI Phone Answering Agent | Smartytel",
+    "metaDescription": "An AI phone answering agent that picks up after hours, qualifies callers, books follow-ups and writes the summary for your team."
   },
   "integrations": {
     "eyebrow": "Integrations",
@@ -198,8 +198,8 @@ export const pages: Record<string, MarketingContent> = {
         "body": "Build your own flows with a documented REST API and event webhooks."
       }
     ],
-    "metaTitle": "Plays nicely with the tools you already run on | Smartytel",
-    "metaDescription": "Sync contacts, log calls and texts, and trigger follow-ups across your CRM, help desk, inbox and automation stack."
+    "metaTitle": "Phone System Integrations | Smartytel",
+    "metaDescription": "Connect your business phone to the CRM, helpdesk and automation tools you already run \u2014 HubSpot, Slack, Zapier and more."
   },
   "developers": {
     "eyebrow": "Developers",
@@ -223,8 +223,8 @@ export const pages: Record<string, MarketingContent> = {
         "body": "Provision numbers in the US, Canada, the UK and every European country we serve."
       }
     ],
-    "metaTitle": "The Smartytel API | Smartytel",
-    "metaDescription": "Provision numbers, place calls, send messages and stream events from your own product."
+    "metaTitle": "Voice & SMS API for Developers | Smartytel",
+    "metaDescription": "Voice and SMS APIs plus webhooks to build calling, messaging and number provisioning into your own product."
   },
   "solutions/home-services": {
     "eyebrow": "Home services",
@@ -248,7 +248,7 @@ export const pages: Record<string, MarketingContent> = {
         "body": "Sona takes emergency calls at 2am and pages the on-call tech."
       }
     ],
-    "metaTitle": "Never miss the job because nobody could answer | Smartytel",
+    "metaTitle": "Phone System for Home Services | Smartytel",
     "metaDescription": "Dispatchers, techs in vans and an after-hours line — all on one number your customers already know."
   },
   "solutions/law-firms": {
@@ -273,7 +273,7 @@ export const pages: Record<string, MarketingContent> = {
         "body": "EU data handling and numbers in every European country you practise in."
       }
     ],
-    "metaTitle": "A phone system that keeps client matters clean | Smartytel",
+    "metaTitle": "Phone System for Law Firms | Smartytel",
     "metaDescription": "Confidential lines, recorded consent, and every call logged against the right matter."
   },
   "solutions/property-management": {
@@ -298,7 +298,7 @@ export const pages: Record<string, MarketingContent> = {
         "body": "Response-time reports you can hand straight to landlords."
       }
     ],
-    "metaTitle": "One line for tenants, owners and contractors | Smartytel",
+    "metaTitle": "Phone System for Property Managers | Smartytel",
     "metaDescription": "Route by building or portfolio, keep maintenance requests in writing, and prove what was promised."
   },
   "solutions/healthcare": {
@@ -323,7 +323,7 @@ export const pages: Record<string, MarketingContent> = {
         "body": "Numbers per clinic across the UK, Europe, the US and Canada."
       }
     ],
-    "metaTitle": "Calm, compliant patient communication | Smartytel",
+    "metaTitle": "Phone System for Clinics & Healthcare | Smartytel",
     "metaDescription": "Appointment reminders, triage menus and private lines for clinicians, with recordings locked down."
   },
   "solutions/education": {
@@ -348,7 +348,7 @@ export const pages: Record<string, MarketingContent> = {
         "body": "See which enquiries were answered and which were missed."
       }
     ],
-    "metaTitle": "One number for parents, students and staff | Smartytel",
+    "metaTitle": "Phone System for Schools & Education | Smartytel",
     "metaDescription": "Term-time hours, departmental routing and broadcast SMS for closures and reminders."
   },
   "solutions/startups": {
@@ -373,7 +373,7 @@ export const pages: Record<string, MarketingContent> = {
         "body": "Look local in the US, Canada, the UK and any European market you sell into."
       }
     ],
-    "metaTitle": "A real phone presence on day one | Smartytel",
+    "metaTitle": "Business Phone for Startups | Smartytel",
     "metaDescription": "Pick a number, invite the team and start taking calls in minutes — from $12 per user per month."
   },
   "solutions/small-business": {
@@ -398,8 +398,8 @@ export const pages: Record<string, MarketingContent> = {
         "body": "Per-user pricing plus only the add-ons you switch on."
       }
     ],
-    "metaTitle": "Stop running the business off a personal mobile | Smartytel",
-    "metaDescription": "A shared business number your team can answer, with texting, voicemail and simple reporting."
+    "metaTitle": "Business Phone for Small Business | Smartytel",
+    "metaDescription": "Business phone for small business: a shared number, mobile and desktop apps, and per-user pricing in the US, UK, Canada and Europe."
   },
   "solutions/franchise": {
     "eyebrow": "Franchise",
@@ -423,7 +423,7 @@ export const pages: Record<string, MarketingContent> = {
         "body": "Franchisees see their site; head office sees everything."
       }
     ],
-    "metaTitle": "Local numbers, central oversight | Smartytel",
+    "metaTitle": "Multi-Location Phone System | Smartytel",
     "metaDescription": "Give every location a local number while head office keeps one view of volume, response times and quality."
   },
   "solutions/sales": {
@@ -448,7 +448,7 @@ export const pages: Record<string, MarketingContent> = {
         "body": "Local caller ID in the US, Canada, the UK and Europe."
       }
     ],
-    "metaTitle": "Call more, guess less | Smartytel",
+    "metaTitle": "Sales Phone System & Power Dialer | Smartytel",
     "metaDescription": "Click-to-call from the pipeline, AI notes after every conversation and reporting on what actually closes."
   },
   "solutions/support": {
@@ -473,7 +473,7 @@ export const pages: Record<string, MarketingContent> = {
         "body": "Ticketing for $5 per user per month when you need it."
       }
     ],
-    "metaTitle": "Support queues without a call-centre budget | Smartytel",
+    "metaTitle": "Customer Support Phone System | Smartytel",
     "metaDescription": "Queues, hunt groups, SLAs and a shared inbox for calls, SMS and chat apps."
   },
   "solutions/operations": {
@@ -498,7 +498,7 @@ export const pages: Record<string, MarketingContent> = {
         "body": "Recordings, transcripts and change history for review."
       }
     ],
-    "metaTitle": "Make the phone part of your process | Smartytel",
+    "metaTitle": "Phone System for Operations Teams | Smartytel",
     "metaDescription": "Automate what happens after a call: tasks, alerts, handovers and reporting."
   },
   "blog": {
@@ -523,7 +523,7 @@ export const pages: Record<string, MarketingContent> = {
         "body": "Scripts and templates for sales, support and dispatch teams."
       }
     ],
-    "metaTitle": "Notes on phones, teams and customer conversation | Smartytel",
+    "metaTitle": "Business Phone & VoIP Blog | Smartytel",
     "metaDescription": "Practical writing on call handling, AI answering, coverage in Europe and getting more out of your phone system."
   },
   "customers": {
@@ -548,7 +548,7 @@ export const pages: Record<string, MarketingContent> = {
         "body": "A startup opened UK and German numbers in a single afternoon."
       }
     ],
-    "metaTitle": "Teams that answer with Smartytel | Smartytel",
+    "metaTitle": "Customer Stories | Smartytel",
     "metaDescription": "Dental groups, law firms, HVAC dispatchers, property managers and startups across the US, Canada, the UK and Europe."
   },
   "partners": {
@@ -573,7 +573,7 @@ export const pages: Record<string, MarketingContent> = {
         "body": "API access, sandbox keys and integration guidance."
       }
     ],
-    "metaTitle": "Build and resell with Smartytel | Smartytel",
+    "metaTitle": "Partner & Reseller Program | Smartytel",
     "metaDescription": "Agencies, MSPs and consultancies deploying business phone, AI answering and CRM for their clients."
   },
   "demo": {
@@ -598,7 +598,7 @@ export const pages: Record<string, MarketingContent> = {
         "body": "Number porting and rollout mapped out before you commit."
       }
     ],
-    "metaTitle": "See Smartytel in ten minutes | Smartytel",
+    "metaTitle": "Book a Live Demo | Smartytel",
     "metaDescription": "A walkthrough of shared numbers, routing, the AI agent, the built-in CRM and reporting."
   },
   "resources": {
@@ -623,7 +623,7 @@ export const pages: Record<string, MarketingContent> = {
         "body": "Voicemail script and number generators to get going faster."
       }
     ],
-    "metaTitle": "Everything you need to run your phone system wel | Smartytel",
+    "metaTitle": "Business Phone Resources & Guides | Smartytel",
     "metaDescription": "Guides, tutorials, downloads and status information in one place."
   },
   "docs": {
@@ -648,7 +648,7 @@ export const pages: Record<string, MarketingContent> = {
         "body": "Provision numbers by country and sync contacts with your own CRM."
       }
     ],
-    "metaTitle": "Documentation for builders | Smartytel",
+    "metaTitle": "Help Centre & Documentation | Smartytel",
     "metaDescription": "Authentication, endpoints, webhooks and examples for the Smartytel API."
   },
   "status": {
@@ -673,7 +673,7 @@ export const pages: Record<string, MarketingContent> = {
         "body": "Get notified by email when something changes."
       }
     ],
-    "metaTitle": "Platform status and incident history | Smartytel",
+    "metaTitle": "System Status & Uptime | Smartytel",
     "metaDescription": "Live availability for calling, messaging, apps and the API, plus a record of past incidents."
   },
   "about": {
@@ -698,7 +698,7 @@ export const pages: Record<string, MarketingContent> = {
         "body": "Funded by customers, focused on the product."
       }
     ],
-    "metaTitle": "Why we built Smartytel | Smartytel",
+    "metaTitle": "About Smartytel \u2014 Business Phone for Europe & US",
     "metaDescription": "We think a business phone should be as easy to run as email — and should work the same in Berlin as in Boston."
   },
   "careers": {
@@ -723,7 +723,7 @@ export const pages: Record<string, MarketingContent> = {
         "body": "Backend, telephony, product design and customer support."
       }
     ],
-    "metaTitle": "Come build the phone system teams actually like | Smartytel",
+    "metaTitle": "Careers at Smartytel",
     "metaDescription": "Engineering, support and go-to-market roles across Europe and North America."
   },
   "contact": {
@@ -748,7 +748,7 @@ export const pages: Record<string, MarketingContent> = {
         "body": "Agencies, MSPs and technology partners welcome."
       }
     ],
-    "metaTitle": "Talk to a human | Smartytel",
+    "metaTitle": "Contact Sales & Support | Smartytel",
     "metaDescription": "Sales, support and partnership enquiries — answered on the phone system we build."
   },
   "port-your-number": {
@@ -773,8 +773,8 @@ export const pages: Record<string, MarketingContent> = {
         "body": "$5 one-time per number, no monthly porting charges."
       }
     ],
-    "metaTitle": "Keep the number your customers already dial | Smartytel",
-    "metaDescription": "Port landline, mobile and toll-free numbers from your current provider for a one-time $5 per number."
+    "metaTitle": "Port Your Business Number Free | Smartytel",
+    "metaDescription": "Port your existing business number to Smartytel for free from any US, Canadian, UK or European carrier \u2014 keep the number customers dial."
   },
   "privacy": {
     "eyebrow": "Legal",
@@ -798,7 +798,7 @@ export const pages: Record<string, MarketingContent> = {
         "body": "Access, export and deletion requests handled within statutory timeframes."
       }
     ],
-    "metaTitle": "Privacy at Smartytel | Smartytel",
+    "metaTitle": "Privacy Policy | Smartytel",
     "metaDescription": "What we collect, why we collect it, where it is stored and how long we keep it."
   },
   "terms": {
@@ -823,7 +823,7 @@ export const pages: Record<string, MarketingContent> = {
         "body": "Availability commitments and support response targets."
       }
     ],
-    "metaTitle": "Terms of service | Smartytel",
+    "metaTitle": "Terms of Service | Smartytel",
     "metaDescription": "The agreement covering your use of Smartytel numbers, calling, messaging and add-on modules."
   },
   "gdpr": {
@@ -848,8 +848,8 @@ export const pages: Record<string, MarketingContent> = {
         "body": "Standard contractual clauses for any transfer outside the EEA."
       }
     ],
-    "metaTitle": "GDPR and EU data protection | Smartytel",
-    "metaDescription": "Data processing terms, subprocessors and transfer mechanisms for European customers."
+    "metaTitle": "GDPR & Data Protection | Smartytel",
+    "metaDescription": "How Smartytel handles GDPR: EU data residency options, data processing agreements, subject requests and sub-processor transparency."
   },
   "security": {
     "eyebrow": "Trust",
@@ -873,7 +873,7 @@ export const pages: Record<string, MarketingContent> = {
         "body": "Toll-fraud detection and per-workspace spend limits."
       }
     ],
-    "metaTitle": "How we keep your conversations safe | Smartytel",
+    "metaTitle": "Security & Compliance | Smartytel",
     "metaDescription": "Encryption, access control, monitoring and the controls your security review will ask about."
   }
 };
