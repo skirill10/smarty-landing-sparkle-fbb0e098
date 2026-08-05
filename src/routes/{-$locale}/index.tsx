@@ -369,6 +369,7 @@ function StoriesSlider({ items }: { items: typeof stories }) {
 }
 
 function Landing() {
+  const lp = useLocalePath();
   const t = useT();
   const {
     hero,
