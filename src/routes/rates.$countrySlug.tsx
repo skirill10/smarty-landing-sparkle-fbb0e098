@@ -277,7 +277,7 @@ function CountryRatesPage() {
             <Link
               to="/pricing"
               hash="talk-to-sales"
-              className="inline-flex items-center gap-2 rounded-xl bg-brand px-6 py-3 text-sm font-semibold text-brand-foreground"
+              className="inline-flex items-center gap-2 rounded-md bg-brand px-6 py-3 text-sm font-semibold text-brand-foreground"
             >
               Talk to sales
               <ArrowRight className="size-4" aria-hidden="true" />
