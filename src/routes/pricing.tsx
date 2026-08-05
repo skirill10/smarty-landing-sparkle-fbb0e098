@@ -252,8 +252,8 @@ function PricingPage() {
         </section>
 
         {/* Plans */}
-        <section className="mx-auto max-w-6xl px-5 pb-20">
-          <div className="grid gap-6 md:grid-cols-3">
+        <section className="mx-auto max-w-7xl px-5 pb-20">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {plans.map((plan) => (
               <article
                 key={plan.name}
@@ -273,10 +273,11 @@ function PricingPage() {
                 </div>
                 <p className="mt-5 font-display text-4xl font-bold tracking-tight">
                   {priceFor(plan)}
-                  {plan.monthly !== "Custom" && (
-                    <span className="text-base font-medium text-muted-foreground">/user/mo</span>
-                  )}
+                  <span className="text-base font-medium text-muted-foreground">
+                    {plan.monthly === 0 ? "/14 days" : "/user/mo"}
+                  </span>
                 </p>
+
                 <p className="mt-3 text-sm text-muted-foreground">{plan.tagline}</p>
                 <a
                   href="/pricing"
