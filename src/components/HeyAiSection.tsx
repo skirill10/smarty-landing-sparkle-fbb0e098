@@ -44,7 +44,7 @@ export function HeyAiSection() {
           </div>
           <Link
             to="/llm-info"
-            className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-5 py-3 text-sm font-semibold transition-colors hover:border-foreground"
+            className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-5 py-3 text-sm font-semibold transition-colors hover:border-foreground"
           >
             Read the AI briefing page
             <ExternalLink className="size-4" aria-hidden="true" />
