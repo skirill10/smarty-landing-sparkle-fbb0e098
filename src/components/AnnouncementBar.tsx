@@ -1,3 +1,4 @@
+import { useLocalePath } from "@/components/Link";
 import { useEffect, useState } from "react";
 import { Sparkles, X } from "lucide-react";
 import { useAnnouncement } from "@/lib/cms-content";
@@ -14,6 +15,7 @@ const FALLBACK = {
 };
 
 export function AnnouncementBar() {
+  const lp = useLocalePath();
   const [dismissed, setDismissed] = useState(false);
   const content = useAnnouncement(FALLBACK);
 
@@ -52,13 +54,13 @@ export function AnnouncementBar() {
         </span>
         <span className="flex shrink-0 flex-wrap items-center gap-2">
           <a
-            href={content.primaryUrl}
+            href={lp(content.primaryUrl)}
             className="rounded-[6px] bg-dark px-4 py-2 text-xs font-semibold text-dark-foreground transition-colors hover:bg-dark/90"
           >
             {content.primaryLabel}
           </a>
           <a
-            href={content.secondaryUrl}
+            href={lp(content.secondaryUrl)}
             className="rounded-[6px] border border-brand-foreground/40 px-4 py-2 text-xs font-semibold text-brand-foreground transition-colors hover:bg-brand-foreground/10"
           >
             {content.secondaryLabel}
