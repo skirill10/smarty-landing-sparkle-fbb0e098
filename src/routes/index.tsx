@@ -542,10 +542,9 @@ function Landing() {
                   </div>
                   <p className="mt-5 font-display text-4xl font-bold tracking-tight">
                     {plan.price}
-                    {plan.price !== "Custom" && (
-                      <span className="text-base font-medium text-muted-foreground">/user/mo</span>
-                    )}
+                    <span className="text-base font-medium text-muted-foreground">{plan.unit}</span>
                   </p>
+
                   <p className="mt-3 text-sm text-muted-foreground">{plan.tagline}</p>
                   <ul className="mt-6 space-y-3 text-sm">
                     {plan.perks.map((perk) => (
