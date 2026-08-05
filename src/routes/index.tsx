@@ -23,8 +23,9 @@ import featTransfer from "@/assets/feat-transfer.jpg";
 import featTeamAnalytics from "@/assets/feat-team-analytics.jpg";
 import featFilters from "@/assets/feat-filters.jpg";
 import featCallLogs from "@/assets/feat-call-logs.jpg";
-import mark from "@/assets/smartytel-mark.png";
 import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
+
 import { CtaBand } from "@/components/CtaBand";
 import { BuiltForSection } from "@/components/BuiltForSection";
 import showcaseNumbers from "@/assets/showcase-numbers.jpg";
