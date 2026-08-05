@@ -1,9 +1,29 @@
 import { Fragment, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Check, Minus } from "lucide-react";
+import {
+  ArrowLeftRight,
+  ArrowUpRight,
+  BarChart3,
+  Bot,
+  Building2,
+  Check,
+  FileText,
+  Globe,
+  History,
+  LifeBuoy,
+  ListTree,
+  Mic,
+  Minus,
+  PhoneForwarded,
+  PhoneOutgoing,
+  Plug,
+  Users,
+  Workflow,
+  Zap,
+} from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import { CtaBand } from "@/components/CtaBand";
+
 
 
 export const Route = createFileRoute("/pricing")({
