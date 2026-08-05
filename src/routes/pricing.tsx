@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { PricingCta } from "@/components/PricingCta";
 import { usePricingContent } from "@/lib/cms-content";
 
 
@@ -696,6 +697,7 @@ function PricingPage() {
             <FaqList items={faqList} />
           </div>
         </section>
+        <PricingCta />
       </main>
 
       <SiteFooter />

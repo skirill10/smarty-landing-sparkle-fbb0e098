@@ -173,7 +173,7 @@ export function SiteFooter() {
                   className="grid size-9 place-items-center rounded-full border border-border text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
                 >
                   <svg viewBox="0 0 24 24" className="size-4 fill-current" aria-hidden="true">
-                    <path d={social.icon.path} />
+                    <path d={social.path} />
                   </svg>
                 </a>
               </li>
