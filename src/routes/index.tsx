@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import {
   Phone,
@@ -11,6 +12,8 @@ import {
   Check,
   Play,
   ArrowRight,
+  ChevronLeft,
+  ChevronRight,
   Star,
 } from "lucide-react";
 import dashboard from "@/assets/app-dashboard.jpg";
