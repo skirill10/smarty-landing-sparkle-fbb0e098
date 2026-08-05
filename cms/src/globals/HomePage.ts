@@ -1,6 +1,11 @@
 import type { GlobalConfig } from "payload";
 import { triggerRebuild } from "../hooks/triggerRebuild";
 
+/**
+ * Field names mirror the shapes used by src/routes/index.tsx so the frontend can
+ * overlay CMS copy on top of the bundled defaults without any mapping layer.
+ * Images stay in the repo; the CMS owns the words.
+ */
 export const HomePage: GlobalConfig = {
   slug: "home",
   label: "Home page",
@@ -12,37 +17,37 @@ export const HomePage: GlobalConfig = {
       name: "hero",
       type: "group",
       fields: [
-        { name: "eyebrow", type: "text" },
+        { name: "rating", type: "text" },
+        { name: "reviews", type: "text" },
         { name: "headline", type: "text" },
         { name: "sub", type: "textarea" },
-        { name: "primaryCtaLabel", type: "text" },
-        { name: "secondaryCtaLabel", type: "text" },
-        { name: "image", type: "upload", relationTo: "media" },
+        { name: "primaryCta", type: "text" },
+        { name: "secondaryCta", type: "text" },
+        { name: "platforms", type: "text" },
       ],
     },
     {
-      name: "features",
-      label: "Feature cards",
+      name: "logos",
+      type: "group",
+      fields: [
+        { name: "heading", type: "text" },
+        { name: "items", type: "array", fields: [{ name: "value", type: "text", required: true }] },
+      ],
+    },
+    {
+      name: "featureGroups",
+      label: "Feature groups",
       type: "array",
       fields: [
-        { name: "title", type: "text", required: true },
-        { name: "body", type: "textarea" },
+        { name: "heading", type: "text", required: true },
         {
-          name: "icon",
-          type: "select",
-          options: [
-            "phone",
-            "phoneForwarded",
-            "filter",
-            "messageSquare",
-            "bot",
-            "barChart",
-            "users",
-            "plug",
-          ].map((value) => ({ label: value, value })),
+          name: "cards",
+          type: "array",
+          fields: [
+            { name: "title", type: "text", required: true },
+            { name: "body", type: "textarea" },
+          ],
         },
-        { name: "image", type: "upload", relationTo: "media" },
-        { name: "alt", type: "text" },
       ],
     },
     {
@@ -56,8 +61,6 @@ export const HomePage: GlobalConfig = {
           fields: [
             { name: "title", type: "text", required: true },
             { name: "link", type: "text" },
-            { name: "image", type: "upload", relationTo: "media" },
-            { name: "alt", type: "text" },
           ],
         },
       ],
@@ -72,55 +75,26 @@ export const HomePage: GlobalConfig = {
           name: "items",
           type: "array",
           fields: [
-            { name: "company", type: "text", required: true },
-            { name: "industry", type: "text" },
-            { name: "quote", type: "textarea" },
+            { name: "business", type: "text", required: true },
             { name: "person", type: "text" },
             { name: "role", type: "text" },
-            { name: "metric", type: "text" },
-            { name: "image", type: "upload", relationTo: "media" },
-            { name: "alt", type: "text" },
+            { name: "quote", type: "textarea" },
+            { name: "stat", type: "text" },
+            { name: "statLabel", type: "text" },
           ],
         },
       ],
     },
     {
-      name: "builtFor",
-      label: "Built for section",
-      type: "group",
+      name: "plans",
+      label: "Plan teasers",
+      type: "array",
       fields: [
-        { name: "heading", type: "text" },
-        {
-          name: "items",
-          type: "array",
-          fields: [
-            { name: "label", type: "text", required: true },
-            { name: "image", type: "upload", relationTo: "media" },
-            { name: "alt", type: "text" },
-          ],
-        },
-      ],
-    },
-    {
-      name: "integrations",
-      type: "group",
-      fields: [
-        { name: "eyebrow", type: "text" },
-        { name: "heading", type: "text" },
-        { name: "sub", type: "textarea" },
-        { name: "footnote", type: "textarea" },
-      ],
-    },
-    {
-      name: "cta",
-      label: "CTA band",
-      type: "group",
-      fields: [
-        { name: "eyebrow", type: "text" },
-        { name: "headline", type: "text" },
-        { name: "sub", type: "textarea" },
-        { name: "primaryCtaLabel", type: "text" },
-        { name: "secondaryCtaLabel", type: "text" },
+        { name: "name", type: "text", required: true },
+        { name: "price", type: "text" },
+        { name: "unit", type: "text" },
+        { name: "tagline", type: "textarea" },
+        { name: "perks", type: "array", fields: [{ name: "value", type: "text", required: true }] },
       ],
     },
     {
