@@ -131,7 +131,7 @@ type AddOn = {
 const addOns: AddOn[] = [
   {
     name: "Additional phone numbers",
-    icon: PhonePlusIconPlaceholder,
+    icon: PhoneOutgoing,
     price: "15",
     unit: "Per number, per month\nPriced country by country",
   },
