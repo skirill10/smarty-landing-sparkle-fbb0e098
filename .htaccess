@@ -1,5 +1,4 @@
-# Hostinger serves this repository from the domain document root, so the built
-# static site lives at the repo root (index.html + assets/ + page folders).
+# Served from the domain document root (deploy branch = built site).
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
@@ -11,7 +10,7 @@
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
 
-  # Pretty URLs: /pricing -> /pricing/index.html when prerendered
+  # Pretty URLs: /pricing -> /pricing/index.html
   RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
   RewriteRule ^(.+?)/?$ /$1/index.html [L]
 
@@ -20,10 +19,4 @@
 </IfModule>
 
 DirectoryIndex index.html
-
-# Block access to source files that get deployed alongside the build
-<FilesMatch "\.(ts|tsx|lockb?|toml|md|yml|yaml)$">
-  Require all denied
-</FilesMatch>
-RedirectMatch 403 ^/(src|node_modules|\.github|dist)/
 Options -Indexes

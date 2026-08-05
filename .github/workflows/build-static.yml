@@ -20,35 +20,21 @@ jobs:
 
       - run: bun install --frozen-lockfile
 
-      - name: Remove previous build output from the repo root
-        run: |
-          rm -rf assets index.html public_html
-          # delete prerendered page folders (any top-level dir holding an index.html)
-          for d in */; do
-            case "$d" in src/|public/|node_modules/|dist/|.github/) continue;; esac
-            if [ -f "$d/index.html" ] || ls "$d"*/index.html >/dev/null 2>&1; then rm -rf "$d"; fi
-          done
-
       - name: Build static export
         env:
           STATIC_EXPORT: "1"
         run: bun run build
 
+      - name: Add server config to the build output
+        run: cp .htaccess dist/client/.htaccess
 
-      - name: Sync build output into the repo root
+      - name: Publish build output to the deploy branch
         run: |
-          rm -rf public_html
-          rm -rf assets
-          cp -r dist/client/. ./
-
-      - name: Commit build output if changed
-        run: |
+          cd dist/client
+          git init -q
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A -- . ':!node_modules' ':!dist'
-          if git diff --cached --quiet; then
-            echo "No changes to commit"
-          else
-            git commit -m "chore: rebuild static site [skip ci]"
-            git push
-          fi
+          git checkout -q -b deploy
+          git add -A
+          git commit -q -m "chore: static build $GITHUB_SHA"
+          git push -q --force "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" deploy
