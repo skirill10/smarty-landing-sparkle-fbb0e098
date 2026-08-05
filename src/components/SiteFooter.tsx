@@ -2,6 +2,8 @@ import { Link } from "@tanstack/react-router";
 import * as si from "simple-icons";
 import mark from "@/assets/smartytel-mark.png";
 import { useFooterContent, useSocialLinks } from "@/lib/cms-content";
+import { useT } from "@/i18n/LocaleProvider";
+import { LanguageSelector } from "@/components/LanguageSelector";
 
 /** LinkedIn's mark isn't shipped by simple-icons, so its path is inlined. */
 const linkedinPath =
@@ -99,6 +101,7 @@ const fallbackNote =
   "One business phone for your whole team \u2014 with local and toll-free numbers across the US, Canada, the UK and every European country.";
 
 export function SiteFooter() {
+  const t = useT();
   const socials = useSocialLinks(fallbackSocials);
   const { columns, regions, note } = useFooterContent({
     columns: fallbackColumns,
@@ -115,12 +118,12 @@ export function SiteFooter() {
               <img src={mark} alt="" width={40} height={49} loading="lazy" className="h-7 w-auto" />
               smartytel
             </Link>
-            <p className="mt-4 max-w-xs text-sm text-muted-foreground">{note}</p>
+            <p className="mt-4 max-w-xs text-sm text-muted-foreground">{t(note)}</p>
             <Link
               to="/pricing"
               className="mt-6 inline-flex rounded-md bg-brand px-5 py-3 text-sm font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
             >
-              Start free trial
+              {t("Start free trial")}
             </Link>
           </div>
 
@@ -128,17 +131,17 @@ export function SiteFooter() {
             {columns.map((column) => (
               <div key={column.heading}>
                 <p className="font-display text-sm font-bold uppercase tracking-widest text-foreground">
-                  {column.heading}
+                  {t(column.heading)}
                 </p>
                 <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
                   {column.links.map((link) => (
                     <li key={link.label}>
                       {link.to ? (
                         <Link to={link.to} className="transition-colors hover:text-foreground">
-                          {link.label}
+                          {t(link.label)}
                         </Link>
                       ) : (
-                        <span className="text-muted-foreground/70">{link.label}</span>
+                        <span className="text-muted-foreground/70">{t(link.label)}</span>
                       )}
                     </li>
                   ))}
@@ -150,18 +153,18 @@ export function SiteFooter() {
 
         <div className="mt-14 border-t border-border pt-8">
           <p className="font-display text-sm font-bold uppercase tracking-widest text-foreground">
-            Numbers &amp; coverage
+            {t("Numbers & coverage")}
           </p>
           <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted-foreground">
             {regions.map((region) => (
-              <li key={region}>{region}</li>
+              <li key={region}>{t(region)}</li>
             ))}
-            <li className="font-semibold text-foreground">+ all of Europe</li>
+            <li className="font-semibold text-foreground">{t("+ all of Europe")}</li>
           </ul>
         </div>
 
         <div className="mt-10 flex flex-wrap items-center justify-between gap-6 border-t border-border pt-8 text-sm text-muted-foreground">
-          <span>© {new Date().getFullYear()} Smartytel. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} Smartytel. {t("All rights reserved.")}</span>
 
           <ul className="flex items-center gap-3" aria-label="Smartytel on social media">
             {socials.map((social) => (
@@ -181,12 +184,14 @@ export function SiteFooter() {
             ))}
           </ul>
 
+          <LanguageSelector />
+
           <span className="flex flex-wrap gap-5">
-            <Link to="/privacy" className="hover:text-foreground">Privacy</Link>
-            <Link to="/terms" className="hover:text-foreground">Terms</Link>
-            <Link to="/gdpr" className="hover:text-foreground">GDPR</Link>
-            <Link to="/security" className="hover:text-foreground">Security</Link>
-            <Link to="/llm-info" className="hover:text-foreground">Hey AI</Link>
+            <Link to="/privacy" className="hover:text-foreground">{t("Privacy")}</Link>
+            <Link to="/terms" className="hover:text-foreground">{t("Terms")}</Link>
+            <Link to="/gdpr" className="hover:text-foreground">{t("GDPR")}</Link>
+            <Link to="/security" className="hover:text-foreground">{t("Security")}</Link>
+            <Link to="/llm-info" className="hover:text-foreground">{t("Hey AI")}</Link>
           </span>
         </div>
 

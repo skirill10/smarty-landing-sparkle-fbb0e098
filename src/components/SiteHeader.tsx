@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import mark from "@/assets/smartytel-mark.png";
 import { useHeaderMenus } from "@/lib/cms-content";
+import { useT } from "@/i18n/LocaleProvider";
 
 type Item = { label: string; icon?: typeof Phone; to?: string };
 type Group = { heading: string; items: Item[] };
@@ -138,6 +139,8 @@ const fallbackMenus: MenuDef[] = [
 ];
 
 function MegaPanel({ menu }: { menu: MenuDef }) {
+  const t = useT();
+
   return (
     <div
       className={`grid gap-8 p-7 ${menu.wide ? "grid-cols-3" : "grid-cols-3"}`}
@@ -145,7 +148,7 @@ function MegaPanel({ menu }: { menu: MenuDef }) {
       {menu.groups.map((g) => (
         <div key={g.heading}>
           <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-            {g.heading}
+            {t(g.heading)}
           </p>
           <ul className="space-y-1">
             {g.items.map((it) => (
@@ -157,7 +160,7 @@ function MegaPanel({ menu }: { menu: MenuDef }) {
                   {it.icon ? (
                     <it.icon className="size-4 shrink-0 text-brand" strokeWidth={2} />
                   ) : null}
-                  {it.label}
+                  {t(it.label)}
                 </a>
               </li>
             ))}
@@ -170,6 +173,7 @@ function MegaPanel({ menu }: { menu: MenuDef }) {
 }
 
 export function SiteHeader() {
+  const t = useT();
   const menus = useHeaderMenus(fallbackMenus);
   const [open, setOpen] = useState<string | null>(null);
   const [mobile, setMobile] = useState(false);
@@ -204,30 +208,30 @@ export function SiteHeader() {
             className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             onMouseEnter={() => setOpen(null)}
           >
-            Pricing
+            {t("Pricing")}
           </a>
           <MenuTrigger menu={menus[2]!} open={open} setOpen={setOpen} />
         </nav>
 
         <div className="ml-auto flex items-center gap-2">
           <a href="/pricing" className="hidden px-3 text-sm font-medium sm:block">
-            Log in
+            {t("Log in")}
           </a>
           <a
             href="/pricing#talk-to-sales"
             className="hidden rounded-md border border-border px-4 py-2 text-sm font-semibold transition-colors hover:bg-secondary sm:block"
           >
-            Talk to sales
+            {t("Talk to sales")}
           </a>
           <a
             href="/pricing"
             className="rounded-md bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
           >
-            Try for free
+            {t("Try for free")}
           </a>
           <button
             type="button"
-            aria-label="Toggle menu"
+            aria-label={t("Toggle menu")}
             className="rounded-md p-2 md:hidden"
             onClick={() => setMobile((v) => !v)}
           >
@@ -252,12 +256,12 @@ export function SiteHeader() {
                     <MegaPanel menu={menu} />
                     <div className="flex items-center justify-between gap-4 border-t border-border bg-secondary/60 px-7 py-4">
                       <div>
-                        <p className="text-sm font-semibold">Ready to get started?</p>
+                        <p className="text-sm font-semibold">{t("Ready to get started?")}</p>
                         <a
                           href="/demo"
                           className="text-sm font-medium text-brand hover:underline"
                         >
-                          Watch a quick demo →
+                          {t("Watch a quick demo →")}
                         </a>
                       </div>
                       <a
@@ -280,17 +284,17 @@ export function SiteHeader() {
         <div className="max-h-[75vh] overflow-y-auto border-t border-border bg-background px-5 py-4 md:hidden">
           {menus.map((m) => (
             <div key={m.label} className="border-b border-border/60 py-3 last:border-0">
-              <p className="mb-2 font-display text-base font-bold">{m.label}</p>
+              <p className="mb-2 font-display text-base font-bold">{t(m.label)}</p>
               {m.groups.map((g) => (
                 <div key={g.heading} className="mb-3">
                   <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                    {g.heading}
+                    {t(g.heading)}
                   </p>
                   <ul className="space-y-0.5">
                     {g.items.map((it) => (
                       <li key={it.label}>
                         <a href={it.to ?? "/pricing"} className="block py-1 text-sm text-foreground/85">
-                          {it.label}
+                          {t(it.label)}
                         </a>
                       </li>
                     ))}
@@ -301,7 +305,7 @@ export function SiteHeader() {
             </div>
           ))}
           <a href="/pricing" className="block py-3 font-display text-base font-bold">
-            Pricing
+            {t("Pricing")}
           </a>
         </div>
       ) : null}
@@ -318,6 +322,7 @@ function MenuTrigger({
   open: string | null;
   setOpen: (v: string | null) => void;
 }) {
+  const t = useT();
   const active = open === menu.label;
   return (
     <button
@@ -329,7 +334,7 @@ function MenuTrigger({
         active ? "text-foreground" : "text-muted-foreground hover:text-foreground"
       }`}
     >
-      {menu.label}
+      {t(menu.label)}
       <ChevronDown
         className={`size-3.5 transition-transform ${active ? "rotate-180" : ""}`}
       />
