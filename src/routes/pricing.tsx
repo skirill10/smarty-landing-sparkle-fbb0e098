@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { usePricingContent } from "@/lib/cms-content";
 
 
 
@@ -321,6 +322,13 @@ function PriceCell({ value }: { value: string | boolean }) {
 
 function PricingPage() {
   const [annual, setAnnual] = useState(true);
+  // Bundled copy stays the fallback; the CMS overlays text and prices at runtime.
+  const {
+    plans: planList,
+    addOns: addOnList,
+    aiTiers: aiTierList,
+    faqs: faqList,
+  } = usePricingContent({ plans, addOns, aiTiers, faqs });
 
   const priceFor = (plan: Plan) => `$${annual ? plan.annualMonthly : plan.monthly}`;
 
@@ -368,7 +376,7 @@ function PricingPage() {
         {/* Plans */}
         <section className="mx-auto max-w-7xl px-5 pb-20">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {plans.map((plan) => (
+            {planList.map((plan) => (
               <article
                 key={plan.name}
                 className={
@@ -428,7 +436,7 @@ function PricingPage() {
               and Europe.
             </p>
             <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {addOns.map((addOn) => (
+              {addOnList.map((addOn) => (
                 <div
                   key={addOn.name}
                   className="flex flex-col rounded-2xl bg-dark-foreground/[0.07] p-8"
@@ -476,7 +484,7 @@ function PricingPage() {
             go over it and you simply pay the per-call rate.
           </p>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
-            {aiTiers.map(([tier, price, calls, overage]) => (
+            {aiTierList.map(([tier, price, calls, overage]) => (
               <div key={tier} className="rounded-2xl border border-border bg-card p-6">
                 <p className="font-display text-sm font-semibold uppercase tracking-widest text-accent-foreground">
                   {tier}
@@ -499,7 +507,7 @@ function PricingPage() {
               <thead>
                 <tr className="border-b border-border">
                   <th className="py-4 pr-4 font-display text-sm font-semibold">Feature</th>
-                  {plans.map((plan) => (
+                  {planList.map((plan) => (
                     <th key={plan.name} className="py-4 px-4 text-center font-display text-sm font-semibold">
                       {plan.name}
                     </th>
@@ -539,7 +547,7 @@ function PricingPage() {
               Pricing questions
             </h2>
             <dl className="space-y-8">
-              {faqs.map(([q, a]) => (
+              {faqList.map(([q, a]) => (
                 <div key={q}>
                   <dt className="font-display text-base font-semibold">{q}</dt>
                   <dd className="mt-2 text-muted-foreground">{a}</dd>

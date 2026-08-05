@@ -3,6 +3,8 @@ import config from "../payload.config";
 import { pages } from "./seed-data/pages";
 import { integrations } from "./seed-data/integrations";
 import { siteSettings } from "./seed-data/site-settings";
+import { homePage } from "./seed-data/home";
+import { pricingPage } from "./seed-data/pricing";
 
 /**
  * Seeds the CMS with the copy that currently ships in the repo, so nothing is
@@ -51,6 +53,12 @@ const run = async () => {
 
   await payload.updateGlobal({ slug: "site-settings", data: siteSettings });
   console.log("seeded site settings");
+
+  await payload.updateGlobal({ slug: "home", data: homePage as never });
+  console.log("seeded home page");
+
+  await payload.updateGlobal({ slug: "pricing", data: pricingPage as never });
+  console.log("seeded pricing page");
 
   process.exit(0);
 };
