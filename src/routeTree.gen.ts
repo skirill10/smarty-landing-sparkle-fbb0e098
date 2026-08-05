@@ -13,7 +13,6 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AiAgentRouteImport } from './routes/ai-agent'
 import { Route as AnalyticsRouteImport } from './routes/analytics'
-import { Route as ApiRouteImport } from './routes/api'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as CallingRouteImport } from './routes/calling'
 import { Route as CareersRouteImport } from './routes/careers'
@@ -21,6 +20,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CrmRouteImport } from './routes/crm'
 import { Route as CustomersRouteImport } from './routes/customers'
 import { Route as DemoRouteImport } from './routes/demo'
+import { Route as DevelopersRouteImport } from './routes/developers'
 import { Route as DocsRouteImport } from './routes/docs'
 import { Route as GdprRouteImport } from './routes/gdpr'
 import { Route as IntegrationsRouteImport } from './routes/integrations'
@@ -68,11 +68,6 @@ const AnalyticsRoute = AnalyticsRouteImport.update({
   path: '/analytics',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiRoute = ApiRouteImport.update({
-  id: '/api',
-  path: '/api',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const BlogRoute = BlogRouteImport.update({
   id: '/blog',
   path: '/blog',
@@ -106,6 +101,11 @@ const CustomersRoute = CustomersRouteImport.update({
 const DemoRoute = DemoRouteImport.update({
   id: '/demo',
   path: '/demo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DevelopersRoute = DevelopersRouteImport.update({
+  id: '/developers',
+  path: '/developers',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DocsRoute = DocsRouteImport.update({
@@ -245,7 +245,6 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/ai-agent': typeof AiAgentRoute
   '/analytics': typeof AnalyticsRoute
-  '/api': typeof ApiRoute
   '/blog': typeof BlogRoute
   '/calling': typeof CallingRoute
   '/careers': typeof CareersRoute
@@ -253,6 +252,7 @@ export interface FileRoutesByFullPath {
   '/crm': typeof CrmRoute
   '/customers': typeof CustomersRoute
   '/demo': typeof DemoRoute
+  '/developers': typeof DevelopersRoute
   '/docs': typeof DocsRoute
   '/gdpr': typeof GdprRoute
   '/integrations': typeof IntegrationsRoute
@@ -285,7 +285,6 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/ai-agent': typeof AiAgentRoute
   '/analytics': typeof AnalyticsRoute
-  '/api': typeof ApiRoute
   '/blog': typeof BlogRoute
   '/calling': typeof CallingRoute
   '/careers': typeof CareersRoute
@@ -293,6 +292,7 @@ export interface FileRoutesByTo {
   '/crm': typeof CrmRoute
   '/customers': typeof CustomersRoute
   '/demo': typeof DemoRoute
+  '/developers': typeof DevelopersRoute
   '/docs': typeof DocsRoute
   '/gdpr': typeof GdprRoute
   '/integrations': typeof IntegrationsRoute
@@ -326,7 +326,6 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/ai-agent': typeof AiAgentRoute
   '/analytics': typeof AnalyticsRoute
-  '/api': typeof ApiRoute
   '/blog': typeof BlogRoute
   '/calling': typeof CallingRoute
   '/careers': typeof CareersRoute
@@ -334,6 +333,7 @@ export interface FileRoutesById {
   '/crm': typeof CrmRoute
   '/customers': typeof CustomersRoute
   '/demo': typeof DemoRoute
+  '/developers': typeof DevelopersRoute
   '/docs': typeof DocsRoute
   '/gdpr': typeof GdprRoute
   '/integrations': typeof IntegrationsRoute
@@ -368,7 +368,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/ai-agent'
     | '/analytics'
-    | '/api'
     | '/blog'
     | '/calling'
     | '/careers'
@@ -376,6 +375,7 @@ export interface FileRouteTypes {
     | '/crm'
     | '/customers'
     | '/demo'
+    | '/developers'
     | '/docs'
     | '/gdpr'
     | '/integrations'
@@ -408,7 +408,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/ai-agent'
     | '/analytics'
-    | '/api'
     | '/blog'
     | '/calling'
     | '/careers'
@@ -416,6 +415,7 @@ export interface FileRouteTypes {
     | '/crm'
     | '/customers'
     | '/demo'
+    | '/developers'
     | '/docs'
     | '/gdpr'
     | '/integrations'
@@ -448,7 +448,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/ai-agent'
     | '/analytics'
-    | '/api'
     | '/blog'
     | '/calling'
     | '/careers'
@@ -456,6 +455,7 @@ export interface FileRouteTypes {
     | '/crm'
     | '/customers'
     | '/demo'
+    | '/developers'
     | '/docs'
     | '/gdpr'
     | '/integrations'
@@ -489,7 +489,6 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AiAgentRoute: typeof AiAgentRoute
   AnalyticsRoute: typeof AnalyticsRoute
-  ApiRoute: typeof ApiRoute
   BlogRoute: typeof BlogRoute
   CallingRoute: typeof CallingRoute
   CareersRoute: typeof CareersRoute
@@ -497,6 +496,7 @@ export interface RootRouteChildren {
   CrmRoute: typeof CrmRoute
   CustomersRoute: typeof CustomersRoute
   DemoRoute: typeof DemoRoute
+  DevelopersRoute: typeof DevelopersRoute
   DocsRoute: typeof DocsRoute
   GdprRoute: typeof GdprRoute
   IntegrationsRoute: typeof IntegrationsRoute
@@ -555,13 +555,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AnalyticsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api': {
-      id: '/api'
-      path: '/api'
-      fullPath: '/api'
-      preLoaderRoute: typeof ApiRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/blog': {
       id: '/blog'
       path: '/blog'
@@ -609,6 +602,13 @@ declare module '@tanstack/react-router' {
       path: '/demo'
       fullPath: '/demo'
       preLoaderRoute: typeof DemoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/developers': {
+      id: '/developers'
+      path: '/developers'
+      fullPath: '/developers'
+      preLoaderRoute: typeof DevelopersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/docs': {
@@ -801,7 +801,6 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   AiAgentRoute: AiAgentRoute,
   AnalyticsRoute: AnalyticsRoute,
-  ApiRoute: ApiRoute,
   BlogRoute: BlogRoute,
   CallingRoute: CallingRoute,
   CareersRoute: CareersRoute,
@@ -809,6 +808,7 @@ const rootRouteChildren: RootRouteChildren = {
   CrmRoute: CrmRoute,
   CustomersRoute: CustomersRoute,
   DemoRoute: DemoRoute,
+  DevelopersRoute: DevelopersRoute,
   DocsRoute: DocsRoute,
   GdprRoute: GdprRoute,
   IntegrationsRoute: IntegrationsRoute,
