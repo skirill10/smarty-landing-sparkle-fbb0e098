@@ -409,7 +409,7 @@ function Landing() {
             </a>
             <a
               href="#features"
-              className="inline-flex items-center gap-2 rounded-md px-4 py-3 font-medium text-foreground transition-colors hover:bg-secondary"
+              className="inline-flex items-center gap-2 rounded-md px-4 py-3 font-medium text-foreground transition-colors hover:bg-dark hover:text-dark-foreground"
             >
               <Play className="size-4" aria-hidden="true" />
               {t(hero.secondaryCta)}
