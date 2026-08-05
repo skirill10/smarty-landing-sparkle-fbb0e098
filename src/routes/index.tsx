@@ -562,7 +562,7 @@ function Landing() {
                         : "mt-8 block rounded-xl border border-border px-4 py-3 text-center font-semibold transition-colors hover:bg-secondary"
                     }
                   >
-                    {plan.price === "Custom" ? "Talk to sales" : "Start free trial"}
+                    {plan.price === "$0" ? "Start 14-day trial" : "Start free trial"}
                   </a>
                 </article>
               ))}
