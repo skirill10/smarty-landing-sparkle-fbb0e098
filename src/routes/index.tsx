@@ -509,7 +509,18 @@ function Landing() {
           </div>
         </section>
 
-
+        {/* Business stories */}
+        <section className="mx-auto max-w-6xl px-5 py-20 md:py-28">
+          <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+            <h2 className="max-w-2xl font-display text-4xl font-bold tracking-tight md:text-5xl">
+              Businesses that grow with Smartytel
+            </h2>
+            <p className="text-muted-foreground">See how teams stay connected with customers.</p>
+          </div>
+          <div className="mt-12">
+            <StoriesSlider items={stories} />
+          </div>
+        </section>
 
         {/* Stats */}
         <section className="mx-auto grid max-w-6xl gap-10 px-5 py-20 md:grid-cols-3">
