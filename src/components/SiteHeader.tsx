@@ -203,7 +203,7 @@ export function SiteHeader() {
           >
             Pricing
           </a>
-          <MenuTrigger menu={menus[2]} open={open} setOpen={setOpen} />
+          <MenuTrigger menu={menus[2]!} open={open} setOpen={setOpen} />
         </nav>
 
         <div className="ml-auto flex items-center gap-2">
