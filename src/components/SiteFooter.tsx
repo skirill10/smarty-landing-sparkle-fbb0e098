@@ -11,10 +11,12 @@ const columns: Column[] = [
       { label: "Text messaging" },
       { label: "Phone menu & routing" },
       { label: "Shared numbers" },
+      { label: "CRM", to: "/crm" },
       { label: "Analytics & oversight" },
       { label: "Sona AI agent" },
       { label: "Integrations" },
       { label: "Smartytel API" },
+
     ],
   },
   {
