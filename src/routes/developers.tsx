@@ -2,9 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { MarketingPage } from "@/components/MarketingPage";
 import { pages } from "@/content/pages";
 
-const content = pages["api"]!;
+const content = pages["developers"]!;
 
-export const Route = createFileRoute("/api")({
+export const Route = createFileRoute("/developers")({
   head: () => ({
     meta: [
       { title: "The Smartytel API | Smartytel" },

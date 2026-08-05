@@ -201,7 +201,7 @@ export const pages: Record<string, MarketingContent> = {
     "metaTitle": "Plays nicely with the tools you already run on | Smartytel",
     "metaDescription": "Sync contacts, log calls and texts, and trigger follow-ups across your CRM, help desk, inbox and automation stack."
   },
-  "api": {
+  "developers": {
     "eyebrow": "Developers",
     "headline": "The Smartytel API",
     "sub": "Provision numbers, place calls, send messages and stream events from your own product.",

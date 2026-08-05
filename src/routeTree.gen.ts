@@ -10,12 +10,87 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AiAgentRouteImport } from './routes/ai-agent'
+import { Route as AnalyticsRouteImport } from './routes/analytics'
+import { Route as ApiRouteImport } from './routes/api'
+import { Route as BlogRouteImport } from './routes/blog'
+import { Route as CallingRouteImport } from './routes/calling'
+import { Route as CareersRouteImport } from './routes/careers'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CrmRouteImport } from './routes/crm'
+import { Route as CustomersRouteImport } from './routes/customers'
+import { Route as DemoRouteImport } from './routes/demo'
+import { Route as DocsRouteImport } from './routes/docs'
+import { Route as GdprRouteImport } from './routes/gdpr'
+import { Route as IntegrationsRouteImport } from './routes/integrations'
+import { Route as MessagingRouteImport } from './routes/messaging'
+import { Route as PartnersRouteImport } from './routes/partners'
+import { Route as PhoneMenuRouteImport } from './routes/phone-menu'
+import { Route as PortYourNumberRouteImport } from './routes/port-your-number'
 import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as ResourcesRouteImport } from './routes/resources'
+import { Route as SecurityRouteImport } from './routes/security'
+import { Route as SharedNumbersRouteImport } from './routes/shared-numbers'
+import { Route as StatusRouteImport } from './routes/status'
+import { Route as TasksRouteImport } from './routes/tasks'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as SolutionsEducationRouteImport } from './routes/solutions.education'
+import { Route as SolutionsFranchiseRouteImport } from './routes/solutions.franchise'
+import { Route as SolutionsHealthcareRouteImport } from './routes/solutions.healthcare'
+import { Route as SolutionsHomeServicesRouteImport } from './routes/solutions.home-services'
+import { Route as SolutionsLawFirmsRouteImport } from './routes/solutions.law-firms'
+import { Route as SolutionsOperationsRouteImport } from './routes/solutions.operations'
+import { Route as SolutionsPropertyManagementRouteImport } from './routes/solutions.property-management'
+import { Route as SolutionsSalesRouteImport } from './routes/solutions.sales'
+import { Route as SolutionsSmallBusinessRouteImport } from './routes/solutions.small-business'
+import { Route as SolutionsStartupsRouteImport } from './routes/solutions.startups'
+import { Route as SolutionsSupportRouteImport } from './routes/solutions.support'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiAgentRoute = AiAgentRouteImport.update({
+  id: '/ai-agent',
+  path: '/ai-agent',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AnalyticsRoute = AnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiRoute = ApiRouteImport.update({
+  id: '/api',
+  path: '/api',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CallingRoute = CallingRouteImport.update({
+  id: '/calling',
+  path: '/calling',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CareersRoute = CareersRouteImport.update({
+  id: '/careers',
+  path: '/careers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CrmRoute = CrmRouteImport.update({
@@ -23,40 +98,431 @@ const CrmRoute = CrmRouteImport.update({
   path: '/crm',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CustomersRoute = CustomersRouteImport.update({
+  id: '/customers',
+  path: '/customers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DemoRoute = DemoRouteImport.update({
+  id: '/demo',
+  path: '/demo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DocsRoute = DocsRouteImport.update({
+  id: '/docs',
+  path: '/docs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GdprRoute = GdprRouteImport.update({
+  id: '/gdpr',
+  path: '/gdpr',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IntegrationsRoute = IntegrationsRouteImport.update({
+  id: '/integrations',
+  path: '/integrations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MessagingRoute = MessagingRouteImport.update({
+  id: '/messaging',
+  path: '/messaging',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PartnersRoute = PartnersRouteImport.update({
+  id: '/partners',
+  path: '/partners',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PhoneMenuRoute = PhoneMenuRouteImport.update({
+  id: '/phone-menu',
+  path: '/phone-menu',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortYourNumberRoute = PortYourNumberRouteImport.update({
+  id: '/port-your-number',
+  path: '/port-your-number',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PricingRoute = PricingRouteImport.update({
   id: '/pricing',
   path: '/pricing',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResourcesRoute = ResourcesRouteImport.update({
+  id: '/resources',
+  path: '/resources',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SecurityRoute = SecurityRouteImport.update({
+  id: '/security',
+  path: '/security',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SharedNumbersRoute = SharedNumbersRouteImport.update({
+  id: '/shared-numbers',
+  path: '/shared-numbers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StatusRoute = StatusRouteImport.update({
+  id: '/status',
+  path: '/status',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TasksRoute = TasksRouteImport.update({
+  id: '/tasks',
+  path: '/tasks',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsEducationRoute = SolutionsEducationRouteImport.update({
+  id: '/solutions/education',
+  path: '/solutions/education',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsFranchiseRoute = SolutionsFranchiseRouteImport.update({
+  id: '/solutions/franchise',
+  path: '/solutions/franchise',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsHealthcareRoute = SolutionsHealthcareRouteImport.update({
+  id: '/solutions/healthcare',
+  path: '/solutions/healthcare',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsHomeServicesRoute = SolutionsHomeServicesRouteImport.update({
+  id: '/solutions/home-services',
+  path: '/solutions/home-services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsLawFirmsRoute = SolutionsLawFirmsRouteImport.update({
+  id: '/solutions/law-firms',
+  path: '/solutions/law-firms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsOperationsRoute = SolutionsOperationsRouteImport.update({
+  id: '/solutions/operations',
+  path: '/solutions/operations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsPropertyManagementRoute =
+  SolutionsPropertyManagementRouteImport.update({
+    id: '/solutions/property-management',
+    path: '/solutions/property-management',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SolutionsSalesRoute = SolutionsSalesRouteImport.update({
+  id: '/solutions/sales',
+  path: '/solutions/sales',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsSmallBusinessRoute = SolutionsSmallBusinessRouteImport.update({
+  id: '/solutions/small-business',
+  path: '/solutions/small-business',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsStartupsRoute = SolutionsStartupsRouteImport.update({
+  id: '/solutions/startups',
+  path: '/solutions/startups',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsSupportRoute = SolutionsSupportRouteImport.update({
+  id: '/solutions/support',
+  path: '/solutions/support',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/ai-agent': typeof AiAgentRoute
+  '/analytics': typeof AnalyticsRoute
+  '/api': typeof ApiRoute
+  '/blog': typeof BlogRoute
+  '/calling': typeof CallingRoute
+  '/careers': typeof CareersRoute
+  '/contact': typeof ContactRoute
   '/crm': typeof CrmRoute
+  '/customers': typeof CustomersRoute
+  '/demo': typeof DemoRoute
+  '/docs': typeof DocsRoute
+  '/gdpr': typeof GdprRoute
+  '/integrations': typeof IntegrationsRoute
+  '/messaging': typeof MessagingRoute
+  '/partners': typeof PartnersRoute
+  '/phone-menu': typeof PhoneMenuRoute
+  '/port-your-number': typeof PortYourNumberRoute
   '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
+  '/resources': typeof ResourcesRoute
+  '/security': typeof SecurityRoute
+  '/shared-numbers': typeof SharedNumbersRoute
+  '/status': typeof StatusRoute
+  '/tasks': typeof TasksRoute
+  '/terms': typeof TermsRoute
+  '/solutions/education': typeof SolutionsEducationRoute
+  '/solutions/franchise': typeof SolutionsFranchiseRoute
+  '/solutions/healthcare': typeof SolutionsHealthcareRoute
+  '/solutions/home-services': typeof SolutionsHomeServicesRoute
+  '/solutions/law-firms': typeof SolutionsLawFirmsRoute
+  '/solutions/operations': typeof SolutionsOperationsRoute
+  '/solutions/property-management': typeof SolutionsPropertyManagementRoute
+  '/solutions/sales': typeof SolutionsSalesRoute
+  '/solutions/small-business': typeof SolutionsSmallBusinessRoute
+  '/solutions/startups': typeof SolutionsStartupsRoute
+  '/solutions/support': typeof SolutionsSupportRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/ai-agent': typeof AiAgentRoute
+  '/analytics': typeof AnalyticsRoute
+  '/api': typeof ApiRoute
+  '/blog': typeof BlogRoute
+  '/calling': typeof CallingRoute
+  '/careers': typeof CareersRoute
+  '/contact': typeof ContactRoute
   '/crm': typeof CrmRoute
+  '/customers': typeof CustomersRoute
+  '/demo': typeof DemoRoute
+  '/docs': typeof DocsRoute
+  '/gdpr': typeof GdprRoute
+  '/integrations': typeof IntegrationsRoute
+  '/messaging': typeof MessagingRoute
+  '/partners': typeof PartnersRoute
+  '/phone-menu': typeof PhoneMenuRoute
+  '/port-your-number': typeof PortYourNumberRoute
   '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
+  '/resources': typeof ResourcesRoute
+  '/security': typeof SecurityRoute
+  '/shared-numbers': typeof SharedNumbersRoute
+  '/status': typeof StatusRoute
+  '/tasks': typeof TasksRoute
+  '/terms': typeof TermsRoute
+  '/solutions/education': typeof SolutionsEducationRoute
+  '/solutions/franchise': typeof SolutionsFranchiseRoute
+  '/solutions/healthcare': typeof SolutionsHealthcareRoute
+  '/solutions/home-services': typeof SolutionsHomeServicesRoute
+  '/solutions/law-firms': typeof SolutionsLawFirmsRoute
+  '/solutions/operations': typeof SolutionsOperationsRoute
+  '/solutions/property-management': typeof SolutionsPropertyManagementRoute
+  '/solutions/sales': typeof SolutionsSalesRoute
+  '/solutions/small-business': typeof SolutionsSmallBusinessRoute
+  '/solutions/startups': typeof SolutionsStartupsRoute
+  '/solutions/support': typeof SolutionsSupportRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/ai-agent': typeof AiAgentRoute
+  '/analytics': typeof AnalyticsRoute
+  '/api': typeof ApiRoute
+  '/blog': typeof BlogRoute
+  '/calling': typeof CallingRoute
+  '/careers': typeof CareersRoute
+  '/contact': typeof ContactRoute
   '/crm': typeof CrmRoute
+  '/customers': typeof CustomersRoute
+  '/demo': typeof DemoRoute
+  '/docs': typeof DocsRoute
+  '/gdpr': typeof GdprRoute
+  '/integrations': typeof IntegrationsRoute
+  '/messaging': typeof MessagingRoute
+  '/partners': typeof PartnersRoute
+  '/phone-menu': typeof PhoneMenuRoute
+  '/port-your-number': typeof PortYourNumberRoute
   '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
+  '/resources': typeof ResourcesRoute
+  '/security': typeof SecurityRoute
+  '/shared-numbers': typeof SharedNumbersRoute
+  '/status': typeof StatusRoute
+  '/tasks': typeof TasksRoute
+  '/terms': typeof TermsRoute
+  '/solutions/education': typeof SolutionsEducationRoute
+  '/solutions/franchise': typeof SolutionsFranchiseRoute
+  '/solutions/healthcare': typeof SolutionsHealthcareRoute
+  '/solutions/home-services': typeof SolutionsHomeServicesRoute
+  '/solutions/law-firms': typeof SolutionsLawFirmsRoute
+  '/solutions/operations': typeof SolutionsOperationsRoute
+  '/solutions/property-management': typeof SolutionsPropertyManagementRoute
+  '/solutions/sales': typeof SolutionsSalesRoute
+  '/solutions/small-business': typeof SolutionsSmallBusinessRoute
+  '/solutions/startups': typeof SolutionsStartupsRoute
+  '/solutions/support': typeof SolutionsSupportRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/crm' | '/pricing'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/ai-agent'
+    | '/analytics'
+    | '/api'
+    | '/blog'
+    | '/calling'
+    | '/careers'
+    | '/contact'
+    | '/crm'
+    | '/customers'
+    | '/demo'
+    | '/docs'
+    | '/gdpr'
+    | '/integrations'
+    | '/messaging'
+    | '/partners'
+    | '/phone-menu'
+    | '/port-your-number'
+    | '/pricing'
+    | '/privacy'
+    | '/resources'
+    | '/security'
+    | '/shared-numbers'
+    | '/status'
+    | '/tasks'
+    | '/terms'
+    | '/solutions/education'
+    | '/solutions/franchise'
+    | '/solutions/healthcare'
+    | '/solutions/home-services'
+    | '/solutions/law-firms'
+    | '/solutions/operations'
+    | '/solutions/property-management'
+    | '/solutions/sales'
+    | '/solutions/small-business'
+    | '/solutions/startups'
+    | '/solutions/support'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/crm' | '/pricing'
-  id: '__root__' | '/' | '/crm' | '/pricing'
+  to:
+    | '/'
+    | '/about'
+    | '/ai-agent'
+    | '/analytics'
+    | '/api'
+    | '/blog'
+    | '/calling'
+    | '/careers'
+    | '/contact'
+    | '/crm'
+    | '/customers'
+    | '/demo'
+    | '/docs'
+    | '/gdpr'
+    | '/integrations'
+    | '/messaging'
+    | '/partners'
+    | '/phone-menu'
+    | '/port-your-number'
+    | '/pricing'
+    | '/privacy'
+    | '/resources'
+    | '/security'
+    | '/shared-numbers'
+    | '/status'
+    | '/tasks'
+    | '/terms'
+    | '/solutions/education'
+    | '/solutions/franchise'
+    | '/solutions/healthcare'
+    | '/solutions/home-services'
+    | '/solutions/law-firms'
+    | '/solutions/operations'
+    | '/solutions/property-management'
+    | '/solutions/sales'
+    | '/solutions/small-business'
+    | '/solutions/startups'
+    | '/solutions/support'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/ai-agent'
+    | '/analytics'
+    | '/api'
+    | '/blog'
+    | '/calling'
+    | '/careers'
+    | '/contact'
+    | '/crm'
+    | '/customers'
+    | '/demo'
+    | '/docs'
+    | '/gdpr'
+    | '/integrations'
+    | '/messaging'
+    | '/partners'
+    | '/phone-menu'
+    | '/port-your-number'
+    | '/pricing'
+    | '/privacy'
+    | '/resources'
+    | '/security'
+    | '/shared-numbers'
+    | '/status'
+    | '/tasks'
+    | '/terms'
+    | '/solutions/education'
+    | '/solutions/franchise'
+    | '/solutions/healthcare'
+    | '/solutions/home-services'
+    | '/solutions/law-firms'
+    | '/solutions/operations'
+    | '/solutions/property-management'
+    | '/solutions/sales'
+    | '/solutions/small-business'
+    | '/solutions/startups'
+    | '/solutions/support'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AiAgentRoute: typeof AiAgentRoute
+  AnalyticsRoute: typeof AnalyticsRoute
+  ApiRoute: typeof ApiRoute
+  BlogRoute: typeof BlogRoute
+  CallingRoute: typeof CallingRoute
+  CareersRoute: typeof CareersRoute
+  ContactRoute: typeof ContactRoute
   CrmRoute: typeof CrmRoute
+  CustomersRoute: typeof CustomersRoute
+  DemoRoute: typeof DemoRoute
+  DocsRoute: typeof DocsRoute
+  GdprRoute: typeof GdprRoute
+  IntegrationsRoute: typeof IntegrationsRoute
+  MessagingRoute: typeof MessagingRoute
+  PartnersRoute: typeof PartnersRoute
+  PhoneMenuRoute: typeof PhoneMenuRoute
+  PortYourNumberRoute: typeof PortYourNumberRoute
   PricingRoute: typeof PricingRoute
+  PrivacyRoute: typeof PrivacyRoute
+  ResourcesRoute: typeof ResourcesRoute
+  SecurityRoute: typeof SecurityRoute
+  SharedNumbersRoute: typeof SharedNumbersRoute
+  StatusRoute: typeof StatusRoute
+  TasksRoute: typeof TasksRoute
+  TermsRoute: typeof TermsRoute
+  SolutionsEducationRoute: typeof SolutionsEducationRoute
+  SolutionsFranchiseRoute: typeof SolutionsFranchiseRoute
+  SolutionsHealthcareRoute: typeof SolutionsHealthcareRoute
+  SolutionsHomeServicesRoute: typeof SolutionsHomeServicesRoute
+  SolutionsLawFirmsRoute: typeof SolutionsLawFirmsRoute
+  SolutionsOperationsRoute: typeof SolutionsOperationsRoute
+  SolutionsPropertyManagementRoute: typeof SolutionsPropertyManagementRoute
+  SolutionsSalesRoute: typeof SolutionsSalesRoute
+  SolutionsSmallBusinessRoute: typeof SolutionsSmallBusinessRoute
+  SolutionsStartupsRoute: typeof SolutionsStartupsRoute
+  SolutionsSupportRoute: typeof SolutionsSupportRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -68,11 +534,130 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-agent': {
+      id: '/ai-agent'
+      path: '/ai-agent'
+      fullPath: '/ai-agent'
+      preLoaderRoute: typeof AiAgentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/analytics': {
+      id: '/analytics'
+      path: '/analytics'
+      fullPath: '/analytics'
+      preLoaderRoute: typeof AnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api': {
+      id: '/api'
+      path: '/api'
+      fullPath: '/api'
+      preLoaderRoute: typeof ApiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/calling': {
+      id: '/calling'
+      path: '/calling'
+      fullPath: '/calling'
+      preLoaderRoute: typeof CallingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/careers': {
+      id: '/careers'
+      path: '/careers'
+      fullPath: '/careers'
+      preLoaderRoute: typeof CareersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/crm': {
       id: '/crm'
       path: '/crm'
       fullPath: '/crm'
       preLoaderRoute: typeof CrmRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/customers': {
+      id: '/customers'
+      path: '/customers'
+      fullPath: '/customers'
+      preLoaderRoute: typeof CustomersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/demo': {
+      id: '/demo'
+      path: '/demo'
+      fullPath: '/demo'
+      preLoaderRoute: typeof DemoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/docs': {
+      id: '/docs'
+      path: '/docs'
+      fullPath: '/docs'
+      preLoaderRoute: typeof DocsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gdpr': {
+      id: '/gdpr'
+      path: '/gdpr'
+      fullPath: '/gdpr'
+      preLoaderRoute: typeof GdprRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/integrations': {
+      id: '/integrations'
+      path: '/integrations'
+      fullPath: '/integrations'
+      preLoaderRoute: typeof IntegrationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/messaging': {
+      id: '/messaging'
+      path: '/messaging'
+      fullPath: '/messaging'
+      preLoaderRoute: typeof MessagingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/partners': {
+      id: '/partners'
+      path: '/partners'
+      fullPath: '/partners'
+      preLoaderRoute: typeof PartnersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/phone-menu': {
+      id: '/phone-menu'
+      path: '/phone-menu'
+      fullPath: '/phone-menu'
+      preLoaderRoute: typeof PhoneMenuRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/port-your-number': {
+      id: '/port-your-number'
+      path: '/port-your-number'
+      fullPath: '/port-your-number'
+      preLoaderRoute: typeof PortYourNumberRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pricing': {
@@ -82,24 +667,175 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PricingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/resources': {
+      id: '/resources'
+      path: '/resources'
+      fullPath: '/resources'
+      preLoaderRoute: typeof ResourcesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/security': {
+      id: '/security'
+      path: '/security'
+      fullPath: '/security'
+      preLoaderRoute: typeof SecurityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shared-numbers': {
+      id: '/shared-numbers'
+      path: '/shared-numbers'
+      fullPath: '/shared-numbers'
+      preLoaderRoute: typeof SharedNumbersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/status': {
+      id: '/status'
+      path: '/status'
+      fullPath: '/status'
+      preLoaderRoute: typeof StatusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tasks': {
+      id: '/tasks'
+      path: '/tasks'
+      fullPath: '/tasks'
+      preLoaderRoute: typeof TasksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/education': {
+      id: '/solutions/education'
+      path: '/solutions/education'
+      fullPath: '/solutions/education'
+      preLoaderRoute: typeof SolutionsEducationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/franchise': {
+      id: '/solutions/franchise'
+      path: '/solutions/franchise'
+      fullPath: '/solutions/franchise'
+      preLoaderRoute: typeof SolutionsFranchiseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/healthcare': {
+      id: '/solutions/healthcare'
+      path: '/solutions/healthcare'
+      fullPath: '/solutions/healthcare'
+      preLoaderRoute: typeof SolutionsHealthcareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/home-services': {
+      id: '/solutions/home-services'
+      path: '/solutions/home-services'
+      fullPath: '/solutions/home-services'
+      preLoaderRoute: typeof SolutionsHomeServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/law-firms': {
+      id: '/solutions/law-firms'
+      path: '/solutions/law-firms'
+      fullPath: '/solutions/law-firms'
+      preLoaderRoute: typeof SolutionsLawFirmsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/operations': {
+      id: '/solutions/operations'
+      path: '/solutions/operations'
+      fullPath: '/solutions/operations'
+      preLoaderRoute: typeof SolutionsOperationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/property-management': {
+      id: '/solutions/property-management'
+      path: '/solutions/property-management'
+      fullPath: '/solutions/property-management'
+      preLoaderRoute: typeof SolutionsPropertyManagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/sales': {
+      id: '/solutions/sales'
+      path: '/solutions/sales'
+      fullPath: '/solutions/sales'
+      preLoaderRoute: typeof SolutionsSalesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/small-business': {
+      id: '/solutions/small-business'
+      path: '/solutions/small-business'
+      fullPath: '/solutions/small-business'
+      preLoaderRoute: typeof SolutionsSmallBusinessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/startups': {
+      id: '/solutions/startups'
+      path: '/solutions/startups'
+      fullPath: '/solutions/startups'
+      preLoaderRoute: typeof SolutionsStartupsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/support': {
+      id: '/solutions/support'
+      path: '/solutions/support'
+      fullPath: '/solutions/support'
+      preLoaderRoute: typeof SolutionsSupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AiAgentRoute: AiAgentRoute,
+  AnalyticsRoute: AnalyticsRoute,
+  ApiRoute: ApiRoute,
+  BlogRoute: BlogRoute,
+  CallingRoute: CallingRoute,
+  CareersRoute: CareersRoute,
+  ContactRoute: ContactRoute,
   CrmRoute: CrmRoute,
+  CustomersRoute: CustomersRoute,
+  DemoRoute: DemoRoute,
+  DocsRoute: DocsRoute,
+  GdprRoute: GdprRoute,
+  IntegrationsRoute: IntegrationsRoute,
+  MessagingRoute: MessagingRoute,
+  PartnersRoute: PartnersRoute,
+  PhoneMenuRoute: PhoneMenuRoute,
+  PortYourNumberRoute: PortYourNumberRoute,
   PricingRoute: PricingRoute,
+  PrivacyRoute: PrivacyRoute,
+  ResourcesRoute: ResourcesRoute,
+  SecurityRoute: SecurityRoute,
+  SharedNumbersRoute: SharedNumbersRoute,
+  StatusRoute: StatusRoute,
+  TasksRoute: TasksRoute,
+  TermsRoute: TermsRoute,
+  SolutionsEducationRoute: SolutionsEducationRoute,
+  SolutionsFranchiseRoute: SolutionsFranchiseRoute,
+  SolutionsHealthcareRoute: SolutionsHealthcareRoute,
+  SolutionsHomeServicesRoute: SolutionsHomeServicesRoute,
+  SolutionsLawFirmsRoute: SolutionsLawFirmsRoute,
+  SolutionsOperationsRoute: SolutionsOperationsRoute,
+  SolutionsPropertyManagementRoute: SolutionsPropertyManagementRoute,
+  SolutionsSalesRoute: SolutionsSalesRoute,
+  SolutionsSmallBusinessRoute: SolutionsSmallBusinessRoute,
+  SolutionsStartupsRoute: SolutionsStartupsRoute,
+  SolutionsSupportRoute: SolutionsSupportRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
