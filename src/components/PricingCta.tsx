@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 
 type ActionCardProps = {
   to: string;
-  hash?: string;
+  hash?: string | undefined;
   label: string;
   tone: "dark" | "light";
 };
