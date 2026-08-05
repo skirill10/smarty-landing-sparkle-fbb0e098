@@ -14,7 +14,21 @@ export type Region =
   | "africa"
   | "oceania";
 
-export type CurrencyCode = "EUR" | "USD" | "GBP";
+export type CurrencyCode =
+  | "EUR"
+  | "USD"
+  | "GBP"
+  | "CHF"
+  | "CAD"
+  | "AUD"
+  | "PLN"
+  | "SEK"
+  | "NOK"
+  | "DKK"
+  | "CZK"
+  | "RON"
+  | "AED"
+  | "INR";
 
 export type DestinationType = "landline" | "mobile" | "sms";
 

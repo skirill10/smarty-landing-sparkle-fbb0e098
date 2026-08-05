@@ -1,4 +1,4 @@
-import { CURRENCIES, CURRENCY_SYMBOLS } from "../utils/format";
+import { CURRENCY_LIST } from "../utils/format";
 import type { CurrencyCode } from "../types";
 
 const selectClass =
@@ -8,10 +8,13 @@ export function CurrencySelector({
   value,
   onChange,
   id = "rates-currency",
+  hint,
 }: {
   value: CurrencyCode;
   onChange: (value: CurrencyCode) => void;
   id?: string;
+  /** Optional note, e.g. that the currency was picked from the visitor's region. */
+  hint?: string | undefined;
 }) {
   return (
     <div>
@@ -22,14 +25,20 @@ export function CurrencySelector({
         id={id}
         value={value}
         onChange={(event) => onChange(event.target.value as CurrencyCode)}
+        aria-describedby={hint ? `${id}-hint` : undefined}
         className={selectClass}
       >
-        {CURRENCIES.map((currency) => (
-          <option key={currency} value={currency}>
-            {currency} ({CURRENCY_SYMBOLS[currency]})
+        {CURRENCY_LIST.map((currency) => (
+          <option key={currency.code} value={currency.code}>
+            {currency.code} — {currency.label}
           </option>
         ))}
       </select>
+      {hint ? (
+        <p id={`${id}-hint`} className="mt-2 text-xs text-muted-foreground">
+          {hint}
+        </p>
+      ) : null}
     </div>
   );
 }
