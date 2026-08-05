@@ -1,8 +1,10 @@
 import { Link } from "@tanstack/react-router";
+import { useQuery } from "@tanstack/react-query";
 import { ArrowRight, Check } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { CtaBand } from "@/components/CtaBand";
+import { cmsEnabled, fetchMarketingPage } from "@/lib/cms";
 
 export type MarketingContent = {
   eyebrow: string;
@@ -14,20 +16,32 @@ export type MarketingContent = {
   metaDescription: string;
 };
 
-export function MarketingPage({ content }: { content: MarketingContent }) {
+export function MarketingPage({ content, slug }: { content: MarketingContent; slug?: string }) {
+  // Copy is baked in at build time; when a CMS is configured we refresh it at
+  // runtime so edits appear without waiting for the next deploy.
+  const { data } = useQuery({
+    queryKey: ["marketing-page", slug],
+    queryFn: () => fetchMarketingPage(slug!),
+    enabled: cmsEnabled && Boolean(slug),
+    staleTime: 60_000,
+  });
+
+  const page = data ?? content;
+
   return (
+
     <div className="min-h-screen bg-background">
       <SiteHeader />
 
       <main>
         <section className="mx-auto max-w-6xl px-5 pb-16 pt-16 md:pt-24">
           <p className="text-sm font-semibold uppercase tracking-widest text-brand">
-            {content.eyebrow}
+            {page.eyebrow}
           </p>
           <h1 className="mt-4 max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">
-            {content.headline}
+            {page.headline}
           </h1>
-          <p className="mt-6 max-w-2xl text-lg text-muted-foreground">{content.sub}</p>
+          <p className="mt-6 max-w-2xl text-lg text-muted-foreground">{page.sub}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               to="/pricing"
@@ -50,7 +64,7 @@ export function MarketingPage({ content }: { content: MarketingContent }) {
               What you get
             </h2>
             <div className="mt-10 grid gap-5 md:grid-cols-2">
-              {content.bullets.map((b) => (
+              {page.bullets.map((b) => (
                 <div key={b.title} className="rounded-2xl border border-border bg-card p-7">
                   <div className="flex size-9 items-center justify-center rounded-lg bg-brand/12">
                     <Check className="size-5 text-brand" strokeWidth={2.5} />
@@ -82,7 +96,7 @@ export function MarketingPage({ content }: { content: MarketingContent }) {
               </Link>
             </div>
             <ul className="grid gap-3 self-start">
-              {(content.proof ?? [
+              {(page.proof ?? [
                 "14-day free trial with a demo number",
                 "Only pay for the modules you switch on",
                 "AI notes, transcription and summaries",

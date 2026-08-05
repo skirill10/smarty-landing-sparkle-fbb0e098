@@ -15,5 +15,5 @@ export const Route = createFileRoute("/solutions/property-management")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: () => <MarketingPage content={content} />,
+  component: () => <MarketingPage content={content} slug="solutions/property-management" />,
 });
