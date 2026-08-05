@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
   Phone,
+  PhoneForwarded,
+  Filter,
   MessageSquare,
   Bot,
   BarChart3,
@@ -12,6 +14,12 @@ import {
   Star,
 } from "lucide-react";
 import dashboard from "@/assets/app-dashboard.jpg";
+import featThreads from "@/assets/feat-threads.jpg";
+import featGroupCall from "@/assets/feat-group-call.jpg";
+import featTransfer from "@/assets/feat-transfer.jpg";
+import featTeamAnalytics from "@/assets/feat-team-analytics.jpg";
+import featFilters from "@/assets/feat-filters.jpg";
+import featCallLogs from "@/assets/feat-call-logs.jpg";
 import mark from "@/assets/smartytel-mark.png.asset.json";
 import showcaseNumbers from "@/assets/showcase-numbers.jpg";
 import showcaseShared from "@/assets/showcase-shared.jpg";
@@ -85,38 +93,61 @@ export const Route = createFileRoute("/")({
 
 const navLinks = ["Product", "Solutions", "Pricing", "Resources"];
 
-const features = [
+const featureGroups = [
   {
-    icon: Phone,
-    title: "Set up a business number in minutes",
-    body: "Local or toll-free numbers, ported or brand new, live on every device your team already uses.",
+    heading: "Easy collaboration",
+    cards: [
+      {
+        icon: MessageSquare,
+        title: "Internal threads",
+        body: "Use threads to solve problems behind the scenes as a team",
+        image: featThreads,
+        alt: "Internal team thread with replies on a customer message",
+      },
+      {
+        icon: Users,
+        title: "Group calling",
+        body: "Bring anyone else you need on your team into the conversation",
+        image: featGroupCall,
+        alt: "Call in progress card showing seven people on the call",
+      },
+      {
+        icon: PhoneForwarded,
+        title: "Warm transfer",
+        body: "Ensure a smooth hand-off by sharing context while transferring calls",
+        image: featTransfer,
+        alt: "Shared inboxes list with a call transfer request",
+      },
+    ],
   },
   {
-    icon: Users,
-    title: "Share one number, stay aligned",
-    body: "Your whole team works from a single inbox with internal threads, mentions and handoffs.",
-  },
-  {
-    icon: Bot,
-    title: "Let the AI agent answer after hours",
-    body: "Smarty answers, qualifies and books — then hands you a clean summary in the morning.",
-  },
-  {
-    icon: MessageSquare,
-    title: "Text customers like a human",
-    body: "Snippets, auto-replies and scheduled messages that keep conversations moving.",
-  },
-  {
-    icon: BarChart3,
-    title: "Spot problems before they cost you",
-    body: "Response times, missed calls and team activity, tracked per number and per teammate.",
-  },
-  {
-    icon: Plug,
-    title: "Sync with the tools you run on",
-    body: "HubSpot, Salesforce, Slack, Zapier and a full API for everything else.",
+    heading: "Better team oversight",
+    cards: [
+      {
+        icon: BarChart3,
+        title: "Team analytics",
+        body: "Managers can see an in-depth overview of team activity",
+        image: featTeamAnalytics,
+        alt: "Call volume chart with missed, incoming and outgoing calls",
+      },
+      {
+        icon: Filter,
+        title: "Filter conversations",
+        body: "Sort conversations to focus on what needs attention",
+        image: featFilters,
+        alt: "Conversation list filtered by unread and unresponded",
+      },
+      {
+        icon: Phone,
+        title: "View call logs by priority",
+        body: "See the call activity that matters most to you",
+        image: featCallLogs,
+        alt: "Call log list with a status dropdown open",
+      },
+    ],
   },
 ];
+
 
 const plans = [
   {
@@ -258,19 +289,42 @@ function Landing() {
             <h2 className="max-w-2xl font-display text-4xl font-bold tracking-tight md:text-5xl">
               Always say hello with Smartytel
             </h2>
-            <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-3">
-              {features.map(({ icon: Icon, title, body }) => (
-                <article key={title} className="bg-card p-8">
-                  <span className="inline-flex size-11 items-center justify-center rounded-xl bg-brand text-brand-foreground">
-                    <Icon className="size-5" aria-hidden="true" />
-                  </span>
-                  <h3 className="mt-6 font-display text-xl font-semibold tracking-tight">{title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{body}</p>
-                </article>
-              ))}
-            </div>
+            {featureGroups.map(({ heading, cards }) => (
+              <div key={heading} className="mt-14">
+                <h3 className="font-display text-2xl font-bold tracking-tight md:text-3xl">
+                  {heading}
+                </h3>
+                <div className="mt-6 grid gap-6 md:grid-cols-3">
+                  {cards.map(({ icon: Icon, title, body, image, alt }) => (
+                    <article
+                      key={title}
+                      className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card"
+                    >
+                      <div className="p-7">
+                        <Icon className="size-6 text-brand" aria-hidden="true" />
+                        <h4 className="mt-5 font-display text-lg font-semibold tracking-tight">
+                          {title}
+                        </h4>
+                        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
+                      </div>
+                      <div className="mt-auto max-h-52 overflow-hidden border-t border-border px-6 pt-6">
+                        <img
+                          src={image}
+                          alt={alt}
+                          loading="lazy"
+                          width={720}
+                          height={560}
+                          className="w-full rounded-t-xl"
+                        />
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </section>
+
 
         {/* Showcase bento */}
         <section className="mx-auto max-w-6xl px-5 py-20 md:py-28">
