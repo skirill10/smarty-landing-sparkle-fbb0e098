@@ -31,14 +31,18 @@ export const Route = createFileRoute("/api/public/rates-sheet")({
           const isCsv = upstream.ok && !body.trimStart().startsWith("<");
 
           if (!isCsv) {
+            // Respond 200 with a diagnostic payload: a non-2xx here would be
+            // reported as an app runtime error even though the client falls
+            // back to the bundled rate card.
             return Response.json(
               {
-                error: "sheet_unavailable",
+                unavailable: true,
+                reason: "sheet_unavailable",
                 status: upstream.status,
                 message:
-                  "The Google Sheet is not publicly readable. Share it with \"Anyone with the link can view\".",
+                  'The Google Sheet is not publicly readable. Share it with "Anyone with the link can view".',
               },
-              { status: 502 },
+              { headers: { "Cache-Control": "public, max-age=60" } },
             );
           }
 
@@ -50,10 +54,11 @@ export const Route = createFileRoute("/api/public/rates-sheet")({
           });
         } catch (error) {
           return Response.json(
-            { error: "fetch_failed", message: String(error) },
-            { status: 502 },
+            { unavailable: true, reason: "fetch_failed", message: String(error) },
+            { headers: { "Cache-Control": "no-store" } },
           );
         }
+
       },
     },
   },
