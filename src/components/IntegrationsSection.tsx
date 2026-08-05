@@ -1,23 +1,42 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Plus } from "lucide-react";
+import * as si from "simple-icons";
 
-const integrations: { name: string; category: string }[] = [
-  { name: "Salesforce", category: "CRM" },
-  { name: "HubSpot", category: "CRM" },
-  { name: "Pipedrive", category: "CRM" },
-  { name: "Slack", category: "Messaging" },
-  { name: "Microsoft Teams", category: "Messaging" },
-  { name: "Gmail", category: "Email" },
-  { name: "Outlook", category: "Email" },
-  { name: "Google Contacts", category: "Contacts" },
-  { name: "Zapier", category: "Automation" },
-  { name: "Make", category: "Automation" },
-  { name: "Zoho", category: "CRM" },
-  { name: "Zendesk", category: "Support" },
-  { name: "Intercom", category: "Support" },
-  { name: "Google Calendar", category: "Scheduling" },
-  { name: "Shopify", category: "Commerce" },
-  { name: "Webhooks & API", category: "Developers" },
+type Brand = { name: string; icon: { path: string; hex: string } };
+
+const brands: Brand[] = [
+  { name: "HubSpot", icon: si.siHubspot },
+  { name: "Zapier", icon: si.siZapier },
+  { name: "Make", icon: si.siMake },
+  { name: "n8n", icon: si.siN8n },
+  { name: "Notion", icon: si.siNotion },
+  { name: "Jira", icon: si.siJira },
+  { name: "Gmail", icon: si.siGmail },
+  { name: "Google Calendar", icon: si.siGooglecalendar },
+  { name: "Google Sheets", icon: si.siGooglesheets },
+  { name: "Google Drive", icon: si.siGoogledrive },
+  { name: "Dropbox", icon: si.siDropbox },
+  { name: "Intercom", icon: si.siIntercom },
+  { name: "Zendesk", icon: si.siZendesk },
+  { name: "Zoho", icon: si.siZoho },
+  { name: "Asana", icon: si.siAsana },
+  { name: "Trello", icon: si.siTrello },
+  { name: "ClickUp", icon: si.siClickup },
+  { name: "Airtable", icon: si.siAirtable },
+  { name: "Calendly", icon: si.siCalendly },
+  { name: "WhatsApp", icon: si.siWhatsapp },
+  { name: "Telegram", icon: si.siTelegram },
+  { name: "Zoom", icon: si.siZoom },
+  { name: "Shopify", icon: si.siShopify },
+  { name: "WooCommerce", icon: si.siWoocommerce },
+  { name: "WordPress", icon: si.siWordpress },
+  { name: "Mailchimp", icon: si.siMailchimp },
+  { name: "Stripe", icon: si.siStripe },
+  { name: "PayPal", icon: si.siPaypal },
+  { name: "Square", icon: si.siSquare },
+  { name: "QuickBooks", icon: si.siQuickbooks },
+  { name: "Xero", icon: si.siXero },
+  { name: "Google Analytics", icon: si.siGoogleanalytics },
 ];
 
 export function IntegrationsSection() {
@@ -40,27 +59,39 @@ export function IntegrationsSection() {
           </p>
         </div>
 
-        <ul className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-          {integrations.map((item) => (
-            <li key={item.name}>
-              <a
-                href="#integrations"
-                className="flex h-full items-center gap-4 rounded-2xl border border-border bg-card p-5 transition-all hover:-translate-y-0.5 hover:border-brand/40 hover:shadow-lg"
-              >
-                <span
-                  aria-hidden="true"
-                  className="grid size-11 shrink-0 place-items-center rounded-xl bg-brand/10 font-display text-base font-bold text-brand"
+        <div className="mt-14 rounded-3xl bg-secondary/60 p-5 sm:p-8">
+          <ul className="grid grid-cols-4 gap-3 sm:grid-cols-6 sm:gap-4 lg:grid-cols-8">
+            {brands.map((brand) => (
+              <li key={brand.name}>
+                <div
+                  title={brand.name}
+                  className="group grid aspect-square place-items-center rounded-2xl bg-card shadow-sm ring-1 ring-border/60 transition-all hover:-translate-y-1 hover:shadow-lg"
                 >
-                  {item.name.slice(0, 2)}
-                </span>
-                <span>
-                  <span className="block font-display text-sm font-semibold">{item.name}</span>
-                  <span className="block text-xs text-muted-foreground">{item.category}</span>
-                </span>
-              </a>
-            </li>
-          ))}
-        </ul>
+                  <svg
+                    role="img"
+                    aria-label={brand.name}
+                    viewBox="0 0 24 24"
+                    className="size-7 transition-transform group-hover:scale-110 sm:size-8"
+                    fill={`#${brand.icon.hex}`}
+                  >
+                    <path d={brand.icon.path} />
+                  </svg>
+                </div>
+              </li>
+            ))}
+            {Array.from({ length: 8 }).map((_, i) => (
+              <li key={`slot-${i}`} className={i > 3 ? "hidden lg:block" : ""}>
+                <div className="grid aspect-square place-items-center rounded-2xl border-2 border-dashed border-border">
+                  <Plus className="size-5 text-muted-foreground/60" aria-hidden="true" />
+                </div>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 text-center text-sm text-muted-foreground">
+            Plus Salesforce, Pipedrive, Microsoft Teams and Outlook — and anything else you can reach
+            with our open API and webhooks.
+          </p>
+        </div>
 
         <div className="mt-10 flex flex-wrap items-center gap-4">
           <Link
