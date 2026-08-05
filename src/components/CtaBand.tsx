@@ -63,7 +63,7 @@ export function CtaBand(props: CtaBandProps) {
             <div className="mt-9 flex flex-wrap items-center gap-3">
               <a
                 href="/pricing"
-                className="group inline-flex items-center gap-2 rounded-md bg-brand px-7 py-4 font-display font-bold text-brand-foreground shadow-brand-glow transition-all hover:-translate-y-0.5 hover:shadow-brand-glow-lg"
+                className="group inline-flex items-center gap-2 rounded-md bg-brand px-7 py-4 font-display font-bold text-brand-foreground shadow-brand-glow transition-all hover:-translate-y-0.5 hover:bg-dark hover:text-dark-foreground hover:shadow-brand-glow-lg"
               >
                 {primaryLabel}
                 <ArrowRight
