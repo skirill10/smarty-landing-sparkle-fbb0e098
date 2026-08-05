@@ -71,7 +71,8 @@ function browserLocale(): LocaleCode | undefined {
 /** Path without the language prefix, e.g. "/es/pricing" -> "/pricing". */
 function stripPrefix(pathname: string) {
   const [, first = "", ...rest] = pathname.split("/");
-  if (prefixToLocale(first)) return "/" + rest.join("/");
+  // Also drops unknown two-letter prefixes so bogus /zz/pricing canonicalises.
+  if (prefixToLocale(first) || /^[a-z]{2}$/.test(first)) return "/" + rest.join("/");
   return pathname;
 }
 
