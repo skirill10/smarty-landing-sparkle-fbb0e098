@@ -7,7 +7,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { useNavigate, useParams, useRouterState } from "@tanstack/react-router";
+import { useNavigate, useRouterState } from "@tanstack/react-router";
 import {
   DEFAULT_LOCALE,
   getLocaleDef,
@@ -78,10 +78,10 @@ function stripPrefix(pathname: string) {
 
 export function LocaleProvider({ children }: { children: ReactNode }) {
   // The URL is the source of truth: /es/pricing renders Spanish.
-  const params = useParams({ strict: false }) as { locale?: string };
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const navigate = useNavigate();
-  const locale = prefixToLocale(params.locale) ?? DEFAULT_LOCALE;
+  const urlPrefix = pathname.split("/")[1] || undefined;
+  const locale = prefixToLocale(urlPrefix) ?? DEFAULT_LOCALE;
   const [messages, setMessages] = useState<Record<string, string>>({});
 
   const goToLocale = useCallback(
@@ -109,7 +109,7 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
 
   // First visit on an unprefixed URL: honour a saved choice or the browser.
   useEffect(() => {
-    if (params.locale) return;
+    if (urlPrefix && prefixToLocale(urlPrefix)) return;
     const preferred = storedLocale() ?? browserLocale();
     if (preferred && preferred !== DEFAULT_LOCALE) goToLocale(preferred);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -117,9 +117,11 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
 
   // Canonicalise aliases such as /ua/ -> /uk/.
   useEffect(() => {
-    if (params.locale && params.locale !== localeToPrefix(locale)) goToLocale(locale);
+    if (urlPrefix && urlPrefix !== localeToPrefix(locale) && /^[a-z]{2}$/.test(urlPrefix)) {
+      goToLocale(locale);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [params.locale]);
+  }, [urlPrefix]);
 
   useEffect(() => {
     let active = true;
