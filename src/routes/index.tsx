@@ -30,6 +30,7 @@ import { CtaBand } from "@/components/CtaBand";
 import { BuiltForSection } from "@/components/BuiltForSection";
 import { IntegrationsSection } from "@/components/IntegrationsSection";
 import { HeyAiSection } from "@/components/HeyAiSection";
+import { useT } from "@/i18n/LocaleProvider";
 import { useHomeContent } from "@/lib/cms-content";
 
 import showcaseNumbers from "@/assets/showcase-numbers.jpg";
@@ -284,6 +285,7 @@ const homeFallback = {
 };
 
 function StoriesSlider({ items }: { items: typeof stories }) {
+  const t = useT();
   const [index, setIndex] = useState(0);
 
   const prev = () => setIndex((i) => (i === 0 ? items.length - 1 : i - 1));
@@ -311,23 +313,23 @@ function StoriesSlider({ items }: { items: typeof stories }) {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                   <div className="absolute bottom-6 left-6">
                     <p className="font-display text-4xl font-bold text-dark-foreground drop-shadow-sm">{story.stat}</p>
-                    <p className="text-sm font-medium text-dark-foreground/90">{story.statLabel}</p>
+                    <p className="text-sm font-medium text-dark-foreground/90">{t(story.statLabel)}</p>
                   </div>
                 </div>
                 <div className="flex flex-col justify-center p-8 md:p-12">
                   <p className="font-display text-xl font-semibold text-brand">{story.business}</p>
                   <blockquote className="mt-4 font-display text-2xl font-medium leading-snug tracking-tight text-dark-foreground md:text-3xl">
-                    “{story.quote}”
+                    “{t(story.quote)}”
                   </blockquote>
                   <div className="mt-6">
                     <p className="font-semibold text-dark-foreground/90">{story.person}</p>
-                    <p className="text-sm text-dark-foreground/70">{story.role}</p>
+                    <p className="text-sm text-dark-foreground/70">{t(story.role)}</p>
                   </div>
                   <a
                     href="#features"
                     className="mt-8 inline-flex w-fit items-center gap-2 rounded-md bg-brand px-5 py-2.5 text-sm font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
                   >
-                    Read the story
+                    {t("Read the story")}
                     <ArrowRight className="size-4" aria-hidden="true" />
                   </a>
                 </div>
@@ -339,7 +341,7 @@ function StoriesSlider({ items }: { items: typeof stories }) {
 
       <div className="mt-8 flex items-center justify-between">
         <a href="#features" className="inline-flex items-center gap-2 text-sm font-semibold text-dark-foreground hover:text-brand">
-          View all stories
+          {t("View all stories")}
           <ArrowRight className="size-4" aria-hidden="true" />
         </a>
         <div className="flex items-center gap-2">
@@ -347,7 +349,7 @@ function StoriesSlider({ items }: { items: typeof stories }) {
             type="button"
             onClick={prev}
             className="rounded-md border border-dark-foreground/20 p-2 text-dark-foreground transition-colors hover:bg-dark-foreground/10"
-            aria-label="Previous story"
+            aria-label={t("Previous story")}
           >
             <ChevronLeft className="size-5" aria-hidden="true" />
           </button>
@@ -355,7 +357,7 @@ function StoriesSlider({ items }: { items: typeof stories }) {
             type="button"
             onClick={next}
             className="rounded-md border border-dark-foreground/20 p-2 text-dark-foreground transition-colors hover:bg-dark-foreground/10"
-            aria-label="Next story"
+            aria-label={t("Next story")}
           >
             <ChevronRight className="size-5" aria-hidden="true" />
           </button>
@@ -366,6 +368,7 @@ function StoriesSlider({ items }: { items: typeof stories }) {
 }
 
 function Landing() {
+  const t = useT();
   const {
     hero,
     logos,
@@ -387,33 +390,33 @@ function Landing() {
         <section className="mx-auto max-w-6xl px-5 pt-16 text-center md:pt-24">
           <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
             <Star className="size-4 fill-accent text-accent" aria-hidden="true" />
-            <span className="font-semibold text-foreground">{hero.rating}</span>
+            <span className="font-semibold text-foreground">{t(hero.rating)}</span>
             <span aria-hidden="true">|</span>
-            <span>{hero.reviews}</span>
+            <span>{t(hero.reviews)}</span>
           </div>
           <h1 className="mx-auto mt-8 max-w-4xl font-display text-5xl font-bold leading-[0.95] tracking-tight md:text-7xl">
-            {hero.headline}
+            {t(hero.headline)}
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-            {hero.sub}
+            {t(hero.sub)}
           </p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
             <a
               href="/pricing"
               className="rounded-md bg-brand px-6 py-3 font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
             >
-              {hero.primaryCta}
+              {t(hero.primaryCta)}
             </a>
             <a
               href="#features"
               className="inline-flex items-center gap-2 rounded-md px-4 py-3 font-medium text-foreground transition-colors hover:bg-secondary"
             >
               <Play className="size-4" aria-hidden="true" />
-              {hero.secondaryCta}
+              {t(hero.secondaryCta)}
             </a>
           </div>
           <p className="mt-8 text-sm text-muted-foreground">
-            {hero.platforms}
+            {t(hero.platforms)}
           </p>
 
           <div className="mt-14 rounded-3xl bg-surface p-3 md:p-8">
@@ -430,7 +433,7 @@ function Landing() {
         {/* Logos */}
         <section className="mx-auto max-w-6xl px-5 py-16">
           <p className="text-center text-sm font-medium text-muted-foreground">
-            {logos.heading}
+            {t(logos.heading)}
           </p>
           <div className="mt-8 grid grid-cols-2 gap-6 opacity-70 sm:grid-cols-3 md:grid-cols-6">
             {logos.items.map(
@@ -452,7 +455,7 @@ function Landing() {
             {featureGroupsContent.map(({ heading, cards }) => (
               <div key={heading} className="mt-14">
                 <h3 className="font-display text-2xl font-bold tracking-tight md:text-3xl">
-                  {heading}
+                  {t(heading)}
                 </h3>
                 <div className="mt-6 grid gap-6 md:grid-cols-3">
                   {cards.map(({ icon: Icon, title, body, image, alt }) => (
@@ -463,9 +466,9 @@ function Landing() {
                       <div className="p-7">
                         <Icon className="size-6 text-brand" aria-hidden="true" />
                         <h4 className="mt-5 font-display text-lg font-semibold tracking-tight">
-                          {title}
+                          {t(title)}
                         </h4>
-                        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
+                        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t(body)}</p>
                       </div>
                       <div className="mt-auto max-h-52 overflow-hidden border-t border-border px-6 pt-6">
                         <img
@@ -489,7 +492,7 @@ function Landing() {
         {/* Showcase bento */}
         <section className="mx-auto max-w-6xl px-5 py-20 md:py-28">
           <h2 className="max-w-2xl font-display text-4xl font-bold tracking-tight md:text-5xl">
-            {showcaseHeading}
+            {t(showcaseHeading)}
           </h2>
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {showcaseContent.map(({ title, link, image, alt }) => (
@@ -498,13 +501,13 @@ function Landing() {
                 className="flex flex-col overflow-hidden rounded-2xl bg-light-grey p-8"
               >
                 <h3 className="font-display text-2xl font-semibold leading-snug tracking-tight">
-                  {title}
+                  {t(title)}
                 </h3>
                 <a
                   href="#features"
                   className="mt-5 inline-flex items-center gap-2 font-medium text-foreground hover:text-brand"
                 >
-                  {link}
+                  {t(link)}
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </a>
                 <img
@@ -525,9 +528,9 @@ function Landing() {
           <div className="mx-auto max-w-6xl px-5">
             <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
               <h2 className="max-w-2xl font-display text-4xl font-bold tracking-tight md:text-5xl">
-                {storiesHeading}
+                {t(storiesHeading)}
               </h2>
-              <p className="text-dark-foreground/80">{storiesSub}</p>
+              <p className="text-dark-foreground/80">{t(storiesSub)}</p>
             </div>
             <div className="mt-12">
               <StoriesSlider items={storiesContent} />
@@ -544,7 +547,7 @@ function Landing() {
           ].map(([stat, label]) => (
             <div key={stat}>
               <p className="font-display text-5xl font-bold tracking-tight">{stat}</p>
-              <p className="mt-2 max-w-xs text-muted-foreground">{label}</p>
+              <p className="mt-2 max-w-xs text-muted-foreground">{t(label!)}</p>
             </div>
           ))}
         </section>
