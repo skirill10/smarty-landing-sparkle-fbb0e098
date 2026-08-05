@@ -224,25 +224,36 @@ const featureGroups = [
 
 const plans = [
   {
-    name: "Starter",
+    name: "Trial",
+    price: "$0",
+    unit: "/14 days",
+    tagline: "Try everything with a demo number, no card needed.",
+    perks: ["14-day free trial", "Demo phone number", "Calling & messaging basics", "Mobile & desktop apps"],
+  },
+  {
+    name: "Startup",
     price: "$15",
+    unit: "/user/mo",
     tagline: "For solo operators getting off a personal number.",
-    perks: ["1 local number per user", "Calls & texts in the US, Canada, UK & Europe", "Shared contacts", "Mobile & desktop apps"],
+    perks: ["1 local number included", "Local & long-distance calls", "SMS & chat apps", "Contacts and call history"],
   },
   {
     name: "Business",
-    price: "$29",
+    price: "$25",
+    unit: "/user/mo",
     tagline: "For teams that answer every call, together.",
-    perks: ["Everything in Starter", "Shared numbers & inboxes", "Call routing & IVR menus", "Analytics dashboards", "Integrations & API"],
+    perks: ["Everything in Startup", "IVR phone menus", "Call recording & hunting", "Call forwarding", "AI assistance add-on"],
     featured: true,
   },
   {
     name: "Scale",
-    price: "Custom",
+    price: "$35",
+    unit: "/user/mo",
     tagline: "For contact centers and multi-location brands.",
-    perks: ["Everything in Business", "Smarty AI agent, unlimited", "SSO & audit logs", "Dedicated onboarding"],
+    perks: ["Everything in Business", "AI transcripts & summaries", "Custom telephony flows", "Advanced analytics", "Priority support"],
   },
 ];
+
 
 function StoriesSlider({ items }: { items: typeof stories }) {
   const [index, setIndex] = useState(0);
