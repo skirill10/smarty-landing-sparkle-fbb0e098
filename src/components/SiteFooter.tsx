@@ -1,9 +1,10 @@
 import { Link } from "@tanstack/react-router";
 import mark from "@/assets/smartytel-mark.png";
+import { useFooterContent } from "@/lib/cms-content";
 
 type Column = { heading: string; links: { label: string; to?: string }[] };
 
-const columns: Column[] = [
+const fallbackColumns: Column[] = [
   {
     heading: "Product",
     links: [
@@ -56,7 +57,7 @@ const columns: Column[] = [
 ];
 
 
-const regions = [
+const fallbackRegions = [
   "United States",
   "Canada",
   "United Kingdom",
@@ -79,7 +80,16 @@ const regions = [
   "Romania",
 ];
 
+const fallbackNote =
+  "One business phone for your whole team \u2014 with local and toll-free numbers across the US, Canada, the UK and every European country.";
+
 export function SiteFooter() {
+  const { columns, regions, note } = useFooterContent({
+    columns: fallbackColumns,
+    regions: fallbackRegions,
+    note: fallbackNote,
+  });
+
   return (
     <footer className="border-t border-border bg-surface">
       <div className="mx-auto max-w-7xl px-5 py-16">
@@ -89,10 +99,7 @@ export function SiteFooter() {
               <img src={mark} alt="" width={40} height={49} loading="lazy" className="h-7 w-auto" />
               smartytel
             </Link>
-            <p className="mt-4 max-w-xs text-sm text-muted-foreground">
-              One business phone for your whole team — with local and toll-free numbers across the
-              US, Canada, the UK and every European country.
-            </p>
+            <p className="mt-4 max-w-xs text-sm text-muted-foreground">{note}</p>
             <Link
               to="/pricing"
               className="mt-6 inline-flex rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"

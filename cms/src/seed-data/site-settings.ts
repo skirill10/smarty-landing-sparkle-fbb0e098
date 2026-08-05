@@ -76,4 +76,15 @@ export const siteSettings = {
     "Czechia",
     "Romania",
   ].map((value) => ({ value })),
+  cta: {
+    eyebrow: "Ready when they call",
+    title: "Your next customer is calling right now",
+    subtitle:
+      "Spin up a shared number in the US, Canada, the UK or anywhere across Europe, route it to your team, and let AI write the notes. Answer everything from day one.",
+    primaryLabel: "Try Smartytel free",
+    secondaryLabel: "Book a 15-min demo",
+    proofPoints: ["14-day free trial", "No credit card", "Live in 12 minutes"].map((value) => ({
+      value,
+    })),
+  },
 } as const;
