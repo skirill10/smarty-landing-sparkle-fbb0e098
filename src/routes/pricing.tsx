@@ -551,8 +551,8 @@ function PricingPage() {
                   href={plan.cta === "Talk to sales" ? "#talk-to-sales" : "/pricing"}
                   className={
                     plan.featured
-                      ? "mt-7 block rounded-md bg-brand px-4 py-3 text-center font-semibold text-brand-foreground"
-                      : "mt-7 block rounded-md border border-border px-4 py-3 text-center font-semibold transition-colors hover:bg-secondary"
+                      ? "mt-7 block rounded-md bg-brand px-4 py-3 text-center font-semibold text-brand-foreground transition-colors hover:bg-dark hover:text-dark-foreground"
+                      : "mt-7 block rounded-md border border-border px-4 py-3 text-center font-semibold transition-colors hover:bg-dark hover:text-dark-foreground"
                   }
                 >
                   {plan.cta}
