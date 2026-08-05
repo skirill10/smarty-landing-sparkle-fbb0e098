@@ -29,3 +29,16 @@ export function Link({ to, params, ...rest }: LinkProps) {
     />
   );
 }
+
+/**
+ * Prefix a plain path with the active language, for places that need a raw
+ * href string (mega-menu anchors, buttons) instead of a <Link>.
+ */
+export function useLocalePath() {
+  const { locale } = useLocale();
+  const prefix = localeToPrefix(locale);
+  return (path: string) => {
+    if (!prefix) return path;
+    return path === "/" ? `/${prefix}` : `/${prefix}${path}`;
+  };
+}
