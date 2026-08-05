@@ -1,4 +1,5 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createFileRoute, notFound } from "@tanstack/react-router";
+import { Link } from "@/components/Link";
 import { useEffect, useState } from "react";
 import { useSuspenseQuery, useQuery } from "@tanstack/react-query";
 import { ArrowLeft, ArrowRight, Info, PhoneCall } from "lucide-react";

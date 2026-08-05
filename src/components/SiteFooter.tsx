@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/components/Link";
 import * as si from "simple-icons";
 import mark from "@/assets/smartytel-mark.png";
 import { useFooterContent, useSocialLinks } from "@/lib/cms-content";

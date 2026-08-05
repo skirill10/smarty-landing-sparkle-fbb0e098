@@ -1,6 +1,7 @@
 import { Fragment, useState } from "react";
 import { z } from "zod";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
+import { Link } from "@/components/Link";
 import {
   ArrowLeftRight,
   ArrowUpRight,

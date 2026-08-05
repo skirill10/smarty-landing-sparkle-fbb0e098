@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/components/Link";
 import { useQuery } from "@tanstack/react-query";
 import { ArrowRight, Check } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";

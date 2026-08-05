@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/components/Link";
 import { ArrowRight, Plus } from "lucide-react";
 import * as si from "simple-icons";
 import { useIntegrationBrands } from "@/lib/cms-content";

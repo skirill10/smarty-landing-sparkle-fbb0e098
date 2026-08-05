@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/components/Link";
 import { Bot, ExternalLink } from "lucide-react";
 import { useHeyAiContent } from "@/lib/cms-content";
 
