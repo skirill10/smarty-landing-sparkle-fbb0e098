@@ -277,7 +277,7 @@ const compareGroups: {
 const faqs: [string, string][] = [
   [
     "Is there a free trial?",
-    "Yes — every account starts on the 14-day Trial plan with a demo number. No credit card required, and you pick a real number when you subscribe.",
+    "Yes — every plan starts with a 14-day free trial and a demo number. No credit card required, and you pick a real number when you subscribe.",
   ],
   [
     "How much does it cost per user?",

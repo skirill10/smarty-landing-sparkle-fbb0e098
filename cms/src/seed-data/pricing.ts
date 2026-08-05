@@ -7,19 +7,6 @@ export const pricingPage = {
   sub: "14 days free, then from $12 per user per month billed yearly. Local calling across the US, Canada, the UK and all of Europe.",
   plans: [
     {
-      name: "Trial",
-      monthly: 0,
-      annualMonthly: 0,
-      tagline: "14 days free with a demo number — see everything before you pay.",
-      cta: "Start 14-day trial",
-      perks: perks([
-        "14-day free trial",
-        "Demo phone number included",
-        "Calling & messaging basics",
-        "No credit card required",
-      ]),
-    },
-    {
       name: "Startup",
       monthly: 15,
       annualMonthly: 12,
