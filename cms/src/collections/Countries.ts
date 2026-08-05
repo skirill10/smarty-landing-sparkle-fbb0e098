@@ -13,9 +13,9 @@ const regionOptions = [
 /**
  * Destinations shown on /rates and /rates/$countrySlug.
  *
- * `id` is a stable text slug (e.g. "germany") so it matches the ids used by the
- * frontend's local mock repository — switching VITE_CONTENT_SOURCE between
- * "local" and "payload" then needs no data migration.
+ * The frontend treats `slug` as the country identity, so rates reference a
+ * country by slug ("germany"). Switching VITE_CONTENT_SOURCE between "local"
+ * and "payload" therefore needs no data migration.
  */
 export const Countries: CollectionConfig = {
   slug: "countries",
@@ -41,8 +41,8 @@ export const Countries: CollectionConfig = {
     { name: "dialCode", type: "text", required: true, admin: { description: 'e.g. "+44".' } },
     { name: "region", type: "select", required: true, options: regionOptions },
     { name: "trunkPrefix", type: "text" },
-    { name: "flagEmoji", type: "text" },
-    { name: "notes", type: "textarea" },
+    { name: "callingInstructions", type: "textarea" },
+    { name: "shortDescription", type: "textarea" },
     {
       name: "seo",
       type: "group",
