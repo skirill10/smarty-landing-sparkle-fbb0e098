@@ -1,10 +1,11 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Plus } from "lucide-react";
 import * as si from "simple-icons";
+import { useIntegrationBrands } from "@/lib/cms-content";
 
 type Brand = { name: string; icon: { path: string; hex: string } };
 
-const brands: Brand[] = [
+const fallbackBrands: Brand[] = [
   { name: "HubSpot", icon: si.siHubspot },
   { name: "Zapier", icon: si.siZapier },
   { name: "Make", icon: si.siMake },
@@ -39,7 +40,14 @@ const brands: Brand[] = [
   { name: "Google Analytics", icon: si.siGoogleanalytics },
 ];
 
+const iconRegistry = si as unknown as Record<string, { path: string; hex: string } | undefined>;
+
+const resolveIcon = (slug: string) =>
+  iconRegistry[`si${slug.charAt(0).toUpperCase()}${slug.slice(1).toLowerCase()}`] ?? null;
+
 export function IntegrationsSection() {
+  const brands = useIntegrationBrands(fallbackBrands, resolveIcon as never);
+
   return (
     <section id="integrations" className="border-t border-border py-24">
       <div className="mx-auto max-w-7xl px-5">

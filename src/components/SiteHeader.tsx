@@ -24,12 +24,13 @@ import {
   X,
 } from "lucide-react";
 import mark from "@/assets/smartytel-mark.png";
+import { useHeaderMenus } from "@/lib/cms-content";
 
 type Item = { label: string; icon?: typeof Phone; to?: string };
 type Group = { heading: string; items: Item[] };
 type MenuDef = { label: string; groups: Group[]; wide?: boolean };
 
-const menus: MenuDef[] = [
+const fallbackMenus: MenuDef[] = [
   {
     label: "Product",
     groups: [
@@ -169,6 +170,7 @@ function MegaPanel({ menu }: { menu: MenuDef }) {
 }
 
 export function SiteHeader() {
+  const menus = useHeaderMenus(fallbackMenus);
   const [open, setOpen] = useState<string | null>(null);
   const [mobile, setMobile] = useState(false);
   const wrap = useRef<HTMLDivElement>(null);

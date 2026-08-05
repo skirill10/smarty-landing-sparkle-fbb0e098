@@ -1,4 +1,5 @@
 import { ArrowRight, Phone, Sparkles, Check } from "lucide-react";
+import { useCtaContent } from "@/lib/cms-content";
 
 type CtaBandProps = {
   eyebrow?: string;
@@ -8,15 +9,25 @@ type CtaBandProps = {
   secondaryLabel?: string;
 };
 
-const proofPoints = ["14-day free trial", "No credit card", "Live in 12 minutes"];
+const fallbackProofPoints = ["14-day free trial", "No credit card", "Live in 12 minutes"];
 
-export function CtaBand({
-  eyebrow = "Ready when they call",
-  title = "Your next customer is calling right now",
-  subtitle = "Spin up a shared number in the US, Canada, the UK or anywhere across Europe, route it to your team, and let AI write the notes. Answer everything from day one.",
-  primaryLabel = "Try Smartytel free",
-  secondaryLabel = "Book a 15-min demo",
-}: CtaBandProps) {
+export function CtaBand(props: CtaBandProps) {
+  const content = useCtaContent({
+    eyebrow: "Ready when they call",
+    title: "Your next customer is calling right now",
+    subtitle:
+      "Spin up a shared number in the US, Canada, the UK or anywhere across Europe, route it to your team, and let AI write the notes. Answer everything from day one.",
+    primaryLabel: "Try Smartytel free",
+    secondaryLabel: "Book a 15-min demo",
+    proofPoints: fallbackProofPoints,
+  });
+  const eyebrow = props.eyebrow ?? content.eyebrow;
+  const title = props.title ?? content.title;
+  const subtitle = props.subtitle ?? content.subtitle;
+  const primaryLabel = props.primaryLabel ?? content.primaryLabel;
+  const secondaryLabel = props.secondaryLabel ?? content.secondaryLabel;
+  const proofPoints = content.proofPoints;
+
   return (
     <section className="w-full">
       <div className="relative isolate w-full overflow-hidden bg-cta-mesh px-6 py-20 text-primary-foreground md:px-14 md:py-28">
