@@ -73,7 +73,7 @@ export function CtaBand(props: CtaBandProps) {
               </a>
               <a
                 href="/pricing"
-                className="inline-flex items-center gap-2 rounded-md border border-primary-foreground/30 px-7 py-4 font-semibold backdrop-blur transition-colors hover:bg-primary-foreground/10"
+                className="inline-flex items-center gap-2 rounded-md border border-primary-foreground/30 px-7 py-4 font-semibold backdrop-blur transition-colors hover:bg-white hover:text-dark"
               >
                 {secondaryLabel}
               </a>
