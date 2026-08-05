@@ -49,5 +49,22 @@ export const SiteSettings: GlobalConfig = {
       ],
     },
     { name: "footerNote", type: "textarea" },
+    {
+      name: "cta",
+      label: "Closing CTA band",
+      type: "group",
+      fields: [
+        { name: "eyebrow", type: "text" },
+        { name: "title", type: "text" },
+        { name: "subtitle", type: "textarea" },
+        { name: "primaryLabel", type: "text" },
+        { name: "secondaryLabel", type: "text" },
+        {
+          name: "proofPoints",
+          type: "array",
+          fields: [{ name: "value", type: "text", required: true }],
+        },
+      ],
+    },
   ],
 };
