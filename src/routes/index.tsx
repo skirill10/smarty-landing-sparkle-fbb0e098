@@ -513,12 +513,16 @@ function Landing() {
 
         {/* Pricing */}
         <section id="pricing" className="border-t border-border py-20 md:py-28">
-          <div className="mx-auto max-w-6xl px-5">
+          <div className="mx-auto max-w-7xl px-5">
             <h2 className="font-display text-4xl font-bold tracking-tight md:text-5xl">
               Simple pricing, per user
             </h2>
-            <p className="mt-4 text-muted-foreground">Billed monthly. Cancel any time.</p>
-            <div className="mt-12 grid gap-6 md:grid-cols-3">
+            <p className="mt-4 max-w-2xl text-muted-foreground">
+              14 days free, then from $12 per user per month billed yearly (save 20%). Local calling
+              across the US, Canada, the UK and all of Europe. Cancel any time.
+            </p>
+            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+
               {plans.map((plan) => (
                 <article
                   key={plan.name}
