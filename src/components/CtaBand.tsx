@@ -13,13 +13,14 @@ const proofPoints = ["14-day free trial", "No credit card", "Live in 12 minutes"
 export function CtaBand({
   eyebrow = "Ready when they call",
   title = "Your next customer is calling right now",
-  subtitle = "Spin up a shared number, route it to your team, and let AI write the notes. Answer everything from day one.",
+  subtitle = "Spin up a shared number in the US, Canada, the UK or anywhere across Europe, route it to your team, and let AI write the notes. Answer everything from day one.",
   primaryLabel = "Try Smartytel free",
   secondaryLabel = "Book a 15-min demo",
 }: CtaBandProps) {
   return (
-    <section className="mx-auto max-w-6xl px-5 pb-20">
-      <div className="relative isolate overflow-hidden rounded-4xl bg-cta-mesh px-6 py-16 text-primary-foreground shadow-glow md:px-14 md:py-20">
+    <section className="w-full">
+      <div className="relative isolate w-full overflow-hidden bg-cta-mesh px-6 py-20 text-primary-foreground md:px-14 md:py-28">
+
         {/* glow orbs */}
         <div
           aria-hidden="true"
@@ -32,7 +33,7 @@ export function CtaBand({
         {/* fine grid */}
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-cta-grid opacity-40" />
 
-        <div className="relative grid items-center gap-12 md:grid-cols-[1.15fr_0.85fr]">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-12 md:grid-cols-[1.15fr_0.85fr]">
           <div>
             <span className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/25 bg-primary-foreground/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest backdrop-blur">
               <Sparkles className="size-3.5" aria-hidden="true" />
