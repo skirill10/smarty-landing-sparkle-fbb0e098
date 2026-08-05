@@ -152,7 +152,7 @@ function MegaPanel({ menu }: { menu: MenuDef }) {
               <li key={it.label}>
                 <a
                   href={it.to ?? "/pricing"}
-                  className="flex items-center gap-2.5 rounded-lg px-2 py-1.5 text-sm font-medium text-foreground/85 transition-colors hover:bg-secondary hover:text-foreground"
+                  className="flex items-center gap-2.5 rounded-md px-2 py-1.5 text-sm font-medium text-foreground/85 transition-colors hover:bg-secondary hover:text-foreground"
                 >
                   {it.icon ? (
                     <it.icon className="size-4 shrink-0 text-brand" strokeWidth={2} />
