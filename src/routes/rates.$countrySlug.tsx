@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSuspenseQuery, useQuery } from "@tanstack/react-query";
 import { ArrowLeft, ArrowRight, Info, PhoneCall } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -11,7 +11,8 @@ import { CurrencySelector } from "@/features/rates/components/CurrencySelector";
 import { RatesFAQ } from "@/features/rates/components/RatesFAQ";
 import { EmptyState, ErrorState } from "@/features/rates/components/States";
 import { REGION_LABELS, SERVICE_LABELS, type CurrencyCode } from "@/features/rates/types";
-import { formatInterval, formatRate } from "@/features/rates/utils/format";
+import { CURRENCY_LABELS, formatInterval, formatRate } from "@/features/rates/utils/format";
+import { detectCurrency, saveCurrency } from "@/features/rates/utils/detectCurrency";
 
 const ORIGIN = "https://smarty-landing-sparkle.lovable.app";
 
