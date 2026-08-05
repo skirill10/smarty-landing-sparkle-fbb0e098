@@ -1,6 +1,6 @@
 import { Fragment, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Check, Minus, ArrowRight } from "lucide-react";
+import { Check, Minus } from "lucide-react";
 import mark from "@/assets/smartytel-mark.png";
 import { SiteHeader } from "@/components/SiteHeader";
 import { CtaBand } from "@/components/CtaBand";
