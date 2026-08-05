@@ -104,7 +104,7 @@ export function IntegrationsSection() {
         <div className="mt-10 flex flex-wrap items-center gap-4">
           <Link
             to="/crm"
-            className="inline-flex items-center gap-1.5 rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
+            className="inline-flex items-center gap-1.5 rounded-md bg-brand px-5 py-3 text-sm font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
           >
             Explore the built-in CRM <ArrowRight className="size-4" />
           </Link>
