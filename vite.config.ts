@@ -6,15 +6,19 @@
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
+// Static export mode: `STATIC_EXPORT=1 bun run build` prerenders the site to
+// plain HTML in dist/client (index.html + assets) for upload to static hosting
+// such as Hostinger public_html or GitHub Pages. Default builds stay unchanged.
+const staticExport = process.env["STATIC_EXPORT"] === "1";
+
 export default defineConfig({
-  nitro: false,
+  ...(staticExport ? { nitro: false as const } : {}),
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
-    // Emit static HTML files (index.html, etc.) so the build can be uploaded
-    // to plain static hosting like Hostinger public_html.
-    prerender: { enabled: true, crawlLinks: true },
-    pages: [{ path: "/", prerender: { enabled: true } }],
+    ...(staticExport
+      ? { prerender: { enabled: true, crawlLinks: true } }
+      : {}),
   },
 });
