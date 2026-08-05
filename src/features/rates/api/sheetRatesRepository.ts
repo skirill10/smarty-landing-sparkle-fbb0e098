@@ -5,20 +5,25 @@ import { parseRatesSheet } from "./parseRatesSheet";
 import type { RatesRepository } from "./ratesRepository";
 import type { CurrencyCode } from "../types";
 
-const SHEET_ID =
-  (import.meta.env["VITE_RATES_SHEET_ID"] as string | undefined) ??
-  "1UorvSmjKhx1b2RFWH73Of-ncETBJ-HHF4XLddsxg9FU";
-const SHEET_GID = (import.meta.env["VITE_RATES_SHEET_GID"] as string | undefined) ?? "0";
+const SHEET_PUB_ID = import.meta.env["VITE_RATES_SHEET_PUB_ID"] as string | undefined;
+const SHEET_ID = import.meta.env["VITE_RATES_SHEET_ID"] as string | undefined;
+const SHEET_GID = import.meta.env["VITE_RATES_SHEET_GID"] as string | undefined;
 const DEFAULT_CURRENCY =
   ((import.meta.env["VITE_RATES_SHEET_CURRENCY"] as string | undefined) as CurrencyCode | undefined) ??
   "EUR";
 const SITE_URL = (import.meta.env["VITE_SITE_URL"] as string | undefined) ?? "";
 
 function endpoint(): string {
-  const path = `/api/public/rates-sheet?sheetId=${encodeURIComponent(SHEET_ID)}&gid=${encodeURIComponent(SHEET_GID)}`;
+  const params = new URLSearchParams();
+  if (SHEET_PUB_ID) params.set("pubId", SHEET_PUB_ID);
+  else if (SHEET_ID) params.set("sheetId", SHEET_ID);
+  if (SHEET_GID) params.set("gid", SHEET_GID);
+  const query = params.toString();
+  const path = `/api/public/rates-sheet${query ? `?${query}` : ""}`;
   if (typeof window !== "undefined") return path;
   return SITE_URL ? `${SITE_URL.replace(/\/$/, "")}${path}` : path;
 }
+
 
 async function loadSheetDataset(): Promise<RatesDataset> {
   try {
