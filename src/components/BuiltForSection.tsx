@@ -39,7 +39,7 @@ export function BuiltForSection() {
                 onFocus={() => setActive(index)}
                 onClick={() => setActive(index)}
                 aria-pressed={active === index}
-                className={`rounded-xl px-4 py-3 text-sm font-medium transition-colors ${
+                className={`rounded-md px-4 py-3 text-sm font-medium transition-colors ${
                   active === index
                     ? "bg-foreground text-background"
                     : "bg-secondary text-foreground hover:bg-muted"
