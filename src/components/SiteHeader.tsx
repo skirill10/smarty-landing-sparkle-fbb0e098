@@ -287,11 +287,12 @@ export function SiteHeader() {
                   <ul className="space-y-0.5">
                     {g.items.map((it) => (
                       <li key={it.label}>
-                        <a href="#features" className="block py-1 text-sm text-foreground/85">
+                        <a href={it.to ?? "#features"} className="block py-1 text-sm text-foreground/85">
                           {it.label}
                         </a>
                       </li>
                     ))}
+
                   </ul>
                 </div>
               ))}
