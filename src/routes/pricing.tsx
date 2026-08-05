@@ -304,9 +304,16 @@ function PricingPage() {
 
         {/* Add-ons */}
         <section className="bg-light-grey py-20">
-          <div className="mx-auto max-w-6xl px-5">
-            <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">Add-ons</h2>
-            <div className="mt-10 grid gap-6 md:grid-cols-3">
+          <div className="mx-auto max-w-7xl px-5">
+            <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">
+              Add only what you need
+            </h2>
+            <p className="mt-4 max-w-2xl text-muted-foreground">
+              Every module is priced separately, so a two-person shop pays nothing for features a
+              call centre needs. Numbers are priced country by country across the US, Canada, the UK
+              and Europe.
+            </p>
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {addOns.map(([name, price, desc]) => (
                 <div key={name} className="rounded-2xl border border-border bg-card p-7">
                   <h3 className="font-display text-lg font-semibold">{name}</h3>
@@ -318,13 +325,36 @@ function PricingPage() {
           </div>
         </section>
 
+        {/* AI call packages */}
+        <section className="mx-auto max-w-7xl px-5 py-20">
+          <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">
+            AI call packages
+          </h2>
+          <p className="mt-4 max-w-2xl text-muted-foreground">
+            Let the AI agent answer, qualify and book. Pick a monthly package of AI-handled calls —
+            go over it and you simply pay the per-call rate.
+          </p>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+            {aiTiers.map(([tier, price, calls, overage]) => (
+              <div key={tier} className="rounded-2xl border border-border bg-card p-6">
+                <p className="font-display text-sm font-semibold uppercase tracking-widest text-accent-foreground">
+                  {tier}
+                </p>
+                <p className="mt-3 font-display text-3xl font-bold tracking-tight">{price}</p>
+                <p className="mt-3 text-sm font-semibold">{calls}</p>
+                <p className="mt-1 text-sm text-muted-foreground">{overage}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Comparison */}
-        <section className="mx-auto max-w-6xl px-5 py-20">
+        <section className="mx-auto max-w-7xl px-5 pb-20">
           <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">
             Compare every feature
           </h2>
           <div className="mt-10 overflow-x-auto">
-            <table className="w-full min-w-[640px] border-collapse text-left">
+            <table className="w-full min-w-[760px] border-collapse text-left">
               <thead>
                 <tr className="border-b border-border">
                   <th className="py-4 pr-4 font-display text-sm font-semibold">Feature</th>
@@ -339,22 +369,18 @@ function PricingPage() {
                 {compareGroups.map((section) => (
                   <Fragment key={section.group}>
                     <tr className="bg-light-grey">
-                      <td colSpan={4} className="py-3 pr-4 pl-3 font-semibold text-sm">
+                      <td colSpan={5} className="py-3 pr-4 pl-3 font-semibold text-sm">
                         {section.group}
                       </td>
                     </tr>
-                    {section.rows.map(([label, a, b, c]) => (
+                    {section.rows.map(([label, a, b, c, d]) => (
                       <tr key={label} className="border-b border-border">
                         <td className="py-4 pr-4 text-sm">{label}</td>
-                        <td className="py-4 px-4 text-center">
-                          <PriceCell value={a} />
-                        </td>
-                        <td className="py-4 px-4 text-center">
-                          <PriceCell value={b} />
-                        </td>
-                        <td className="py-4 px-4 text-center">
-                          <PriceCell value={c} />
-                        </td>
+                        {[a, b, c, d].map((value, i) => (
+                          <td key={i} className="py-4 px-4 text-center">
+                            <PriceCell value={value} />
+                          </td>
+                        ))}
                       </tr>
                     ))}
                   </Fragment>
@@ -363,6 +389,7 @@ function PricingPage() {
             </table>
           </div>
         </section>
+
 
         {/* FAQ */}
         <section className="border-t border-border py-20">
