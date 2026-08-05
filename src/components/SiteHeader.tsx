@@ -197,7 +197,7 @@ export function SiteHeader() {
             <MenuTrigger key={m.label} menu={m} open={open} setOpen={setOpen} />
           ))}
           <a
-            href="#pricing"
+            href="/pricing"
             className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             onMouseEnter={() => setOpen(null)}
           >
@@ -207,17 +207,17 @@ export function SiteHeader() {
         </nav>
 
         <div className="ml-auto flex items-center gap-2">
-          <a href="#pricing" className="hidden px-3 text-sm font-medium sm:block">
+          <a href="/pricing" className="hidden px-3 text-sm font-medium sm:block">
             Log in
           </a>
           <a
-            href="#pricing"
+            href="/pricing"
             className="hidden rounded-lg border border-border px-4 py-2 text-sm font-semibold transition-colors hover:bg-secondary sm:block"
           >
             Talk to sales
           </a>
           <a
-            href="#pricing"
+            href="/pricing"
             className="rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
           >
             Try for free
@@ -251,14 +251,14 @@ export function SiteHeader() {
                       <div>
                         <p className="text-sm font-semibold">Ready to get started?</p>
                         <a
-                          href="#pricing"
+                          href="/pricing"
                           className="text-sm font-medium text-brand hover:underline"
                         >
                           Watch a quick demo →
                         </a>
                       </div>
                       <a
-                        href="#pricing"
+                        href="/pricing"
                         className="inline-flex items-center gap-1.5 rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground"
                       >
                         Set up your number <ArrowRight className="size-4" />
@@ -296,7 +296,7 @@ export function SiteHeader() {
               ))}
             </div>
           ))}
-          <a href="#pricing" className="block py-3 font-display text-base font-bold">
+          <a href="/pricing" className="block py-3 font-display text-base font-bold">
             Pricing
           </a>
         </div>
