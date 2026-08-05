@@ -256,7 +256,7 @@ function StoriesSlider({ items }: { items: typeof stories }) {
         >
           {items.map((story) => (
             <div key={story.business} className="w-full shrink-0 px-1">
-              <article className="grid overflow-hidden rounded-3xl bg-card md:grid-cols-2">
+              <article className="grid overflow-hidden rounded-3xl border border-primary-foreground/10 bg-primary-foreground/10 md:grid-cols-2">
                 <div className="relative">
                   <img
                     src={story.image}
@@ -268,18 +268,18 @@ function StoriesSlider({ items }: { items: typeof stories }) {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                   <div className="absolute bottom-6 left-6">
-                    <p className="font-display text-4xl font-bold text-white drop-shadow-sm">{story.stat}</p>
-                    <p className="text-sm font-medium text-white/90">{story.statLabel}</p>
+                    <p className="font-display text-4xl font-bold text-primary-foreground drop-shadow-sm">{story.stat}</p>
+                    <p className="text-sm font-medium text-primary-foreground/90">{story.statLabel}</p>
                   </div>
                 </div>
                 <div className="flex flex-col justify-center p-8 md:p-12">
                   <p className="font-display text-xl font-semibold text-brand">{story.business}</p>
-                  <blockquote className="mt-4 font-display text-2xl font-medium leading-snug tracking-tight md:text-3xl">
+                  <blockquote className="mt-4 font-display text-2xl font-medium leading-snug tracking-tight text-primary-foreground md:text-3xl">
                     “{story.quote}”
                   </blockquote>
                   <div className="mt-6">
-                    <p className="font-semibold text-foreground">{story.person}</p>
-                    <p className="text-sm text-muted-foreground">{story.role}</p>
+                    <p className="font-semibold text-primary-foreground/90">{story.person}</p>
+                    <p className="text-sm text-primary-foreground/70">{story.role}</p>
                   </div>
                   <a
                     href="#features"
@@ -296,7 +296,7 @@ function StoriesSlider({ items }: { items: typeof stories }) {
       </div>
 
       <div className="mt-8 flex items-center justify-between">
-        <a href="#features" className="inline-flex items-center gap-2 text-sm font-semibold hover:text-brand">
+        <a href="#features" className="inline-flex items-center gap-2 text-sm font-semibold text-primary-foreground hover:text-brand">
           View all stories
           <ArrowRight className="size-4" aria-hidden="true" />
         </a>
@@ -304,7 +304,7 @@ function StoriesSlider({ items }: { items: typeof stories }) {
           <button
             type="button"
             onClick={prev}
-            className="rounded-full border border-border p-2 transition-colors hover:bg-secondary"
+            className="rounded-full border border-primary-foreground/20 p-2 text-primary-foreground transition-colors hover:bg-primary-foreground/10"
             aria-label="Previous story"
           >
             <ChevronLeft className="size-5" aria-hidden="true" />
@@ -312,7 +312,7 @@ function StoriesSlider({ items }: { items: typeof stories }) {
           <button
             type="button"
             onClick={next}
-            className="rounded-full border border-border p-2 transition-colors hover:bg-secondary"
+            className="rounded-full border border-primary-foreground/20 p-2 text-primary-foreground transition-colors hover:bg-primary-foreground/10"
             aria-label="Next story"
           >
             <ChevronRight className="size-5" aria-hidden="true" />
@@ -510,15 +510,17 @@ function Landing() {
         </section>
 
         {/* Business stories */}
-        <section className="mx-auto max-w-6xl px-5 py-20 md:py-28">
-          <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
-            <h2 className="max-w-2xl font-display text-4xl font-bold tracking-tight md:text-5xl">
-              Businesses that grow with Smartytel
-            </h2>
-            <p className="text-muted-foreground">See how teams stay connected with customers.</p>
-          </div>
-          <div className="mt-12">
-            <StoriesSlider items={stories} />
+        <section className="bg-primary py-20 text-primary-foreground md:py-28">
+          <div className="mx-auto max-w-6xl px-5">
+            <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+              <h2 className="max-w-2xl font-display text-4xl font-bold tracking-tight md:text-5xl">
+                Businesses that grow with Smartytel
+              </h2>
+              <p className="text-primary-foreground/80">See how teams stay connected with customers.</p>
+            </div>
+            <div className="mt-12">
+              <StoriesSlider items={stories} />
+            </div>
           </div>
         </section>
 
