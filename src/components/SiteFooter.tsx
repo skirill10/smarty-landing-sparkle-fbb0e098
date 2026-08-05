@@ -7,54 +7,54 @@ const columns: Column[] = [
   {
     heading: "Product",
     links: [
-      { label: "Calling" },
-      { label: "Text messaging" },
-      { label: "Phone menu & routing" },
-      { label: "Shared numbers" },
+      { label: "Calling", to: "/calling" },
+      { label: "Text messaging", to: "/messaging" },
+      { label: "Phone menu & routing", to: "/phone-menu" },
+      { label: "Shared numbers", to: "/shared-numbers" },
       { label: "CRM", to: "/crm" },
-      { label: "Analytics & oversight" },
-      { label: "Sona AI agent" },
-      { label: "Integrations" },
-      { label: "Smartytel API" },
-
+      { label: "Analytics & oversight", to: "/analytics" },
+      { label: "Sona AI agent", to: "/ai-agent" },
+      { label: "Integrations", to: "/integrations" },
+      { label: "Smartytel API", to: "/developers" },
     ],
   },
   {
     heading: "Solutions",
     links: [
-      { label: "Home services" },
-      { label: "Law firms" },
-      { label: "Property management" },
-      { label: "Healthcare" },
-      { label: "Startups" },
-      { label: "Small business" },
-      { label: "Sales teams" },
-      { label: "Support teams" },
+      { label: "Home services", to: "/solutions/home-services" },
+      { label: "Law firms", to: "/solutions/law-firms" },
+      { label: "Property management", to: "/solutions/property-management" },
+      { label: "Healthcare", to: "/solutions/healthcare" },
+      { label: "Startups", to: "/solutions/startups" },
+      { label: "Small business", to: "/solutions/small-business" },
+      { label: "Sales teams", to: "/solutions/sales" },
+      { label: "Support teams", to: "/solutions/support" },
     ],
   },
   {
     heading: "Resources",
     links: [
-      { label: "Blog" },
-      { label: "Guides" },
-      { label: "Help center" },
-      { label: "Number porting" },
-      { label: "Coverage & countries" },
-      { label: "Release notes" },
-      { label: "Status" },
+      { label: "Blog", to: "/blog" },
+      { label: "Guides", to: "/resources" },
+      { label: "Developer docs", to: "/docs" },
+      { label: "Number porting", to: "/port-your-number" },
+      { label: "Customers", to: "/customers" },
+      { label: "Product demo", to: "/demo" },
+      { label: "Status", to: "/status" },
     ],
   },
   {
     heading: "Company",
     links: [
-      { label: "About us" },
-      { label: "Careers" },
-      { label: "Partners" },
-      { label: "Contact sales" },
+      { label: "About us", to: "/about" },
+      { label: "Careers", to: "/careers" },
+      { label: "Partners", to: "/partners" },
+      { label: "Contact sales", to: "/contact" },
       { label: "Pricing", to: "/pricing" },
     ],
   },
 ];
+
 
 const regions = [
   "United States",
@@ -93,12 +93,12 @@ export function SiteFooter() {
               One business phone for your whole team — with local and toll-free numbers across the
               US, Canada, the UK and every European country.
             </p>
-            <a
-              href="/pricing"
+            <Link
+              to="/pricing"
               className="mt-6 inline-flex rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
             >
               Start free trial
-            </a>
+            </Link>
           </div>
 
           <nav className="grid grid-cols-2 gap-8 sm:grid-cols-4" aria-label="Footer">
@@ -115,9 +115,7 @@ export function SiteFooter() {
                           {link.label}
                         </Link>
                       ) : (
-                        <a href="#features" className="transition-colors hover:text-foreground">
-                          {link.label}
-                        </a>
+                        <span className="text-muted-foreground/70">{link.label}</span>
                       )}
                     </li>
                   ))}
@@ -142,10 +140,10 @@ export function SiteFooter() {
         <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-8 text-sm text-muted-foreground">
           <span>© {new Date().getFullYear()} Smartytel. All rights reserved.</span>
           <span className="flex flex-wrap gap-5">
-            <a href="#features" className="hover:text-foreground">Privacy</a>
-            <a href="#features" className="hover:text-foreground">Terms</a>
-            <a href="#features" className="hover:text-foreground">GDPR</a>
-            <a href="#features" className="hover:text-foreground">Security</a>
+            <Link to="/privacy" className="hover:text-foreground">Privacy</Link>
+            <Link to="/terms" className="hover:text-foreground">Terms</Link>
+            <Link to="/gdpr" className="hover:text-foreground">GDPR</Link>
+            <Link to="/security" className="hover:text-foreground">Security</Link>
           </span>
         </div>
       </div>

@@ -1,27 +1,28 @@
-# Hostinger deploys the repo root into public_html.
-# The built static site lives in the public_html/ folder of this repo,
-# so serve everything from there.
+# Hostinger serves this repository from the domain document root, so the built
+# static site lives at the repo root (index.html + assets/ + page folders).
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # Don't rewrite requests that already point inside public_html/
-  RewriteCond %{REQUEST_URI} ^/public_html/ [OR]
   RewriteCond %{REQUEST_URI} ^/\.well-known/
   RewriteRule ^ - [L]
 
-  # Serve existing files/folders from public_html/
-  RewriteCond %{DOCUMENT_ROOT}/public_html%{REQUEST_URI} -f [OR]
-  RewriteCond %{DOCUMENT_ROOT}/public_html%{REQUEST_URI} -d
-  RewriteRule ^(.*)$ /public_html/$1 [L]
+  # Serve real files and directories as-is
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
 
-  # SPA fallback: everything else goes to the built index.html
-  RewriteRule ^ /public_html/index.html [L]
+  # Pretty URLs: /pricing -> /pricing/index.html when prerendered
+  RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
+  RewriteRule ^(.+?)/?$ /$1/index.html [L]
+
+  # Fallback for client-side routes
+  RewriteRule ^ /index.html [L]
 </IfModule>
 
-DirectoryIndex public_html/index.html index.html
+DirectoryIndex index.html
 
 # Block access to source files that get deployed alongside the build
-<FilesMatch "\.(ts|tsx|json|lockb?|toml|md|yml|yaml)$">
+<FilesMatch "\.(ts|tsx|lockb?|toml|md|yml|yaml)$">
   Require all denied
 </FilesMatch>
 RedirectMatch 403 ^/(src|node_modules|\.github|dist)/

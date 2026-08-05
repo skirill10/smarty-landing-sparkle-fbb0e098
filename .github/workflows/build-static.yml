@@ -25,17 +25,17 @@ jobs:
           STATIC_EXPORT: "1"
         run: bun run build
 
-      - name: Sync build output into public_html
+      - name: Sync build output into the repo root
         run: |
           rm -rf public_html
-          mkdir -p public_html
-          cp -r dist/client/. public_html/
+          rm -rf assets
+          cp -r dist/client/. ./
 
-      - name: Commit public_html if changed
+      - name: Commit build output if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add public_html
+          git add -A -- . ':!node_modules' ':!dist'
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
