@@ -553,6 +553,7 @@ function Landing() {
 
         <IntegrationsSection />
 
+        <HeyAiSection />
 
         {/* CTA */}
         <CtaBand />
