@@ -1,10 +1,21 @@
 import { useEffect, useState } from "react";
 import { Sparkles, X } from "lucide-react";
+import { useAnnouncement } from "@/lib/cms-content";
 
 const STORAGE_KEY = "smartytel-announcement-closed";
 
+const FALLBACK = {
+  enabled: true,
+  message: "Introducing Smarty AI Assist: No missed calls, no missed customers.",
+  primaryLabel: "Experience AI",
+  primaryUrl: "/ai-agent",
+  secondaryLabel: "RSVP webinar",
+  secondaryUrl: "/demo",
+};
+
 export function AnnouncementBar() {
   const [dismissed, setDismissed] = useState(false);
+  const content = useAnnouncement(FALLBACK);
 
   useEffect(() => {
     try {
@@ -25,7 +36,7 @@ export function AnnouncementBar() {
     }
   };
 
-  if (dismissed) return null;
+  if (dismissed || !content.enabled) return null;
 
   return (
     <div
@@ -37,20 +48,20 @@ export function AnnouncementBar() {
           <span className="flex size-7 items-center justify-center rounded-lg bg-gradient-to-br from-brand-pink to-brand-magenta shadow-sm">
             <Sparkles className="size-4 text-brand-foreground" aria-hidden="true" />
           </span>
-          <span className="font-medium">Introducing Smarty AI Assist: No missed calls, no missed customers.</span>
+          <span className="font-medium">{content.message}</span>
         </span>
         <span className="flex shrink-0 flex-wrap items-center gap-2">
           <a
-            href="/ai-agent"
+            href={content.primaryUrl}
             className="rounded-[6px] bg-dark px-4 py-2 text-xs font-semibold text-dark-foreground transition-colors hover:bg-dark/90"
           >
-            Experience AI
+            {content.primaryLabel}
           </a>
           <a
-            href="/demo"
+            href={content.secondaryUrl}
             className="rounded-[6px] border border-brand-foreground/40 px-4 py-2 text-xs font-semibold text-brand-foreground transition-colors hover:bg-brand-foreground/10"
           >
-            RSVP webinar
+            {content.secondaryLabel}
           </a>
         </span>
       </div>
