@@ -14,6 +14,7 @@ type RatesFiltersProps = RatesFilterState & {
   onChange: (patch: Partial<RatesFilterState>) => void;
   resultsLabel: string;
   onReset: () => void;
+  currencyHint?: string | undefined;
 };
 
 const services: (DestinationType | "all")[] = ["all", "landline", "mobile", "sms"];
@@ -26,6 +27,7 @@ export function RatesFilters({
   onChange,
   resultsLabel,
   onReset,
+  currencyHint,
 }: RatesFiltersProps) {
   return (
     <div className="rounded-2xl border border-border bg-card p-6">
@@ -52,7 +54,11 @@ export function RatesFilters({
           </select>
         </div>
 
-        <CurrencySelector value={currency} onChange={(value) => onChange({ currency: value })} />
+        <CurrencySelector
+          value={currency}
+          onChange={(value) => onChange({ currency: value })}
+          hint={currencyHint}
+        />
       </div>
 
       <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-5">

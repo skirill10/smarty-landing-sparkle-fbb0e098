@@ -82,6 +82,20 @@ export const Route = createFileRoute("/rates/$countrySlug")({
 function CountryRatesPage() {
   const { countrySlug } = Route.useParams();
   const [currency, setCurrency] = useState<CurrencyCode>("EUR");
+  const [autoCurrency, setAutoCurrency] = useState(true);
+
+  // Pick the visitor's currency once on the client; a manual change sticks.
+  useEffect(() => {
+    const { currency: detectedCurrency, source } = detectCurrency();
+    if (source !== "default") setCurrency(detectedCurrency);
+    setAutoCurrency(source === "location");
+  }, []);
+
+  const changeCurrency = (value: CurrencyCode) => {
+    setCurrency(value);
+    setAutoCurrency(false);
+    saveCurrency(value);
+  };
 
   const { data: country } = useSuspenseQuery(ratesQueries.country(countrySlug));
   const ratesQuery = useQuery({
@@ -131,7 +145,16 @@ function CountryRatesPage() {
                 ) : null}
               </div>
               <div className="w-full max-w-[200px]">
-                <CurrencySelector value={currency} onChange={setCurrency} id="country-currency" />
+                <CurrencySelector
+                  value={currency}
+                  onChange={changeCurrency}
+                  id="country-currency"
+                  hint={
+                    autoCurrency
+                      ? `Showing ${CURRENCY_LABELS[currency]} based on your region.`
+                      : undefined
+                  }
+                />
               </div>
             </div>
           </div>

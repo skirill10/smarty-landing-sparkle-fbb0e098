@@ -17,6 +17,8 @@ import { RatesDisclaimer } from "@/features/rates/components/RatesDisclaimer";
 import { RatesFAQ } from "@/features/rates/components/RatesFAQ";
 import { EmptyState, ErrorState, LoadingState } from "@/features/rates/components/States";
 import { DEFAULT_PAGE_SIZE } from "@/features/rates/api/ratesRepository";
+import { detectCurrency, saveCurrency } from "@/features/rates/utils/detectCurrency";
+import { CURRENCY_LABELS, isCurrencyCode } from "@/features/rates/utils/format";
 import type { CurrencyCode, DestinationType, RatesSort, Region } from "@/features/rates/types";
 
 const CANONICAL = "https://smarty-landing-sparkle.lovable.app/rates";
@@ -25,7 +27,7 @@ const searchSchema = z.object({
   q: fallback(z.string(), "").default(""),
   region: fallback(z.string(), "all").default("all"),
   service: fallback(z.string(), "all").default("all"),
-  currency: fallback(z.string(), "EUR").default("EUR"),
+  currency: fallback(z.string(), "auto").default("auto"),
   sort: fallback(z.string(), "name-asc").default("name-asc"),
   page: fallback(z.number().int(), 1).default(1),
 });
@@ -33,7 +35,6 @@ const searchSchema = z.object({
 const REGION_VALUES = ["all", "europe", "north-america", "south-america", "asia", "africa", "oceania"];
 const SERVICE_VALUES = ["all", "landline", "mobile", "sms"];
 const SORT_VALUES = ["name-asc", "name-desc", "price-asc", "price-desc"];
-const CURRENCY_VALUES = ["EUR", "USD", "GBP"];
 
 export const Route = createFileRoute("/rates/")({
   validateSearch: zodValidator(searchSchema),
@@ -93,7 +94,19 @@ function RatesIndexPage() {
   const region = (REGION_VALUES.includes(search.region) ? search.region : "all") as Region | "all";
   const service = (SERVICE_VALUES.includes(search.service) ? search.service : "all") as DestinationType | "all";
   const sort = (SORT_VALUES.includes(search.sort) ? search.sort : "name-asc") as RatesSort;
-  const currency = (CURRENCY_VALUES.includes(search.currency) ? search.currency : "EUR") as CurrencyCode;
+  // "auto" means: resolve from the visitor's saved choice or their region.
+  const explicitCurrency = isCurrencyCode(search.currency) ? search.currency : null;
+  const [detected, setDetected] = useState<{ currency: CurrencyCode; source: string } | null>(null);
+  const currency: CurrencyCode = explicitCurrency ?? detected?.currency ?? "EUR";
+  const currencyHint =
+    !explicitCurrency && detected?.source === "location"
+      ? `Showing ${CURRENCY_LABELS[currency]} based on your region — change it any time.`
+      : undefined;
+
+  useEffect(() => {
+    if (explicitCurrency) return;
+    setDetected(detectCurrency());
+  }, [explicitCurrency]);
   const page = Math.max(1, Math.min(50, search.page));
 
   const [term, setTerm] = useState(search.q.slice(0, 60));
@@ -109,7 +122,8 @@ function RatesIndexPage() {
   const listQuery = useQuery(
     ratesQueries.list({ search: debouncedTerm, region, service, sort, page, limit: DEFAULT_PAGE_SIZE }),
   );
-  const featuredQuery = useQuery(ratesQueries.list({ region: "all", sort: "name-asc", limit: 8, page: 1 }));
+  // Wide page size so the featured subset is drawn from every destination.
+  const featuredQuery = useQuery(ratesQueries.list({ region: "all", sort: "name-asc", limit: 100, page: 1 }));
   const faqQuery = useQuery(ratesQueries.faqs());
 
   const rows = listQuery.data?.docs ?? [];
@@ -125,8 +139,12 @@ function RatesIndexPage() {
     ? "Loading destinations…"
     : `${total} destination${total === 1 ? "" : "s"}`;
 
-  const update = (patch: Record<string, string | number>) =>
+  const update = (patch: Record<string, string | number>) => {
+    if (typeof patch['currency'] === "string" && isCurrencyCode(patch['currency'])) {
+      saveCurrency(patch['currency']);
+    }
     navigate({ to: "/rates", search: { ...search, ...patch, page: 1 } });
+  };
 
   const reset = () => {
     setTerm("");
@@ -202,6 +220,7 @@ function RatesIndexPage() {
               sort={sort}
               resultsLabel={resultsLabel}
               onReset={reset}
+              currencyHint={currencyHint}
               onChange={(patch) => update(patch as Record<string, string>)}
             />
           </div>
