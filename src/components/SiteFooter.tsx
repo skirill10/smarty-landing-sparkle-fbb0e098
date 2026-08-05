@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import * as si from "simple-icons";
 import mark from "@/assets/smartytel-mark.png";
-import { useFooterContent } from "@/lib/cms-content";
+import { useFooterContent, useSocialLinks } from "@/lib/cms-content";
 
 /** LinkedIn's mark isn't shipped by simple-icons, so its path is inlined. */
 const linkedinPath =
@@ -99,6 +99,7 @@ const fallbackNote =
   "One business phone for your whole team \u2014 with local and toll-free numbers across the US, Canada, the UK and every European country.";
 
 export function SiteFooter() {
+  const socials = useSocialLinks(fallbackSocials);
   const { columns, regions, note } = useFooterContent({
     columns: fallbackColumns,
     regions: fallbackRegions,
