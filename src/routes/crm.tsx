@@ -130,7 +130,7 @@ function CrmPage() {
                 </Link>
                 <Link
                   to="/pricing"
-                  className="inline-flex items-center rounded-xl border border-border px-5 py-3 font-semibold transition-colors hover:bg-secondary"
+                  className="inline-flex items-center rounded-md border border-border px-5 py-3 font-semibold transition-colors hover:bg-secondary"
                 >
                   See pricing
                 </Link>
