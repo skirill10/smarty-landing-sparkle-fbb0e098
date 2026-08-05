@@ -236,7 +236,7 @@ function RatesIndexPage() {
                   <button
                     type="button"
                     onClick={reset}
-                    className="rounded-xl bg-foreground px-5 py-2.5 text-sm font-semibold text-background"
+                    className="rounded-md bg-foreground px-5 py-2.5 text-sm font-semibold text-background"
                   >
                     Clear filters
                   </button>
