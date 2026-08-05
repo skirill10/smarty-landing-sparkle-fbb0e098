@@ -99,22 +99,115 @@ const plans: Plan[] = [
   },
 ];
 
-const addOns: [string, string, string][] = [
-  ["Extra phone number", "$15 /number /mo", "Local or toll-free numbers priced country by country across the US, Canada, the UK and Europe."],
-  ["Number porting", "$5 one-time", "Bring your existing US, Canadian or European number with you."],
-  ["IVR phone menu", "$1.50 /mo", "Multi-level menus that send every caller to the right team."],
-  ["Call recording", "$1.50 /mo", "Record, store and replay calls for coaching and compliance."],
-  ["Call hunting", "$0.50 /mo", "Ring the whole team in order until someone picks up."],
-  ["Call forwarding", "$1.50 /mo", "Send calls to mobiles, landlines or other countries."],
-  ["AI assistance", "$3.50 /mo", "AI answers, qualifies and helps your team while they are busy."],
-  ["Transcribe & summarise calls", "$2.50 /mo", "Every call written up with next steps, in any supported language."],
-  ["Help desk (ticketing)", "$5 /user /mo", "Turn calls, SMS and chats into trackable tickets."],
-  ["Connect center (CRM)", "$10 /user /mo", "Contacts, pipelines and history alongside every conversation."],
-  ["Advanced analytics", "$15 /mo", "Custom reports, exports and live wallboards."],
-  ["Integration flows (Slack, email)", "$10 /mo", "Push calls, notes and alerts into the tools you already use."],
-  ["Historical reports beyond 3 months", "$30 /mo", "Long-term call detail records for audits and QA."],
-  ["Custom telephony automated flows", "$50 one-time", "We build bespoke routing and automation for your operation."],
+type AddOn = {
+  name: string;
+  icon: typeof Check;
+  price?: string;
+  unit?: string;
+  note?: string;
+  linkLabel?: string;
+};
+
+const addOns: AddOn[] = [
+  {
+    name: "Additional phone numbers",
+    icon: PhonePlusIconPlaceholder,
+    price: "15",
+    unit: "Per number, per month\nPriced country by country",
+  },
+  {
+    name: "International calling and messaging",
+    icon: Globe,
+    note: "Per minute or per message rate based on the destination across the US, Canada, the UK and Europe.",
+    linkLabel: "See rates",
+  },
+  {
+    name: "Number porting",
+    icon: ArrowLeftRight,
+    price: "5",
+    unit: "One-time, per number\nKeep your existing number",
+  },
+  {
+    name: "IVR phone menu",
+    icon: ListTree,
+    price: "1.50",
+    unit: "Per month\nMulti-level auto-attendant",
+  },
+  {
+    name: "Call recording",
+    icon: Mic,
+    price: "1.50",
+    unit: "Per month\nStore and replay every call",
+  },
+  {
+    name: "Call hunting",
+    icon: Users,
+    price: "0.50",
+    unit: "Per month\nRing the team in order",
+  },
+  {
+    name: "Call forwarding",
+    icon: PhoneForwarded,
+    price: "1.50",
+    unit: "Per month\nMobiles, landlines, other countries",
+  },
+  {
+    name: "AI assistance",
+    icon: Bot,
+    price: "3.50",
+    unit: "Per month\nAI answers and qualifies",
+  },
+  {
+    name: "Transcribe and summarise calls",
+    icon: FileText,
+    price: "2.50",
+    unit: "Per month\nEvery call written up",
+  },
+  {
+    name: "Help desk (trouble ticketing)",
+    icon: LifeBuoy,
+    price: "5",
+    unit: "Per user, per month\nTickets, SLAs, case management",
+  },
+  {
+    name: "Connect center (CRM)",
+    icon: Building2,
+    price: "10",
+    unit: "Per user, per month\nContacts, leads, pipelines",
+    linkLabel: "Explore CRM",
+  },
+  {
+    name: "Advanced analytics",
+    icon: BarChart3,
+    price: "15",
+    unit: "Per month\nCustom reports and wallboards",
+  },
+  {
+    name: "Integration flows (Slack, email)",
+    icon: Plug,
+    price: "10",
+    unit: "Per month\nPush calls into your tools",
+  },
+  {
+    name: "Historical call reports beyond 3 months",
+    icon: History,
+    price: "30",
+    unit: "Per month\nLong-term call detail records",
+  },
+  {
+    name: "Custom telephony automated flows",
+    icon: Workflow,
+    price: "50",
+    unit: "One-time setup\nBespoke routing built for you",
+  },
+  {
+    name: "Automated SMS (API, Zapier, Make)",
+    icon: Zap,
+    price: "0.01",
+    unit: "Per outgoing text message",
+  },
 ];
+
 
 const aiTiers: [string, string, string, string][] = [
   ["Tier 1", "$0 /mo", "10 AI calls", "$1.00 per extra call"],
