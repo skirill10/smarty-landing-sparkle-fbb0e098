@@ -248,7 +248,7 @@ function CountryRatesPage() {
                       <Link
                         to="/rates/$countrySlug"
                         params={{ countrySlug: item.slug }}
-                        className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-semibold transition-colors hover:border-foreground"
+                        className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-4 py-2 text-sm font-semibold transition-colors hover:border-foreground"
                       >
                         <CountryFlag iso2={item.iso2} name={item.name} flagUrl={item.flagUrl} />
                         {item.name}
