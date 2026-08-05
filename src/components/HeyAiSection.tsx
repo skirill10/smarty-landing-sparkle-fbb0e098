@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { Bot, ExternalLink } from "lucide-react";
 
 const PROMPT =
