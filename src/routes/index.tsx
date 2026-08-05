@@ -327,7 +327,7 @@ function StoriesSlider({ items }: { items: typeof stories }) {
                   </div>
                   <a
                     href="#features"
-                    className="mt-8 inline-flex w-fit items-center gap-2 rounded-md bg-brand px-5 py-2.5 text-sm font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
+                    className="mt-8 inline-flex w-fit items-center gap-2 rounded-md bg-brand px-5 py-2.5 text-sm font-semibold text-brand-foreground transition-all hover:-translate-y-0.5 hover:bg-dark hover:text-dark-foreground"
                   >
                     {t("Read the story")}
                     <ArrowRight className="size-4" aria-hidden="true" />
@@ -403,13 +403,13 @@ function Landing() {
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
             <a
               href="/pricing"
-              className="rounded-md bg-brand px-6 py-3 font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
+              className="rounded-md bg-brand px-6 py-3 font-semibold text-brand-foreground transition-all hover:-translate-y-0.5 hover:bg-dark hover:text-dark-foreground"
             >
               {t(hero.primaryCta)}
             </a>
             <a
               href="#features"
-              className="inline-flex items-center gap-2 rounded-md px-4 py-3 font-medium text-foreground transition-colors hover:bg-secondary"
+              className="inline-flex items-center gap-2 rounded-md px-4 py-3 font-medium text-foreground transition-colors hover:bg-dark hover:text-dark-foreground"
             >
               <Play className="size-4" aria-hidden="true" />
               {t(hero.secondaryCta)}

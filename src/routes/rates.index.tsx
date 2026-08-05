@@ -285,7 +285,7 @@ function RatesIndexPage() {
             <div className="flex flex-wrap gap-3">
               <Link
                 to={content.primaryCtaUrl}
-                className="inline-flex items-center gap-2 rounded-md bg-brand px-6 py-3 text-sm font-semibold text-brand-foreground"
+                className="inline-flex items-center gap-2 rounded-md bg-brand px-6 py-3 text-sm font-semibold text-brand-foreground transition-colors hover:bg-dark hover:text-dark-foreground"
               >
                 {content.primaryCtaLabel}
                 <ArrowRight className="size-4" aria-hidden="true" />
@@ -293,7 +293,7 @@ function RatesIndexPage() {
               {content.secondaryCtaLabel && content.secondaryCtaUrl ? (
                 <Link
                   to={content.secondaryCtaUrl}
-                  className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-6 py-3 text-sm font-semibold"
+                  className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-6 py-3 text-sm font-semibold transition-colors hover:bg-dark hover:text-dark-foreground"
                 >
                   {content.secondaryCtaLabel}
                 </Link>

@@ -15,8 +15,8 @@ function ActionCard({ to, hash, label, tone }: ActionCardProps) {
     <Link
       to={to}
       {...(hash ? { hash } : {})}
-      className={`group relative flex h-40 w-full flex-col justify-end rounded-md p-6 transition-transform hover:-translate-y-1 sm:w-56 ${
-        dark ? "bg-dark text-dark-foreground" : "bg-light-grey text-foreground"
+      className={`group relative flex h-40 w-full flex-col justify-end rounded-md p-6 transition-all hover:-translate-y-1 sm:w-56 ${
+        dark ? "bg-dark text-dark-foreground" : "bg-light-grey text-foreground hover:bg-dark hover:text-dark-foreground"
       }`}
     >
       <span className="absolute right-6 top-6 grid size-11 place-items-center rounded-md bg-brand text-brand-foreground">

@@ -219,13 +219,13 @@ export function SiteHeader() {
           </a>
           <a
             href="/pricing#talk-to-sales"
-            className="hidden rounded-md border border-border px-4 py-2 text-sm font-semibold transition-colors hover:bg-secondary sm:block"
+            className="hidden rounded-md border border-border px-4 py-2 text-sm font-semibold transition-colors hover:bg-dark hover:text-dark-foreground sm:block"
           >
             {t("Talk to sales")}
           </a>
           <a
             href="/pricing"
-            className="rounded-md bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
+            className="rounded-md bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground transition-all hover:-translate-y-0.5 hover:bg-dark hover:text-dark-foreground"
           >
             {t("Try for free")}
           </a>
@@ -266,7 +266,7 @@ export function SiteHeader() {
                       </div>
                       <a
                         href="/pricing"
-                        className="inline-flex items-center gap-1.5 rounded-md bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground"
+                        className="inline-flex items-center gap-1.5 rounded-md bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground transition-colors hover:bg-dark hover:text-dark-foreground"
                       >
                         Set up your number <ArrowRight className="size-4" />
                       </a>

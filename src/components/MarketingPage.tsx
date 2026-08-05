@@ -47,13 +47,13 @@ export function MarketingPage({ content, slug }: { content: MarketingContent; sl
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               to="/pricing"
-              className="inline-flex items-center gap-2 rounded-md bg-brand px-6 py-3 text-sm font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 rounded-md bg-brand px-6 py-3 text-sm font-semibold text-brand-foreground transition-all hover:-translate-y-0.5 hover:bg-dark hover:text-dark-foreground"
             >
               {t("Start free trial")} <ArrowRight className="size-4" />
             </Link>
             <Link
               to="/pricing"
-              className="inline-flex items-center rounded-md border border-border px-6 py-3 text-sm font-semibold transition-colors hover:bg-secondary"
+              className="inline-flex items-center rounded-md border border-border px-6 py-3 text-sm font-semibold transition-colors hover:bg-dark hover:text-dark-foreground"
             >
               {t("See pricing")}
             </Link>
