@@ -11,7 +11,7 @@ echo "== Smoke testing $URL"
 
 # 1) Page returns 200 (following redirects) and no /public_html/ in the final URL.
 read -r STATUS FINAL_URL < <(
-  curl -sS -L --max-time 30 -o "$HTML" \
+  curl -sS -L --max-time 30 --compressed -o "$HTML" \
     -w '%{http_code} %{url_effective}\n' "$URL" || echo "000 -"
 )
 
@@ -30,7 +30,7 @@ case "$FINAL_URL" in
     ;;
 esac
 
-if ! grep -qi '<div id="root"\|<!DOCTYPE html' "$HTML"; then
+if ! grep -aqi '<div id="root"\|<!DOCTYPE html' "$HTML"; then
   echo "::error::Response body does not look like the app shell"
   FAILED=1
 fi
@@ -40,7 +40,7 @@ BASE="${FINAL_URL%/*}/"
 ORIGIN="$(printf '%s' "$FINAL_URL" | awk -F/ '{print $1"//"$3}')"
 
 ASSETS="$(
-  grep -oE '(src|href)="[^"]+"' "$HTML" \
+  grep -aoE '(src|href)="[^"]+"' "$HTML" \
     | sed -E 's/^(src|href)="//; s/"$//' \
     | grep -vE '^(#|mailto:|tel:|data:|javascript:)' \
     | grep -vE '^https?://' \
