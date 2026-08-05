@@ -54,7 +54,7 @@ const fallbackMenus: MenuDef[] = [
       {
         heading: "Automate",
         items: [
-          { label: "Sona AI agent", icon: Bot, to: "/ai-agent" },
+          { label: "Smarty AI Assist", icon: Bot, to: "/ai-agent" },
           { label: "Integrations", icon: Plug, to: "/integrations" },
           { label: "Smartytel API", icon: Terminal, to: "/developers" },
         ],

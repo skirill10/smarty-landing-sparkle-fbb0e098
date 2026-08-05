@@ -14,7 +14,7 @@ const fallbackColumns: Column[] = [
       { label: "Shared numbers", to: "/shared-numbers" },
       { label: "CRM", to: "/crm" },
       { label: "Analytics & oversight", to: "/analytics" },
-      { label: "Sona AI agent", to: "/ai-agent" },
+      { label: "Smarty AI Assist", to: "/ai-agent" },
       { label: "Integrations", to: "/integrations" },
       { label: "Smartytel API", to: "/developers" },
     ],
