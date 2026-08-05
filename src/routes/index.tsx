@@ -29,6 +29,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { CtaBand } from "@/components/CtaBand";
 import { BuiltForSection } from "@/components/BuiltForSection";
 import { IntegrationsSection } from "@/components/IntegrationsSection";
+import { useHomeContent } from "@/lib/cms-content";
 
 import showcaseNumbers from "@/assets/showcase-numbers.jpg";
 import showcaseShared from "@/assets/showcase-shared.jpg";
@@ -257,6 +258,30 @@ const plans = [
 ];
 
 
+/** Bundled copy; the CMS overlays text on top of this at runtime. */
+const homeFallback = {
+  hero: {
+    rating: "4.8 stars",
+    reviews: "2,100+ reviews",
+    headline: "The business phone system that never misses a call",
+    sub: "Smartytel gives your team a shared business phone number and one inbox for every call, SMS and WhatsApp thread — with local numbers across the US, Canada, the UK and every European country, and an AI agent answering after hours.",
+    primaryCta: "Try for free",
+    secondaryCta: "See how it works (1:00)",
+    platforms: "Available on iOS, Android, macOS, Windows and Web",
+  },
+  logos: {
+    heading: "Powering conversations for 40,000+ businesses",
+    items: ["Northwind", "Kelso Realty", "Bright Dental", "Halden Legal", "Vera Health", "Junkaway"],
+  },
+  featureGroups,
+  showcaseHeading: "Everything a modern business phone system should do",
+  showcase,
+  storiesHeading: "Business phone stories from teams like yours",
+  storiesSub: "See how teams stay connected with customers.",
+  stories,
+  plans,
+};
+
 function StoriesSlider({ items }: { items: typeof stories }) {
   const [index, setIndex] = useState(0);
 
@@ -340,6 +365,18 @@ function StoriesSlider({ items }: { items: typeof stories }) {
 }
 
 function Landing() {
+  const {
+    hero,
+    logos,
+    featureGroups: featureGroupsContent,
+    showcaseHeading,
+    showcase: showcaseContent,
+    storiesHeading,
+    storiesSub,
+    stories: storiesContent,
+    plans: plansContent,
+  } = useHomeContent(homeFallback);
+
   return (
     <div className="min-h-screen bg-background font-sans text-foreground antialiased">
       <SiteHeader />
@@ -350,35 +387,33 @@ function Landing() {
         <section className="mx-auto max-w-6xl px-5 pt-16 text-center md:pt-24">
           <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
             <Star className="size-4 fill-accent text-accent" aria-hidden="true" />
-            <span className="font-semibold text-foreground">4.8 stars</span>
+            <span className="font-semibold text-foreground">{hero.rating}</span>
             <span aria-hidden="true">|</span>
-            <span>2,100+ reviews</span>
+            <span>{hero.reviews}</span>
           </div>
           <h1 className="mx-auto mt-8 max-w-4xl font-display text-5xl font-bold leading-[0.95] tracking-tight md:text-7xl">
-            The business phone system that never misses a call
+            {hero.headline}
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-            Smartytel gives your team a shared business phone number and one inbox for every call,
-            SMS and WhatsApp thread — with local numbers across the US, Canada, the UK and every
-            European country, and an AI agent answering after hours.
+            {hero.sub}
           </p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
             <a
               href="/pricing"
               className="rounded-xl bg-brand px-6 py-3 font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
             >
-              Try for free
+              {hero.primaryCta}
             </a>
             <a
               href="#features"
               className="inline-flex items-center gap-2 rounded-xl px-4 py-3 font-medium text-foreground transition-colors hover:bg-secondary"
             >
               <Play className="size-4" aria-hidden="true" />
-              See how it works (1:00)
+              {hero.secondaryCta}
             </a>
           </div>
           <p className="mt-8 text-sm text-muted-foreground">
-            Available on iOS, Android, macOS, Windows and Web
+            {hero.platforms}
           </p>
 
           <div className="mt-14 rounded-3xl bg-surface p-3 md:p-8">
@@ -395,10 +430,10 @@ function Landing() {
         {/* Logos */}
         <section className="mx-auto max-w-6xl px-5 py-16">
           <p className="text-center text-sm font-medium text-muted-foreground">
-            Powering conversations for 40,000+ businesses
+            {logos.heading}
           </p>
           <div className="mt-8 grid grid-cols-2 gap-6 opacity-70 sm:grid-cols-3 md:grid-cols-6">
-            {["Northwind", "Kelso Realty", "Bright Dental", "Halden Legal", "Vera Health", "Junkaway"].map(
+            {logos.items.map(
               (name) => (
                 <div
                   key={name}
@@ -414,7 +449,7 @@ function Landing() {
         {/* Features */}
         <section id="features" className="border-y border-border bg-light-grey py-20 md:py-28">
           <div className="mx-auto max-w-6xl px-5">
-            {featureGroups.map(({ heading, cards }) => (
+            {featureGroupsContent.map(({ heading, cards }) => (
               <div key={heading} className="mt-14">
                 <h3 className="font-display text-2xl font-bold tracking-tight md:text-3xl">
                   {heading}
@@ -454,10 +489,10 @@ function Landing() {
         {/* Showcase bento */}
         <section className="mx-auto max-w-6xl px-5 py-20 md:py-28">
           <h2 className="max-w-2xl font-display text-4xl font-bold tracking-tight md:text-5xl">
-            Everything a modern business phone system should do
+            {showcaseHeading}
           </h2>
           <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {showcase.map(({ title, link, image, alt }) => (
+            {showcaseContent.map(({ title, link, image, alt }) => (
               <article
                 key={title}
                 className="flex flex-col overflow-hidden rounded-2xl bg-light-grey p-8"
@@ -490,12 +525,12 @@ function Landing() {
           <div className="mx-auto max-w-6xl px-5">
             <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
               <h2 className="max-w-2xl font-display text-4xl font-bold tracking-tight md:text-5xl">
-                Business phone stories from teams like yours
+                {storiesHeading}
               </h2>
-              <p className="text-dark-foreground/80">See how teams stay connected with customers.</p>
+              <p className="text-dark-foreground/80">{storiesSub}</p>
             </div>
             <div className="mt-12">
-              <StoriesSlider items={stories} />
+              <StoriesSlider items={storiesContent} />
             </div>
           </div>
         </section>
@@ -526,7 +561,7 @@ function Landing() {
             </p>
             <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
 
-              {plans.map((plan) => (
+              {plansContent.map((plan) => (
                 <article
                   key={plan.name}
                   className={
