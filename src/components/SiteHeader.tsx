@@ -152,7 +152,7 @@ function MegaPanel({ menu }: { menu: MenuDef }) {
               <li key={it.label}>
                 <a
                   href={it.to ?? "/pricing"}
-                  className="flex items-center gap-2.5 rounded-lg px-2 py-1.5 text-sm font-medium text-foreground/85 transition-colors hover:bg-secondary hover:text-foreground"
+                  className="flex items-center gap-2.5 rounded-md px-2 py-1.5 text-sm font-medium text-foreground/85 transition-colors hover:bg-secondary hover:text-foreground"
                 >
                   {it.icon ? (
                     <it.icon className="size-4 shrink-0 text-brand" strokeWidth={2} />
@@ -201,7 +201,7 @@ export function SiteHeader() {
           ))}
           <a
             href="/pricing"
-            className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             onMouseEnter={() => setOpen(null)}
           >
             Pricing
@@ -215,20 +215,20 @@ export function SiteHeader() {
           </a>
           <a
             href="/pricing#talk-to-sales"
-            className="hidden rounded-lg border border-border px-4 py-2 text-sm font-semibold transition-colors hover:bg-secondary sm:block"
+            className="hidden rounded-md border border-border px-4 py-2 text-sm font-semibold transition-colors hover:bg-secondary sm:block"
           >
             Talk to sales
           </a>
           <a
             href="/pricing"
-            className="rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
+            className="rounded-md bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
           >
             Try for free
           </a>
           <button
             type="button"
             aria-label="Toggle menu"
-            className="rounded-lg p-2 md:hidden"
+            className="rounded-md p-2 md:hidden"
             onClick={() => setMobile((v) => !v)}
           >
             {mobile ? <X className="size-5" /> : <Menu className="size-5" />}
@@ -262,7 +262,7 @@ export function SiteHeader() {
                       </div>
                       <a
                         href="/pricing"
-                        className="inline-flex items-center gap-1.5 rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground"
+                        className="inline-flex items-center gap-1.5 rounded-md bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground"
                       >
                         Set up your number <ArrowRight className="size-4" />
                       </a>
@@ -325,7 +325,7 @@ function MenuTrigger({
       aria-expanded={active}
       onMouseEnter={() => setOpen(menu.label)}
       onClick={() => setOpen(active ? null : menu.label)}
-      className={`flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+      className={`flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
         active ? "text-foreground" : "text-muted-foreground hover:text-foreground"
       }`}
     >

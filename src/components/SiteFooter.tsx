@@ -117,7 +117,7 @@ export function SiteFooter() {
             <p className="mt-4 max-w-xs text-sm text-muted-foreground">{note}</p>
             <Link
               to="/pricing"
-              className="mt-6 inline-flex rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
+              className="mt-6 inline-flex rounded-md bg-brand px-5 py-3 text-sm font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
             >
               Start free trial
             </Link>
@@ -170,7 +170,7 @@ export function SiteFooter() {
                   target="_blank"
                   rel="noreferrer noopener"
                   aria-label={`Smartytel on ${social.name}`}
-                  className="grid size-9 place-items-center rounded-full border border-border text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
+                  className="grid size-9 place-items-center rounded-md border border-border text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
                 >
                   <svg viewBox="0 0 24 24" className="size-4 fill-current" aria-hidden="true">
                     <path d={social.path} />

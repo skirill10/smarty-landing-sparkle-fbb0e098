@@ -124,13 +124,13 @@ function CrmPage() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   to="/pricing"
-                  className="inline-flex items-center gap-1.5 rounded-xl bg-brand px-5 py-3 font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-1.5 rounded-md bg-brand px-5 py-3 font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
                 >
                   Start free trial <ArrowRight className="size-4" />
                 </Link>
                 <Link
                   to="/pricing"
-                  className="inline-flex items-center rounded-xl border border-border px-5 py-3 font-semibold transition-colors hover:bg-secondary"
+                  className="inline-flex items-center rounded-md border border-border px-5 py-3 font-semibold transition-colors hover:bg-secondary"
                 >
                   See pricing
                 </Link>
@@ -197,7 +197,7 @@ function CrmPage() {
               </ul>
               <Link
                 to="/pricing"
-                className="mt-9 inline-flex items-center gap-1.5 rounded-xl bg-brand px-5 py-3 font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
+                className="mt-9 inline-flex items-center gap-1.5 rounded-md bg-brand px-5 py-3 font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
               >
                 Add CRM for $10 / user <ArrowRight className="size-4" />
               </Link>

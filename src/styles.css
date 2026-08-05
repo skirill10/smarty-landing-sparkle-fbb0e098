@@ -30,7 +30,7 @@
   --color-dark: var(--dark);
   --color-dark-foreground: var(--dark-foreground);
   --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
+  --radius-md: 6px;
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --radius-2xl: calc(var(--radius) + 8px);

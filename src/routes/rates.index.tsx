@@ -236,7 +236,7 @@ function RatesIndexPage() {
                   <button
                     type="button"
                     onClick={reset}
-                    className="rounded-xl bg-foreground px-5 py-2.5 text-sm font-semibold text-background"
+                    className="rounded-md bg-foreground px-5 py-2.5 text-sm font-semibold text-background"
                   >
                     Clear filters
                   </button>
@@ -253,7 +253,7 @@ function RatesIndexPage() {
                 type="button"
                 disabled={page <= 1}
                 onClick={() => navigate({ to: "/rates", search: { ...search, page: page - 1 } })}
-                className="rounded-xl border border-border px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-secondary disabled:cursor-not-allowed disabled:opacity-40"
+                className="rounded-md border border-border px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-secondary disabled:cursor-not-allowed disabled:opacity-40"
               >
                 Previous
               </button>
@@ -264,7 +264,7 @@ function RatesIndexPage() {
                 type="button"
                 disabled={page >= totalPages}
                 onClick={() => navigate({ to: "/rates", search: { ...search, page: page + 1 } })}
-                className="rounded-xl border border-border px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-secondary disabled:cursor-not-allowed disabled:opacity-40"
+                className="rounded-md border border-border px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-secondary disabled:cursor-not-allowed disabled:opacity-40"
               >
                 Next
               </button>
@@ -285,7 +285,7 @@ function RatesIndexPage() {
             <div className="flex flex-wrap gap-3">
               <Link
                 to={content.primaryCtaUrl}
-                className="inline-flex items-center gap-2 rounded-xl bg-brand px-6 py-3 text-sm font-semibold text-brand-foreground"
+                className="inline-flex items-center gap-2 rounded-md bg-brand px-6 py-3 text-sm font-semibold text-brand-foreground"
               >
                 {content.primaryCtaLabel}
                 <ArrowRight className="size-4" aria-hidden="true" />
@@ -293,7 +293,7 @@ function RatesIndexPage() {
               {content.secondaryCtaLabel && content.secondaryCtaUrl ? (
                 <Link
                   to={content.secondaryCtaUrl}
-                  className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-6 py-3 text-sm font-semibold"
+                  className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-6 py-3 text-sm font-semibold"
                 >
                   {content.secondaryCtaLabel}
                 </Link>

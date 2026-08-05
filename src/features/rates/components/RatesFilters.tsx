@@ -75,7 +75,7 @@ export function RatesFilters({
                   type="button"
                   aria-pressed={active}
                   onClick={() => onChange({ service: item })}
-                  className={`rounded-full border px-4 py-2 text-sm font-semibold transition-colors focus-visible:ring-2 focus-visible:ring-brand/40 ${
+                  className={`rounded-md border px-4 py-2 text-sm font-semibold transition-colors focus-visible:ring-2 focus-visible:ring-brand/40 ${
                     active
                       ? "border-foreground bg-foreground text-background"
                       : "border-border text-muted-foreground hover:bg-secondary"

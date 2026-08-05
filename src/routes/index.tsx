@@ -325,7 +325,7 @@ function StoriesSlider({ items }: { items: typeof stories }) {
                   </div>
                   <a
                     href="#features"
-                    className="mt-8 inline-flex w-fit items-center gap-2 rounded-xl bg-brand px-5 py-2.5 text-sm font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
+                    className="mt-8 inline-flex w-fit items-center gap-2 rounded-md bg-brand px-5 py-2.5 text-sm font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
                   >
                     Read the story
                     <ArrowRight className="size-4" aria-hidden="true" />
@@ -346,7 +346,7 @@ function StoriesSlider({ items }: { items: typeof stories }) {
           <button
             type="button"
             onClick={prev}
-            className="rounded-full border border-dark-foreground/20 p-2 text-dark-foreground transition-colors hover:bg-dark-foreground/10"
+            className="rounded-md border border-dark-foreground/20 p-2 text-dark-foreground transition-colors hover:bg-dark-foreground/10"
             aria-label="Previous story"
           >
             <ChevronLeft className="size-5" aria-hidden="true" />
@@ -354,7 +354,7 @@ function StoriesSlider({ items }: { items: typeof stories }) {
           <button
             type="button"
             onClick={next}
-            className="rounded-full border border-dark-foreground/20 p-2 text-dark-foreground transition-colors hover:bg-dark-foreground/10"
+            className="rounded-md border border-dark-foreground/20 p-2 text-dark-foreground transition-colors hover:bg-dark-foreground/10"
             aria-label="Next story"
           >
             <ChevronRight className="size-5" aria-hidden="true" />
@@ -400,13 +400,13 @@ function Landing() {
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
             <a
               href="/pricing"
-              className="rounded-xl bg-brand px-6 py-3 font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
+              className="rounded-md bg-brand px-6 py-3 font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
             >
               {hero.primaryCta}
             </a>
             <a
               href="#features"
-              className="inline-flex items-center gap-2 rounded-xl px-4 py-3 font-medium text-foreground transition-colors hover:bg-secondary"
+              className="inline-flex items-center gap-2 rounded-md px-4 py-3 font-medium text-foreground transition-colors hover:bg-secondary"
             >
               <Play className="size-4" aria-hidden="true" />
               {hero.secondaryCta}

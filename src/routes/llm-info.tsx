@@ -160,7 +160,7 @@ function LlmInfoPage() {
               <li key={link.to}>
                 <Link
                   to={link.to}
-                  className="flex items-baseline justify-between gap-4 rounded-xl border border-border bg-card px-5 py-4 transition-colors hover:border-foreground"
+                  className="flex items-baseline justify-between gap-4 rounded-md border border-border bg-card px-5 py-4 transition-colors hover:border-foreground"
                 >
                   <span className="font-semibold">{link.label}</span>
                   <span className="text-right text-xs text-muted-foreground">{link.note}</span>

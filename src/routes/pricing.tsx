@@ -451,7 +451,7 @@ function TalkToSalesSection() {
               </label>
               <button
                 type="submit"
-                className="sm:col-span-2 rounded-xl bg-brand px-5 py-3 font-semibold text-brand-foreground"
+                className="sm:col-span-2 rounded-md bg-brand px-5 py-3 font-semibold text-brand-foreground"
               >
                 Request a call
               </button>
@@ -497,11 +497,11 @@ function PricingPage() {
           </p>
 
 
-          <div className="mt-9 inline-flex items-center gap-1 rounded-full border border-border bg-card p-1">
+          <div className="mt-9 inline-flex items-center gap-1 rounded-md border border-border bg-card p-1">
             <button
               type="button"
               onClick={() => setAnnual(true)}
-              className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
+              className={`rounded-md px-4 py-2 text-sm font-semibold transition-colors ${
                 annual ? "bg-brand text-brand-foreground" : "text-muted-foreground"
               }`}
             >
@@ -510,7 +510,7 @@ function PricingPage() {
             <button
               type="button"
               onClick={() => setAnnual(false)}
-              className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
+              className={`rounded-md px-4 py-2 text-sm font-semibold transition-colors ${
                 annual ? "text-muted-foreground" : "bg-brand text-brand-foreground"
               }`}
             >
@@ -551,8 +551,8 @@ function PricingPage() {
                   href={plan.cta === "Talk to sales" ? "#talk-to-sales" : "/pricing"}
                   className={
                     plan.featured
-                      ? "mt-7 block rounded-xl bg-brand px-4 py-3 text-center font-semibold text-brand-foreground"
-                      : "mt-7 block rounded-xl border border-border px-4 py-3 text-center font-semibold transition-colors hover:bg-secondary"
+                      ? "mt-7 block rounded-md bg-brand px-4 py-3 text-center font-semibold text-brand-foreground"
+                      : "mt-7 block rounded-md border border-border px-4 py-3 text-center font-semibold transition-colors hover:bg-secondary"
                   }
                 >
                   {plan.cta}

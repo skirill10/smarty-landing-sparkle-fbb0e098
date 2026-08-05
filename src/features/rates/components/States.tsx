@@ -46,7 +46,7 @@ export function ErrorState({ onRetry }: { onRetry?: () => void }) {
         <button
           type="button"
           onClick={onRetry}
-          className="mt-6 rounded-xl border border-border px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-secondary"
+          className="mt-6 rounded-md border border-border px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-secondary"
         >
           Try again
         </button>
