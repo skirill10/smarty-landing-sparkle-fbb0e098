@@ -329,20 +329,13 @@ function PricingPage() {
         </section>
 
         {/* CTA */}
-        <section className="mx-auto max-w-6xl px-5 pb-20">
-          <div className="rounded-3xl bg-primary px-8 py-16 text-center text-primary-foreground md:py-20">
-            <h2 className="mx-auto max-w-2xl font-display text-4xl font-bold tracking-tight md:text-5xl">
-              Try Smartytel free for 14 days
-            </h2>
-            <a
-              href="/pricing"
-              className="mt-8 inline-flex items-center gap-2 rounded-xl bg-brand px-6 py-3 font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
-            >
-              Get started
-              <ArrowRight className="size-4" aria-hidden="true" />
-            </a>
-          </div>
-        </section>
+        <CtaBand
+          eyebrow="Start today"
+          title="Pick a plan, be answering calls right now"
+          subtitle="14 days free on every plan. Port your number, invite the team, and let AI handle the notes."
+          primaryLabel="Start free trial"
+          secondaryLabel="Talk to sales"
+        />
       </main>
 
       <footer className="border-t border-border py-10">
