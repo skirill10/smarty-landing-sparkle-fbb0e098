@@ -25,6 +25,8 @@
   --color-brand-foreground: var(--brand-foreground);
   --color-surface: var(--surface);
   --color-light-grey: var(--light-grey);
+  --color-dark: var(--dark);
+  --color-dark-foreground: var(--dark-foreground);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
