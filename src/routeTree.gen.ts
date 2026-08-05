@@ -36,6 +36,8 @@ import { Route as SharedNumbersRouteImport } from './routes/shared-numbers'
 import { Route as StatusRouteImport } from './routes/status'
 import { Route as TasksRouteImport } from './routes/tasks'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as RatesIndexRouteImport } from './routes/rates.index'
+import { Route as RatesCountrySlugRouteImport } from './routes/rates.$countrySlug'
 import { Route as SolutionsEducationRouteImport } from './routes/solutions.education'
 import { Route as SolutionsFranchiseRouteImport } from './routes/solutions.franchise'
 import { Route as SolutionsHealthcareRouteImport } from './routes/solutions.healthcare'
@@ -183,6 +185,16 @@ const TermsRoute = TermsRouteImport.update({
   path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RatesIndexRoute = RatesIndexRouteImport.update({
+  id: '/rates/',
+  path: '/rates/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RatesCountrySlugRoute = RatesCountrySlugRouteImport.update({
+  id: '/rates/$countrySlug',
+  path: '/rates/$countrySlug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SolutionsEducationRoute = SolutionsEducationRouteImport.update({
   id: '/solutions/education',
   path: '/solutions/education',
@@ -268,6 +280,7 @@ export interface FileRoutesByFullPath {
   '/status': typeof StatusRoute
   '/tasks': typeof TasksRoute
   '/terms': typeof TermsRoute
+  '/rates/$countrySlug': typeof RatesCountrySlugRoute
   '/solutions/education': typeof SolutionsEducationRoute
   '/solutions/franchise': typeof SolutionsFranchiseRoute
   '/solutions/healthcare': typeof SolutionsHealthcareRoute
@@ -279,6 +292,7 @@ export interface FileRoutesByFullPath {
   '/solutions/small-business': typeof SolutionsSmallBusinessRoute
   '/solutions/startups': typeof SolutionsStartupsRoute
   '/solutions/support': typeof SolutionsSupportRoute
+  '/rates/': typeof RatesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -308,6 +322,7 @@ export interface FileRoutesByTo {
   '/status': typeof StatusRoute
   '/tasks': typeof TasksRoute
   '/terms': typeof TermsRoute
+  '/rates/$countrySlug': typeof RatesCountrySlugRoute
   '/solutions/education': typeof SolutionsEducationRoute
   '/solutions/franchise': typeof SolutionsFranchiseRoute
   '/solutions/healthcare': typeof SolutionsHealthcareRoute
@@ -319,6 +334,7 @@ export interface FileRoutesByTo {
   '/solutions/small-business': typeof SolutionsSmallBusinessRoute
   '/solutions/startups': typeof SolutionsStartupsRoute
   '/solutions/support': typeof SolutionsSupportRoute
+  '/rates': typeof RatesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -349,6 +365,7 @@ export interface FileRoutesById {
   '/status': typeof StatusRoute
   '/tasks': typeof TasksRoute
   '/terms': typeof TermsRoute
+  '/rates/$countrySlug': typeof RatesCountrySlugRoute
   '/solutions/education': typeof SolutionsEducationRoute
   '/solutions/franchise': typeof SolutionsFranchiseRoute
   '/solutions/healthcare': typeof SolutionsHealthcareRoute
@@ -360,6 +377,7 @@ export interface FileRoutesById {
   '/solutions/small-business': typeof SolutionsSmallBusinessRoute
   '/solutions/startups': typeof SolutionsStartupsRoute
   '/solutions/support': typeof SolutionsSupportRoute
+  '/rates/': typeof RatesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -391,6 +409,7 @@ export interface FileRouteTypes {
     | '/status'
     | '/tasks'
     | '/terms'
+    | '/rates/$countrySlug'
     | '/solutions/education'
     | '/solutions/franchise'
     | '/solutions/healthcare'
@@ -402,6 +421,7 @@ export interface FileRouteTypes {
     | '/solutions/small-business'
     | '/solutions/startups'
     | '/solutions/support'
+    | '/rates/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -431,6 +451,7 @@ export interface FileRouteTypes {
     | '/status'
     | '/tasks'
     | '/terms'
+    | '/rates/$countrySlug'
     | '/solutions/education'
     | '/solutions/franchise'
     | '/solutions/healthcare'
@@ -442,6 +463,7 @@ export interface FileRouteTypes {
     | '/solutions/small-business'
     | '/solutions/startups'
     | '/solutions/support'
+    | '/rates'
   id:
     | '__root__'
     | '/'
@@ -471,6 +493,7 @@ export interface FileRouteTypes {
     | '/status'
     | '/tasks'
     | '/terms'
+    | '/rates/$countrySlug'
     | '/solutions/education'
     | '/solutions/franchise'
     | '/solutions/healthcare'
@@ -482,6 +505,7 @@ export interface FileRouteTypes {
     | '/solutions/small-business'
     | '/solutions/startups'
     | '/solutions/support'
+    | '/rates/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -512,6 +536,7 @@ export interface RootRouteChildren {
   StatusRoute: typeof StatusRoute
   TasksRoute: typeof TasksRoute
   TermsRoute: typeof TermsRoute
+  RatesCountrySlugRoute: typeof RatesCountrySlugRoute
   SolutionsEducationRoute: typeof SolutionsEducationRoute
   SolutionsFranchiseRoute: typeof SolutionsFranchiseRoute
   SolutionsHealthcareRoute: typeof SolutionsHealthcareRoute
@@ -523,6 +548,7 @@ export interface RootRouteChildren {
   SolutionsSmallBusinessRoute: typeof SolutionsSmallBusinessRoute
   SolutionsStartupsRoute: typeof SolutionsStartupsRoute
   SolutionsSupportRoute: typeof SolutionsSupportRoute
+  RatesIndexRoute: typeof RatesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -716,6 +742,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/rates/': {
+      id: '/rates/'
+      path: '/rates'
+      fullPath: '/rates/'
+      preLoaderRoute: typeof RatesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rates/$countrySlug': {
+      id: '/rates/$countrySlug'
+      path: '/rates/$countrySlug'
+      fullPath: '/rates/$countrySlug'
+      preLoaderRoute: typeof RatesCountrySlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/solutions/education': {
       id: '/solutions/education'
       path: '/solutions/education'
@@ -824,6 +864,7 @@ const rootRouteChildren: RootRouteChildren = {
   StatusRoute: StatusRoute,
   TasksRoute: TasksRoute,
   TermsRoute: TermsRoute,
+  RatesCountrySlugRoute: RatesCountrySlugRoute,
   SolutionsEducationRoute: SolutionsEducationRoute,
   SolutionsFranchiseRoute: SolutionsFranchiseRoute,
   SolutionsHealthcareRoute: SolutionsHealthcareRoute,
@@ -835,6 +876,7 @@ const rootRouteChildren: RootRouteChildren = {
   SolutionsSmallBusinessRoute: SolutionsSmallBusinessRoute,
   SolutionsStartupsRoute: SolutionsStartupsRoute,
   SolutionsSupportRoute: SolutionsSupportRoute,
+  RatesIndexRoute: RatesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
