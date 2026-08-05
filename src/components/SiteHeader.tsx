@@ -219,7 +219,7 @@ export function SiteHeader() {
           </a>
           <a
             href="/pricing#talk-to-sales"
-            className="hidden rounded-md border border-border px-4 py-2 text-sm font-semibold transition-colors hover:bg-secondary sm:block"
+            className="hidden rounded-md border border-border px-4 py-2 text-sm font-semibold transition-colors hover:bg-dark hover:text-dark-foreground sm:block"
           >
             {t("Talk to sales")}
           </a>
