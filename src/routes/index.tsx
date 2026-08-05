@@ -346,7 +346,7 @@ function StoriesSlider({ items }: { items: typeof stories }) {
           <button
             type="button"
             onClick={prev}
-            className="rounded-full border border-dark-foreground/20 p-2 text-dark-foreground transition-colors hover:bg-dark-foreground/10"
+            className="rounded-md border border-dark-foreground/20 p-2 text-dark-foreground transition-colors hover:bg-dark-foreground/10"
             aria-label="Previous story"
           >
             <ChevronLeft className="size-5" aria-hidden="true" />
@@ -354,7 +354,7 @@ function StoriesSlider({ items }: { items: typeof stories }) {
           <button
             type="button"
             onClick={next}
-            className="rounded-full border border-dark-foreground/20 p-2 text-dark-foreground transition-colors hover:bg-dark-foreground/10"
+            className="rounded-md border border-dark-foreground/20 p-2 text-dark-foreground transition-colors hover:bg-dark-foreground/10"
             aria-label="Next story"
           >
             <ChevronRight className="size-5" aria-hidden="true" />
