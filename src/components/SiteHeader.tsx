@@ -150,7 +150,7 @@ function MegaPanel({ menu }: { menu: MenuDef }) {
             {g.items.map((it) => (
               <li key={it.label}>
                 <a
-                  href="#features"
+                  href={it.to ?? "#features"}
                   className="flex items-center gap-2.5 rounded-lg px-2 py-1.5 text-sm font-medium text-foreground/85 transition-colors hover:bg-secondary hover:text-foreground"
                 >
                   {it.icon ? (
@@ -160,6 +160,7 @@ function MegaPanel({ menu }: { menu: MenuDef }) {
                 </a>
               </li>
             ))}
+
           </ul>
         </div>
       ))}
