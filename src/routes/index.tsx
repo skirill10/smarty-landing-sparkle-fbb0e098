@@ -24,6 +24,7 @@ import featTeamAnalytics from "@/assets/feat-team-analytics.jpg";
 import featFilters from "@/assets/feat-filters.jpg";
 import featCallLogs from "@/assets/feat-call-logs.jpg";
 import mark from "@/assets/smartytel-mark.png";
+import { SiteHeader } from "@/components/SiteHeader";
 import showcaseNumbers from "@/assets/showcase-numbers.jpg";
 import showcaseShared from "@/assets/showcase-shared.jpg";
 import showcaseRouting from "@/assets/showcase-routing.jpg";
@@ -161,7 +162,6 @@ export const Route = createFileRoute("/")({
   component: Landing,
 });
 
-const navLinks = ["Product", "Solutions", "Pricing", "Resources"];
 
 const featureGroups = [
   {
@@ -326,49 +326,8 @@ function StoriesSlider({ items }: { items: typeof stories }) {
 function Landing() {
   return (
     <div className="min-h-screen bg-background font-sans text-foreground antialiased">
-      <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-md">
-        <div className="mx-auto flex h-16 max-w-6xl items-center gap-8 px-5">
-          <a href="/" className="flex items-center gap-2">
-            <img
-              src={mark}
-              alt="Smartytel logo"
-              width={40}
-              height={49}
-              className="h-8 w-auto"
-            />
-            <span className="font-display text-xl font-bold tracking-tight">smartytel</span>
-          </a>
+      <SiteHeader />
 
-          <nav className="hidden items-center gap-6 md:flex">
-            {navLinks.map((l) => (
-              <a
-                key={l}
-                href="#features"
-                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-              >
-                {l}
-              </a>
-            ))}
-          </nav>
-          <div className="ml-auto flex items-center gap-2">
-            <a href="#pricing" className="hidden px-3 text-sm font-medium sm:block">
-              Log in
-            </a>
-            <a
-              href="#pricing"
-              className="hidden rounded-lg border border-border px-4 py-2 text-sm font-semibold transition-colors hover:bg-secondary sm:block"
-            >
-              Talk to sales
-            </a>
-            <a
-              href="#pricing"
-              className="rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
-            >
-              Try for free
-            </a>
-          </div>
-        </div>
-      </header>
 
       <main>
         {/* Hero */}
