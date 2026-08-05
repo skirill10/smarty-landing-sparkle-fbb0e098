@@ -266,7 +266,7 @@ export function SiteHeader() {
                       </div>
                       <a
                         href="/pricing"
-                        className="inline-flex items-center gap-1.5 rounded-md bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground"
+                        className="inline-flex items-center gap-1.5 rounded-md bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground transition-colors hover:bg-dark hover:text-dark-foreground"
                       >
                         Set up your number <ArrowRight className="size-4" />
                       </a>
