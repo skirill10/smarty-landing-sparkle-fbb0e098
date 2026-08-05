@@ -417,27 +417,55 @@ function PricingPage() {
         </section>
 
         {/* Add-ons */}
-        <section className="bg-light-grey py-20">
+        {/* Add-ons */}
+        <section className="bg-dark py-24 text-dark-foreground">
           <div className="mx-auto max-w-7xl px-5">
-            <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">
-              Add only what you need
+            <h2 className="text-center font-display text-4xl font-bold tracking-tight md:text-5xl">
+              Add-ons
             </h2>
-            <p className="mt-4 max-w-2xl text-muted-foreground">
+            <p className="mx-auto mt-4 max-w-2xl text-center text-dark-foreground/60">
               Every module is priced separately, so a two-person shop pays nothing for features a
               call centre needs. Numbers are priced country by country across the US, Canada, the UK
               and Europe.
             </p>
-            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {addOns.map(([name, price, desc]) => (
-                <div key={name} className="rounded-2xl border border-border bg-card p-7">
-                  <h3 className="font-display text-lg font-semibold">{name}</h3>
-                  <p className="mt-2 font-display text-2xl font-bold tracking-tight">{price}</p>
-                  <p className="mt-3 text-sm text-muted-foreground">{desc}</p>
+            <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {addOns.map((addOn) => (
+                <div
+                  key={addOn.name}
+                  className="flex flex-col rounded-2xl bg-dark-foreground/[0.07] p-8"
+                >
+                  <addOn.icon className="size-7 text-brand" strokeWidth={2} aria-hidden="true" />
+                  <h3 className="mt-8 font-display text-xl font-semibold">{addOn.name}</h3>
+                  {addOn.note ? (
+                    <p className="mt-3 text-sm text-dark-foreground/60">{addOn.note}</p>
+                  ) : null}
+                  {addOn.price ? (
+                    <div className="mt-5 flex items-end gap-3">
+                      <p className="font-display text-4xl font-bold leading-none tracking-tight">
+                        <span className="align-super text-lg font-medium">$</span>
+                        {addOn.price}
+                      </p>
+                      {addOn.unit ? (
+                        <p className="whitespace-pre-line text-sm leading-snug text-dark-foreground/60">
+                          {addOn.unit}
+                        </p>
+                      ) : null}
+                    </div>
+                  ) : null}
+                  {addOn.linkLabel ? (
+                    <Link
+                      to={addOn.linkLabel === "Explore CRM" ? "/crm" : "/pricing"}
+                      className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-brand hover:underline"
+                    >
+                      {addOn.linkLabel} <ArrowUpRight className="size-4" />
+                    </Link>
+                  ) : null}
                 </div>
               ))}
             </div>
           </div>
         </section>
+
 
         {/* AI call packages */}
         <section className="mx-auto max-w-7xl px-5 py-20">
