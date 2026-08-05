@@ -212,7 +212,7 @@ export function SiteHeader() {
             Log in
           </a>
           <a
-            href="/pricing"
+            href="/contact"
             className="hidden rounded-lg border border-border px-4 py-2 text-sm font-semibold transition-colors hover:bg-secondary sm:block"
           >
             Talk to sales
@@ -252,7 +252,7 @@ export function SiteHeader() {
                       <div>
                         <p className="text-sm font-semibold">Ready to get started?</p>
                         <a
-                          href="/pricing"
+                          href="/demo"
                           className="text-sm font-medium text-brand hover:underline"
                         >
                           Watch a quick demo →
