@@ -11,7 +11,7 @@ echo "== Smoke testing $URL"
 
 # 1) Page returns 200 (following redirects) and no /public_html/ in the final URL.
 read -r STATUS FINAL_URL < <(
-  curl -sS -L --max-time 30 --compressed -o "$HTML" \
+  curl -sS -L --max-time 30 -o "$HTML" \
     -w '%{http_code} %{url_effective}\n' "$URL" || echo "000 -"
 )
 
