@@ -18,7 +18,7 @@ function ActionCard({ to, hash, label, tone }: ActionCardProps) {
         dark ? "bg-dark text-dark-foreground" : "bg-light-grey text-foreground"
       }`}
     >
-      <span className="absolute right-6 top-6 grid size-11 place-items-center rounded-full bg-brand text-brand-foreground">
+      <span className="absolute right-6 top-6 grid size-11 place-items-center rounded-md bg-brand text-brand-foreground">
         <ArrowUpRight className="size-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
       </span>
       <span className="font-display text-lg font-semibold">{label}</span>
