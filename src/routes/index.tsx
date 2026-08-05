@@ -572,6 +572,9 @@ function Landing() {
 
         <BuiltForSection />
 
+        <IntegrationsSection />
+
+
         {/* CTA */}
         <CtaBand />
       </main>
