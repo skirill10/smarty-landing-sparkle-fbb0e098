@@ -13,6 +13,7 @@ type CtaBandProps = {
 const fallbackProofPoints = ["14-day free trial", "No credit card", "Live in 12 minutes"];
 
 export function CtaBand(props: CtaBandProps) {
+  const lp = useLocalePath();
   const content = useCtaContent({
     eyebrow: "Ready when they call",
     title: "Your next customer is calling right now",

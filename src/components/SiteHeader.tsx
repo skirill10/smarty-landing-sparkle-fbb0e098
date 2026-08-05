@@ -140,6 +140,7 @@ const fallbackMenus: MenuDef[] = [
 ];
 
 function MegaPanel({ menu }: { menu: MenuDef }) {
+  const lp = useLocalePath();
   const t = useT();
 
   return (
@@ -174,6 +175,7 @@ function MegaPanel({ menu }: { menu: MenuDef }) {
 }
 
 export function SiteHeader() {
+  const lp = useLocalePath();
   const t = useT();
   const menus = useHeaderMenus(fallbackMenus);
   const [open, setOpen] = useState<string | null>(null);
