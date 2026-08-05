@@ -607,7 +607,13 @@ function PricingPage() {
                   ) : null}
                   {addOn.linkLabel ? (
                     <Link
-                      to={addOn.linkLabel === "Explore CRM" ? "/crm" : "/pricing"}
+                      to={
+                        addOn.linkLabel === "Explore CRM"
+                          ? "/crm"
+                          : addOn.linkLabel === "See rates"
+                            ? "/rates"
+                            : "/pricing"
+                      }
                       className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-brand hover:underline"
                     >
                       {addOn.linkLabel} <ArrowUpRight className="size-4" />
