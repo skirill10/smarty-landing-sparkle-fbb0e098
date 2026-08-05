@@ -101,16 +101,31 @@ const CURRENCIES: CurrencyCode[] = [
 
 function buildHeaderIndex(header: string[]): Record<string, number> {
   const map: Record<string, number> = {};
-  header.forEach((raw, index) => {
-    const key = norm(raw);
-    if (!key) return;
-    for (const [field, aliases] of Object.entries(COLUMN_ALIASES)) {
-      if (map[field] !== undefined) continue;
-      if (aliases.some((alias) => key === alias || key.startsWith(alias))) map[field] = index;
+  const keys = header.map((raw) => norm(raw));
+  const claimed = new Set<number>();
+
+  // Exact header matches win, so "rate_id" can never be mistaken for "rate".
+  for (const [field, aliases] of Object.entries(COLUMN_ALIASES)) {
+    const at = keys.findIndex((key, i) => key && !claimed.has(i) && aliases.includes(key));
+    if (at !== -1) {
+      map[field] = at;
+      claimed.add(at);
     }
-  });
+  }
+  // Then fall back to prefix matches for looser headers ("mobile rate (EUR)").
+  for (const [field, aliases] of Object.entries(COLUMN_ALIASES)) {
+    if (map[field] !== undefined) continue;
+    const at = keys.findIndex(
+      (key, i) => key && !claimed.has(i) && aliases.some((alias) => key.startsWith(alias)),
+    );
+    if (at !== -1) {
+      map[field] = at;
+      claimed.add(at);
+    }
+  }
   return map;
 }
+
 
 function slugify(value: string): string {
   return value
