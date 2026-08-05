@@ -1,0 +1,44 @@
+name: Build static site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - run: bun install --frozen-lockfile
+
+      - name: Build static export
+        env:
+          STATIC_EXPORT: "1"
+        run: bun run build
+
+      - name: Sync build output into public_html
+        run: |
+          rm -rf public_html
+          mkdir -p public_html
+          cp -r dist/client/. public_html/
+
+      - name: Commit public_html if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public_html
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: rebuild static site [skip ci]"
+            git push
+          fi
