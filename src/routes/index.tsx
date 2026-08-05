@@ -12,6 +12,8 @@ import {
   Star,
 } from "lucide-react";
 import dashboard from "@/assets/app-dashboard.jpg";
+import mark from "@/assets/smartytel-mark.png.asset.json";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
