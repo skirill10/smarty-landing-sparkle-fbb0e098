@@ -13,6 +13,52 @@ import {
 } from "lucide-react";
 import dashboard from "@/assets/app-dashboard.jpg";
 import mark from "@/assets/smartytel-mark.png.asset.json";
+import showcaseNumbers from "@/assets/showcase-numbers.jpg";
+import showcaseShared from "@/assets/showcase-shared.jpg";
+import showcaseRouting from "@/assets/showcase-routing.jpg";
+import showcaseAi from "@/assets/showcase-ai.jpg";
+import showcaseAnalytics from "@/assets/showcase-analytics.jpg";
+import showcaseIntegrations from "@/assets/showcase-integrations.jpg";
+
+const showcase = [
+  {
+    title: "Set up a business number in minutes",
+    link: "Get a number",
+    image: showcaseNumbers,
+    alt: "List of available local and toll-free business phone numbers",
+  },
+  {
+    title: "Share one number and stay aligned with your team",
+    link: "Shared numbers",
+    image: showcaseShared,
+    alt: "Shared team inbox with call and message threads",
+  },
+  {
+    title: "Route incoming calls the right person instantly",
+    link: "Call routing",
+    image: showcaseRouting,
+    alt: "Call routing flow with business hours and team ring groups",
+  },
+  {
+    title: "Never miss a lead. Let AI answer when your team can't",
+    link: "Smarty AI agent",
+    image: showcaseAi,
+    alt: "AI generated summary of a new inbound lead",
+  },
+  {
+    title: "Spot issues before they cost your business",
+    link: "Analytics",
+    image: showcaseAnalytics,
+    alt: "Call volume analytics chart with missed and answered calls",
+  },
+  {
+    title: "Sync calls and texts with your favorite tools",
+    link: "Integrations",
+    image: showcaseIntegrations,
+    alt: "Grid of app integration logos",
+  },
+];
+
 
 
 export const Route = createFileRoute("/")({
@@ -225,6 +271,39 @@ function Landing() {
             </div>
           </div>
         </section>
+
+        {/* Showcase bento */}
+        <section className="mx-auto max-w-6xl px-5 py-20 md:py-28">
+          <div className="grid gap-6 md:grid-cols-3">
+            {showcase.map(({ title, link, image, alt }) => (
+              <article
+                key={title}
+                className="flex flex-col overflow-hidden rounded-2xl bg-light-grey p-8"
+              >
+                <h3 className="font-display text-2xl font-semibold leading-snug tracking-tight">
+                  {title}
+                </h3>
+                <a
+                  href="#features"
+                  className="mt-5 inline-flex items-center gap-2 font-medium text-foreground hover:text-brand"
+                >
+                  {link}
+                  <ArrowRight className="size-4" aria-hidden="true" />
+                </a>
+                <img
+                  src={image}
+                  alt={alt}
+                  loading="lazy"
+                  width={928}
+                  height={720}
+                  className="mt-8 w-full rounded-xl"
+                />
+              </article>
+            ))}
+          </div>
+        </section>
+
+
 
         {/* Stats */}
         <section className="mx-auto grid max-w-6xl gap-10 px-5 py-20 md:grid-cols-3">
