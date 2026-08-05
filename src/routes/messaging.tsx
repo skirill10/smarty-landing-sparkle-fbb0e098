@@ -15,5 +15,5 @@ export const Route = createFileRoute("/messaging")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: () => <MarketingPage content={content} />,
+  component: () => <MarketingPage content={content} slug="messaging" />,
 });
