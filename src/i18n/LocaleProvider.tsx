@@ -68,7 +68,7 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     let active = true;
-    if (locale === DEFAULT_LOCALE) {
+    if (locale === "en") {
       setMessages({});
     } else {
       loaders[locale]()
