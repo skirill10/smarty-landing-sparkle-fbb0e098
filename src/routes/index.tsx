@@ -25,6 +25,7 @@ import featFilters from "@/assets/feat-filters.jpg";
 import featCallLogs from "@/assets/feat-call-logs.jpg";
 import mark from "@/assets/smartytel-mark.png";
 import { SiteHeader } from "@/components/SiteHeader";
+import { CtaBand } from "@/components/CtaBand";
 import showcaseNumbers from "@/assets/showcase-numbers.jpg";
 import showcaseShared from "@/assets/showcase-shared.jpg";
 import showcaseRouting from "@/assets/showcase-routing.jpg";
@@ -554,20 +555,7 @@ function Landing() {
         </section>
 
         {/* CTA */}
-        <section className="mx-auto max-w-6xl px-5 pb-20">
-          <div className="rounded-3xl bg-primary px-8 py-16 text-center text-primary-foreground md:py-20">
-            <h2 className="mx-auto max-w-2xl font-display text-4xl font-bold tracking-tight md:text-5xl">
-              Your next customer is calling right now
-            </h2>
-            <a
-              href="/pricing"
-              className="mt-8 inline-flex items-center gap-2 rounded-xl bg-brand px-6 py-3 font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
-            >
-              Try Smartytel free
-              <ArrowRight className="size-4" aria-hidden="true" />
-            </a>
-          </div>
-        </section>
+        <CtaBand />
       </main>
 
       <footer className="border-t border-border py-10">
