@@ -32,7 +32,23 @@ nginx. Keep `ALLOWED_ORIGINS` in sync with the public site origins.
 
 - `/api/marketing-pages?where[slug][equals]=...` — one page per URL
 - `/api/globals/home`, `/api/globals/pricing`, `/api/globals/site-settings`
-- `/api/integrations`
+- `/api/globals/rates-page`, `/api/globals/crm-page`, `/api/globals/llm-info-page`
+- `/api/integrations`, `/api/countries`, `/api/rates`, `/api/faqs`
+
+International rates use their own switch, so they can move to Payload
+independently of the rest of the copy:
+
+```bash
+# main app .env
+VITE_CMS_URL=https://cms.smarty.tel          # copy overlays (header, footer, pages)
+VITE_CONTENT_SOURCE=payload                  # "local" (default) or "payload"
+VITE_PAYLOAD_API_URL=https://cms.smarty.tel  # rates repository endpoint
+```
+
+Countries are keyed by `slug` (e.g. `germany`) and every rate references that
+slug in `countryId`, which is exactly how the bundled mock data is keyed — so
+flipping `VITE_CONTENT_SOURCE` needs no data migration, and any unreachable
+endpoint silently falls back to the bundled dataset.
 
 If `VITE_CMS_URL` is unset or the CMS is down, the app falls back to the copy
 committed in `src/content/pages.ts` — the static build never breaks.
@@ -53,4 +69,10 @@ listen for via `on: repository_dispatch`.
 | Collection | `users` | CMS editors |
 | Global | `home` | Hero, features, showcase, stories, built-for, CTA |
 | Global | `pricing` | Plans, add-ons, comparison table, FAQ |
-| Global | `site-settings` | Brand, header menus, footer columns, coverage regions |
+| Global | `site-settings` | Brand, header menus, footer columns, coverage regions, socials, announcement bar, Hey AI section |
+| Collection | `countries` | Rate destinations (slug, ISO codes, dial code, region, SEO) |
+| Collection | `rates` | Landline / mobile / SMS prices per country slug |
+| Collection | `faqs` | Rates FAQs, global or per country slug |
+| Global | `rates-page` | /rates hero, disclaimer, FAQ heading and CTA |
+| Global | `crm-page` | /crm hero and feature card copy |
+| Global | `llm-info-page` | /llm-info hero, fact sheet and Q&A |
