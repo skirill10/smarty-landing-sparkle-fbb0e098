@@ -144,15 +144,36 @@ export function SiteFooter() {
           </ul>
         </div>
 
-        <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-8 text-sm text-muted-foreground">
+        <div className="mt-10 flex flex-wrap items-center justify-between gap-6 border-t border-border pt-8 text-sm text-muted-foreground">
           <span>© {new Date().getFullYear()} Smartytel. All rights reserved.</span>
+
+          <ul className="flex items-center gap-3" aria-label="Smartytel on social media">
+            {socials.map((social) => (
+              <li key={social.name}>
+                <a
+                  href={social.href}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  aria-label={`Smartytel on ${social.name}`}
+                  className="grid size-9 place-items-center rounded-full border border-border text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
+                >
+                  <svg viewBox="0 0 24 24" className="size-4 fill-current" aria-hidden="true">
+                    <path d={social.icon.path} />
+                  </svg>
+                </a>
+              </li>
+            ))}
+          </ul>
+
           <span className="flex flex-wrap gap-5">
             <Link to="/privacy" className="hover:text-foreground">Privacy</Link>
             <Link to="/terms" className="hover:text-foreground">Terms</Link>
             <Link to="/gdpr" className="hover:text-foreground">GDPR</Link>
             <Link to="/security" className="hover:text-foreground">Security</Link>
+            <Link to="/llm-info" className="hover:text-foreground">Hey AI</Link>
           </span>
         </div>
+
       </div>
     </footer>
   );
