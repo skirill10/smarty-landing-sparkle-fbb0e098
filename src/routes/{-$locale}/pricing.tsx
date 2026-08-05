@@ -469,6 +469,7 @@ function TalkToSalesSection() {
 }
 
 function PricingPage() {
+  const lp = useLocalePath();
   const [annual, setAnnual] = useState(true);
   // Bundled copy stays the fallback; the CMS overlays text and prices at runtime.
   const {
