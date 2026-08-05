@@ -1,4 +1,5 @@
 import { Fragment, useState } from "react";
+import { z } from "zod";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowLeftRight,
@@ -17,6 +18,7 @@ import {
   PhoneForwarded,
   PhoneOutgoing,
   Plug,
+  ChevronDown,
   Users,
   Workflow,
   Zap,
@@ -60,19 +62,6 @@ type Plan = {
 };
 
 const plans: Plan[] = [
-  {
-    name: "Trial",
-    monthly: 0,
-    annualMonthly: 0,
-    tagline: "14 days free with a demo number — see everything before you pay.",
-    perks: [
-      "14-day free trial",
-      "Demo phone number included",
-      "Calling & messaging basics",
-      "No credit card required",
-    ],
-    cta: "Start 14-day trial",
-  },
   {
     name: "Startup",
     monthly: 15,
@@ -320,6 +309,162 @@ function PriceCell({ value }: { value: string | boolean }) {
   return <span className="text-sm text-muted-foreground">{value}</span>;
 }
 
+
+function FaqList({ items }: { items: [string, string][] }) {
+  const [open, setOpen] = useState<number | null>(0);
+
+  return (
+    <dl className="divide-y divide-border border-y border-border">
+      {items.map(([q, a], i) => {
+        const isOpen = open === i;
+        return (
+          <div key={q} className="py-5">
+            <dt>
+              <button
+                type="button"
+                aria-expanded={isOpen}
+                onClick={() => setOpen(isOpen ? null : i)}
+                className="flex w-full items-center justify-between gap-4 text-left font-display text-base font-semibold"
+              >
+                {q}
+                <ChevronDown
+                  className={`size-5 shrink-0 text-muted-foreground transition-transform ${isOpen ? "rotate-180" : ""}`}
+                  aria-hidden="true"
+                />
+              </button>
+            </dt>
+            <dd
+              className={`grid overflow-hidden text-muted-foreground transition-all duration-300 ${
+                isOpen ? "mt-3 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+              }`}
+            >
+              <div className="overflow-hidden">{a}</div>
+            </dd>
+          </div>
+        );
+      })}
+    </dl>
+  );
+}
+
+const salesSchema = z.object({
+  name: z.string().trim().min(1, { message: "Please enter your name" }).max(100),
+  email: z.string().trim().email({ message: "Enter a valid work email" }).max(255),
+  company: z.string().trim().min(1, { message: "Please enter your company" }).max(120),
+  phone: z.string().trim().max(30).optional(),
+  seats: z.string().trim().max(40).optional(),
+  message: z.string().trim().max(1000).optional(),
+});
+
+function TalkToSalesSection() {
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [sent, setSent] = useState(false);
+
+  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const data = Object.fromEntries(new FormData(event.currentTarget)) as Record<string, string>;
+    const result = salesSchema.safeParse(data);
+    if (!result.success) {
+      const next: Record<string, string> = {};
+      for (const issue of result.error.issues) next[String(issue.path[0])] = issue.message;
+      setErrors(next);
+      return;
+    }
+    setErrors({});
+    setSent(true);
+  };
+
+  const field = "mt-2 w-full rounded-xl border border-border bg-card px-4 py-3 text-sm outline-none focus:border-foreground";
+
+  return (
+    <section id="talk-to-sales" className="border-t border-border py-20">
+      <div className="mx-auto grid max-w-6xl gap-12 px-5 md:grid-cols-[1fr_1.1fr]">
+        <div>
+          <p className="font-semibold uppercase tracking-widest text-accent-foreground">Talk to sales</p>
+          <h2 className="mt-4 font-display text-3xl font-bold tracking-tight md:text-4xl">
+            Request a call with our team
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            Tell us about your team and we will call you back within one business day with pricing,
+            number availability across the US, Canada, the UK and Europe, and a live walkthrough.
+          </p>
+          <ul className="mt-8 space-y-3 text-sm">
+            {[
+              "Volume pricing for 10+ users",
+              "Number porting and country-by-country coverage",
+              "Custom telephony flows and integrations",
+              "Security, GDPR and procurement questions",
+            ].map((item) => (
+              <li key={item} className="flex gap-2">
+                <Check className="mt-0.5 size-4 shrink-0 text-accent-foreground" aria-hidden="true" />
+                <span className="text-muted-foreground">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="rounded-3xl border border-border bg-card p-8">
+          {sent ? (
+            <div className="py-10 text-center">
+              <Check className="mx-auto size-8 text-accent-foreground" aria-hidden="true" />
+              <h3 className="mt-4 font-display text-xl font-semibold">Thanks — request received</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                A specialist will call you within one business day.
+              </p>
+            </div>
+          ) : (
+            <form onSubmit={onSubmit} noValidate className="grid gap-5 sm:grid-cols-2">
+              <label className="block text-sm font-semibold sm:col-span-1">
+                Full name
+                <input name="name" maxLength={100} className={field} placeholder="Alex Moreau" />
+                {errors.name ? <span className="mt-1 block text-xs font-normal text-destructive">{errors.name}</span> : null}
+              </label>
+              <label className="block text-sm font-semibold sm:col-span-1">
+                Work email
+                <input name="email" type="email" maxLength={255} className={field} placeholder="alex@company.com" />
+                {errors.email ? <span className="mt-1 block text-xs font-normal text-destructive">{errors.email}</span> : null}
+              </label>
+              <label className="block text-sm font-semibold sm:col-span-1">
+                Company
+                <input name="company" maxLength={120} className={field} placeholder="Company name" />
+                {errors.company ? <span className="mt-1 block text-xs font-normal text-destructive">{errors.company}</span> : null}
+              </label>
+              <label className="block text-sm font-semibold sm:col-span-1">
+                Phone number
+                <input name="phone" maxLength={30} className={field} placeholder="+1 555 000 1234" />
+              </label>
+              <label className="block text-sm font-semibold sm:col-span-2">
+                Team size
+                <select name="seats" className={field} defaultValue="">
+                  <option value="">Select team size</option>
+                  <option>1–5 users</option>
+                  <option>6–20 users</option>
+                  <option>21–50 users</option>
+                  <option>51–200 users</option>
+                  <option>200+ users</option>
+                </select>
+              </label>
+              <label className="block text-sm font-semibold sm:col-span-2">
+                What would you like to cover?
+                <textarea name="message" rows={4} maxLength={1000} className={field} placeholder="Countries you need numbers in, current provider, timeline…" />
+              </label>
+              <button
+                type="submit"
+                className="sm:col-span-2 rounded-xl bg-brand px-5 py-3 font-semibold text-brand-foreground"
+              >
+                Request a call
+              </button>
+              <p className="sm:col-span-2 text-xs text-muted-foreground">
+                We only use these details to contact you about Smartytel.
+              </p>
+            </form>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function PricingPage() {
   const [annual, setAnnual] = useState(true);
   // Bundled copy stays the fallback; the CMS overlays text and prices at runtime.
@@ -402,7 +547,7 @@ function PricingPage() {
 
                 <p className="mt-3 text-sm text-muted-foreground">{plan.tagline}</p>
                 <a
-                  href="/pricing"
+                  href={plan.cta === "Talk to sales" ? "#talk-to-sales" : "/pricing"}
                   className={
                     plan.featured
                       ? "mt-7 block rounded-xl bg-brand px-4 py-3 text-center font-semibold text-brand-foreground"
@@ -518,14 +663,14 @@ function PricingPage() {
                 {compareGroups.map((section) => (
                   <Fragment key={section.group}>
                     <tr className="bg-light-grey">
-                      <td colSpan={5} className="py-3 pr-4 pl-3 font-semibold text-sm">
+                      <td colSpan={4} className="py-3 pr-4 pl-3 font-semibold text-sm">
                         {section.group}
                       </td>
                     </tr>
                     {section.rows.map(([label, a, b, c, d]) => (
                       <tr key={label} className="border-b border-border">
                         <td className="py-4 pr-4 text-sm">{label}</td>
-                        {[a, b, c, d].map((value, i) => (
+                        {[b, c, d].map((value, i) => (
                           <td key={i} className="py-4 px-4 text-center">
                             <PriceCell value={value} />
                           </td>
@@ -540,20 +685,15 @@ function PricingPage() {
         </section>
 
 
+        <TalkToSalesSection />
+
         {/* FAQ */}
         <section className="border-t border-border py-20">
           <div className="mx-auto grid max-w-6xl gap-10 px-5 md:grid-cols-[1fr_1.4fr]">
             <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">
               Pricing questions
             </h2>
-            <dl className="space-y-8">
-              {faqList.map(([q, a]) => (
-                <div key={q}>
-                  <dt className="font-display text-base font-semibold">{q}</dt>
-                  <dd className="mt-2 text-muted-foreground">{a}</dd>
-                </div>
-              ))}
-            </dl>
+            <FaqList items={faqList} />
           </div>
         </section>
       </main>
