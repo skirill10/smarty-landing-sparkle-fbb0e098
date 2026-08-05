@@ -148,17 +148,17 @@ const stories = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Smartytel — Business Phone & Shared Inbox for Teams" },
+      { title: "Business Phone System & Shared Inbox | Smartytel" },
       {
         name: "description",
         content:
-          "Smartytel is the business phone system and shared inbox that keeps every call, text and customer in one place — with an AI agent answering after hours.",
+          "Smartytel is the business phone system and shared team inbox for calls, SMS and WhatsApp — local numbers in the US, Canada, the UK and across Europe.",
       },
-      { property: "og:title", content: "Smartytel — Business Phone & Shared Inbox" },
+      { property: "og:title", content: "Business Phone System & Shared Inbox | Smartytel" },
       {
         property: "og:description",
         content:
-          "Calls, texts and customers in one shared workspace. Set up a business number in minutes and never miss a lead.",
+          "Calls, texts and customers in one shared workspace. Get a business phone number in the US, Canada, the UK or any European country in minutes.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -355,11 +355,12 @@ function Landing() {
             <span>2,100+ reviews</span>
           </div>
           <h1 className="mx-auto mt-8 max-w-4xl font-display text-5xl font-bold leading-[0.95] tracking-tight md:text-7xl">
-            Never lose a customer to a missed call
+            The business phone system that never misses a call
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-            Smartytel is the shared business phone and inbox that gives your team one place for every
-            call, text and customer — so no opportunity slips through, even after hours.
+            Smartytel gives your team a shared business phone number and one inbox for every call,
+            SMS and WhatsApp thread — with local numbers across the US, Canada, the UK and every
+            European country, and an AI agent answering after hours.
           </p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
             <a
@@ -453,7 +454,7 @@ function Landing() {
         {/* Showcase bento */}
         <section className="mx-auto max-w-6xl px-5 py-20 md:py-28">
           <h2 className="max-w-2xl font-display text-4xl font-bold tracking-tight md:text-5xl">
-            Always say hello with Smartytel
+            Everything a modern business phone system should do
           </h2>
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {showcase.map(({ title, link, image, alt }) => (
@@ -489,7 +490,7 @@ function Landing() {
           <div className="mx-auto max-w-6xl px-5">
             <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
               <h2 className="max-w-2xl font-display text-4xl font-bold tracking-tight md:text-5xl">
-                Businesses that grow with Smartytel
+                Business phone stories from teams like yours
               </h2>
               <p className="text-dark-foreground/80">See how teams stay connected with customers.</p>
             </div>
@@ -517,7 +518,7 @@ function Landing() {
         <section id="pricing" className="border-t border-border py-20 md:py-28">
           <div className="mx-auto max-w-7xl px-5">
             <h2 className="font-display text-4xl font-bold tracking-tight md:text-5xl">
-              Simple pricing, per user
+              Business phone pricing, per user
             </h2>
             <p className="mt-4 max-w-2xl text-muted-foreground">
               14 days free, then from $12 per user per month billed yearly (save 20%). Local calling
