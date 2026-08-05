@@ -190,4 +190,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url><loc>https://smarty-landing-sparkle.lovable.app/llm-info</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://smarty-landing-sparkle.lovable.app/rates</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
 </urlset>
