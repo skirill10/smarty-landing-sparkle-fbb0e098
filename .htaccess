@@ -26,3 +26,4 @@ DirectoryIndex index.html
   Require all denied
 </FilesMatch>
 RedirectMatch 403 ^/(src|node_modules|\.github|dist)/
+Options -Indexes
