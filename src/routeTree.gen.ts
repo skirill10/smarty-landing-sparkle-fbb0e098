@@ -50,6 +50,7 @@ import { Route as SolutionsSalesRouteImport } from './routes/solutions.sales'
 import { Route as SolutionsSmallBusinessRouteImport } from './routes/solutions.small-business'
 import { Route as SolutionsStartupsRouteImport } from './routes/solutions.startups'
 import { Route as SolutionsSupportRouteImport } from './routes/solutions.support'
+import { Route as ApiPublicRatesSheetRouteImport } from './routes/api/public/rates-sheet'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -257,6 +258,11 @@ const SolutionsSupportRoute = SolutionsSupportRouteImport.update({
   path: '/solutions/support',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicRatesSheetRoute = ApiPublicRatesSheetRouteImport.update({
+  id: '/api/public/rates-sheet',
+  path: '/api/public/rates-sheet',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -300,6 +306,7 @@ export interface FileRoutesByFullPath {
   '/solutions/startups': typeof SolutionsStartupsRoute
   '/solutions/support': typeof SolutionsSupportRoute
   '/rates/': typeof RatesIndexRoute
+  '/api/public/rates-sheet': typeof ApiPublicRatesSheetRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -343,6 +350,7 @@ export interface FileRoutesByTo {
   '/solutions/startups': typeof SolutionsStartupsRoute
   '/solutions/support': typeof SolutionsSupportRoute
   '/rates': typeof RatesIndexRoute
+  '/api/public/rates-sheet': typeof ApiPublicRatesSheetRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -387,6 +395,7 @@ export interface FileRoutesById {
   '/solutions/startups': typeof SolutionsStartupsRoute
   '/solutions/support': typeof SolutionsSupportRoute
   '/rates/': typeof RatesIndexRoute
+  '/api/public/rates-sheet': typeof ApiPublicRatesSheetRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -432,6 +441,7 @@ export interface FileRouteTypes {
     | '/solutions/startups'
     | '/solutions/support'
     | '/rates/'
+    | '/api/public/rates-sheet'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -475,6 +485,7 @@ export interface FileRouteTypes {
     | '/solutions/startups'
     | '/solutions/support'
     | '/rates'
+    | '/api/public/rates-sheet'
   id:
     | '__root__'
     | '/'
@@ -518,6 +529,7 @@ export interface FileRouteTypes {
     | '/solutions/startups'
     | '/solutions/support'
     | '/rates/'
+    | '/api/public/rates-sheet'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -562,6 +574,7 @@ export interface RootRouteChildren {
   SolutionsStartupsRoute: typeof SolutionsStartupsRoute
   SolutionsSupportRoute: typeof SolutionsSupportRoute
   RatesIndexRoute: typeof RatesIndexRoute
+  ApiPublicRatesSheetRoute: typeof ApiPublicRatesSheetRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -853,6 +866,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SolutionsSupportRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/rates-sheet': {
+      id: '/api/public/rates-sheet'
+      path: '/api/public/rates-sheet'
+      fullPath: '/api/public/rates-sheet'
+      preLoaderRoute: typeof ApiPublicRatesSheetRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -898,17 +918,8 @@ const rootRouteChildren: RootRouteChildren = {
   SolutionsStartupsRoute: SolutionsStartupsRoute,
   SolutionsSupportRoute: SolutionsSupportRoute,
   RatesIndexRoute: RatesIndexRoute,
+  ApiPublicRatesSheetRoute: ApiPublicRatesSheetRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
