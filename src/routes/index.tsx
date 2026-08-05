@@ -325,7 +325,10 @@ function Landing() {
 
         {/* Showcase bento */}
         <section className="mx-auto max-w-6xl px-5 py-20 md:py-28">
-          <div className="grid gap-6 md:grid-cols-3">
+          <h2 className="max-w-2xl font-display text-4xl font-bold tracking-tight md:text-5xl">
+            Always say hello with Smartytel
+          </h2>
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
             {showcase.map(({ title, link, image, alt }) => (
               <article
                 key={title}
