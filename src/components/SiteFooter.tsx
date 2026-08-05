@@ -1,6 +1,16 @@
 import { Link } from "@tanstack/react-router";
+import * as si from "simple-icons";
 import mark from "@/assets/smartytel-mark.png";
 import { useFooterContent } from "@/lib/cms-content";
+
+const socials: { name: string; href: string; icon: { path: string } }[] = [
+  { name: "LinkedIn", href: "https://www.linkedin.com/company/smartytel", icon: si.siLinkedin },
+  { name: "X", href: "https://x.com/smartytel", icon: si.siX },
+  { name: "Reddit", href: "https://www.reddit.com/r/smartytel", icon: si.siReddit },
+  { name: "Instagram", href: "https://www.instagram.com/smartytel", icon: si.siInstagram },
+  { name: "YouTube", href: "https://www.youtube.com/@smartytel", icon: si.siYoutube },
+];
+
 
 type Column = { heading: string; links: { label: string; to?: string }[] };
 
