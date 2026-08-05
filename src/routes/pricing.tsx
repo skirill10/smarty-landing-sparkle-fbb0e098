@@ -417,7 +417,6 @@ function PricingPage() {
         </section>
 
         {/* Add-ons */}
-        {/* Add-ons */}
         <section className="bg-dark py-24 text-dark-foreground">
           <div className="mx-auto max-w-7xl px-5">
             <h2 className="text-center font-display text-4xl font-bold tracking-tight md:text-5xl">
@@ -549,15 +548,6 @@ function PricingPage() {
             </dl>
           </div>
         </section>
-
-        {/* CTA */}
-        <CtaBand
-          eyebrow="Start today"
-          title="Pick a plan, be answering calls right now"
-          subtitle="14 days free on every plan. Port your number, invite the team, and let AI handle the notes."
-          primaryLabel="Start free trial"
-          secondaryLabel="Talk to sales"
-        />
       </main>
 
       <SiteFooter />
