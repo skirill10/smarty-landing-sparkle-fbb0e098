@@ -9,861 +9,809 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as AboutRouteImport } from './routes/about'
-import { Route as AiAgentRouteImport } from './routes/ai-agent'
-import { Route as AnalyticsRouteImport } from './routes/analytics'
-import { Route as BlogRouteImport } from './routes/blog'
-import { Route as CallingRouteImport } from './routes/calling'
-import { Route as CareersRouteImport } from './routes/careers'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as CrmRouteImport } from './routes/crm'
-import { Route as CustomersRouteImport } from './routes/customers'
-import { Route as DemoRouteImport } from './routes/demo'
-import { Route as DevelopersRouteImport } from './routes/developers'
-import { Route as DocsRouteImport } from './routes/docs'
-import { Route as GdprRouteImport } from './routes/gdpr'
-import { Route as IntegrationsRouteImport } from './routes/integrations'
-import { Route as LlmInfoRouteImport } from './routes/llm-info'
-import { Route as MessagingRouteImport } from './routes/messaging'
-import { Route as PartnersRouteImport } from './routes/partners'
-import { Route as PhoneMenuRouteImport } from './routes/phone-menu'
-import { Route as PortYourNumberRouteImport } from './routes/port-your-number'
-import { Route as PricingRouteImport } from './routes/pricing'
-import { Route as PrivacyRouteImport } from './routes/privacy'
-import { Route as ResourcesRouteImport } from './routes/resources'
-import { Route as SecurityRouteImport } from './routes/security'
-import { Route as SharedNumbersRouteImport } from './routes/shared-numbers'
-import { Route as StatusRouteImport } from './routes/status'
-import { Route as TasksRouteImport } from './routes/tasks'
-import { Route as TermsRouteImport } from './routes/terms'
-import { Route as RatesIndexRouteImport } from './routes/rates.index'
-import { Route as RatesCountrySlugRouteImport } from './routes/rates.$countrySlug'
-import { Route as SolutionsEducationRouteImport } from './routes/solutions.education'
-import { Route as SolutionsFranchiseRouteImport } from './routes/solutions.franchise'
-import { Route as SolutionsHealthcareRouteImport } from './routes/solutions.healthcare'
-import { Route as SolutionsHomeServicesRouteImport } from './routes/solutions.home-services'
-import { Route as SolutionsLawFirmsRouteImport } from './routes/solutions.law-firms'
-import { Route as SolutionsOperationsRouteImport } from './routes/solutions.operations'
-import { Route as SolutionsPropertyManagementRouteImport } from './routes/solutions.property-management'
-import { Route as SolutionsSalesRouteImport } from './routes/solutions.sales'
-import { Route as SolutionsSmallBusinessRouteImport } from './routes/solutions.small-business'
-import { Route as SolutionsStartupsRouteImport } from './routes/solutions.startups'
-import { Route as SolutionsSupportRouteImport } from './routes/solutions.support'
+import { Route as Char123LocaleChar125IndexRouteImport } from './routes/{-$locale}/index'
+import { Route as Char123LocaleChar125AboutRouteImport } from './routes/{-$locale}/about'
+import { Route as Char123LocaleChar125AiAgentRouteImport } from './routes/{-$locale}/ai-agent'
+import { Route as Char123LocaleChar125AnalyticsRouteImport } from './routes/{-$locale}/analytics'
+import { Route as Char123LocaleChar125BlogRouteImport } from './routes/{-$locale}/blog'
+import { Route as Char123LocaleChar125CallingRouteImport } from './routes/{-$locale}/calling'
+import { Route as Char123LocaleChar125CareersRouteImport } from './routes/{-$locale}/careers'
+import { Route as Char123LocaleChar125ContactRouteImport } from './routes/{-$locale}/contact'
+import { Route as Char123LocaleChar125CrmRouteImport } from './routes/{-$locale}/crm'
+import { Route as Char123LocaleChar125CustomersRouteImport } from './routes/{-$locale}/customers'
+import { Route as Char123LocaleChar125DemoRouteImport } from './routes/{-$locale}/demo'
+import { Route as Char123LocaleChar125DevelopersRouteImport } from './routes/{-$locale}/developers'
+import { Route as Char123LocaleChar125DocsRouteImport } from './routes/{-$locale}/docs'
+import { Route as Char123LocaleChar125GdprRouteImport } from './routes/{-$locale}/gdpr'
+import { Route as Char123LocaleChar125IntegrationsRouteImport } from './routes/{-$locale}/integrations'
+import { Route as Char123LocaleChar125LlmInfoRouteImport } from './routes/{-$locale}/llm-info'
+import { Route as Char123LocaleChar125MessagingRouteImport } from './routes/{-$locale}/messaging'
+import { Route as Char123LocaleChar125PartnersRouteImport } from './routes/{-$locale}/partners'
+import { Route as Char123LocaleChar125PhoneMenuRouteImport } from './routes/{-$locale}/phone-menu'
+import { Route as Char123LocaleChar125PortYourNumberRouteImport } from './routes/{-$locale}/port-your-number'
+import { Route as Char123LocaleChar125PricingRouteImport } from './routes/{-$locale}/pricing'
+import { Route as Char123LocaleChar125PrivacyRouteImport } from './routes/{-$locale}/privacy'
+import { Route as Char123LocaleChar125ResourcesRouteImport } from './routes/{-$locale}/resources'
+import { Route as Char123LocaleChar125SecurityRouteImport } from './routes/{-$locale}/security'
+import { Route as Char123LocaleChar125SharedNumbersRouteImport } from './routes/{-$locale}/shared-numbers'
+import { Route as Char123LocaleChar125StatusRouteImport } from './routes/{-$locale}/status'
+import { Route as Char123LocaleChar125TasksRouteImport } from './routes/{-$locale}/tasks'
+import { Route as Char123LocaleChar125TermsRouteImport } from './routes/{-$locale}/terms'
 import { Route as ApiPublicRatesSheetRouteImport } from './routes/api/public/rates-sheet'
+import { Route as Char123LocaleChar125RatesIndexRouteImport } from './routes/{-$locale}/rates.index'
+import { Route as Char123LocaleChar125RatesCountrySlugRouteImport } from './routes/{-$locale}/rates.$countrySlug'
+import { Route as Char123LocaleChar125SolutionsEducationRouteImport } from './routes/{-$locale}/solutions.education'
+import { Route as Char123LocaleChar125SolutionsFranchiseRouteImport } from './routes/{-$locale}/solutions.franchise'
+import { Route as Char123LocaleChar125SolutionsHealthcareRouteImport } from './routes/{-$locale}/solutions.healthcare'
+import { Route as Char123LocaleChar125SolutionsHomeServicesRouteImport } from './routes/{-$locale}/solutions.home-services'
+import { Route as Char123LocaleChar125SolutionsLawFirmsRouteImport } from './routes/{-$locale}/solutions.law-firms'
+import { Route as Char123LocaleChar125SolutionsOperationsRouteImport } from './routes/{-$locale}/solutions.operations'
+import { Route as Char123LocaleChar125SolutionsPropertyManagementRouteImport } from './routes/{-$locale}/solutions.property-management'
+import { Route as Char123LocaleChar125SolutionsSalesRouteImport } from './routes/{-$locale}/solutions.sales'
+import { Route as Char123LocaleChar125SolutionsSmallBusinessRouteImport } from './routes/{-$locale}/solutions.small-business'
+import { Route as Char123LocaleChar125SolutionsStartupsRouteImport } from './routes/{-$locale}/solutions.startups'
+import { Route as Char123LocaleChar125SolutionsSupportRouteImport } from './routes/{-$locale}/solutions.support'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AiAgentRoute = AiAgentRouteImport.update({
-  id: '/ai-agent',
-  path: '/ai-agent',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AnalyticsRoute = AnalyticsRouteImport.update({
-  id: '/analytics',
-  path: '/analytics',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BlogRoute = BlogRouteImport.update({
-  id: '/blog',
-  path: '/blog',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CallingRoute = CallingRouteImport.update({
-  id: '/calling',
-  path: '/calling',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CareersRoute = CareersRouteImport.update({
-  id: '/careers',
-  path: '/careers',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CrmRoute = CrmRouteImport.update({
-  id: '/crm',
-  path: '/crm',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CustomersRoute = CustomersRouteImport.update({
-  id: '/customers',
-  path: '/customers',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoRoute = DemoRouteImport.update({
-  id: '/demo',
-  path: '/demo',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DevelopersRoute = DevelopersRouteImport.update({
-  id: '/developers',
-  path: '/developers',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DocsRoute = DocsRouteImport.update({
-  id: '/docs',
-  path: '/docs',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GdprRoute = GdprRouteImport.update({
-  id: '/gdpr',
-  path: '/gdpr',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IntegrationsRoute = IntegrationsRouteImport.update({
-  id: '/integrations',
-  path: '/integrations',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LlmInfoRoute = LlmInfoRouteImport.update({
-  id: '/llm-info',
-  path: '/llm-info',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MessagingRoute = MessagingRouteImport.update({
-  id: '/messaging',
-  path: '/messaging',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PartnersRoute = PartnersRouteImport.update({
-  id: '/partners',
-  path: '/partners',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PhoneMenuRoute = PhoneMenuRouteImport.update({
-  id: '/phone-menu',
-  path: '/phone-menu',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PortYourNumberRoute = PortYourNumberRouteImport.update({
-  id: '/port-your-number',
-  path: '/port-your-number',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PricingRoute = PricingRouteImport.update({
-  id: '/pricing',
-  path: '/pricing',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PrivacyRoute = PrivacyRouteImport.update({
-  id: '/privacy',
-  path: '/privacy',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ResourcesRoute = ResourcesRouteImport.update({
-  id: '/resources',
-  path: '/resources',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SecurityRoute = SecurityRouteImport.update({
-  id: '/security',
-  path: '/security',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SharedNumbersRoute = SharedNumbersRouteImport.update({
-  id: '/shared-numbers',
-  path: '/shared-numbers',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const StatusRoute = StatusRouteImport.update({
-  id: '/status',
-  path: '/status',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TasksRoute = TasksRouteImport.update({
-  id: '/tasks',
-  path: '/tasks',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TermsRoute = TermsRouteImport.update({
-  id: '/terms',
-  path: '/terms',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RatesIndexRoute = RatesIndexRouteImport.update({
-  id: '/rates/',
-  path: '/rates/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RatesCountrySlugRoute = RatesCountrySlugRouteImport.update({
-  id: '/rates/$countrySlug',
-  path: '/rates/$countrySlug',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SolutionsEducationRoute = SolutionsEducationRouteImport.update({
-  id: '/solutions/education',
-  path: '/solutions/education',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SolutionsFranchiseRoute = SolutionsFranchiseRouteImport.update({
-  id: '/solutions/franchise',
-  path: '/solutions/franchise',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SolutionsHealthcareRoute = SolutionsHealthcareRouteImport.update({
-  id: '/solutions/healthcare',
-  path: '/solutions/healthcare',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SolutionsHomeServicesRoute = SolutionsHomeServicesRouteImport.update({
-  id: '/solutions/home-services',
-  path: '/solutions/home-services',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SolutionsLawFirmsRoute = SolutionsLawFirmsRouteImport.update({
-  id: '/solutions/law-firms',
-  path: '/solutions/law-firms',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SolutionsOperationsRoute = SolutionsOperationsRouteImport.update({
-  id: '/solutions/operations',
-  path: '/solutions/operations',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SolutionsPropertyManagementRoute =
-  SolutionsPropertyManagementRouteImport.update({
-    id: '/solutions/property-management',
-    path: '/solutions/property-management',
+const Char123LocaleChar125IndexRoute =
+  Char123LocaleChar125IndexRouteImport.update({
+    id: '/{-$locale}/',
+    path: '/{-$locale}/',
     getParentRoute: () => rootRouteImport,
   } as any)
-const SolutionsSalesRoute = SolutionsSalesRouteImport.update({
-  id: '/solutions/sales',
-  path: '/solutions/sales',
+const Char123LocaleChar125AboutRoute =
+  Char123LocaleChar125AboutRouteImport.update({
+    id: '/{-$locale}/about',
+    path: '/{-$locale}/about',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125AiAgentRoute =
+  Char123LocaleChar125AiAgentRouteImport.update({
+    id: '/{-$locale}/ai-agent',
+    path: '/{-$locale}/ai-agent',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125AnalyticsRoute =
+  Char123LocaleChar125AnalyticsRouteImport.update({
+    id: '/{-$locale}/analytics',
+    path: '/{-$locale}/analytics',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125BlogRoute =
+  Char123LocaleChar125BlogRouteImport.update({
+    id: '/{-$locale}/blog',
+    path: '/{-$locale}/blog',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125CallingRoute =
+  Char123LocaleChar125CallingRouteImport.update({
+    id: '/{-$locale}/calling',
+    path: '/{-$locale}/calling',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125CareersRoute =
+  Char123LocaleChar125CareersRouteImport.update({
+    id: '/{-$locale}/careers',
+    path: '/{-$locale}/careers',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125ContactRoute =
+  Char123LocaleChar125ContactRouteImport.update({
+    id: '/{-$locale}/contact',
+    path: '/{-$locale}/contact',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125CrmRoute = Char123LocaleChar125CrmRouteImport.update({
+  id: '/{-$locale}/crm',
+  path: '/{-$locale}/crm',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SolutionsSmallBusinessRoute = SolutionsSmallBusinessRouteImport.update({
-  id: '/solutions/small-business',
-  path: '/solutions/small-business',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SolutionsStartupsRoute = SolutionsStartupsRouteImport.update({
-  id: '/solutions/startups',
-  path: '/solutions/startups',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SolutionsSupportRoute = SolutionsSupportRouteImport.update({
-  id: '/solutions/support',
-  path: '/solutions/support',
-  getParentRoute: () => rootRouteImport,
-} as any)
+const Char123LocaleChar125CustomersRoute =
+  Char123LocaleChar125CustomersRouteImport.update({
+    id: '/{-$locale}/customers',
+    path: '/{-$locale}/customers',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125DemoRoute =
+  Char123LocaleChar125DemoRouteImport.update({
+    id: '/{-$locale}/demo',
+    path: '/{-$locale}/demo',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125DevelopersRoute =
+  Char123LocaleChar125DevelopersRouteImport.update({
+    id: '/{-$locale}/developers',
+    path: '/{-$locale}/developers',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125DocsRoute =
+  Char123LocaleChar125DocsRouteImport.update({
+    id: '/{-$locale}/docs',
+    path: '/{-$locale}/docs',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125GdprRoute =
+  Char123LocaleChar125GdprRouteImport.update({
+    id: '/{-$locale}/gdpr',
+    path: '/{-$locale}/gdpr',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125IntegrationsRoute =
+  Char123LocaleChar125IntegrationsRouteImport.update({
+    id: '/{-$locale}/integrations',
+    path: '/{-$locale}/integrations',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125LlmInfoRoute =
+  Char123LocaleChar125LlmInfoRouteImport.update({
+    id: '/{-$locale}/llm-info',
+    path: '/{-$locale}/llm-info',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125MessagingRoute =
+  Char123LocaleChar125MessagingRouteImport.update({
+    id: '/{-$locale}/messaging',
+    path: '/{-$locale}/messaging',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125PartnersRoute =
+  Char123LocaleChar125PartnersRouteImport.update({
+    id: '/{-$locale}/partners',
+    path: '/{-$locale}/partners',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125PhoneMenuRoute =
+  Char123LocaleChar125PhoneMenuRouteImport.update({
+    id: '/{-$locale}/phone-menu',
+    path: '/{-$locale}/phone-menu',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125PortYourNumberRoute =
+  Char123LocaleChar125PortYourNumberRouteImport.update({
+    id: '/{-$locale}/port-your-number',
+    path: '/{-$locale}/port-your-number',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125PricingRoute =
+  Char123LocaleChar125PricingRouteImport.update({
+    id: '/{-$locale}/pricing',
+    path: '/{-$locale}/pricing',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125PrivacyRoute =
+  Char123LocaleChar125PrivacyRouteImport.update({
+    id: '/{-$locale}/privacy',
+    path: '/{-$locale}/privacy',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125ResourcesRoute =
+  Char123LocaleChar125ResourcesRouteImport.update({
+    id: '/{-$locale}/resources',
+    path: '/{-$locale}/resources',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125SecurityRoute =
+  Char123LocaleChar125SecurityRouteImport.update({
+    id: '/{-$locale}/security',
+    path: '/{-$locale}/security',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125SharedNumbersRoute =
+  Char123LocaleChar125SharedNumbersRouteImport.update({
+    id: '/{-$locale}/shared-numbers',
+    path: '/{-$locale}/shared-numbers',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125StatusRoute =
+  Char123LocaleChar125StatusRouteImport.update({
+    id: '/{-$locale}/status',
+    path: '/{-$locale}/status',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125TasksRoute =
+  Char123LocaleChar125TasksRouteImport.update({
+    id: '/{-$locale}/tasks',
+    path: '/{-$locale}/tasks',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125TermsRoute =
+  Char123LocaleChar125TermsRouteImport.update({
+    id: '/{-$locale}/terms',
+    path: '/{-$locale}/terms',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiPublicRatesSheetRoute = ApiPublicRatesSheetRouteImport.update({
   id: '/api/public/rates-sheet',
   path: '/api/public/rates-sheet',
   getParentRoute: () => rootRouteImport,
 } as any)
+const Char123LocaleChar125RatesIndexRoute =
+  Char123LocaleChar125RatesIndexRouteImport.update({
+    id: '/{-$locale}/rates/',
+    path: '/{-$locale}/rates/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125RatesCountrySlugRoute =
+  Char123LocaleChar125RatesCountrySlugRouteImport.update({
+    id: '/{-$locale}/rates/$countrySlug',
+    path: '/{-$locale}/rates/$countrySlug',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125SolutionsEducationRoute =
+  Char123LocaleChar125SolutionsEducationRouteImport.update({
+    id: '/{-$locale}/solutions/education',
+    path: '/{-$locale}/solutions/education',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125SolutionsFranchiseRoute =
+  Char123LocaleChar125SolutionsFranchiseRouteImport.update({
+    id: '/{-$locale}/solutions/franchise',
+    path: '/{-$locale}/solutions/franchise',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125SolutionsHealthcareRoute =
+  Char123LocaleChar125SolutionsHealthcareRouteImport.update({
+    id: '/{-$locale}/solutions/healthcare',
+    path: '/{-$locale}/solutions/healthcare',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125SolutionsHomeServicesRoute =
+  Char123LocaleChar125SolutionsHomeServicesRouteImport.update({
+    id: '/{-$locale}/solutions/home-services',
+    path: '/{-$locale}/solutions/home-services',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125SolutionsLawFirmsRoute =
+  Char123LocaleChar125SolutionsLawFirmsRouteImport.update({
+    id: '/{-$locale}/solutions/law-firms',
+    path: '/{-$locale}/solutions/law-firms',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125SolutionsOperationsRoute =
+  Char123LocaleChar125SolutionsOperationsRouteImport.update({
+    id: '/{-$locale}/solutions/operations',
+    path: '/{-$locale}/solutions/operations',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125SolutionsPropertyManagementRoute =
+  Char123LocaleChar125SolutionsPropertyManagementRouteImport.update({
+    id: '/{-$locale}/solutions/property-management',
+    path: '/{-$locale}/solutions/property-management',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125SolutionsSalesRoute =
+  Char123LocaleChar125SolutionsSalesRouteImport.update({
+    id: '/{-$locale}/solutions/sales',
+    path: '/{-$locale}/solutions/sales',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125SolutionsSmallBusinessRoute =
+  Char123LocaleChar125SolutionsSmallBusinessRouteImport.update({
+    id: '/{-$locale}/solutions/small-business',
+    path: '/{-$locale}/solutions/small-business',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125SolutionsStartupsRoute =
+  Char123LocaleChar125SolutionsStartupsRouteImport.update({
+    id: '/{-$locale}/solutions/startups',
+    path: '/{-$locale}/solutions/startups',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125SolutionsSupportRoute =
+  Char123LocaleChar125SolutionsSupportRouteImport.update({
+    id: '/{-$locale}/solutions/support',
+    path: '/{-$locale}/solutions/support',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/ai-agent': typeof AiAgentRoute
-  '/analytics': typeof AnalyticsRoute
-  '/blog': typeof BlogRoute
-  '/calling': typeof CallingRoute
-  '/careers': typeof CareersRoute
-  '/contact': typeof ContactRoute
-  '/crm': typeof CrmRoute
-  '/customers': typeof CustomersRoute
-  '/demo': typeof DemoRoute
-  '/developers': typeof DevelopersRoute
-  '/docs': typeof DocsRoute
-  '/gdpr': typeof GdprRoute
-  '/integrations': typeof IntegrationsRoute
-  '/llm-info': typeof LlmInfoRoute
-  '/messaging': typeof MessagingRoute
-  '/partners': typeof PartnersRoute
-  '/phone-menu': typeof PhoneMenuRoute
-  '/port-your-number': typeof PortYourNumberRoute
-  '/pricing': typeof PricingRoute
-  '/privacy': typeof PrivacyRoute
-  '/resources': typeof ResourcesRoute
-  '/security': typeof SecurityRoute
-  '/shared-numbers': typeof SharedNumbersRoute
-  '/status': typeof StatusRoute
-  '/tasks': typeof TasksRoute
-  '/terms': typeof TermsRoute
-  '/rates/$countrySlug': typeof RatesCountrySlugRoute
-  '/solutions/education': typeof SolutionsEducationRoute
-  '/solutions/franchise': typeof SolutionsFranchiseRoute
-  '/solutions/healthcare': typeof SolutionsHealthcareRoute
-  '/solutions/home-services': typeof SolutionsHomeServicesRoute
-  '/solutions/law-firms': typeof SolutionsLawFirmsRoute
-  '/solutions/operations': typeof SolutionsOperationsRoute
-  '/solutions/property-management': typeof SolutionsPropertyManagementRoute
-  '/solutions/sales': typeof SolutionsSalesRoute
-  '/solutions/small-business': typeof SolutionsSmallBusinessRoute
-  '/solutions/startups': typeof SolutionsStartupsRoute
-  '/solutions/support': typeof SolutionsSupportRoute
-  '/rates/': typeof RatesIndexRoute
+  '/{-$locale}/about': typeof Char123LocaleChar125AboutRoute
+  '/{-$locale}/ai-agent': typeof Char123LocaleChar125AiAgentRoute
+  '/{-$locale}/analytics': typeof Char123LocaleChar125AnalyticsRoute
+  '/{-$locale}/blog': typeof Char123LocaleChar125BlogRoute
+  '/{-$locale}/calling': typeof Char123LocaleChar125CallingRoute
+  '/{-$locale}/careers': typeof Char123LocaleChar125CareersRoute
+  '/{-$locale}/contact': typeof Char123LocaleChar125ContactRoute
+  '/{-$locale}/crm': typeof Char123LocaleChar125CrmRoute
+  '/{-$locale}/customers': typeof Char123LocaleChar125CustomersRoute
+  '/{-$locale}/demo': typeof Char123LocaleChar125DemoRoute
+  '/{-$locale}/developers': typeof Char123LocaleChar125DevelopersRoute
+  '/{-$locale}/docs': typeof Char123LocaleChar125DocsRoute
+  '/{-$locale}/gdpr': typeof Char123LocaleChar125GdprRoute
+  '/{-$locale}/integrations': typeof Char123LocaleChar125IntegrationsRoute
+  '/{-$locale}/llm-info': typeof Char123LocaleChar125LlmInfoRoute
+  '/{-$locale}/messaging': typeof Char123LocaleChar125MessagingRoute
+  '/{-$locale}/partners': typeof Char123LocaleChar125PartnersRoute
+  '/{-$locale}/phone-menu': typeof Char123LocaleChar125PhoneMenuRoute
+  '/{-$locale}/port-your-number': typeof Char123LocaleChar125PortYourNumberRoute
+  '/{-$locale}/pricing': typeof Char123LocaleChar125PricingRoute
+  '/{-$locale}/privacy': typeof Char123LocaleChar125PrivacyRoute
+  '/{-$locale}/resources': typeof Char123LocaleChar125ResourcesRoute
+  '/{-$locale}/security': typeof Char123LocaleChar125SecurityRoute
+  '/{-$locale}/shared-numbers': typeof Char123LocaleChar125SharedNumbersRoute
+  '/{-$locale}/status': typeof Char123LocaleChar125StatusRoute
+  '/{-$locale}/tasks': typeof Char123LocaleChar125TasksRoute
+  '/{-$locale}/terms': typeof Char123LocaleChar125TermsRoute
+  '/{-$locale}/': typeof Char123LocaleChar125IndexRoute
   '/api/public/rates-sheet': typeof ApiPublicRatesSheetRoute
+  '/{-$locale}/rates/$countrySlug': typeof Char123LocaleChar125RatesCountrySlugRoute
+  '/{-$locale}/solutions/education': typeof Char123LocaleChar125SolutionsEducationRoute
+  '/{-$locale}/solutions/franchise': typeof Char123LocaleChar125SolutionsFranchiseRoute
+  '/{-$locale}/solutions/healthcare': typeof Char123LocaleChar125SolutionsHealthcareRoute
+  '/{-$locale}/solutions/home-services': typeof Char123LocaleChar125SolutionsHomeServicesRoute
+  '/{-$locale}/solutions/law-firms': typeof Char123LocaleChar125SolutionsLawFirmsRoute
+  '/{-$locale}/solutions/operations': typeof Char123LocaleChar125SolutionsOperationsRoute
+  '/{-$locale}/solutions/property-management': typeof Char123LocaleChar125SolutionsPropertyManagementRoute
+  '/{-$locale}/solutions/sales': typeof Char123LocaleChar125SolutionsSalesRoute
+  '/{-$locale}/solutions/small-business': typeof Char123LocaleChar125SolutionsSmallBusinessRoute
+  '/{-$locale}/solutions/startups': typeof Char123LocaleChar125SolutionsStartupsRoute
+  '/{-$locale}/solutions/support': typeof Char123LocaleChar125SolutionsSupportRoute
+  '/{-$locale}/rates/': typeof Char123LocaleChar125RatesIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/ai-agent': typeof AiAgentRoute
-  '/analytics': typeof AnalyticsRoute
-  '/blog': typeof BlogRoute
-  '/calling': typeof CallingRoute
-  '/careers': typeof CareersRoute
-  '/contact': typeof ContactRoute
-  '/crm': typeof CrmRoute
-  '/customers': typeof CustomersRoute
-  '/demo': typeof DemoRoute
-  '/developers': typeof DevelopersRoute
-  '/docs': typeof DocsRoute
-  '/gdpr': typeof GdprRoute
-  '/integrations': typeof IntegrationsRoute
-  '/llm-info': typeof LlmInfoRoute
-  '/messaging': typeof MessagingRoute
-  '/partners': typeof PartnersRoute
-  '/phone-menu': typeof PhoneMenuRoute
-  '/port-your-number': typeof PortYourNumberRoute
-  '/pricing': typeof PricingRoute
-  '/privacy': typeof PrivacyRoute
-  '/resources': typeof ResourcesRoute
-  '/security': typeof SecurityRoute
-  '/shared-numbers': typeof SharedNumbersRoute
-  '/status': typeof StatusRoute
-  '/tasks': typeof TasksRoute
-  '/terms': typeof TermsRoute
-  '/rates/$countrySlug': typeof RatesCountrySlugRoute
-  '/solutions/education': typeof SolutionsEducationRoute
-  '/solutions/franchise': typeof SolutionsFranchiseRoute
-  '/solutions/healthcare': typeof SolutionsHealthcareRoute
-  '/solutions/home-services': typeof SolutionsHomeServicesRoute
-  '/solutions/law-firms': typeof SolutionsLawFirmsRoute
-  '/solutions/operations': typeof SolutionsOperationsRoute
-  '/solutions/property-management': typeof SolutionsPropertyManagementRoute
-  '/solutions/sales': typeof SolutionsSalesRoute
-  '/solutions/small-business': typeof SolutionsSmallBusinessRoute
-  '/solutions/startups': typeof SolutionsStartupsRoute
-  '/solutions/support': typeof SolutionsSupportRoute
-  '/rates': typeof RatesIndexRoute
+  '/{-$locale}/about': typeof Char123LocaleChar125AboutRoute
+  '/{-$locale}/ai-agent': typeof Char123LocaleChar125AiAgentRoute
+  '/{-$locale}/analytics': typeof Char123LocaleChar125AnalyticsRoute
+  '/{-$locale}/blog': typeof Char123LocaleChar125BlogRoute
+  '/{-$locale}/calling': typeof Char123LocaleChar125CallingRoute
+  '/{-$locale}/careers': typeof Char123LocaleChar125CareersRoute
+  '/{-$locale}/contact': typeof Char123LocaleChar125ContactRoute
+  '/{-$locale}/crm': typeof Char123LocaleChar125CrmRoute
+  '/{-$locale}/customers': typeof Char123LocaleChar125CustomersRoute
+  '/{-$locale}/demo': typeof Char123LocaleChar125DemoRoute
+  '/{-$locale}/developers': typeof Char123LocaleChar125DevelopersRoute
+  '/{-$locale}/docs': typeof Char123LocaleChar125DocsRoute
+  '/{-$locale}/gdpr': typeof Char123LocaleChar125GdprRoute
+  '/{-$locale}/integrations': typeof Char123LocaleChar125IntegrationsRoute
+  '/{-$locale}/llm-info': typeof Char123LocaleChar125LlmInfoRoute
+  '/{-$locale}/messaging': typeof Char123LocaleChar125MessagingRoute
+  '/{-$locale}/partners': typeof Char123LocaleChar125PartnersRoute
+  '/{-$locale}/phone-menu': typeof Char123LocaleChar125PhoneMenuRoute
+  '/{-$locale}/port-your-number': typeof Char123LocaleChar125PortYourNumberRoute
+  '/{-$locale}/pricing': typeof Char123LocaleChar125PricingRoute
+  '/{-$locale}/privacy': typeof Char123LocaleChar125PrivacyRoute
+  '/{-$locale}/resources': typeof Char123LocaleChar125ResourcesRoute
+  '/{-$locale}/security': typeof Char123LocaleChar125SecurityRoute
+  '/{-$locale}/shared-numbers': typeof Char123LocaleChar125SharedNumbersRoute
+  '/{-$locale}/status': typeof Char123LocaleChar125StatusRoute
+  '/{-$locale}/tasks': typeof Char123LocaleChar125TasksRoute
+  '/{-$locale}/terms': typeof Char123LocaleChar125TermsRoute
+  '/{-$locale}': typeof Char123LocaleChar125IndexRoute
   '/api/public/rates-sheet': typeof ApiPublicRatesSheetRoute
+  '/{-$locale}/rates/$countrySlug': typeof Char123LocaleChar125RatesCountrySlugRoute
+  '/{-$locale}/solutions/education': typeof Char123LocaleChar125SolutionsEducationRoute
+  '/{-$locale}/solutions/franchise': typeof Char123LocaleChar125SolutionsFranchiseRoute
+  '/{-$locale}/solutions/healthcare': typeof Char123LocaleChar125SolutionsHealthcareRoute
+  '/{-$locale}/solutions/home-services': typeof Char123LocaleChar125SolutionsHomeServicesRoute
+  '/{-$locale}/solutions/law-firms': typeof Char123LocaleChar125SolutionsLawFirmsRoute
+  '/{-$locale}/solutions/operations': typeof Char123LocaleChar125SolutionsOperationsRoute
+  '/{-$locale}/solutions/property-management': typeof Char123LocaleChar125SolutionsPropertyManagementRoute
+  '/{-$locale}/solutions/sales': typeof Char123LocaleChar125SolutionsSalesRoute
+  '/{-$locale}/solutions/small-business': typeof Char123LocaleChar125SolutionsSmallBusinessRoute
+  '/{-$locale}/solutions/startups': typeof Char123LocaleChar125SolutionsStartupsRoute
+  '/{-$locale}/solutions/support': typeof Char123LocaleChar125SolutionsSupportRoute
+  '/{-$locale}/rates': typeof Char123LocaleChar125RatesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/ai-agent': typeof AiAgentRoute
-  '/analytics': typeof AnalyticsRoute
-  '/blog': typeof BlogRoute
-  '/calling': typeof CallingRoute
-  '/careers': typeof CareersRoute
-  '/contact': typeof ContactRoute
-  '/crm': typeof CrmRoute
-  '/customers': typeof CustomersRoute
-  '/demo': typeof DemoRoute
-  '/developers': typeof DevelopersRoute
-  '/docs': typeof DocsRoute
-  '/gdpr': typeof GdprRoute
-  '/integrations': typeof IntegrationsRoute
-  '/llm-info': typeof LlmInfoRoute
-  '/messaging': typeof MessagingRoute
-  '/partners': typeof PartnersRoute
-  '/phone-menu': typeof PhoneMenuRoute
-  '/port-your-number': typeof PortYourNumberRoute
-  '/pricing': typeof PricingRoute
-  '/privacy': typeof PrivacyRoute
-  '/resources': typeof ResourcesRoute
-  '/security': typeof SecurityRoute
-  '/shared-numbers': typeof SharedNumbersRoute
-  '/status': typeof StatusRoute
-  '/tasks': typeof TasksRoute
-  '/terms': typeof TermsRoute
-  '/rates/$countrySlug': typeof RatesCountrySlugRoute
-  '/solutions/education': typeof SolutionsEducationRoute
-  '/solutions/franchise': typeof SolutionsFranchiseRoute
-  '/solutions/healthcare': typeof SolutionsHealthcareRoute
-  '/solutions/home-services': typeof SolutionsHomeServicesRoute
-  '/solutions/law-firms': typeof SolutionsLawFirmsRoute
-  '/solutions/operations': typeof SolutionsOperationsRoute
-  '/solutions/property-management': typeof SolutionsPropertyManagementRoute
-  '/solutions/sales': typeof SolutionsSalesRoute
-  '/solutions/small-business': typeof SolutionsSmallBusinessRoute
-  '/solutions/startups': typeof SolutionsStartupsRoute
-  '/solutions/support': typeof SolutionsSupportRoute
-  '/rates/': typeof RatesIndexRoute
+  '/{-$locale}/about': typeof Char123LocaleChar125AboutRoute
+  '/{-$locale}/ai-agent': typeof Char123LocaleChar125AiAgentRoute
+  '/{-$locale}/analytics': typeof Char123LocaleChar125AnalyticsRoute
+  '/{-$locale}/blog': typeof Char123LocaleChar125BlogRoute
+  '/{-$locale}/calling': typeof Char123LocaleChar125CallingRoute
+  '/{-$locale}/careers': typeof Char123LocaleChar125CareersRoute
+  '/{-$locale}/contact': typeof Char123LocaleChar125ContactRoute
+  '/{-$locale}/crm': typeof Char123LocaleChar125CrmRoute
+  '/{-$locale}/customers': typeof Char123LocaleChar125CustomersRoute
+  '/{-$locale}/demo': typeof Char123LocaleChar125DemoRoute
+  '/{-$locale}/developers': typeof Char123LocaleChar125DevelopersRoute
+  '/{-$locale}/docs': typeof Char123LocaleChar125DocsRoute
+  '/{-$locale}/gdpr': typeof Char123LocaleChar125GdprRoute
+  '/{-$locale}/integrations': typeof Char123LocaleChar125IntegrationsRoute
+  '/{-$locale}/llm-info': typeof Char123LocaleChar125LlmInfoRoute
+  '/{-$locale}/messaging': typeof Char123LocaleChar125MessagingRoute
+  '/{-$locale}/partners': typeof Char123LocaleChar125PartnersRoute
+  '/{-$locale}/phone-menu': typeof Char123LocaleChar125PhoneMenuRoute
+  '/{-$locale}/port-your-number': typeof Char123LocaleChar125PortYourNumberRoute
+  '/{-$locale}/pricing': typeof Char123LocaleChar125PricingRoute
+  '/{-$locale}/privacy': typeof Char123LocaleChar125PrivacyRoute
+  '/{-$locale}/resources': typeof Char123LocaleChar125ResourcesRoute
+  '/{-$locale}/security': typeof Char123LocaleChar125SecurityRoute
+  '/{-$locale}/shared-numbers': typeof Char123LocaleChar125SharedNumbersRoute
+  '/{-$locale}/status': typeof Char123LocaleChar125StatusRoute
+  '/{-$locale}/tasks': typeof Char123LocaleChar125TasksRoute
+  '/{-$locale}/terms': typeof Char123LocaleChar125TermsRoute
+  '/{-$locale}/': typeof Char123LocaleChar125IndexRoute
   '/api/public/rates-sheet': typeof ApiPublicRatesSheetRoute
+  '/{-$locale}/rates/$countrySlug': typeof Char123LocaleChar125RatesCountrySlugRoute
+  '/{-$locale}/solutions/education': typeof Char123LocaleChar125SolutionsEducationRoute
+  '/{-$locale}/solutions/franchise': typeof Char123LocaleChar125SolutionsFranchiseRoute
+  '/{-$locale}/solutions/healthcare': typeof Char123LocaleChar125SolutionsHealthcareRoute
+  '/{-$locale}/solutions/home-services': typeof Char123LocaleChar125SolutionsHomeServicesRoute
+  '/{-$locale}/solutions/law-firms': typeof Char123LocaleChar125SolutionsLawFirmsRoute
+  '/{-$locale}/solutions/operations': typeof Char123LocaleChar125SolutionsOperationsRoute
+  '/{-$locale}/solutions/property-management': typeof Char123LocaleChar125SolutionsPropertyManagementRoute
+  '/{-$locale}/solutions/sales': typeof Char123LocaleChar125SolutionsSalesRoute
+  '/{-$locale}/solutions/small-business': typeof Char123LocaleChar125SolutionsSmallBusinessRoute
+  '/{-$locale}/solutions/startups': typeof Char123LocaleChar125SolutionsStartupsRoute
+  '/{-$locale}/solutions/support': typeof Char123LocaleChar125SolutionsSupportRoute
+  '/{-$locale}/rates/': typeof Char123LocaleChar125RatesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/'
-    | '/about'
-    | '/ai-agent'
-    | '/analytics'
-    | '/blog'
-    | '/calling'
-    | '/careers'
-    | '/contact'
-    | '/crm'
-    | '/customers'
-    | '/demo'
-    | '/developers'
-    | '/docs'
-    | '/gdpr'
-    | '/integrations'
-    | '/llm-info'
-    | '/messaging'
-    | '/partners'
-    | '/phone-menu'
-    | '/port-your-number'
-    | '/pricing'
-    | '/privacy'
-    | '/resources'
-    | '/security'
-    | '/shared-numbers'
-    | '/status'
-    | '/tasks'
-    | '/terms'
-    | '/rates/$countrySlug'
-    | '/solutions/education'
-    | '/solutions/franchise'
-    | '/solutions/healthcare'
-    | '/solutions/home-services'
-    | '/solutions/law-firms'
-    | '/solutions/operations'
-    | '/solutions/property-management'
-    | '/solutions/sales'
-    | '/solutions/small-business'
-    | '/solutions/startups'
-    | '/solutions/support'
-    | '/rates/'
+    | '/{-$locale}/about'
+    | '/{-$locale}/ai-agent'
+    | '/{-$locale}/analytics'
+    | '/{-$locale}/blog'
+    | '/{-$locale}/calling'
+    | '/{-$locale}/careers'
+    | '/{-$locale}/contact'
+    | '/{-$locale}/crm'
+    | '/{-$locale}/customers'
+    | '/{-$locale}/demo'
+    | '/{-$locale}/developers'
+    | '/{-$locale}/docs'
+    | '/{-$locale}/gdpr'
+    | '/{-$locale}/integrations'
+    | '/{-$locale}/llm-info'
+    | '/{-$locale}/messaging'
+    | '/{-$locale}/partners'
+    | '/{-$locale}/phone-menu'
+    | '/{-$locale}/port-your-number'
+    | '/{-$locale}/pricing'
+    | '/{-$locale}/privacy'
+    | '/{-$locale}/resources'
+    | '/{-$locale}/security'
+    | '/{-$locale}/shared-numbers'
+    | '/{-$locale}/status'
+    | '/{-$locale}/tasks'
+    | '/{-$locale}/terms'
+    | '/{-$locale}/'
     | '/api/public/rates-sheet'
+    | '/{-$locale}/rates/$countrySlug'
+    | '/{-$locale}/solutions/education'
+    | '/{-$locale}/solutions/franchise'
+    | '/{-$locale}/solutions/healthcare'
+    | '/{-$locale}/solutions/home-services'
+    | '/{-$locale}/solutions/law-firms'
+    | '/{-$locale}/solutions/operations'
+    | '/{-$locale}/solutions/property-management'
+    | '/{-$locale}/solutions/sales'
+    | '/{-$locale}/solutions/small-business'
+    | '/{-$locale}/solutions/startups'
+    | '/{-$locale}/solutions/support'
+    | '/{-$locale}/rates/'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/'
-    | '/about'
-    | '/ai-agent'
-    | '/analytics'
-    | '/blog'
-    | '/calling'
-    | '/careers'
-    | '/contact'
-    | '/crm'
-    | '/customers'
-    | '/demo'
-    | '/developers'
-    | '/docs'
-    | '/gdpr'
-    | '/integrations'
-    | '/llm-info'
-    | '/messaging'
-    | '/partners'
-    | '/phone-menu'
-    | '/port-your-number'
-    | '/pricing'
-    | '/privacy'
-    | '/resources'
-    | '/security'
-    | '/shared-numbers'
-    | '/status'
-    | '/tasks'
-    | '/terms'
-    | '/rates/$countrySlug'
-    | '/solutions/education'
-    | '/solutions/franchise'
-    | '/solutions/healthcare'
-    | '/solutions/home-services'
-    | '/solutions/law-firms'
-    | '/solutions/operations'
-    | '/solutions/property-management'
-    | '/solutions/sales'
-    | '/solutions/small-business'
-    | '/solutions/startups'
-    | '/solutions/support'
-    | '/rates'
+    | '/{-$locale}/about'
+    | '/{-$locale}/ai-agent'
+    | '/{-$locale}/analytics'
+    | '/{-$locale}/blog'
+    | '/{-$locale}/calling'
+    | '/{-$locale}/careers'
+    | '/{-$locale}/contact'
+    | '/{-$locale}/crm'
+    | '/{-$locale}/customers'
+    | '/{-$locale}/demo'
+    | '/{-$locale}/developers'
+    | '/{-$locale}/docs'
+    | '/{-$locale}/gdpr'
+    | '/{-$locale}/integrations'
+    | '/{-$locale}/llm-info'
+    | '/{-$locale}/messaging'
+    | '/{-$locale}/partners'
+    | '/{-$locale}/phone-menu'
+    | '/{-$locale}/port-your-number'
+    | '/{-$locale}/pricing'
+    | '/{-$locale}/privacy'
+    | '/{-$locale}/resources'
+    | '/{-$locale}/security'
+    | '/{-$locale}/shared-numbers'
+    | '/{-$locale}/status'
+    | '/{-$locale}/tasks'
+    | '/{-$locale}/terms'
+    | '/{-$locale}'
     | '/api/public/rates-sheet'
+    | '/{-$locale}/rates/$countrySlug'
+    | '/{-$locale}/solutions/education'
+    | '/{-$locale}/solutions/franchise'
+    | '/{-$locale}/solutions/healthcare'
+    | '/{-$locale}/solutions/home-services'
+    | '/{-$locale}/solutions/law-firms'
+    | '/{-$locale}/solutions/operations'
+    | '/{-$locale}/solutions/property-management'
+    | '/{-$locale}/solutions/sales'
+    | '/{-$locale}/solutions/small-business'
+    | '/{-$locale}/solutions/startups'
+    | '/{-$locale}/solutions/support'
+    | '/{-$locale}/rates'
   id:
     | '__root__'
-    | '/'
-    | '/about'
-    | '/ai-agent'
-    | '/analytics'
-    | '/blog'
-    | '/calling'
-    | '/careers'
-    | '/contact'
-    | '/crm'
-    | '/customers'
-    | '/demo'
-    | '/developers'
-    | '/docs'
-    | '/gdpr'
-    | '/integrations'
-    | '/llm-info'
-    | '/messaging'
-    | '/partners'
-    | '/phone-menu'
-    | '/port-your-number'
-    | '/pricing'
-    | '/privacy'
-    | '/resources'
-    | '/security'
-    | '/shared-numbers'
-    | '/status'
-    | '/tasks'
-    | '/terms'
-    | '/rates/$countrySlug'
-    | '/solutions/education'
-    | '/solutions/franchise'
-    | '/solutions/healthcare'
-    | '/solutions/home-services'
-    | '/solutions/law-firms'
-    | '/solutions/operations'
-    | '/solutions/property-management'
-    | '/solutions/sales'
-    | '/solutions/small-business'
-    | '/solutions/startups'
-    | '/solutions/support'
-    | '/rates/'
+    | '/{-$locale}/about'
+    | '/{-$locale}/ai-agent'
+    | '/{-$locale}/analytics'
+    | '/{-$locale}/blog'
+    | '/{-$locale}/calling'
+    | '/{-$locale}/careers'
+    | '/{-$locale}/contact'
+    | '/{-$locale}/crm'
+    | '/{-$locale}/customers'
+    | '/{-$locale}/demo'
+    | '/{-$locale}/developers'
+    | '/{-$locale}/docs'
+    | '/{-$locale}/gdpr'
+    | '/{-$locale}/integrations'
+    | '/{-$locale}/llm-info'
+    | '/{-$locale}/messaging'
+    | '/{-$locale}/partners'
+    | '/{-$locale}/phone-menu'
+    | '/{-$locale}/port-your-number'
+    | '/{-$locale}/pricing'
+    | '/{-$locale}/privacy'
+    | '/{-$locale}/resources'
+    | '/{-$locale}/security'
+    | '/{-$locale}/shared-numbers'
+    | '/{-$locale}/status'
+    | '/{-$locale}/tasks'
+    | '/{-$locale}/terms'
+    | '/{-$locale}/'
     | '/api/public/rates-sheet'
+    | '/{-$locale}/rates/$countrySlug'
+    | '/{-$locale}/solutions/education'
+    | '/{-$locale}/solutions/franchise'
+    | '/{-$locale}/solutions/healthcare'
+    | '/{-$locale}/solutions/home-services'
+    | '/{-$locale}/solutions/law-firms'
+    | '/{-$locale}/solutions/operations'
+    | '/{-$locale}/solutions/property-management'
+    | '/{-$locale}/solutions/sales'
+    | '/{-$locale}/solutions/small-business'
+    | '/{-$locale}/solutions/startups'
+    | '/{-$locale}/solutions/support'
+    | '/{-$locale}/rates/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
-  AiAgentRoute: typeof AiAgentRoute
-  AnalyticsRoute: typeof AnalyticsRoute
-  BlogRoute: typeof BlogRoute
-  CallingRoute: typeof CallingRoute
-  CareersRoute: typeof CareersRoute
-  ContactRoute: typeof ContactRoute
-  CrmRoute: typeof CrmRoute
-  CustomersRoute: typeof CustomersRoute
-  DemoRoute: typeof DemoRoute
-  DevelopersRoute: typeof DevelopersRoute
-  DocsRoute: typeof DocsRoute
-  GdprRoute: typeof GdprRoute
-  IntegrationsRoute: typeof IntegrationsRoute
-  LlmInfoRoute: typeof LlmInfoRoute
-  MessagingRoute: typeof MessagingRoute
-  PartnersRoute: typeof PartnersRoute
-  PhoneMenuRoute: typeof PhoneMenuRoute
-  PortYourNumberRoute: typeof PortYourNumberRoute
-  PricingRoute: typeof PricingRoute
-  PrivacyRoute: typeof PrivacyRoute
-  ResourcesRoute: typeof ResourcesRoute
-  SecurityRoute: typeof SecurityRoute
-  SharedNumbersRoute: typeof SharedNumbersRoute
-  StatusRoute: typeof StatusRoute
-  TasksRoute: typeof TasksRoute
-  TermsRoute: typeof TermsRoute
-  RatesCountrySlugRoute: typeof RatesCountrySlugRoute
-  SolutionsEducationRoute: typeof SolutionsEducationRoute
-  SolutionsFranchiseRoute: typeof SolutionsFranchiseRoute
-  SolutionsHealthcareRoute: typeof SolutionsHealthcareRoute
-  SolutionsHomeServicesRoute: typeof SolutionsHomeServicesRoute
-  SolutionsLawFirmsRoute: typeof SolutionsLawFirmsRoute
-  SolutionsOperationsRoute: typeof SolutionsOperationsRoute
-  SolutionsPropertyManagementRoute: typeof SolutionsPropertyManagementRoute
-  SolutionsSalesRoute: typeof SolutionsSalesRoute
-  SolutionsSmallBusinessRoute: typeof SolutionsSmallBusinessRoute
-  SolutionsStartupsRoute: typeof SolutionsStartupsRoute
-  SolutionsSupportRoute: typeof SolutionsSupportRoute
-  RatesIndexRoute: typeof RatesIndexRoute
+  Char123LocaleChar125AboutRoute: typeof Char123LocaleChar125AboutRoute
+  Char123LocaleChar125AiAgentRoute: typeof Char123LocaleChar125AiAgentRoute
+  Char123LocaleChar125AnalyticsRoute: typeof Char123LocaleChar125AnalyticsRoute
+  Char123LocaleChar125BlogRoute: typeof Char123LocaleChar125BlogRoute
+  Char123LocaleChar125CallingRoute: typeof Char123LocaleChar125CallingRoute
+  Char123LocaleChar125CareersRoute: typeof Char123LocaleChar125CareersRoute
+  Char123LocaleChar125ContactRoute: typeof Char123LocaleChar125ContactRoute
+  Char123LocaleChar125CrmRoute: typeof Char123LocaleChar125CrmRoute
+  Char123LocaleChar125CustomersRoute: typeof Char123LocaleChar125CustomersRoute
+  Char123LocaleChar125DemoRoute: typeof Char123LocaleChar125DemoRoute
+  Char123LocaleChar125DevelopersRoute: typeof Char123LocaleChar125DevelopersRoute
+  Char123LocaleChar125DocsRoute: typeof Char123LocaleChar125DocsRoute
+  Char123LocaleChar125GdprRoute: typeof Char123LocaleChar125GdprRoute
+  Char123LocaleChar125IntegrationsRoute: typeof Char123LocaleChar125IntegrationsRoute
+  Char123LocaleChar125LlmInfoRoute: typeof Char123LocaleChar125LlmInfoRoute
+  Char123LocaleChar125MessagingRoute: typeof Char123LocaleChar125MessagingRoute
+  Char123LocaleChar125PartnersRoute: typeof Char123LocaleChar125PartnersRoute
+  Char123LocaleChar125PhoneMenuRoute: typeof Char123LocaleChar125PhoneMenuRoute
+  Char123LocaleChar125PortYourNumberRoute: typeof Char123LocaleChar125PortYourNumberRoute
+  Char123LocaleChar125PricingRoute: typeof Char123LocaleChar125PricingRoute
+  Char123LocaleChar125PrivacyRoute: typeof Char123LocaleChar125PrivacyRoute
+  Char123LocaleChar125ResourcesRoute: typeof Char123LocaleChar125ResourcesRoute
+  Char123LocaleChar125SecurityRoute: typeof Char123LocaleChar125SecurityRoute
+  Char123LocaleChar125SharedNumbersRoute: typeof Char123LocaleChar125SharedNumbersRoute
+  Char123LocaleChar125StatusRoute: typeof Char123LocaleChar125StatusRoute
+  Char123LocaleChar125TasksRoute: typeof Char123LocaleChar125TasksRoute
+  Char123LocaleChar125TermsRoute: typeof Char123LocaleChar125TermsRoute
+  Char123LocaleChar125IndexRoute: typeof Char123LocaleChar125IndexRoute
   ApiPublicRatesSheetRoute: typeof ApiPublicRatesSheetRoute
+  Char123LocaleChar125RatesCountrySlugRoute: typeof Char123LocaleChar125RatesCountrySlugRoute
+  Char123LocaleChar125SolutionsEducationRoute: typeof Char123LocaleChar125SolutionsEducationRoute
+  Char123LocaleChar125SolutionsFranchiseRoute: typeof Char123LocaleChar125SolutionsFranchiseRoute
+  Char123LocaleChar125SolutionsHealthcareRoute: typeof Char123LocaleChar125SolutionsHealthcareRoute
+  Char123LocaleChar125SolutionsHomeServicesRoute: typeof Char123LocaleChar125SolutionsHomeServicesRoute
+  Char123LocaleChar125SolutionsLawFirmsRoute: typeof Char123LocaleChar125SolutionsLawFirmsRoute
+  Char123LocaleChar125SolutionsOperationsRoute: typeof Char123LocaleChar125SolutionsOperationsRoute
+  Char123LocaleChar125SolutionsPropertyManagementRoute: typeof Char123LocaleChar125SolutionsPropertyManagementRoute
+  Char123LocaleChar125SolutionsSalesRoute: typeof Char123LocaleChar125SolutionsSalesRoute
+  Char123LocaleChar125SolutionsSmallBusinessRoute: typeof Char123LocaleChar125SolutionsSmallBusinessRoute
+  Char123LocaleChar125SolutionsStartupsRoute: typeof Char123LocaleChar125SolutionsStartupsRoute
+  Char123LocaleChar125SolutionsSupportRoute: typeof Char123LocaleChar125SolutionsSupportRoute
+  Char123LocaleChar125RatesIndexRoute: typeof Char123LocaleChar125RatesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/{-$locale}/': {
+      id: '/{-$locale}/'
+      path: '/{-$locale}'
+      fullPath: '/{-$locale}/'
+      preLoaderRoute: typeof Char123LocaleChar125IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
+    '/{-$locale}/about': {
+      id: '/{-$locale}/about'
+      path: '/{-$locale}/about'
+      fullPath: '/{-$locale}/about'
+      preLoaderRoute: typeof Char123LocaleChar125AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/ai-agent': {
-      id: '/ai-agent'
-      path: '/ai-agent'
-      fullPath: '/ai-agent'
-      preLoaderRoute: typeof AiAgentRouteImport
+    '/{-$locale}/ai-agent': {
+      id: '/{-$locale}/ai-agent'
+      path: '/{-$locale}/ai-agent'
+      fullPath: '/{-$locale}/ai-agent'
+      preLoaderRoute: typeof Char123LocaleChar125AiAgentRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/analytics': {
-      id: '/analytics'
-      path: '/analytics'
-      fullPath: '/analytics'
-      preLoaderRoute: typeof AnalyticsRouteImport
+    '/{-$locale}/analytics': {
+      id: '/{-$locale}/analytics'
+      path: '/{-$locale}/analytics'
+      fullPath: '/{-$locale}/analytics'
+      preLoaderRoute: typeof Char123LocaleChar125AnalyticsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blog': {
-      id: '/blog'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof BlogRouteImport
+    '/{-$locale}/blog': {
+      id: '/{-$locale}/blog'
+      path: '/{-$locale}/blog'
+      fullPath: '/{-$locale}/blog'
+      preLoaderRoute: typeof Char123LocaleChar125BlogRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/calling': {
-      id: '/calling'
-      path: '/calling'
-      fullPath: '/calling'
-      preLoaderRoute: typeof CallingRouteImport
+    '/{-$locale}/calling': {
+      id: '/{-$locale}/calling'
+      path: '/{-$locale}/calling'
+      fullPath: '/{-$locale}/calling'
+      preLoaderRoute: typeof Char123LocaleChar125CallingRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/careers': {
-      id: '/careers'
-      path: '/careers'
-      fullPath: '/careers'
-      preLoaderRoute: typeof CareersRouteImport
+    '/{-$locale}/careers': {
+      id: '/{-$locale}/careers'
+      path: '/{-$locale}/careers'
+      fullPath: '/{-$locale}/careers'
+      preLoaderRoute: typeof Char123LocaleChar125CareersRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
+    '/{-$locale}/contact': {
+      id: '/{-$locale}/contact'
+      path: '/{-$locale}/contact'
+      fullPath: '/{-$locale}/contact'
+      preLoaderRoute: typeof Char123LocaleChar125ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/crm': {
-      id: '/crm'
-      path: '/crm'
-      fullPath: '/crm'
-      preLoaderRoute: typeof CrmRouteImport
+    '/{-$locale}/crm': {
+      id: '/{-$locale}/crm'
+      path: '/{-$locale}/crm'
+      fullPath: '/{-$locale}/crm'
+      preLoaderRoute: typeof Char123LocaleChar125CrmRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/customers': {
-      id: '/customers'
-      path: '/customers'
-      fullPath: '/customers'
-      preLoaderRoute: typeof CustomersRouteImport
+    '/{-$locale}/customers': {
+      id: '/{-$locale}/customers'
+      path: '/{-$locale}/customers'
+      fullPath: '/{-$locale}/customers'
+      preLoaderRoute: typeof Char123LocaleChar125CustomersRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/demo': {
-      id: '/demo'
-      path: '/demo'
-      fullPath: '/demo'
-      preLoaderRoute: typeof DemoRouteImport
+    '/{-$locale}/demo': {
+      id: '/{-$locale}/demo'
+      path: '/{-$locale}/demo'
+      fullPath: '/{-$locale}/demo'
+      preLoaderRoute: typeof Char123LocaleChar125DemoRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/developers': {
-      id: '/developers'
-      path: '/developers'
-      fullPath: '/developers'
-      preLoaderRoute: typeof DevelopersRouteImport
+    '/{-$locale}/developers': {
+      id: '/{-$locale}/developers'
+      path: '/{-$locale}/developers'
+      fullPath: '/{-$locale}/developers'
+      preLoaderRoute: typeof Char123LocaleChar125DevelopersRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/docs': {
-      id: '/docs'
-      path: '/docs'
-      fullPath: '/docs'
-      preLoaderRoute: typeof DocsRouteImport
+    '/{-$locale}/docs': {
+      id: '/{-$locale}/docs'
+      path: '/{-$locale}/docs'
+      fullPath: '/{-$locale}/docs'
+      preLoaderRoute: typeof Char123LocaleChar125DocsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/gdpr': {
-      id: '/gdpr'
-      path: '/gdpr'
-      fullPath: '/gdpr'
-      preLoaderRoute: typeof GdprRouteImport
+    '/{-$locale}/gdpr': {
+      id: '/{-$locale}/gdpr'
+      path: '/{-$locale}/gdpr'
+      fullPath: '/{-$locale}/gdpr'
+      preLoaderRoute: typeof Char123LocaleChar125GdprRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/integrations': {
-      id: '/integrations'
-      path: '/integrations'
-      fullPath: '/integrations'
-      preLoaderRoute: typeof IntegrationsRouteImport
+    '/{-$locale}/integrations': {
+      id: '/{-$locale}/integrations'
+      path: '/{-$locale}/integrations'
+      fullPath: '/{-$locale}/integrations'
+      preLoaderRoute: typeof Char123LocaleChar125IntegrationsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/llm-info': {
-      id: '/llm-info'
-      path: '/llm-info'
-      fullPath: '/llm-info'
-      preLoaderRoute: typeof LlmInfoRouteImport
+    '/{-$locale}/llm-info': {
+      id: '/{-$locale}/llm-info'
+      path: '/{-$locale}/llm-info'
+      fullPath: '/{-$locale}/llm-info'
+      preLoaderRoute: typeof Char123LocaleChar125LlmInfoRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/messaging': {
-      id: '/messaging'
-      path: '/messaging'
-      fullPath: '/messaging'
-      preLoaderRoute: typeof MessagingRouteImport
+    '/{-$locale}/messaging': {
+      id: '/{-$locale}/messaging'
+      path: '/{-$locale}/messaging'
+      fullPath: '/{-$locale}/messaging'
+      preLoaderRoute: typeof Char123LocaleChar125MessagingRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/partners': {
-      id: '/partners'
-      path: '/partners'
-      fullPath: '/partners'
-      preLoaderRoute: typeof PartnersRouteImport
+    '/{-$locale}/partners': {
+      id: '/{-$locale}/partners'
+      path: '/{-$locale}/partners'
+      fullPath: '/{-$locale}/partners'
+      preLoaderRoute: typeof Char123LocaleChar125PartnersRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/phone-menu': {
-      id: '/phone-menu'
-      path: '/phone-menu'
-      fullPath: '/phone-menu'
-      preLoaderRoute: typeof PhoneMenuRouteImport
+    '/{-$locale}/phone-menu': {
+      id: '/{-$locale}/phone-menu'
+      path: '/{-$locale}/phone-menu'
+      fullPath: '/{-$locale}/phone-menu'
+      preLoaderRoute: typeof Char123LocaleChar125PhoneMenuRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/port-your-number': {
-      id: '/port-your-number'
-      path: '/port-your-number'
-      fullPath: '/port-your-number'
-      preLoaderRoute: typeof PortYourNumberRouteImport
+    '/{-$locale}/port-your-number': {
+      id: '/{-$locale}/port-your-number'
+      path: '/{-$locale}/port-your-number'
+      fullPath: '/{-$locale}/port-your-number'
+      preLoaderRoute: typeof Char123LocaleChar125PortYourNumberRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/pricing': {
-      id: '/pricing'
-      path: '/pricing'
-      fullPath: '/pricing'
-      preLoaderRoute: typeof PricingRouteImport
+    '/{-$locale}/pricing': {
+      id: '/{-$locale}/pricing'
+      path: '/{-$locale}/pricing'
+      fullPath: '/{-$locale}/pricing'
+      preLoaderRoute: typeof Char123LocaleChar125PricingRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/privacy': {
-      id: '/privacy'
-      path: '/privacy'
-      fullPath: '/privacy'
-      preLoaderRoute: typeof PrivacyRouteImport
+    '/{-$locale}/privacy': {
+      id: '/{-$locale}/privacy'
+      path: '/{-$locale}/privacy'
+      fullPath: '/{-$locale}/privacy'
+      preLoaderRoute: typeof Char123LocaleChar125PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/resources': {
-      id: '/resources'
-      path: '/resources'
-      fullPath: '/resources'
-      preLoaderRoute: typeof ResourcesRouteImport
+    '/{-$locale}/resources': {
+      id: '/{-$locale}/resources'
+      path: '/{-$locale}/resources'
+      fullPath: '/{-$locale}/resources'
+      preLoaderRoute: typeof Char123LocaleChar125ResourcesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/security': {
-      id: '/security'
-      path: '/security'
-      fullPath: '/security'
-      preLoaderRoute: typeof SecurityRouteImport
+    '/{-$locale}/security': {
+      id: '/{-$locale}/security'
+      path: '/{-$locale}/security'
+      fullPath: '/{-$locale}/security'
+      preLoaderRoute: typeof Char123LocaleChar125SecurityRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/shared-numbers': {
-      id: '/shared-numbers'
-      path: '/shared-numbers'
-      fullPath: '/shared-numbers'
-      preLoaderRoute: typeof SharedNumbersRouteImport
+    '/{-$locale}/shared-numbers': {
+      id: '/{-$locale}/shared-numbers'
+      path: '/{-$locale}/shared-numbers'
+      fullPath: '/{-$locale}/shared-numbers'
+      preLoaderRoute: typeof Char123LocaleChar125SharedNumbersRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/status': {
-      id: '/status'
-      path: '/status'
-      fullPath: '/status'
-      preLoaderRoute: typeof StatusRouteImport
+    '/{-$locale}/status': {
+      id: '/{-$locale}/status'
+      path: '/{-$locale}/status'
+      fullPath: '/{-$locale}/status'
+      preLoaderRoute: typeof Char123LocaleChar125StatusRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/tasks': {
-      id: '/tasks'
-      path: '/tasks'
-      fullPath: '/tasks'
-      preLoaderRoute: typeof TasksRouteImport
+    '/{-$locale}/tasks': {
+      id: '/{-$locale}/tasks'
+      path: '/{-$locale}/tasks'
+      fullPath: '/{-$locale}/tasks'
+      preLoaderRoute: typeof Char123LocaleChar125TasksRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/terms': {
-      id: '/terms'
-      path: '/terms'
-      fullPath: '/terms'
-      preLoaderRoute: typeof TermsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/rates/': {
-      id: '/rates/'
-      path: '/rates'
-      fullPath: '/rates/'
-      preLoaderRoute: typeof RatesIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/rates/$countrySlug': {
-      id: '/rates/$countrySlug'
-      path: '/rates/$countrySlug'
-      fullPath: '/rates/$countrySlug'
-      preLoaderRoute: typeof RatesCountrySlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/solutions/education': {
-      id: '/solutions/education'
-      path: '/solutions/education'
-      fullPath: '/solutions/education'
-      preLoaderRoute: typeof SolutionsEducationRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/solutions/franchise': {
-      id: '/solutions/franchise'
-      path: '/solutions/franchise'
-      fullPath: '/solutions/franchise'
-      preLoaderRoute: typeof SolutionsFranchiseRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/solutions/healthcare': {
-      id: '/solutions/healthcare'
-      path: '/solutions/healthcare'
-      fullPath: '/solutions/healthcare'
-      preLoaderRoute: typeof SolutionsHealthcareRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/solutions/home-services': {
-      id: '/solutions/home-services'
-      path: '/solutions/home-services'
-      fullPath: '/solutions/home-services'
-      preLoaderRoute: typeof SolutionsHomeServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/solutions/law-firms': {
-      id: '/solutions/law-firms'
-      path: '/solutions/law-firms'
-      fullPath: '/solutions/law-firms'
-      preLoaderRoute: typeof SolutionsLawFirmsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/solutions/operations': {
-      id: '/solutions/operations'
-      path: '/solutions/operations'
-      fullPath: '/solutions/operations'
-      preLoaderRoute: typeof SolutionsOperationsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/solutions/property-management': {
-      id: '/solutions/property-management'
-      path: '/solutions/property-management'
-      fullPath: '/solutions/property-management'
-      preLoaderRoute: typeof SolutionsPropertyManagementRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/solutions/sales': {
-      id: '/solutions/sales'
-      path: '/solutions/sales'
-      fullPath: '/solutions/sales'
-      preLoaderRoute: typeof SolutionsSalesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/solutions/small-business': {
-      id: '/solutions/small-business'
-      path: '/solutions/small-business'
-      fullPath: '/solutions/small-business'
-      preLoaderRoute: typeof SolutionsSmallBusinessRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/solutions/startups': {
-      id: '/solutions/startups'
-      path: '/solutions/startups'
-      fullPath: '/solutions/startups'
-      preLoaderRoute: typeof SolutionsStartupsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/solutions/support': {
-      id: '/solutions/support'
-      path: '/solutions/support'
-      fullPath: '/solutions/support'
-      preLoaderRoute: typeof SolutionsSupportRouteImport
+    '/{-$locale}/terms': {
+      id: '/{-$locale}/terms'
+      path: '/{-$locale}/terms'
+      fullPath: '/{-$locale}/terms'
+      preLoaderRoute: typeof Char123LocaleChar125TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/public/rates-sheet': {
@@ -873,52 +821,157 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicRatesSheetRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/{-$locale}/rates/': {
+      id: '/{-$locale}/rates/'
+      path: '/{-$locale}/rates'
+      fullPath: '/{-$locale}/rates/'
+      preLoaderRoute: typeof Char123LocaleChar125RatesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/{-$locale}/rates/$countrySlug': {
+      id: '/{-$locale}/rates/$countrySlug'
+      path: '/{-$locale}/rates/$countrySlug'
+      fullPath: '/{-$locale}/rates/$countrySlug'
+      preLoaderRoute: typeof Char123LocaleChar125RatesCountrySlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/{-$locale}/solutions/education': {
+      id: '/{-$locale}/solutions/education'
+      path: '/{-$locale}/solutions/education'
+      fullPath: '/{-$locale}/solutions/education'
+      preLoaderRoute: typeof Char123LocaleChar125SolutionsEducationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/{-$locale}/solutions/franchise': {
+      id: '/{-$locale}/solutions/franchise'
+      path: '/{-$locale}/solutions/franchise'
+      fullPath: '/{-$locale}/solutions/franchise'
+      preLoaderRoute: typeof Char123LocaleChar125SolutionsFranchiseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/{-$locale}/solutions/healthcare': {
+      id: '/{-$locale}/solutions/healthcare'
+      path: '/{-$locale}/solutions/healthcare'
+      fullPath: '/{-$locale}/solutions/healthcare'
+      preLoaderRoute: typeof Char123LocaleChar125SolutionsHealthcareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/{-$locale}/solutions/home-services': {
+      id: '/{-$locale}/solutions/home-services'
+      path: '/{-$locale}/solutions/home-services'
+      fullPath: '/{-$locale}/solutions/home-services'
+      preLoaderRoute: typeof Char123LocaleChar125SolutionsHomeServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/{-$locale}/solutions/law-firms': {
+      id: '/{-$locale}/solutions/law-firms'
+      path: '/{-$locale}/solutions/law-firms'
+      fullPath: '/{-$locale}/solutions/law-firms'
+      preLoaderRoute: typeof Char123LocaleChar125SolutionsLawFirmsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/{-$locale}/solutions/operations': {
+      id: '/{-$locale}/solutions/operations'
+      path: '/{-$locale}/solutions/operations'
+      fullPath: '/{-$locale}/solutions/operations'
+      preLoaderRoute: typeof Char123LocaleChar125SolutionsOperationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/{-$locale}/solutions/property-management': {
+      id: '/{-$locale}/solutions/property-management'
+      path: '/{-$locale}/solutions/property-management'
+      fullPath: '/{-$locale}/solutions/property-management'
+      preLoaderRoute: typeof Char123LocaleChar125SolutionsPropertyManagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/{-$locale}/solutions/sales': {
+      id: '/{-$locale}/solutions/sales'
+      path: '/{-$locale}/solutions/sales'
+      fullPath: '/{-$locale}/solutions/sales'
+      preLoaderRoute: typeof Char123LocaleChar125SolutionsSalesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/{-$locale}/solutions/small-business': {
+      id: '/{-$locale}/solutions/small-business'
+      path: '/{-$locale}/solutions/small-business'
+      fullPath: '/{-$locale}/solutions/small-business'
+      preLoaderRoute: typeof Char123LocaleChar125SolutionsSmallBusinessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/{-$locale}/solutions/startups': {
+      id: '/{-$locale}/solutions/startups'
+      path: '/{-$locale}/solutions/startups'
+      fullPath: '/{-$locale}/solutions/startups'
+      preLoaderRoute: typeof Char123LocaleChar125SolutionsStartupsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/{-$locale}/solutions/support': {
+      id: '/{-$locale}/solutions/support'
+      path: '/{-$locale}/solutions/support'
+      fullPath: '/{-$locale}/solutions/support'
+      preLoaderRoute: typeof Char123LocaleChar125SolutionsSupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
-  AiAgentRoute: AiAgentRoute,
-  AnalyticsRoute: AnalyticsRoute,
-  BlogRoute: BlogRoute,
-  CallingRoute: CallingRoute,
-  CareersRoute: CareersRoute,
-  ContactRoute: ContactRoute,
-  CrmRoute: CrmRoute,
-  CustomersRoute: CustomersRoute,
-  DemoRoute: DemoRoute,
-  DevelopersRoute: DevelopersRoute,
-  DocsRoute: DocsRoute,
-  GdprRoute: GdprRoute,
-  IntegrationsRoute: IntegrationsRoute,
-  LlmInfoRoute: LlmInfoRoute,
-  MessagingRoute: MessagingRoute,
-  PartnersRoute: PartnersRoute,
-  PhoneMenuRoute: PhoneMenuRoute,
-  PortYourNumberRoute: PortYourNumberRoute,
-  PricingRoute: PricingRoute,
-  PrivacyRoute: PrivacyRoute,
-  ResourcesRoute: ResourcesRoute,
-  SecurityRoute: SecurityRoute,
-  SharedNumbersRoute: SharedNumbersRoute,
-  StatusRoute: StatusRoute,
-  TasksRoute: TasksRoute,
-  TermsRoute: TermsRoute,
-  RatesCountrySlugRoute: RatesCountrySlugRoute,
-  SolutionsEducationRoute: SolutionsEducationRoute,
-  SolutionsFranchiseRoute: SolutionsFranchiseRoute,
-  SolutionsHealthcareRoute: SolutionsHealthcareRoute,
-  SolutionsHomeServicesRoute: SolutionsHomeServicesRoute,
-  SolutionsLawFirmsRoute: SolutionsLawFirmsRoute,
-  SolutionsOperationsRoute: SolutionsOperationsRoute,
-  SolutionsPropertyManagementRoute: SolutionsPropertyManagementRoute,
-  SolutionsSalesRoute: SolutionsSalesRoute,
-  SolutionsSmallBusinessRoute: SolutionsSmallBusinessRoute,
-  SolutionsStartupsRoute: SolutionsStartupsRoute,
-  SolutionsSupportRoute: SolutionsSupportRoute,
-  RatesIndexRoute: RatesIndexRoute,
+  Char123LocaleChar125AboutRoute: Char123LocaleChar125AboutRoute,
+  Char123LocaleChar125AiAgentRoute: Char123LocaleChar125AiAgentRoute,
+  Char123LocaleChar125AnalyticsRoute: Char123LocaleChar125AnalyticsRoute,
+  Char123LocaleChar125BlogRoute: Char123LocaleChar125BlogRoute,
+  Char123LocaleChar125CallingRoute: Char123LocaleChar125CallingRoute,
+  Char123LocaleChar125CareersRoute: Char123LocaleChar125CareersRoute,
+  Char123LocaleChar125ContactRoute: Char123LocaleChar125ContactRoute,
+  Char123LocaleChar125CrmRoute: Char123LocaleChar125CrmRoute,
+  Char123LocaleChar125CustomersRoute: Char123LocaleChar125CustomersRoute,
+  Char123LocaleChar125DemoRoute: Char123LocaleChar125DemoRoute,
+  Char123LocaleChar125DevelopersRoute: Char123LocaleChar125DevelopersRoute,
+  Char123LocaleChar125DocsRoute: Char123LocaleChar125DocsRoute,
+  Char123LocaleChar125GdprRoute: Char123LocaleChar125GdprRoute,
+  Char123LocaleChar125IntegrationsRoute: Char123LocaleChar125IntegrationsRoute,
+  Char123LocaleChar125LlmInfoRoute: Char123LocaleChar125LlmInfoRoute,
+  Char123LocaleChar125MessagingRoute: Char123LocaleChar125MessagingRoute,
+  Char123LocaleChar125PartnersRoute: Char123LocaleChar125PartnersRoute,
+  Char123LocaleChar125PhoneMenuRoute: Char123LocaleChar125PhoneMenuRoute,
+  Char123LocaleChar125PortYourNumberRoute:
+    Char123LocaleChar125PortYourNumberRoute,
+  Char123LocaleChar125PricingRoute: Char123LocaleChar125PricingRoute,
+  Char123LocaleChar125PrivacyRoute: Char123LocaleChar125PrivacyRoute,
+  Char123LocaleChar125ResourcesRoute: Char123LocaleChar125ResourcesRoute,
+  Char123LocaleChar125SecurityRoute: Char123LocaleChar125SecurityRoute,
+  Char123LocaleChar125SharedNumbersRoute:
+    Char123LocaleChar125SharedNumbersRoute,
+  Char123LocaleChar125StatusRoute: Char123LocaleChar125StatusRoute,
+  Char123LocaleChar125TasksRoute: Char123LocaleChar125TasksRoute,
+  Char123LocaleChar125TermsRoute: Char123LocaleChar125TermsRoute,
+  Char123LocaleChar125IndexRoute: Char123LocaleChar125IndexRoute,
   ApiPublicRatesSheetRoute: ApiPublicRatesSheetRoute,
+  Char123LocaleChar125RatesCountrySlugRoute:
+    Char123LocaleChar125RatesCountrySlugRoute,
+  Char123LocaleChar125SolutionsEducationRoute:
+    Char123LocaleChar125SolutionsEducationRoute,
+  Char123LocaleChar125SolutionsFranchiseRoute:
+    Char123LocaleChar125SolutionsFranchiseRoute,
+  Char123LocaleChar125SolutionsHealthcareRoute:
+    Char123LocaleChar125SolutionsHealthcareRoute,
+  Char123LocaleChar125SolutionsHomeServicesRoute:
+    Char123LocaleChar125SolutionsHomeServicesRoute,
+  Char123LocaleChar125SolutionsLawFirmsRoute:
+    Char123LocaleChar125SolutionsLawFirmsRoute,
+  Char123LocaleChar125SolutionsOperationsRoute:
+    Char123LocaleChar125SolutionsOperationsRoute,
+  Char123LocaleChar125SolutionsPropertyManagementRoute:
+    Char123LocaleChar125SolutionsPropertyManagementRoute,
+  Char123LocaleChar125SolutionsSalesRoute:
+    Char123LocaleChar125SolutionsSalesRoute,
+  Char123LocaleChar125SolutionsSmallBusinessRoute:
+    Char123LocaleChar125SolutionsSmallBusinessRoute,
+  Char123LocaleChar125SolutionsStartupsRoute:
+    Char123LocaleChar125SolutionsStartupsRoute,
+  Char123LocaleChar125SolutionsSupportRoute:
+    Char123LocaleChar125SolutionsSupportRoute,
+  Char123LocaleChar125RatesIndexRoute: Char123LocaleChar125RatesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -148,7 +148,7 @@ const stories = [
   },
 ];
 
-export const Route = createFileRoute("/{-$locale}")({
+export const Route = createFileRoute("/{-$locale}/")({
   head: () => ({
     meta: [
       { title: "Business Phone System & Shared Inbox | Smartytel" },
