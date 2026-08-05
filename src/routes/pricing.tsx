@@ -29,17 +29,17 @@ import { SiteFooter } from "@/components/SiteFooter";
 export const Route = createFileRoute("/pricing")({
   head: () => ({
     meta: [
-      { title: "Smartytel Pricing — Business Phone Plans Per User" },
+      { title: "Business Phone System Pricing & Plans | Smartytel" },
       {
         name: "description",
         content:
-          "Simple per-user pricing for Smartytel business phone: shared numbers, call routing, AI notes and analytics. Monthly or annual billing, cancel any time.",
+          "Business phone system pricing from $12 per user per month: shared numbers, call routing, AI notes and analytics in the US, Canada, the UK and Europe.",
       },
-      { property: "og:title", content: "Smartytel Pricing — Business Phone Plans Per User" },
+      { property: "og:title", content: "Business Phone System Pricing & Plans | Smartytel" },
       {
         property: "og:description",
         content:
-          "Compare Smartytel plans: Starter, Business and Enterprise. Per-user pricing with shared numbers, routing, AI notes and analytics.",
+          "Compare Smartytel plans and add-ons. Per-user pricing with shared numbers, routing, AI notes and analytics across the US, Canada, the UK and Europe.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

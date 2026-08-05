@@ -22,13 +22,13 @@ import pipelineShot from "@/assets/showcase-analytics.jpg";
 export const Route = createFileRoute("/crm")({
   head: () => ({
     meta: [
-      { title: "Smartytel CRM — Contacts, Leads & Pipelines by Your Phone" },
+      { title: "CRM Built Into Your Business Phone | Smartytel" },
       {
         name: "description",
         content:
-          "Smartytel Connect Center CRM keeps contacts, leads, deals and call history in one place — $10 per user per month, with AI lead flows and campaigns.",
+          "A CRM built into your business phone system: contacts, leads, deals and full call history in one place for $10 per user per month.",
       },
-      { property: "og:title", content: "Smartytel CRM — Contacts, Leads & Pipelines" },
+      { property: "og:title", content: "CRM Built Into Your Business Phone | Smartytel" },
       {
         property: "og:description",
         content:
