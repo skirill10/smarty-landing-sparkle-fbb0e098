@@ -56,6 +56,11 @@ async function payloadFetch<T>(path: string): Promise<T | null> {
   }
 }
 
+/** Payload uses numeric ids; the app keys countries by slug, as the local source does. */
+function normalizeCountry(doc: Country): Country {
+  return { ...doc, id: doc.slug ?? doc.id };
+}
+
 function toRow(country: Country, rates: Rate[]): CountryRateRow {
   const own = rates.filter((rate) => rate.countryId === country.id && rate.active !== false);
   return {
@@ -89,7 +94,7 @@ export const payloadRatesRepository: RatesRepository = {
     const rateDocs = rates?.docs ?? [];
 
     return {
-      docs: countries.docs.map((country) => toRow(country, rateDocs)),
+      docs: countries.docs.map((country) => toRow(normalizeCountry(country), rateDocs)),
       totalDocs: countries.totalDocs,
       page,
       limit,
@@ -110,7 +115,7 @@ export const payloadRatesRepository: RatesRepository = {
         depth: 0,
       })}`,
     );
-    return result?.docs ?? localRatesRepository.getCountries(params);
+    return result?.docs ? result.docs.map(normalizeCountry) : localRatesRepository.getCountries(params);
   },
 
   async getCountryBySlug(slug: string): Promise<Country | null> {
@@ -118,7 +123,8 @@ export const payloadRatesRepository: RatesRepository = {
       `/countries${buildQuery({ "where[slug][equals]": slug, limit: 1, depth: 1 })}`,
     );
     if (!result) return localRatesRepository.getCountryBySlug(slug);
-    return result.docs[0] ?? null;
+    const doc = result.docs[0];
+    return doc ? normalizeCountry(doc) : null;
   },
 
   async getRatesByCountry(countryId: string): Promise<Rate[]> {

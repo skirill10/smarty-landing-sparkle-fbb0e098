@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { cmsEnabled, fetchGlobal, fetchIntegrations } from "@/lib/cms";
+import { cmsEnabled, fetchGlobal, fetchIntegrations, type CmsGlobalSlug } from "@/lib/cms";
 
 /**
  * Copy overlay for the home and pricing pages.
@@ -24,7 +24,7 @@ function overlay<T, C>(fallback: T[], cms: C[] | null | undefined, merge: (item:
   return fallback.map((item, index) => (cms[index] ? merge(item, cms[index]!) : item));
 }
 
-function useGlobal<T>(slug: "home" | "pricing" | "site-settings") {
+function useGlobal<T>(slug: CmsGlobalSlug) {
   const { data } = useQuery({
     queryKey: ["cms-global", slug],
     queryFn: () => fetchGlobal<T>(slug),
@@ -180,6 +180,13 @@ type PricingGlobal = {
   addOns?: { name?: string; price?: string; unit?: string; note?: string; linkLabel?: string }[];
   aiTiers?: { tier?: string; price?: string; included?: string; overage?: string }[];
   faqs?: { question?: string; answer?: string }[];
+  cta?: {
+    title?: string;
+    primaryLabel?: string;
+    primaryUrl?: string;
+    secondaryLabel?: string;
+    secondaryUrl?: string;
+  };
 };
 
 export function usePricingContent<
@@ -249,6 +256,23 @@ type SiteGlobal = {
   footerColumns?: { heading?: string; links?: CmsLink[] }[];
   regions?: Val[];
   footerNote?: string;
+  socials?: { label?: string; url?: string }[];
+  announcement?: {
+    enabled?: boolean;
+    message?: string;
+    primaryLabel?: string;
+    primaryUrl?: string;
+    secondaryLabel?: string;
+    secondaryUrl?: string;
+  };
+  heyAi?: {
+    eyebrow?: string;
+    heading?: string;
+    body?: string;
+    linkLabel?: string;
+    pageUrl?: string;
+    items?: { name?: string; description?: string }[];
+  };
   cta?: {
     eyebrow?: string;
     title?: string;
@@ -355,4 +379,167 @@ export function useIntegrationBrands<Brand extends { name: string }>(
     })
     .filter((brand): brand is Brand => brand !== null);
   return mapped.length ? mapped : fallback;
+}
+
+/* ----------------------------- announcement bar ---------------------------- */
+
+export type AnnouncementFallback = {
+  enabled: boolean;
+  message: string;
+  primaryLabel: string;
+  primaryUrl: string;
+  secondaryLabel: string;
+  secondaryUrl: string;
+};
+
+/** Announcement bar copy, links and on/off switch. */
+export function useAnnouncement(fallback: AnnouncementFallback): AnnouncementFallback {
+  const cms = useSite();
+  const doc = cms?.announcement;
+  if (!doc) return fallback;
+  return {
+    enabled: typeof doc.enabled === "boolean" ? doc.enabled : fallback.enabled,
+    message: text(doc.message, fallback.message),
+    primaryLabel: text(doc.primaryLabel, fallback.primaryLabel),
+    primaryUrl: text(doc.primaryUrl, fallback.primaryUrl),
+    secondaryLabel: text(doc.secondaryLabel, fallback.secondaryLabel),
+    secondaryUrl: text(doc.secondaryUrl, fallback.secondaryUrl),
+  };
+}
+
+/* -------------------------------- hey ai ---------------------------------- */
+
+/** "Hey AI" section: copy, the page the prompts point at, and the card labels. */
+export function useHeyAiContent<Item extends { name: string; description: string }>(fallback: {
+  eyebrow: string;
+  heading: string;
+  body: string;
+  linkLabel: string;
+  pageUrl: string;
+  items: Item[];
+}) {
+  const cms = useSite();
+  const doc = cms?.heyAi;
+  if (!doc) return fallback;
+  return {
+    eyebrow: text(doc.eyebrow, fallback.eyebrow),
+    heading: text(doc.heading, fallback.heading),
+    body: text(doc.body, fallback.body),
+    linkLabel: text(doc.linkLabel, fallback.linkLabel),
+    pageUrl: text(doc.pageUrl, fallback.pageUrl),
+    items: overlay(fallback.items, doc.items, (item, itemDoc) => ({
+      ...item,
+      name: text(itemDoc.name, item.name),
+      description: text(itemDoc.description, item.description),
+    })),
+  };
+}
+
+/* ------------------------------- socials ---------------------------------- */
+
+/** Footer social links: the CMS can repoint URLs; icons stay bundled. */
+export function useSocialLinks<Social extends { name: string; href: string }>(
+  fallback: Social[],
+): Social[] {
+  const cms = useSite();
+  return overlay(fallback, cms?.socials, (social, doc) => ({
+    ...social,
+    name: text(doc.label, social.name),
+    href: text(doc.url, social.href),
+  }));
+}
+
+/* ------------------------------ pricing CTA ------------------------------- */
+
+export type PricingCtaContent = {
+  title: string;
+  primary: { label: string; to: string; hash?: string };
+  secondary: { label: string; to: string; hash?: string };
+};
+
+/** Split CTA band on the pricing page. */
+export function usePricingCta(fallback: PricingCtaContent): PricingCtaContent {
+  const cms = useGlobal<PricingGlobal>("pricing");
+  const doc = cms?.cta;
+  if (!doc) return fallback;
+  const link = (
+    label: string | undefined,
+    url: string | undefined,
+    base: { label: string; to: string; hash?: string },
+  ) => {
+    const resolved = text(url, base.hash ? `${base.to}#${base.hash}` : base.to);
+    const [to, hash] = resolved.split("#");
+    return {
+      label: text(label, base.label),
+      to: to || base.to,
+      ...(hash ? { hash } : {}),
+    };
+  };
+  return {
+    title: text(doc.title, fallback.title),
+    primary: link(doc.primaryLabel, doc.primaryUrl, fallback.primary),
+    secondary: link(doc.secondaryLabel, doc.secondaryUrl, fallback.secondary),
+  };
+}
+
+/* -------------------------- CRM & Hey AI pages ---------------------------- */
+
+type PageHeroGlobal = {
+  hero?: { eyebrow?: string; headline?: string; sub?: string; primaryCta?: string; secondaryCta?: string };
+  features?: { title?: string; body?: string }[];
+  facts?: { term?: string; detail?: string }[];
+  answers?: { question?: string; answer?: string }[];
+};
+
+/** /crm hero + feature card copy. */
+export function useCrmContent<Feature extends { title: string; body: string }>(fallback: {
+  hero: { eyebrow: string; headline: string; sub: string; primaryCta: string; secondaryCta: string };
+  features: Feature[];
+}) {
+  const cms = useGlobal<PageHeroGlobal>("crm-page");
+  if (!cms) return fallback;
+  return {
+    hero: {
+      eyebrow: text(cms.hero?.eyebrow, fallback.hero.eyebrow),
+      headline: text(cms.hero?.headline, fallback.hero.headline),
+      sub: text(cms.hero?.sub, fallback.hero.sub),
+      primaryCta: text(cms.hero?.primaryCta, fallback.hero.primaryCta),
+      secondaryCta: text(cms.hero?.secondaryCta, fallback.hero.secondaryCta),
+    },
+    features: overlay(fallback.features, cms.features, (feature, doc) => ({
+      ...feature,
+      title: text(doc.title, feature.title),
+      body: text(doc.body, feature.body),
+    })),
+  };
+}
+
+/** /llm-info hero, fact sheet and Q&A copy. */
+export function useLlmInfoContent<
+  Fact extends { term: string; detail: string },
+  Answer extends { question: string; answer: string },
+>(fallback: {
+  hero: { eyebrow: string; headline: string; sub: string };
+  facts: Fact[];
+  answers: Answer[];
+}) {
+  const cms = useGlobal<PageHeroGlobal>("llm-info-page");
+  if (!cms) return fallback;
+  return {
+    hero: {
+      eyebrow: text(cms.hero?.eyebrow, fallback.hero.eyebrow),
+      headline: text(cms.hero?.headline, fallback.hero.headline),
+      sub: text(cms.hero?.sub, fallback.hero.sub),
+    },
+    facts: overlay(fallback.facts, cms.facts, (fact, doc) => ({
+      ...fact,
+      term: text(doc.term, fact.term),
+      detail: text(doc.detail, fact.detail),
+    })),
+    answers: overlay(fallback.answers, cms.answers, (answer, doc) => ({
+      ...answer,
+      question: text(doc.question, answer.question),
+      answer: text(doc.answer, answer.answer),
+    })),
+  };
 }

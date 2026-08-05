@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
+import { usePricingCta } from "@/lib/cms-content";
 
 type ActionCardProps = {
   to: string;
@@ -39,6 +40,8 @@ export function PricingCta({
   primary?: { label: string; to: string; hash?: string };
   secondary?: { label: string; to: string; hash?: string };
 }) {
+  const content = usePricingCta({ title, primary, secondary });
+
   return (
     <section aria-labelledby="pricing-cta" className="border-y border-border bg-background">
       <div className="mx-auto flex max-w-7xl flex-col gap-10 px-5 py-20 lg:flex-row lg:items-center lg:justify-between">
@@ -46,11 +49,21 @@ export function PricingCta({
           id="pricing-cta"
           className="max-w-xl font-display text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl"
         >
-          {title}
+          {content.title}
         </h2>
         <div className="flex flex-col gap-4 sm:flex-row">
-          <ActionCard tone="dark" label={primary.label} to={primary.to} hash={primary.hash} />
-          <ActionCard tone="light" label={secondary.label} to={secondary.to} hash={secondary.hash} />
+          <ActionCard
+            tone="dark"
+            label={content.primary.label}
+            to={content.primary.to}
+            hash={content.primary.hash}
+          />
+          <ActionCard
+            tone="light"
+            label={content.secondary.label}
+            to={content.secondary.to}
+            hash={content.secondary.hash}
+          />
         </div>
       </div>
     </section>
