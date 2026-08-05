@@ -77,6 +77,8 @@
   /* Brand periwinkle from the logo (#7071E5) */
   --brand: oklch(0.6 0.181 283);
   --brand-foreground: oklch(0.99 0 0);
+  --brand-pink: oklch(0.72 0.18 350);
+  --brand-magenta: oklch(0.58 0.22 300);
   --surface: oklch(0.972 0.008 290);
   --light-grey: oklch(0.96 0 0);
   --dark: oklch(0.15 0 0);
