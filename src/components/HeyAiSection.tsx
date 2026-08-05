@@ -42,13 +42,13 @@ export function HeyAiSection() {
               an AI for a plain-language summary of our business phone system.
             </p>
           </div>
-          <a
-            href="/llm-info"
+          <Link
+            to="/llm-info"
             className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-5 py-3 text-sm font-semibold transition-colors hover:border-foreground"
           >
             Read the AI briefing page
             <ExternalLink className="size-4" aria-hidden="true" />
-          </a>
+          </Link>
         </div>
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
