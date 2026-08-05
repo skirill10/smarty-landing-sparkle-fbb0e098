@@ -24,6 +24,7 @@ import featTeamAnalytics from "@/assets/feat-team-analytics.jpg";
 import featFilters from "@/assets/feat-filters.jpg";
 import featCallLogs from "@/assets/feat-call-logs.jpg";
 import { SiteHeader } from "@/components/SiteHeader";
+import { useLocalePath } from "@/components/Link";
 import { SiteFooter } from "@/components/SiteFooter";
 
 import { CtaBand } from "@/components/CtaBand";
@@ -402,7 +403,7 @@ function Landing() {
           </p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
             <a
-              href="/pricing"
+              href={lp("/pricing")}
               className="rounded-md bg-brand px-6 py-3 font-semibold text-brand-foreground transition-all hover:-translate-y-0.5 hover:bg-dark hover:text-dark-foreground"
             >
               {t(hero.primaryCta)}
