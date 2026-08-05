@@ -374,7 +374,6 @@ function Landing() {
     storiesHeading,
     storiesSub,
     stories: storiesContent,
-    plans: plansContent,
   } = useHomeContent(homeFallback);
 
   return (
@@ -547,65 +546,6 @@ function Landing() {
               <p className="mt-2 max-w-xs text-muted-foreground">{label}</p>
             </div>
           ))}
-        </section>
-
-        {/* Pricing */}
-        <section id="pricing" className="border-t border-border py-20 md:py-28">
-          <div className="mx-auto max-w-7xl px-5">
-            <h2 className="font-display text-4xl font-bold tracking-tight md:text-5xl">
-              Business phone pricing, per user
-            </h2>
-            <p className="mt-4 max-w-2xl text-muted-foreground">
-              14 days free, then from $12 per user per month billed yearly (save 20%). Local calling
-              across the US, Canada, the UK and all of Europe. Cancel any time.
-            </p>
-            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-
-              {plansContent.map((plan) => (
-                <article
-                  key={plan.name}
-                  className={
-                    plan.featured
-                      ? "rounded-2xl border-2 border-foreground bg-card p-8"
-                      : "rounded-2xl border border-border bg-card p-8"
-                  }
-                >
-                  <div className="flex items-center justify-between">
-                    <h3 className="font-display text-lg font-semibold">{plan.name}</h3>
-                    {plan.featured && (
-                      <span className="rounded-full bg-brand px-3 py-1 text-xs font-semibold text-brand-foreground">
-                        Most popular
-                      </span>
-                    )}
-                  </div>
-                  <p className="mt-5 font-display text-4xl font-bold tracking-tight">
-                    {plan.price}
-                    <span className="text-base font-medium text-muted-foreground">{plan.unit}</span>
-                  </p>
-
-                  <p className="mt-3 text-sm text-muted-foreground">{plan.tagline}</p>
-                  <ul className="mt-6 space-y-3 text-sm">
-                    {plan.perks.map((perk) => (
-                      <li key={perk} className="flex gap-2">
-                        <Check className="mt-0.5 size-4 shrink-0 text-accent-foreground" aria-hidden="true" />
-                        <span className="text-muted-foreground">{perk}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <a
-                    href="/pricing"
-                    className={
-                      plan.featured
-                        ? "mt-8 block rounded-xl bg-brand px-4 py-3 text-center font-semibold text-brand-foreground"
-                        : "mt-8 block rounded-xl border border-border px-4 py-3 text-center font-semibold transition-colors hover:bg-secondary"
-                    }
-                  >
-                    {plan.price === "$0" ? "Start 14-day trial" : "Start free trial"}
-                  </a>
-                </article>
-              ))}
-            </div>
-          </div>
         </section>
 
         <BuiltForSection />
