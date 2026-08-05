@@ -325,7 +325,7 @@ function StoriesSlider({ items }: { items: typeof stories }) {
                   </div>
                   <a
                     href="#features"
-                    className="mt-8 inline-flex w-fit items-center gap-2 rounded-xl bg-brand px-5 py-2.5 text-sm font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
+                    className="mt-8 inline-flex w-fit items-center gap-2 rounded-md bg-brand px-5 py-2.5 text-sm font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
                   >
                     Read the story
                     <ArrowRight className="size-4" aria-hidden="true" />
