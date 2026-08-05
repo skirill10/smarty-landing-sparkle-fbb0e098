@@ -16,6 +16,7 @@ import {
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { CtaBand } from "@/components/CtaBand";
+import { useCrmContent } from "@/lib/cms-content";
 import crmShot from "@/assets/showcase-ai.jpg";
 import pipelineShot from "@/assets/showcase-analytics.jpg";
 
@@ -100,7 +101,17 @@ const included = [
   "GDPR-ready data handling in the EU",
 ];
 
+const heroFallback = {
+  eyebrow: "Connect Center · CRM",
+  headline: "A CRM that lives inside your phone system",
+  sub: "Contacts, leads, pipelines and campaigns sitting right next to the calls and texts that created them. $10 per user per month on any Smartytel plan — across the US, Canada, the UK and every European country.",
+  primaryCta: "Start free trial",
+  secondaryCta: "See pricing",
+};
+
 function CrmPage() {
+  const { hero, features: cards } = useCrmContent({ hero: heroFallback, features });
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
@@ -111,28 +122,26 @@ function CrmPage() {
           <div className="grid gap-12 lg:grid-cols-[1.05fr_1fr] lg:items-center">
             <div>
               <p className="font-semibold uppercase tracking-widest text-accent-foreground">
-                Connect Center · CRM
+                {hero.eyebrow}
               </p>
               <h1 className="mt-4 font-display text-4xl font-bold tracking-tight md:text-6xl">
-                A CRM that lives inside your phone system
+                {hero.headline}
               </h1>
               <p className="mt-5 max-w-xl text-lg text-muted-foreground">
-                Contacts, leads, pipelines and campaigns sitting right next to the calls and texts
-                that created them. $10 per user per month on any Smartytel plan — across the US,
-                Canada, the UK and every European country.
+                {hero.sub}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   to="/pricing"
                   className="inline-flex items-center gap-1.5 rounded-md bg-brand px-5 py-3 font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
                 >
-                  Start free trial <ArrowRight className="size-4" />
+                  {hero.primaryCta} <ArrowRight className="size-4" />
                 </Link>
                 <Link
                   to="/pricing"
                   className="inline-flex items-center rounded-md border border-border px-5 py-3 font-semibold transition-colors hover:bg-secondary"
                 >
-                  See pricing
+                  {hero.secondaryCta}
                 </Link>
               </div>
             </div>
@@ -155,7 +164,7 @@ function CrmPage() {
               Everything a sales team needs, without another tab
             </h2>
             <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {features.map((feature) => (
+              {cards.map((feature) => (
                 <article key={feature.title} className="rounded-2xl border border-border bg-card p-7">
                   <feature.icon className="size-6 text-brand" strokeWidth={2} aria-hidden="true" />
                   <h3 className="mt-5 font-display text-lg font-semibold">{feature.title}</h3>
