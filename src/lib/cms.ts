@@ -70,7 +70,15 @@ export async function fetchIntegrations(): Promise<CmsIntegration[] | null> {
 }
 
 /** Fetch a Payload global (home, pricing, site-settings). */
-export async function fetchGlobal<T>(slug: "home" | "pricing" | "site-settings"): Promise<T | null> {
+export type CmsGlobalSlug =
+  | "home"
+  | "pricing"
+  | "site-settings"
+  | "rates-page"
+  | "crm-page"
+  | "llm-info-page";
+
+export async function fetchGlobal<T>(slug: CmsGlobalSlug): Promise<T | null> {
   return cmsFetch<T>(`/globals/${slug}?depth=2`);
 }
 

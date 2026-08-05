@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { cmsEnabled, fetchGlobal, fetchIntegrations } from "@/lib/cms";
+import { cmsEnabled, fetchGlobal, fetchIntegrations, type CmsGlobalSlug } from "@/lib/cms";
 
 /**
  * Copy overlay for the home and pricing pages.
@@ -24,7 +24,7 @@ function overlay<T, C>(fallback: T[], cms: C[] | null | undefined, merge: (item:
   return fallback.map((item, index) => (cms[index] ? merge(item, cms[index]!) : item));
 }
 
-function useGlobal<T>(slug: "home" | "pricing" | "site-settings") {
+function useGlobal<T>(slug: CmsGlobalSlug) {
   const { data } = useQuery({
     queryKey: ["cms-global", slug],
     queryFn: () => fetchGlobal<T>(slug),
