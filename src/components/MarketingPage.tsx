@@ -45,7 +45,7 @@ export function MarketingPage({ content, slug }: { content: MarketingContent; sl
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               to="/pricing"
-              className="inline-flex items-center gap-2 rounded-xl bg-brand px-6 py-3 text-sm font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 rounded-md bg-brand px-6 py-3 text-sm font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
             >
               Start free trial <ArrowRight className="size-4" />
             </Link>
