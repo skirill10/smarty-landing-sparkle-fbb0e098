@@ -25,6 +25,8 @@
   --color-brand-foreground: var(--brand-foreground);
   --color-surface: var(--surface);
   --color-light-grey: var(--light-grey);
+  --color-dark: var(--dark);
+  --color-dark-foreground: var(--dark-foreground);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -75,6 +77,8 @@
   --brand-foreground: oklch(0.99 0 0);
   --surface: oklch(0.972 0.008 290);
   --light-grey: oklch(0.96 0 0);
+  --dark: oklch(0.15 0 0);
+  --dark-foreground: oklch(0.99 0 0);
   --background: oklch(1 0 0);
   --foreground: oklch(0.2 0.045 300);
   --card: oklch(1 0 0);
