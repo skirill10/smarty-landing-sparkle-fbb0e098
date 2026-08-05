@@ -293,7 +293,7 @@ function RatesIndexPage() {
               {content.secondaryCtaLabel && content.secondaryCtaUrl ? (
                 <Link
                   to={content.secondaryCtaUrl}
-                  className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-6 py-3 text-sm font-semibold"
+                  className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-6 py-3 text-sm font-semibold transition-colors hover:bg-dark hover:text-dark-foreground"
                 >
                   {content.secondaryCtaLabel}
                 </Link>
