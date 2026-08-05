@@ -403,7 +403,7 @@ function Landing() {
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
             <a
               href="/pricing"
-              className="rounded-md bg-brand px-6 py-3 font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
+              className="rounded-md bg-brand px-6 py-3 font-semibold text-brand-foreground transition-all hover:-translate-y-0.5 hover:bg-dark hover:text-dark-foreground"
             >
               {t(hero.primaryCta)}
             </a>
