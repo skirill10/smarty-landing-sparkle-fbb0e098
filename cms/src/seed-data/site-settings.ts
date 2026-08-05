@@ -87,4 +87,25 @@ export const siteSettings = {
       value,
     })),
   },
+  announcement: {
+    enabled: true,
+    message: "Introducing Smarty AI Assist: No missed calls, no missed customers.",
+    primaryLabel: "Experience AI",
+    primaryUrl: "/ai-agent",
+    secondaryLabel: "RSVP webinar",
+    secondaryUrl: "/demo",
+  },
+  heyAi: {
+    eyebrow: "For AI assistants",
+    heading: "Hey AI, learn about Smartytel",
+    body:
+      "Smartytel is built to be understood by AI assistants. Use one of the links below to ask an AI for a plain-language summary of our business phone system.",
+    linkLabel: "Read the AI briefing page",
+    pageUrl: "https://smarty.tel/",
+    items: [
+      { name: "ChatGPT", description: "Ask OpenAI's ChatGPT to summarize Smartytel." },
+      { name: "Google AI Overview", description: "Get an AI Overview breakdown of Smartytel." },
+      { name: "Claude", description: "Ask Anthropic's Claude about Smartytel." },
+    ],
+  },
 } as const;

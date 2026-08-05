@@ -5,6 +5,8 @@ import { integrations } from "./seed-data/integrations";
 import { siteSettings } from "./seed-data/site-settings";
 import { homePage } from "./seed-data/home";
 import { pricingPage } from "./seed-data/pricing";
+import { countries, faqs, rates, ratesPage } from "./seed-data/rates";
+import { crmPage, llmInfoPage } from "./seed-data/extra-pages";
 
 /**
  * Seeds the CMS with the copy that currently ships in the repo, so nothing is
@@ -59,6 +61,58 @@ const run = async () => {
 
   await payload.updateGlobal({ slug: "pricing", data: pricingPage as never });
   console.log("seeded pricing page");
+
+  for (const country of countries) {
+    const existing = await payload.find({
+      collection: "countries",
+      where: { slug: { equals: country.slug } },
+      limit: 1,
+    });
+    if (existing.docs[0]) {
+      await payload.update({ collection: "countries", id: existing.docs[0].id, data: country as never });
+    } else {
+      await payload.create({ collection: "countries", data: country as never });
+    }
+  }
+  console.log(`seeded ${countries.length} countries`);
+
+  for (const { key, ...rate } of rates) {
+    const existing = await payload.find({
+      collection: "rates",
+      where: {
+        countryId: { equals: rate.countryId },
+        destinationType: { equals: rate.destinationType },
+        destinationLabel: { equals: rate.destinationLabel },
+      },
+      limit: 1,
+    });
+    if (existing.docs[0]) {
+      await payload.update({ collection: "rates", id: existing.docs[0].id, data: rate as never });
+    } else {
+      await payload.create({ collection: "rates", data: rate as never });
+    }
+    void key;
+  }
+  console.log(`seeded ${rates.length} rates`);
+
+  for (const faq of faqs) {
+    const existing = await payload.find({
+      collection: "faqs",
+      where: { question: { equals: faq.question } },
+      limit: 1,
+    });
+    if (existing.docs[0]) {
+      await payload.update({ collection: "faqs", id: existing.docs[0].id, data: faq as never });
+    } else {
+      await payload.create({ collection: "faqs", data: faq as never });
+    }
+  }
+  console.log(`seeded ${faqs.length} rates FAQs`);
+
+  await payload.updateGlobal({ slug: "rates-page", data: ratesPage as never });
+  await payload.updateGlobal({ slug: "crm-page", data: crmPage as never });
+  await payload.updateGlobal({ slug: "llm-info-page", data: llmInfoPage as never });
+  console.log("seeded rates, CRM and Hey AI page copy");
 
   process.exit(0);
 };
