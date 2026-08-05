@@ -93,12 +93,12 @@ export function SiteFooter() {
               One business phone for your whole team — with local and toll-free numbers across the
               US, Canada, the UK and every European country.
             </p>
-            <a
-              href="/pricing"
+            <Link
+              to="/pricing"
               className="mt-6 inline-flex rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
             >
               Start free trial
-            </a>
+            </Link>
           </div>
 
           <nav className="grid grid-cols-2 gap-8 sm:grid-cols-4" aria-label="Footer">
@@ -115,9 +115,7 @@ export function SiteFooter() {
                           {link.label}
                         </Link>
                       ) : (
-                        <a href="#features" className="transition-colors hover:text-foreground">
-                          {link.label}
-                        </a>
+                        <span className="text-muted-foreground/70">{link.label}</span>
                       )}
                     </li>
                   ))}
@@ -142,10 +140,10 @@ export function SiteFooter() {
         <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-8 text-sm text-muted-foreground">
           <span>© {new Date().getFullYear()} Smartytel. All rights reserved.</span>
           <span className="flex flex-wrap gap-5">
-            <a href="#features" className="hover:text-foreground">Privacy</a>
-            <a href="#features" className="hover:text-foreground">Terms</a>
-            <a href="#features" className="hover:text-foreground">GDPR</a>
-            <a href="#features" className="hover:text-foreground">Security</a>
+            <Link to="/privacy" className="hover:text-foreground">Privacy</Link>
+            <Link to="/terms" className="hover:text-foreground">Terms</Link>
+            <Link to="/gdpr" className="hover:text-foreground">GDPR</Link>
+            <Link to="/security" className="hover:text-foreground">Security</Link>
           </span>
         </div>
       </div>

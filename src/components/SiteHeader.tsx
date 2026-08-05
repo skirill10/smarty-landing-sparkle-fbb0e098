@@ -36,26 +36,26 @@ const menus: MenuDef[] = [
       {
         heading: "Connect",
         items: [
-          { label: "Calling", icon: Phone },
-          { label: "Text messaging", icon: MessageSquare },
-          { label: "Phone menu & routing", icon: PhoneForwarded },
+          { label: "Calling", icon: Phone, to: "/calling" },
+          { label: "Text messaging", icon: MessageSquare, to: "/messaging" },
+          { label: "Phone menu & routing", icon: PhoneForwarded, to: "/phone-menu" },
         ],
       },
       {
         heading: "Collaborate",
         items: [
-          { label: "Shared numbers", icon: Users },
-          { label: "Analytics & oversight", icon: BarChart3 },
+          { label: "Shared numbers", icon: Users, to: "/shared-numbers" },
+          { label: "Analytics & oversight", icon: BarChart3, to: "/analytics" },
           { label: "CRM", icon: Building2, to: "/crm" },
-          { label: "Tasks", icon: ListChecks },
+          { label: "Tasks", icon: ListChecks, to: "/tasks" },
         ],
       },
       {
         heading: "Automate",
         items: [
-          { label: "Sona AI agent", icon: Bot },
-          { label: "Integrations", icon: Plug },
-          { label: "Smartytel API", icon: Terminal },
+          { label: "Sona AI agent", icon: Bot, to: "/ai-agent" },
+          { label: "Integrations", icon: Plug, to: "/integrations" },
+          { label: "Smartytel API", icon: Terminal, to: "/developers" },
         ],
       },
     ],
@@ -66,27 +66,27 @@ const menus: MenuDef[] = [
       {
         heading: "By industry",
         items: [
-          { label: "Home services", icon: Home },
-          { label: "Law firms", icon: Scale },
-          { label: "Property management", icon: Building2 },
-          { label: "Healthcare", icon: HeartPulse },
-          { label: "Education", icon: GraduationCap },
+          { label: "Home services", icon: Home, to: "/solutions/home-services" },
+          { label: "Law firms", icon: Scale, to: "/solutions/law-firms" },
+          { label: "Property management", icon: Building2, to: "/solutions/property-management" },
+          { label: "Healthcare", icon: HeartPulse, to: "/solutions/healthcare" },
+          { label: "Education", icon: GraduationCap, to: "/solutions/education" },
         ],
       },
       {
         heading: "By company size",
         items: [
-          { label: "Startups", icon: Rocket },
-          { label: "Small business", icon: Store },
-          { label: "Franchise", icon: Building2 },
+          { label: "Startups", icon: Rocket, to: "/solutions/startups" },
+          { label: "Small business", icon: Store, to: "/solutions/small-business" },
+          { label: "Franchise", icon: Building2, to: "/solutions/franchise" },
         ],
       },
       {
         heading: "By use case",
         items: [
-          { label: "Sales", icon: BarChart3 },
-          { label: "Support", icon: Wrench },
-          { label: "Operations", icon: Filter },
+          { label: "Sales", icon: BarChart3, to: "/solutions/sales" },
+          { label: "Support", icon: Wrench, to: "/solutions/support" },
+          { label: "Operations", icon: Filter, to: "/solutions/operations" },
         ],
       },
     ],
@@ -98,38 +98,38 @@ const menus: MenuDef[] = [
       {
         heading: "Learn more",
         items: [
-          { label: "Blog" },
-          { label: "Customers" },
-          { label: "Partners" },
-          { label: "Product demo" },
-          { label: "Webinars" },
-          { label: "Tutorials" },
-          { label: "Voicemail generator" },
-          { label: "Number generator" },
-          { label: "Community" },
+          { label: "Blog", to: "/blog" },
+          { label: "Customers", to: "/customers" },
+          { label: "Partners", to: "/partners" },
+          { label: "Product demo", to: "/demo" },
+          { label: "Webinars", to: "/resources" },
+          { label: "Tutorials", to: "/resources" },
+          { label: "Voicemail generator", to: "/resources" },
+          { label: "Number generator", to: "/resources" },
+          { label: "Community", to: "/resources" },
         ],
       },
       {
         heading: "Get help",
         items: [
-          { label: "Resource center" },
-          { label: "Smartytel Academy" },
-          { label: "Developer docs" },
-          { label: "What's new" },
-          { label: "Downloads" },
-          { label: "Port your number" },
-          { label: "Carrier registration" },
-          { label: "System status" },
+          { label: "Resource center", to: "/resources" },
+          { label: "Smartytel Academy", to: "/resources" },
+          { label: "Developer docs", to: "/docs" },
+          { label: "What's new", to: "/blog" },
+          { label: "Downloads", to: "/resources" },
+          { label: "Port your number", to: "/port-your-number" },
+          { label: "Carrier registration", to: "/port-your-number" },
+          { label: "System status", to: "/status" },
         ],
       },
       {
         heading: "Company",
         items: [
-          { label: "About" },
-          { label: "Careers" },
-          { label: "Press" },
-          { label: "Podcast" },
-          { label: "Contact us" },
+          { label: "About", to: "/about" },
+          { label: "Careers", to: "/careers" },
+          { label: "Press", to: "/blog" },
+          { label: "Podcast", to: "/blog" },
+          { label: "Contact us", to: "/contact" },
         ],
       },
     ],
@@ -150,7 +150,7 @@ function MegaPanel({ menu }: { menu: MenuDef }) {
             {g.items.map((it) => (
               <li key={it.label}>
                 <a
-                  href={it.to ?? "#features"}
+                  href={it.to ?? "/pricing"}
                   className="flex items-center gap-2.5 rounded-lg px-2 py-1.5 text-sm font-medium text-foreground/85 transition-colors hover:bg-secondary hover:text-foreground"
                 >
                   {it.icon ? (
@@ -287,7 +287,7 @@ export function SiteHeader() {
                   <ul className="space-y-0.5">
                     {g.items.map((it) => (
                       <li key={it.label}>
-                        <a href={it.to ?? "#features"} className="block py-1 text-sm text-foreground/85">
+                        <a href={it.to ?? "/pricing"} className="block py-1 text-sm text-foreground/85">
                           {it.label}
                         </a>
                       </li>
