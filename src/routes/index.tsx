@@ -30,6 +30,12 @@ import showcaseRouting from "@/assets/showcase-routing.jpg";
 import showcaseAi from "@/assets/showcase-ai.jpg";
 import showcaseAnalytics from "@/assets/showcase-analytics.jpg";
 import showcaseIntegrations from "@/assets/showcase-integrations.jpg";
+import storyWindow from "@/assets/story-window-services.jpg";
+import storyDental from "@/assets/story-dental.jpg";
+import storyRealty from "@/assets/story-realty.jpg";
+import storyHvac from "@/assets/story-hvac.jpg";
+import storyLegal from "@/assets/story-legal.jpg";
+import storyJunkaway from "@/assets/story-junkaway.jpg";
 
 const showcase = [
   {
