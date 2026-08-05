@@ -207,7 +207,7 @@ function Landing() {
         </section>
 
         {/* Features */}
-        <section id="features" className="border-y border-border bg-surface py-20 md:py-28">
+        <section id="features" className="border-y border-border bg-light-grey py-20 md:py-28">
           <div className="mx-auto max-w-6xl px-5">
             <h2 className="max-w-2xl font-display text-4xl font-bold tracking-tight md:text-5xl">
               Always say hello with Smartytel
