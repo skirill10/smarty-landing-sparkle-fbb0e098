@@ -25,7 +25,14 @@ async function loadSheetDataset(): Promise<RatesDataset> {
     const response = await fetch(endpoint(), { headers: { Accept: "text/csv" } });
     if (!response.ok) throw new Error(`Rates sheet request failed (${response.status})`);
     const csv = await response.text();
+    // The proxy answers 200 with a JSON diagnostic when the sheet isn't public.
+    if (csv.trimStart().startsWith("{")) {
+      throw new Error(
+        (JSON.parse(csv) as { message?: string }).message ?? "Rates sheet unavailable",
+      );
+    }
     const { countries, rates } = parseRatesSheet(csv, { defaultCurrency: DEFAULT_CURRENCY });
+
     if (!countries.length || !rates.length) throw new Error("Rates sheet produced no rows");
     return {
       countries,
