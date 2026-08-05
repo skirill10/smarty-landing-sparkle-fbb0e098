@@ -221,7 +221,7 @@ export function SiteHeader() {
           </a>
           <a
             href="/pricing"
-            className="rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
+            className="rounded-md bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
           >
             Try for free
           </a>
