@@ -71,7 +71,7 @@ export const Route = createFileRoute("/rates/$countrySlug")({
         title="We don't publish rates for that destination yet"
         body="Check the full directory for every country we currently cover."
         action={
-          <Link to="/rates" className="rounded-xl bg-foreground px-5 py-2.5 text-sm font-semibold text-background">
+          <Link to="/rates" className="rounded-md bg-foreground px-5 py-2.5 text-sm font-semibold text-background">
             Back to all rates
           </Link>
         }
