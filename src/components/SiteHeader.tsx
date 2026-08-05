@@ -228,7 +228,7 @@ export function SiteHeader() {
           <button
             type="button"
             aria-label="Toggle menu"
-            className="rounded-lg p-2 md:hidden"
+            className="rounded-md p-2 md:hidden"
             onClick={() => setMobile((v) => !v)}
           >
             {mobile ? <X className="size-5" /> : <Menu className="size-5" />}
