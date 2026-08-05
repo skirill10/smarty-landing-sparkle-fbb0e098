@@ -25,6 +25,7 @@ import {
   Zap,
 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
+import { useLocalePath } from "@/components/Link";
 import { SiteFooter } from "@/components/SiteFooter";
 import { PricingCta } from "@/components/PricingCta";
 import { usePricingContent } from "@/lib/cms-content";
@@ -549,7 +550,7 @@ function PricingPage() {
 
                 <p className="mt-3 text-sm text-muted-foreground">{plan.tagline}</p>
                 <a
-                  href={plan.cta === "Talk to sales" ? "#talk-to-sales" : "/pricing"}
+                  href={plan.cta === "Talk to sales" ? "#talk-to-sales" : lp("/pricing")}
                   className={
                     plan.featured
                       ? "mt-7 block rounded-md bg-brand px-4 py-3 text-center font-semibold text-brand-foreground transition-colors hover:bg-dark hover:text-dark-foreground"
