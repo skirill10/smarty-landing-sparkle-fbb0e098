@@ -76,7 +76,68 @@ const showcase = [
   },
 ];
 
-
+const stories = [
+  {
+    business: "Pink's Window Services",
+    person: "Carter Smith",
+    role: "Co-Founder",
+    quote: "We're so confident in saying, 'Hey everybody, just get on Smartytel. Save yourself the time, save yourself the hassle.'",
+    stat: "375+",
+    statLabel: "hours saved weekly",
+    image: storyWindow,
+    alt: "Window cleaning crew working on a residential home",
+  },
+  {
+    business: "Bright Dental",
+    person: "Dr. Priya Malhotra",
+    role: "Practice Owner",
+    quote: "Patients used to wait on hold for 10 minutes. Now our front desk answers every text in seconds.",
+    stat: "98%",
+    statLabel: "message response rate",
+    image: storyDental,
+    alt: "Dental office receptionist greeting a patient",
+  },
+  {
+    business: "Kelso Realty",
+    person: "Marcus Kelso",
+    role: "Broker",
+    quote: "One number for the whole team means no buyer ever gets sent to voicemail.",
+    stat: "3x",
+    statLabel: "more showings booked",
+    image: storyRealty,
+    alt: "Real estate agent showing a home",
+  },
+  {
+    business: "Northwind HVAC",
+    person: "Elena Torres",
+    role: "Operations Manager",
+    quote: "Routing after-hours emergencies straight to the on-call tech saved us from losing a $40k contract.",
+    stat: "24/7",
+    statLabel: "emergency coverage",
+    image: storyHvac,
+    alt: "HVAC technician servicing an outdoor unit",
+  },
+  {
+    business: "Halden Legal",
+    person: "Sam Halden",
+    role: "Managing Partner",
+    quote: "Clients can text us instead of playing phone tag. It changed how we close cases.",
+    stat: "42%",
+    statLabel: "faster intake replies",
+    image: storyLegal,
+    alt: "Legal team reviewing documents in a conference room",
+  },
+  {
+    business: "Junkaway",
+    person: "Riley Park",
+    role: "Owner",
+    quote: "Crews in the field finally have one inbox for calls, texts and photos. No more chasing threads.",
+    stat: "200+",
+    statLabel: "extra jobs scheduled monthly",
+    image: storyJunkaway,
+    alt: "Junk removal crew loading a truck",
+  },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
