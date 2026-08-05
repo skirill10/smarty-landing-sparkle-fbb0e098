@@ -36,6 +36,7 @@ import { Route as SharedNumbersRouteImport } from './routes/shared-numbers'
 import { Route as StatusRouteImport } from './routes/status'
 import { Route as TasksRouteImport } from './routes/tasks'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as RatesIndexRouteImport } from './routes/rates.index'
 import { Route as SolutionsEducationRouteImport } from './routes/solutions.education'
 import { Route as SolutionsFranchiseRouteImport } from './routes/solutions.franchise'
 import { Route as SolutionsHealthcareRouteImport } from './routes/solutions.healthcare'
@@ -183,6 +184,11 @@ const TermsRoute = TermsRouteImport.update({
   path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RatesIndexRoute = RatesIndexRouteImport.update({
+  id: '/rates/',
+  path: '/rates/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SolutionsEducationRoute = SolutionsEducationRouteImport.update({
   id: '/solutions/education',
   path: '/solutions/education',
@@ -279,6 +285,7 @@ export interface FileRoutesByFullPath {
   '/solutions/small-business': typeof SolutionsSmallBusinessRoute
   '/solutions/startups': typeof SolutionsStartupsRoute
   '/solutions/support': typeof SolutionsSupportRoute
+  '/rates/': typeof RatesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -319,6 +326,7 @@ export interface FileRoutesByTo {
   '/solutions/small-business': typeof SolutionsSmallBusinessRoute
   '/solutions/startups': typeof SolutionsStartupsRoute
   '/solutions/support': typeof SolutionsSupportRoute
+  '/rates': typeof RatesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -360,6 +368,7 @@ export interface FileRoutesById {
   '/solutions/small-business': typeof SolutionsSmallBusinessRoute
   '/solutions/startups': typeof SolutionsStartupsRoute
   '/solutions/support': typeof SolutionsSupportRoute
+  '/rates/': typeof RatesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -402,6 +411,7 @@ export interface FileRouteTypes {
     | '/solutions/small-business'
     | '/solutions/startups'
     | '/solutions/support'
+    | '/rates/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -442,6 +452,7 @@ export interface FileRouteTypes {
     | '/solutions/small-business'
     | '/solutions/startups'
     | '/solutions/support'
+    | '/rates'
   id:
     | '__root__'
     | '/'
@@ -482,6 +493,7 @@ export interface FileRouteTypes {
     | '/solutions/small-business'
     | '/solutions/startups'
     | '/solutions/support'
+    | '/rates/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -523,6 +535,7 @@ export interface RootRouteChildren {
   SolutionsSmallBusinessRoute: typeof SolutionsSmallBusinessRoute
   SolutionsStartupsRoute: typeof SolutionsStartupsRoute
   SolutionsSupportRoute: typeof SolutionsSupportRoute
+  RatesIndexRoute: typeof RatesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -716,6 +729,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/rates/': {
+      id: '/rates/'
+      path: '/rates'
+      fullPath: '/rates/'
+      preLoaderRoute: typeof RatesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/solutions/education': {
       id: '/solutions/education'
       path: '/solutions/education'
@@ -835,6 +855,7 @@ const rootRouteChildren: RootRouteChildren = {
   SolutionsSmallBusinessRoute: SolutionsSmallBusinessRoute,
   SolutionsStartupsRoute: SolutionsStartupsRoute,
   SolutionsSupportRoute: SolutionsSupportRoute,
+  RatesIndexRoute: RatesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
