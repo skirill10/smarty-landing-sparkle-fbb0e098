@@ -1,0 +1,25 @@
+name: Smoke test live site
+
+on:
+  workflow_run:
+    workflows: ["Build static site"]
+    types: [completed]
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "Page URL to smoke test"
+        required: false
+        default: "https://smarty.tel/pricing/"
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Smoke test pricing page
+        env:
+          TARGET_URL: ${{ github.event.inputs.url || 'https://smarty.tel/pricing/' }}
+        run: bash scripts/smoke-test.sh "$TARGET_URL"
