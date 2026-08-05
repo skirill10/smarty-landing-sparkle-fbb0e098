@@ -241,6 +241,88 @@ const plans = [
   },
 ];
 
+function StoriesSlider({ items }: { items: typeof stories }) {
+  const [index, setIndex] = useState(0);
+
+  const prev = () => setIndex((i) => (i === 0 ? items.length - 1 : i - 1));
+  const next = () => setIndex((i) => (i === items.length - 1 ? 0 : i + 1));
+
+  return (
+    <div className="relative">
+      <div className="overflow-hidden">
+        <div
+          className="flex transition-transform duration-500 ease-out"
+          style={{ transform: `translateX(-${index * 100}%)` }}
+        >
+          {items.map((story) => (
+            <div key={story.business} className="w-full shrink-0 px-1">
+              <article className="grid overflow-hidden rounded-3xl bg-card md:grid-cols-2">
+                <div className="relative">
+                  <img
+                    src={story.image}
+                    alt={story.alt}
+                    loading="lazy"
+                    width={1024}
+                    height={768}
+                    className="h-64 w-full object-cover md:h-full"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-6 left-6">
+                    <p className="font-display text-4xl font-bold text-white drop-shadow-sm">{story.stat}</p>
+                    <p className="text-sm font-medium text-white/90">{story.statLabel}</p>
+                  </div>
+                </div>
+                <div className="flex flex-col justify-center p-8 md:p-12">
+                  <p className="font-display text-xl font-semibold text-brand">{story.business}</p>
+                  <blockquote className="mt-4 font-display text-2xl font-medium leading-snug tracking-tight md:text-3xl">
+                    “{story.quote}”
+                  </blockquote>
+                  <div className="mt-6">
+                    <p className="font-semibold text-foreground">{story.person}</p>
+                    <p className="text-sm text-muted-foreground">{story.role}</p>
+                  </div>
+                  <a
+                    href="#features"
+                    className="mt-8 inline-flex w-fit items-center gap-2 rounded-xl bg-brand px-5 py-2.5 text-sm font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
+                  >
+                    Read the story
+                    <ArrowRight className="size-4" aria-hidden="true" />
+                  </a>
+                </div>
+              </article>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-8 flex items-center justify-between">
+        <a href="#features" className="inline-flex items-center gap-2 text-sm font-semibold hover:text-brand">
+          View all stories
+          <ArrowRight className="size-4" aria-hidden="true" />
+        </a>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={prev}
+            className="rounded-full border border-border p-2 transition-colors hover:bg-secondary"
+            aria-label="Previous story"
+          >
+            <ChevronLeft className="size-5" aria-hidden="true" />
+          </button>
+          <button
+            type="button"
+            onClick={next}
+            className="rounded-full border border-border p-2 transition-colors hover:bg-secondary"
+            aria-label="Next story"
+          >
+            <ChevronRight className="size-5" aria-hidden="true" />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Landing() {
   return (
     <div className="min-h-screen bg-background font-sans text-foreground antialiased">
