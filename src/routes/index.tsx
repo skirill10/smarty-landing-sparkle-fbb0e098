@@ -286,9 +286,6 @@ function Landing() {
         {/* Features */}
         <section id="features" className="border-y border-border bg-light-grey py-20 md:py-28">
           <div className="mx-auto max-w-6xl px-5">
-            <h2 className="max-w-2xl font-display text-4xl font-bold tracking-tight md:text-5xl">
-              Always say hello with Smartytel
-            </h2>
             {featureGroups.map(({ heading, cards }) => (
               <div key={heading} className="mt-14">
                 <h3 className="font-display text-2xl font-bold tracking-tight md:text-3xl">
