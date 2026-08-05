@@ -285,7 +285,7 @@ function RatesIndexPage() {
             <div className="flex flex-wrap gap-3">
               <Link
                 to={content.primaryCtaUrl}
-                className="inline-flex items-center gap-2 rounded-xl bg-brand px-6 py-3 text-sm font-semibold text-brand-foreground"
+                className="inline-flex items-center gap-2 rounded-md bg-brand px-6 py-3 text-sm font-semibold text-brand-foreground"
               >
                 {content.primaryCtaLabel}
                 <ArrowRight className="size-4" aria-hidden="true" />
