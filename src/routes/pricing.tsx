@@ -497,11 +497,11 @@ function PricingPage() {
           </p>
 
 
-          <div className="mt-9 inline-flex items-center gap-1 rounded-full border border-border bg-card p-1">
+          <div className="mt-9 inline-flex items-center gap-1 rounded-md border border-border bg-card p-1">
             <button
               type="button"
               onClick={() => setAnnual(true)}
-              className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
+              className={`rounded-md px-4 py-2 text-sm font-semibold transition-colors ${
                 annual ? "bg-brand text-brand-foreground" : "text-muted-foreground"
               }`}
             >
@@ -510,7 +510,7 @@ function PricingPage() {
             <button
               type="button"
               onClick={() => setAnnual(false)}
-              className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
+              className={`rounded-md px-4 py-2 text-sm font-semibold transition-colors ${
                 annual ? "text-muted-foreground" : "bg-brand text-brand-foreground"
               }`}
             >
