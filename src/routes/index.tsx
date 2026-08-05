@@ -28,6 +28,8 @@ import { SiteFooter } from "@/components/SiteFooter";
 
 import { CtaBand } from "@/components/CtaBand";
 import { BuiltForSection } from "@/components/BuiltForSection";
+import { IntegrationsSection } from "@/components/IntegrationsSection";
+
 import showcaseNumbers from "@/assets/showcase-numbers.jpg";
 import showcaseShared from "@/assets/showcase-shared.jpg";
 import showcaseRouting from "@/assets/showcase-routing.jpg";
