@@ -12,6 +12,8 @@ import {
   Star,
 } from "lucide-react";
 import dashboard from "@/assets/app-dashboard.jpg";
+import mark from "@/assets/smartytel-mark.png.asset.json";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -97,10 +99,17 @@ function Landing() {
     <div className="min-h-screen bg-background font-sans text-foreground antialiased">
       <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-6xl items-center gap-8 px-5">
-          <a href="/" className="font-display text-xl font-bold tracking-tight">
-            smartytel
-            <span className="text-accent">.</span>
+          <a href="/" className="flex items-center gap-2">
+            <img
+              src={mark.url}
+              alt="Smartytel logo"
+              width={40}
+              height={49}
+              className="h-8 w-auto"
+            />
+            <span className="font-display text-xl font-bold tracking-tight">smartytel</span>
           </a>
+
           <nav className="hidden items-center gap-6 md:flex">
             {navLinks.map((l) => (
               <a
@@ -306,7 +315,18 @@ function Landing() {
 
       <footer className="border-t border-border py-10">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-5 text-sm text-muted-foreground">
-          <span className="font-display font-bold text-foreground">smartytel.com</span>
+          <span className="flex items-center gap-2 font-display font-bold text-foreground">
+            <img
+              src={mark.url}
+              alt=""
+              width={40}
+              height={49}
+              loading="lazy"
+              className="h-6 w-auto"
+            />
+            smartytel.com
+          </span>
+
           <span>© {new Date().getFullYear()} Smartytel. All rights reserved.</span>
         </div>
       </footer>
