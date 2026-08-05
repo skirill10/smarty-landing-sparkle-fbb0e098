@@ -46,7 +46,7 @@ const menus: MenuDef[] = [
         items: [
           { label: "Shared numbers", icon: Users },
           { label: "Analytics & oversight", icon: BarChart3 },
-          { label: "CRM", icon: Building2 },
+          { label: "CRM", icon: Building2, to: "/crm" },
           { label: "Tasks", icon: ListChecks },
         ],
       },
