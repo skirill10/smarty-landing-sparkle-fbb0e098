@@ -297,11 +297,11 @@ export function useFooterContent<
     columns: overlay(fallback.columns, cms.footerColumns, (column, doc) => ({
       ...column,
       heading: text(doc.heading, column.heading),
-      links: overlay(column.links, doc.links, (link, linkDoc) => ({
-        ...link,
-        label: text(linkDoc.label, link.label),
-        to: text(linkDoc.to, link.to ?? "") || link.to,
-      })),
+      links: overlay(column.links, doc.links, (link, linkDoc) => {
+        const to = text(linkDoc.to, link.to ?? "") || link.to;
+        return { ...link, label: text(linkDoc.label, link.label), ...(to ? { to } : {}) };
+      }),
+
     })),
     regions: list(cms.regions, fallback.regions),
     note: text(cms.footerNote, fallback.note),
