@@ -54,7 +54,7 @@ const fallbackMenus: MenuDef[] = [
       {
         heading: "Automate",
         items: [
-          { label: "Sona AI agent", icon: Bot, to: "/ai-agent" },
+          { label: "Smarty AI Assist", icon: Bot, to: "/ai-agent" },
           { label: "Integrations", icon: Plug, to: "/integrations" },
           { label: "Smartytel API", icon: Terminal, to: "/developers" },
         ],
@@ -214,7 +214,7 @@ export function SiteHeader() {
             Log in
           </a>
           <a
-            href="/contact"
+            href="/pricing#talk-to-sales"
             className="hidden rounded-lg border border-border px-4 py-2 text-sm font-semibold transition-colors hover:bg-secondary sm:block"
           >
             Talk to sales

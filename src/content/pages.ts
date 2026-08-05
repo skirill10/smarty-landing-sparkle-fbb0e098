@@ -152,9 +152,9 @@ export const pages: Record<string, MarketingContent> = {
     "metaDescription": "Turn calls and messages into tasks with owners and due dates, so promises made on the phone actually happen."
   },
   "ai-agent": {
-    "eyebrow": "Sona AI",
+    "eyebrow": "Smarty AI Assist",
     "headline": "An AI agent that answers, qualifies and summarises",
-    "sub": "Sona picks up when nobody can, asks the right questions, then hands a clean summary to the right person.",
+    "sub": "Smarty AI Assist picks up when nobody can, asks the right questions, then hands a clean summary to the right person.",
     "bullets": [
       {
         "title": "Answers every call",
@@ -245,7 +245,7 @@ export const pages: Record<string, MarketingContent> = {
       },
       {
         "title": "After-hours AI",
-        "body": "Sona takes emergency calls at 2am and pages the on-call tech."
+        "body": "Smarty AI Assist takes emergency calls at 2am and pages the on-call tech."
       }
     ],
     "metaTitle": "Phone System for Home Services | Smartytel",
