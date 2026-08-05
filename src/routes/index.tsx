@@ -133,7 +133,7 @@ function Landing() {
             </a>
             <a
               href="#pricing"
-              className="rounded-lg bg-lime px-4 py-2 text-sm font-semibold text-lime-foreground transition-transform hover:-translate-y-0.5"
+              className="rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
             >
               Try for free
             </a>
@@ -160,7 +160,7 @@ function Landing() {
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
             <a
               href="#pricing"
-              className="rounded-xl bg-lime px-6 py-3 font-semibold text-lime-foreground transition-transform hover:-translate-y-0.5"
+              className="rounded-xl bg-brand px-6 py-3 font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
             >
               Try for free
             </a>
@@ -215,7 +215,7 @@ function Landing() {
             <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-3">
               {features.map(({ icon: Icon, title, body }) => (
                 <article key={title} className="bg-card p-8">
-                  <span className="inline-flex size-11 items-center justify-center rounded-xl bg-lime text-lime-foreground">
+                  <span className="inline-flex size-11 items-center justify-center rounded-xl bg-brand text-brand-foreground">
                     <Icon className="size-5" aria-hidden="true" />
                   </span>
                   <h3 className="mt-6 font-display text-xl font-semibold tracking-tight">{title}</h3>
@@ -260,7 +260,7 @@ function Landing() {
                   <div className="flex items-center justify-between">
                     <h3 className="font-display text-lg font-semibold">{plan.name}</h3>
                     {plan.featured && (
-                      <span className="rounded-full bg-lime px-3 py-1 text-xs font-semibold text-lime-foreground">
+                      <span className="rounded-full bg-brand px-3 py-1 text-xs font-semibold text-brand-foreground">
                         Most popular
                       </span>
                     )}
@@ -284,7 +284,7 @@ function Landing() {
                     href="#pricing"
                     className={
                       plan.featured
-                        ? "mt-8 block rounded-xl bg-lime px-4 py-3 text-center font-semibold text-lime-foreground"
+                        ? "mt-8 block rounded-xl bg-brand px-4 py-3 text-center font-semibold text-brand-foreground"
                         : "mt-8 block rounded-xl border border-border px-4 py-3 text-center font-semibold transition-colors hover:bg-secondary"
                     }
                   >
@@ -304,7 +304,7 @@ function Landing() {
             </h2>
             <a
               href="#pricing"
-              className="mt-8 inline-flex items-center gap-2 rounded-xl bg-lime px-6 py-3 font-semibold text-lime-foreground transition-transform hover:-translate-y-0.5"
+              className="mt-8 inline-flex items-center gap-2 rounded-xl bg-brand px-6 py-3 font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
             >
               Try Smartytel free
               <ArrowRight className="size-4" aria-hidden="true" />
