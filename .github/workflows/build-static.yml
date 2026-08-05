@@ -20,10 +20,20 @@ jobs:
 
       - run: bun install --frozen-lockfile
 
+      - name: Remove previous build output from the repo root
+        run: |
+          rm -rf assets index.html public_html
+          # delete prerendered page folders (any top-level dir holding an index.html)
+          for d in */; do
+            case "$d" in src/|public/|node_modules/|dist/|.github/) continue;; esac
+            if [ -f "$d/index.html" ] || ls "$d"*/index.html >/dev/null 2>&1; then rm -rf "$d"; fi
+          done
+
       - name: Build static export
         env:
           STATIC_EXPORT: "1"
         run: bun run build
+
 
       - name: Sync build output into the repo root
         run: |
