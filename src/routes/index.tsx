@@ -347,7 +347,7 @@ function Landing() {
           </p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
             <a
-              href="#pricing"
+              href="/pricing"
               className="rounded-xl bg-brand px-6 py-3 font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
             >
               Try for free
@@ -538,7 +538,7 @@ function Landing() {
                     ))}
                   </ul>
                   <a
-                    href="#pricing"
+                    href="/pricing"
                     className={
                       plan.featured
                         ? "mt-8 block rounded-xl bg-brand px-4 py-3 text-center font-semibold text-brand-foreground"
@@ -560,7 +560,7 @@ function Landing() {
               Your next customer is calling right now
             </h2>
             <a
-              href="#pricing"
+              href="/pricing"
               className="mt-8 inline-flex items-center gap-2 rounded-xl bg-brand px-6 py-3 font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
             >
               Try Smartytel free

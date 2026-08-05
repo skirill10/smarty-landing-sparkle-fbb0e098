@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check, Minus, ArrowRight } from "lucide-react";
 import mark from "@/assets/smartytel-mark.png";
@@ -283,8 +283,8 @@ function PricingPage() {
               </thead>
               <tbody>
                 {compareGroups.map((section) => (
-                  <>
-                    <tr key={section.group} className="bg-light-grey">
+                  <Fragment key={section.group}>
+                    <tr className="bg-light-grey">
                       <td colSpan={4} className="py-3 pr-4 pl-3 font-semibold text-sm">
                         {section.group}
                       </td>
@@ -303,7 +303,7 @@ function PricingPage() {
                         </td>
                       </tr>
                     ))}
-                  </>
+                  </Fragment>
                 ))}
               </tbody>
             </table>
