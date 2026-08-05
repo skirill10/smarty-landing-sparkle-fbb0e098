@@ -315,7 +315,18 @@ function Landing() {
 
       <footer className="border-t border-border py-10">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-5 text-sm text-muted-foreground">
-          <span className="font-display font-bold text-foreground">smartytel.com</span>
+          <span className="flex items-center gap-2 font-display font-bold text-foreground">
+            <img
+              src={mark.url}
+              alt=""
+              width={40}
+              height={49}
+              loading="lazy"
+              className="h-6 w-auto"
+            />
+            smartytel.com
+          </span>
+
           <span>© {new Date().getFullYear()} Smartytel. All rights reserved.</span>
         </div>
       </footer>
