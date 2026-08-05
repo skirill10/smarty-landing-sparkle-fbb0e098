@@ -1,21 +1,34 @@
-# Served from the domain document root (deploy branch = built site).
+# Served from the domain document root (deploy branch = built static site).
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
+  # Let ACME / verification files through untouched
   RewriteCond %{REQUEST_URI} ^/\.well-known/
   RewriteRule ^ - [L]
+
+  # Canonical URLs: never expose /public_html/... — redirect it away
+  RewriteRule ^public_html/?$ / [R=301,L]
+  RewriteRule ^public_html/(.*)$ /$1 [R=301,L]
 
   # Serve real files and directories as-is
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
 
+  # If the build actually lives in public_html/, serve it transparently from /
+  RewriteCond %{DOCUMENT_ROOT}/public_html/$1 -f
+  RewriteRule ^(.*)$ /public_html/$1 [L]
+  RewriteCond %{DOCUMENT_ROOT}/public_html/$1/index.html -f
+  RewriteRule ^(.+?)/?$ /public_html/$1/index.html [L]
+
   # Pretty URLs: /pricing -> /pricing/index.html
   RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
   RewriteRule ^(.+?)/?$ /$1/index.html [L]
 
-  # Fallback for client-side routes
+  # SPA fallback
+  RewriteCond %{DOCUMENT_ROOT}/index.html -f
   RewriteRule ^ /index.html [L]
+  RewriteRule ^ /public_html/index.html [L]
 </IfModule>
 
 DirectoryIndex index.html
