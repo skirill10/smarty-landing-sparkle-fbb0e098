@@ -1,9 +1,10 @@
 import { Fragment, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check, Minus } from "lucide-react";
-import mark from "@/assets/smartytel-mark.png";
 import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 import { CtaBand } from "@/components/CtaBand";
+
 
 export const Route = createFileRoute("/pricing")({
   head: () => ({
@@ -43,7 +44,7 @@ const plans: Plan[] = [
     tagline: "For solo operators who never want to miss a call.",
     perks: [
       "1 local or toll-free number",
-      "Unlimited calls & texts in US/CA",
+      "Unlimited calls & texts in US, CA, UK & EU",
       "Shared inbox for 2 teammates",
       "Voicemail transcription",
       "Business hours & auto-replies",
@@ -82,7 +83,7 @@ const plans: Plan[] = [
 ];
 
 const addOns: [string, string, string][] = [
-  ["Extra phone number", "$5 /number /mo", "Local, toll-free or vanity numbers in 60+ countries."],
+  ["Extra phone number", "$5 /number /mo", "Local, toll-free or vanity numbers in the US, Canada, the UK and 30+ European countries."],
   ["AI receptionist", "$25 /mo", "Answers, qualifies and books while your team is busy."],
   ["Advanced analytics", "$12 /user /mo", "Custom reports, exports and live wallboards."],
 ];
@@ -92,7 +93,7 @@ const compareGroups: { group: string; rows: [string, string | boolean, string | 
     group: "Calling & texting",
     rows: [
       ["Included numbers", "1", "3", "Unlimited"],
-      ["Unlimited calls & SMS (US/CA)", true, true, true],
+      ["Unlimited calls & SMS (US, CA, UK, EU)", true, true, true],
       ["Group calling", false, true, true],
       ["Warm call transfer", false, true, true],
       ["International numbers", false, true, true],
@@ -173,8 +174,9 @@ function PricingPage() {
             One phone system, priced per person
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-lg text-muted-foreground">
-            Every plan includes unlimited calling and texting in the US and Canada. Add teammates
-            as you grow — no contracts, no hardware.
+            Every plan includes unlimited calling and texting across the US, Canada, the UK and all
+            of Europe. Add teammates as you grow — no contracts, no hardware.
+
           </p>
 
           <div className="mt-9 inline-flex items-center gap-1 rounded-full border border-border bg-card p-1">
@@ -338,15 +340,8 @@ function PricingPage() {
         />
       </main>
 
-      <footer className="border-t border-border py-10">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-5 text-sm text-muted-foreground">
-          <Link to="/" className="flex items-center gap-2 font-display font-bold text-foreground">
-            <img src={mark} alt="" width={40} height={49} loading="lazy" className="h-6 w-auto" />
-            smartytel.com
-          </Link>
-          <span>© {new Date().getFullYear()} Smartytel. All rights reserved.</span>
-        </div>
-      </footer>
+      <SiteFooter />
+
     </div>
   );
 }

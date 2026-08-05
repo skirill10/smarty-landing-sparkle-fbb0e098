@@ -226,7 +226,7 @@ const plans = [
     name: "Starter",
     price: "$15",
     tagline: "For solo operators getting off a personal number.",
-    perks: ["1 local number per user", "Calls & texts in the US and Canada", "Shared contacts", "Mobile & desktop apps"],
+    perks: ["1 local number per user", "Calls & texts in the US, Canada, UK & Europe", "Shared contacts", "Mobile & desktop apps"],
   },
   {
     name: "Business",
@@ -561,23 +561,8 @@ function Landing() {
         <CtaBand />
       </main>
 
-      <footer className="border-t border-border py-10">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-5 text-sm text-muted-foreground">
-          <span className="flex items-center gap-2 font-display font-bold text-foreground">
-            <img
-              src={mark}
-              alt=""
-              width={40}
-              height={49}
-              loading="lazy"
-              className="h-6 w-auto"
-            />
-            smartytel.com
-          </span>
+      <SiteFooter />
 
-          <span>© {new Date().getFullYear()} Smartytel. All rights reserved.</span>
-        </div>
-      </footer>
     </div>
   );
 }
