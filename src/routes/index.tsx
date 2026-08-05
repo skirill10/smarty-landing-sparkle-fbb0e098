@@ -99,10 +99,17 @@ function Landing() {
     <div className="min-h-screen bg-background font-sans text-foreground antialiased">
       <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-6xl items-center gap-8 px-5">
-          <a href="/" className="font-display text-xl font-bold tracking-tight">
-            smartytel
-            <span className="text-accent">.</span>
+          <a href="/" className="flex items-center gap-2">
+            <img
+              src={mark.url}
+              alt="Smartytel logo"
+              width={40}
+              height={49}
+              className="h-8 w-auto"
+            />
+            <span className="font-display text-xl font-bold tracking-tight">smartytel</span>
           </a>
+
           <nav className="hidden items-center gap-6 md:flex">
             {navLinks.map((l) => (
               <a
