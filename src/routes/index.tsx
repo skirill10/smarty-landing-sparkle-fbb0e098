@@ -25,6 +25,7 @@ import featFilters from "@/assets/feat-filters.jpg";
 import featCallLogs from "@/assets/feat-call-logs.jpg";
 import mark from "@/assets/smartytel-mark.png";
 import { SiteHeader } from "@/components/SiteHeader";
+import { CtaBand } from "@/components/CtaBand";
 import showcaseNumbers from "@/assets/showcase-numbers.jpg";
 import showcaseShared from "@/assets/showcase-shared.jpg";
 import showcaseRouting from "@/assets/showcase-routing.jpg";

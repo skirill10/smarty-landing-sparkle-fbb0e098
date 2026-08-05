@@ -78,6 +78,9 @@
   --surface: oklch(0.972 0.008 290);
   --light-grey: oklch(0.96 0 0);
   --dark: oklch(0.15 0 0);
+  --gradient-cta: radial-gradient(120% 120% at 15% 0%, oklch(0.55 0.21 300) 0%, oklch(0.34 0.17 303) 45%, oklch(0.2 0.1 300) 100%);
+  --gradient-shine: linear-gradient(100deg, oklch(0.9 0.09 283), oklch(0.75 0.16 283), oklch(0.99 0 0));
+  --shadow-glow: 0 40px 90px -35px color-mix(in oklab, var(--primary) 70%, transparent);
   --dark-foreground: oklch(0.99 0 0);
   --background: oklch(1 0 0);
   --foreground: oklch(0.2 0.045 300);
@@ -148,6 +151,64 @@
   --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+@theme inline {
+  --animate-glow-drift: glow-drift 14s ease-in-out infinite;
+  --animate-glow-drift-slow: glow-drift 22s ease-in-out infinite reverse;
+  --animate-ping-slow: ping-slow 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+  --animate-ring-tilt: ring-tilt 2.4s ease-in-out infinite;
+  --animate-wave: wave 1.4s ease-in-out infinite;
+}
+
+@keyframes glow-drift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(3rem, 2rem, 0) scale(1.15); }
+}
+
+@keyframes ping-slow {
+  0% { transform: scale(1); opacity: 0.45; }
+  70%, 100% { transform: scale(1.8); opacity: 0; }
+}
+
+@keyframes ring-tilt {
+  0%, 60%, 100% { transform: rotate(0deg); }
+  10%, 30%, 50% { transform: rotate(-14deg); }
+  20%, 40% { transform: rotate(14deg); }
+}
+
+@keyframes wave {
+  0%, 100% { transform: scaleY(0.5); opacity: 0.6; }
+  50% { transform: scaleY(1.35); opacity: 1; }
+}
+
+@utility bg-cta-mesh {
+  background-color: var(--primary);
+  background-image: var(--gradient-cta);
+}
+
+@utility bg-cta-shine {
+  background-image: var(--gradient-shine);
+}
+
+@utility bg-cta-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--primary-foreground) 7%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--primary-foreground) 7%, transparent) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(120% 100% at 50% 0%, black, transparent 75%);
+}
+
+@utility shadow-glow {
+  box-shadow: var(--shadow-glow);
+}
+
+@utility shadow-brand-glow {
+  box-shadow: 0 12px 30px -10px color-mix(in oklab, var(--brand) 65%, transparent);
+}
+
+@utility shadow-brand-glow-lg {
+  box-shadow: 0 20px 45px -12px color-mix(in oklab, var(--brand) 80%, transparent);
 }
 
 @layer base {
