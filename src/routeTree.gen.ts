@@ -24,6 +24,7 @@ import { Route as DevelopersRouteImport } from './routes/developers'
 import { Route as DocsRouteImport } from './routes/docs'
 import { Route as GdprRouteImport } from './routes/gdpr'
 import { Route as IntegrationsRouteImport } from './routes/integrations'
+import { Route as LlmInfoRouteImport } from './routes/llm-info'
 import { Route as MessagingRouteImport } from './routes/messaging'
 import { Route as PartnersRouteImport } from './routes/partners'
 import { Route as PhoneMenuRouteImport } from './routes/phone-menu'
@@ -123,6 +124,11 @@ const GdprRoute = GdprRouteImport.update({
 const IntegrationsRoute = IntegrationsRouteImport.update({
   id: '/integrations',
   path: '/integrations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LlmInfoRoute = LlmInfoRouteImport.update({
+  id: '/llm-info',
+  path: '/llm-info',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MessagingRoute = MessagingRouteImport.update({
@@ -268,6 +274,7 @@ export interface FileRoutesByFullPath {
   '/docs': typeof DocsRoute
   '/gdpr': typeof GdprRoute
   '/integrations': typeof IntegrationsRoute
+  '/llm-info': typeof LlmInfoRoute
   '/messaging': typeof MessagingRoute
   '/partners': typeof PartnersRoute
   '/phone-menu': typeof PhoneMenuRoute
@@ -310,6 +317,7 @@ export interface FileRoutesByTo {
   '/docs': typeof DocsRoute
   '/gdpr': typeof GdprRoute
   '/integrations': typeof IntegrationsRoute
+  '/llm-info': typeof LlmInfoRoute
   '/messaging': typeof MessagingRoute
   '/partners': typeof PartnersRoute
   '/phone-menu': typeof PhoneMenuRoute
@@ -353,6 +361,7 @@ export interface FileRoutesById {
   '/docs': typeof DocsRoute
   '/gdpr': typeof GdprRoute
   '/integrations': typeof IntegrationsRoute
+  '/llm-info': typeof LlmInfoRoute
   '/messaging': typeof MessagingRoute
   '/partners': typeof PartnersRoute
   '/phone-menu': typeof PhoneMenuRoute
@@ -397,6 +406,7 @@ export interface FileRouteTypes {
     | '/docs'
     | '/gdpr'
     | '/integrations'
+    | '/llm-info'
     | '/messaging'
     | '/partners'
     | '/phone-menu'
@@ -439,6 +449,7 @@ export interface FileRouteTypes {
     | '/docs'
     | '/gdpr'
     | '/integrations'
+    | '/llm-info'
     | '/messaging'
     | '/partners'
     | '/phone-menu'
@@ -481,6 +492,7 @@ export interface FileRouteTypes {
     | '/docs'
     | '/gdpr'
     | '/integrations'
+    | '/llm-info'
     | '/messaging'
     | '/partners'
     | '/phone-menu'
@@ -524,6 +536,7 @@ export interface RootRouteChildren {
   DocsRoute: typeof DocsRoute
   GdprRoute: typeof GdprRoute
   IntegrationsRoute: typeof IntegrationsRoute
+  LlmInfoRoute: typeof LlmInfoRoute
   MessagingRoute: typeof MessagingRoute
   PartnersRoute: typeof PartnersRoute
   PhoneMenuRoute: typeof PhoneMenuRoute
@@ -656,6 +669,13 @@ declare module '@tanstack/react-router' {
       path: '/integrations'
       fullPath: '/integrations'
       preLoaderRoute: typeof IntegrationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/llm-info': {
+      id: '/llm-info'
+      path: '/llm-info'
+      fullPath: '/llm-info'
+      preLoaderRoute: typeof LlmInfoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/messaging': {
@@ -852,6 +872,7 @@ const rootRouteChildren: RootRouteChildren = {
   DocsRoute: DocsRoute,
   GdprRoute: GdprRoute,
   IntegrationsRoute: IntegrationsRoute,
+  LlmInfoRoute: LlmInfoRoute,
   MessagingRoute: MessagingRoute,
   PartnersRoute: PartnersRoute,
   PhoneMenuRoute: PhoneMenuRoute,
