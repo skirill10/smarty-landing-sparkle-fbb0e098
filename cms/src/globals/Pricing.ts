@@ -61,6 +61,18 @@ export const Pricing: GlobalConfig = {
       ],
     },
     {
+      name: "cta",
+      label: "Pricing CTA band",
+      type: "group",
+      fields: [
+        { name: "title", type: "text" },
+        { name: "primaryLabel", type: "text" },
+        { name: "primaryUrl", type: "text" },
+        { name: "secondaryLabel", type: "text" },
+        { name: "secondaryUrl", type: "text" },
+      ],
+    },
+    {
       type: "collapsible",
       label: "SEO",
       fields: [
