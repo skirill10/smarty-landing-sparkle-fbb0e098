@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import {
   Phone,
@@ -11,6 +12,8 @@ import {
   Check,
   Play,
   ArrowRight,
+  ChevronLeft,
+  ChevronRight,
   Star,
 } from "lucide-react";
 import dashboard from "@/assets/app-dashboard.jpg";
@@ -27,6 +30,12 @@ import showcaseRouting from "@/assets/showcase-routing.jpg";
 import showcaseAi from "@/assets/showcase-ai.jpg";
 import showcaseAnalytics from "@/assets/showcase-analytics.jpg";
 import showcaseIntegrations from "@/assets/showcase-integrations.jpg";
+import storyWindow from "@/assets/story-window-services.jpg";
+import storyDental from "@/assets/story-dental.jpg";
+import storyRealty from "@/assets/story-realty.jpg";
+import storyHvac from "@/assets/story-hvac.jpg";
+import storyLegal from "@/assets/story-legal.jpg";
+import storyJunkaway from "@/assets/story-junkaway.jpg";
 
 const showcase = [
   {
@@ -67,7 +76,68 @@ const showcase = [
   },
 ];
 
-
+const stories = [
+  {
+    business: "Pink's Window Services",
+    person: "Carter Smith",
+    role: "Co-Founder",
+    quote: "We're so confident in saying, 'Hey everybody, just get on Smartytel. Save yourself the time, save yourself the hassle.'",
+    stat: "375+",
+    statLabel: "hours saved weekly",
+    image: storyWindow,
+    alt: "Window cleaning crew working on a residential home",
+  },
+  {
+    business: "Bright Dental",
+    person: "Dr. Priya Malhotra",
+    role: "Practice Owner",
+    quote: "Patients used to wait on hold for 10 minutes. Now our front desk answers every text in seconds.",
+    stat: "98%",
+    statLabel: "message response rate",
+    image: storyDental,
+    alt: "Dental office receptionist greeting a patient",
+  },
+  {
+    business: "Kelso Realty",
+    person: "Marcus Kelso",
+    role: "Broker",
+    quote: "One number for the whole team means no buyer ever gets sent to voicemail.",
+    stat: "3x",
+    statLabel: "more showings booked",
+    image: storyRealty,
+    alt: "Real estate agent showing a home",
+  },
+  {
+    business: "Northwind HVAC",
+    person: "Elena Torres",
+    role: "Operations Manager",
+    quote: "Routing after-hours emergencies straight to the on-call tech saved us from losing a $40k contract.",
+    stat: "24/7",
+    statLabel: "emergency coverage",
+    image: storyHvac,
+    alt: "HVAC technician servicing an outdoor unit",
+  },
+  {
+    business: "Halden Legal",
+    person: "Sam Halden",
+    role: "Managing Partner",
+    quote: "Clients can text us instead of playing phone tag. It changed how we close cases.",
+    stat: "42%",
+    statLabel: "faster intake replies",
+    image: storyLegal,
+    alt: "Legal team reviewing documents in a conference room",
+  },
+  {
+    business: "Junkaway",
+    person: "Riley Park",
+    role: "Owner",
+    quote: "Crews in the field finally have one inbox for calls, texts and photos. No more chasing threads.",
+    stat: "200+",
+    statLabel: "extra jobs scheduled monthly",
+    image: storyJunkaway,
+    alt: "Junk removal crew loading a truck",
+  },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -170,6 +240,88 @@ const plans = [
     perks: ["Everything in Business", "Smarty AI agent, unlimited", "SSO & audit logs", "Dedicated onboarding"],
   },
 ];
+
+function StoriesSlider({ items }: { items: typeof stories }) {
+  const [index, setIndex] = useState(0);
+
+  const prev = () => setIndex((i) => (i === 0 ? items.length - 1 : i - 1));
+  const next = () => setIndex((i) => (i === items.length - 1 ? 0 : i + 1));
+
+  return (
+    <div className="relative">
+      <div className="overflow-hidden">
+        <div
+          className="flex transition-transform duration-500 ease-out"
+          style={{ transform: `translateX(-${index * 100}%)` }}
+        >
+          {items.map((story) => (
+            <div key={story.business} className="w-full shrink-0 px-1">
+              <article className="grid overflow-hidden rounded-3xl bg-card md:grid-cols-2">
+                <div className="relative">
+                  <img
+                    src={story.image}
+                    alt={story.alt}
+                    loading="lazy"
+                    width={1024}
+                    height={768}
+                    className="h-64 w-full object-cover md:h-full"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-6 left-6">
+                    <p className="font-display text-4xl font-bold text-white drop-shadow-sm">{story.stat}</p>
+                    <p className="text-sm font-medium text-white/90">{story.statLabel}</p>
+                  </div>
+                </div>
+                <div className="flex flex-col justify-center p-8 md:p-12">
+                  <p className="font-display text-xl font-semibold text-brand">{story.business}</p>
+                  <blockquote className="mt-4 font-display text-2xl font-medium leading-snug tracking-tight md:text-3xl">
+                    “{story.quote}”
+                  </blockquote>
+                  <div className="mt-6">
+                    <p className="font-semibold text-foreground">{story.person}</p>
+                    <p className="text-sm text-muted-foreground">{story.role}</p>
+                  </div>
+                  <a
+                    href="#features"
+                    className="mt-8 inline-flex w-fit items-center gap-2 rounded-xl bg-brand px-5 py-2.5 text-sm font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
+                  >
+                    Read the story
+                    <ArrowRight className="size-4" aria-hidden="true" />
+                  </a>
+                </div>
+              </article>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-8 flex items-center justify-between">
+        <a href="#features" className="inline-flex items-center gap-2 text-sm font-semibold hover:text-brand">
+          View all stories
+          <ArrowRight className="size-4" aria-hidden="true" />
+        </a>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={prev}
+            className="rounded-full border border-border p-2 transition-colors hover:bg-secondary"
+            aria-label="Previous story"
+          >
+            <ChevronLeft className="size-5" aria-hidden="true" />
+          </button>
+          <button
+            type="button"
+            onClick={next}
+            className="rounded-full border border-border p-2 transition-colors hover:bg-secondary"
+            aria-label="Next story"
+          >
+            <ChevronRight className="size-5" aria-hidden="true" />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function Landing() {
   return (
@@ -357,7 +509,18 @@ function Landing() {
           </div>
         </section>
 
-
+        {/* Business stories */}
+        <section className="mx-auto max-w-6xl px-5 py-20 md:py-28">
+          <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+            <h2 className="max-w-2xl font-display text-4xl font-bold tracking-tight md:text-5xl">
+              Businesses that grow with Smartytel
+            </h2>
+            <p className="text-muted-foreground">See how teams stay connected with customers.</p>
+          </div>
+          <div className="mt-12">
+            <StoriesSlider items={stories} />
+          </div>
+        </section>
 
         {/* Stats */}
         <section className="mx-auto grid max-w-6xl gap-10 px-5 py-20 md:grid-cols-3">
