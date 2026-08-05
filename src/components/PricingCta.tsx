@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/components/Link";
 import { ArrowUpRight } from "lucide-react";
 import { usePricingCta } from "@/lib/cms-content";
 

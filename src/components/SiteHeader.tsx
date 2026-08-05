@@ -1,3 +1,4 @@
+import { useLocalePath } from "@/components/Link";
 import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
@@ -139,6 +140,7 @@ const fallbackMenus: MenuDef[] = [
 ];
 
 function MegaPanel({ menu }: { menu: MenuDef }) {
+  const lp = useLocalePath();
   const t = useT();
 
   return (
@@ -154,7 +156,7 @@ function MegaPanel({ menu }: { menu: MenuDef }) {
             {g.items.map((it) => (
               <li key={it.label}>
                 <a
-                  href={it.to ?? "/pricing"}
+                  href={lp(it.to ?? "/pricing")}
                   className="flex items-center gap-2.5 rounded-md px-2 py-1.5 text-sm font-medium text-foreground/85 transition-colors hover:bg-secondary hover:text-foreground"
                 >
                   {it.icon ? (
@@ -173,6 +175,7 @@ function MegaPanel({ menu }: { menu: MenuDef }) {
 }
 
 export function SiteHeader() {
+  const lp = useLocalePath();
   const t = useT();
   const menus = useHeaderMenus(fallbackMenus);
   const [open, setOpen] = useState<string | null>(null);
@@ -194,7 +197,7 @@ export function SiteHeader() {
         className="mx-auto flex h-16 max-w-6xl items-center gap-8 px-5"
         onMouseLeave={() => setOpen(null)}
       >
-        <a href="/" className="flex items-center gap-2">
+        <a href={lp("/")} className="flex items-center gap-2">
           <img src={mark} alt="Smartytel logo" width={40} height={49} className="h-8 w-auto" />
           <span className="font-display text-xl font-bold tracking-tight">smartytel</span>
         </a>
@@ -204,7 +207,7 @@ export function SiteHeader() {
             <MenuTrigger key={m.label} menu={m} open={open} setOpen={setOpen} />
           ))}
           <a
-            href="/pricing"
+            href={lp("/pricing")}
             className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             onMouseEnter={() => setOpen(null)}
           >
@@ -214,17 +217,17 @@ export function SiteHeader() {
         </nav>
 
         <div className="ml-auto flex items-center gap-2">
-          <a href="/pricing" className="hidden px-3 text-sm font-medium sm:block">
+          <a href={lp("/pricing")} className="hidden px-3 text-sm font-medium sm:block">
             {t("Log in")}
           </a>
           <a
-            href="/pricing#talk-to-sales"
+            href={lp("/pricing#talk-to-sales")}
             className="hidden rounded-md border border-border px-4 py-2 text-sm font-semibold transition-colors hover:bg-dark hover:text-dark-foreground sm:block"
           >
             {t("Talk to sales")}
           </a>
           <a
-            href="/pricing"
+            href={lp("/pricing")}
             className="rounded-md bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground transition-all hover:-translate-y-0.5 hover:bg-dark hover:text-dark-foreground"
           >
             {t("Try for free")}
@@ -258,14 +261,14 @@ export function SiteHeader() {
                       <div>
                         <p className="text-sm font-semibold">{t("Ready to get started?")}</p>
                         <a
-                          href="/demo"
+                          href={lp("/demo")}
                           className="text-sm font-medium text-brand hover:underline"
                         >
                           {t("Watch a quick demo →")}
                         </a>
                       </div>
                       <a
-                        href="/pricing"
+                        href={lp("/pricing")}
                         className="inline-flex items-center gap-1.5 rounded-md bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground transition-colors hover:bg-dark hover:text-dark-foreground"
                       >
                         Set up your number <ArrowRight className="size-4" />
@@ -293,7 +296,7 @@ export function SiteHeader() {
                   <ul className="space-y-0.5">
                     {g.items.map((it) => (
                       <li key={it.label}>
-                        <a href={it.to ?? "/pricing"} className="block py-1 text-sm text-foreground/85">
+                        <a href={lp(it.to ?? "/pricing")} className="block py-1 text-sm text-foreground/85">
                           {t(it.label)}
                         </a>
                       </li>
@@ -304,7 +307,7 @@ export function SiteHeader() {
               ))}
             </div>
           ))}
-          <a href="/pricing" className="block py-3 font-display text-base font-bold">
+          <a href={lp("/pricing")} className="block py-3 font-display text-base font-bold">
             {t("Pricing")}
           </a>
         </div>

@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/components/Link";
 import { ArrowUpRight } from "lucide-react";
 import type { CountryRateRow, CurrencyCode } from "../types";
 import { convert, formatPrice } from "../utils/format";

@@ -49,3 +49,22 @@ export function isLocaleCode(value: string): value is LocaleCode {
 export function getLocaleDef(code: LocaleCode): LocaleDef {
   return locales.find((l) => l.code === code) ?? locales[0]!;
 }
+
+/**
+ * URL prefix aliases. Ukrainian is commonly written as /ua/ in URLs even
+ * though its language code is "uk", so both are accepted on the way in.
+ */
+const prefixAliases: Record<string, LocaleCode> = { ua: "uk" };
+
+/** English is the default and stays on unprefixed URLs. */
+export function localeToPrefix(code: LocaleCode): string | undefined {
+  return code === DEFAULT_LOCALE ? undefined : code;
+}
+
+/** Resolve a URL segment to a locale, or undefined when it isn't a language. */
+export function prefixToLocale(segment: string | undefined): LocaleCode | undefined {
+  if (!segment) return undefined;
+  const value = segment.toLowerCase();
+  if (isLocaleCode(value)) return value;
+  return prefixAliases[value];
+}

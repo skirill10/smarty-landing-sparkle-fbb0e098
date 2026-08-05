@@ -7,7 +7,15 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { DEFAULT_LOCALE, getLocaleDef, isLocaleCode, type LocaleCode } from "./config";
+import { useNavigate, useRouterState } from "@tanstack/react-router";
+import {
+  DEFAULT_LOCALE,
+  getLocaleDef,
+  isLocaleCode,
+  localeToPrefix,
+  prefixToLocale,
+  type LocaleCode,
+} from "./config";
 
 const STORAGE_KEY = "smartytel-locale";
 
@@ -40,31 +48,80 @@ const LocaleContext = createContext<LocaleContextValue>({
   t: (source) => source,
 });
 
-function detectLocale(): LocaleCode {
+function storedLocale(): LocaleCode | undefined {
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (stored && isLocaleCode(stored)) return stored;
   } catch {
     // Ignore storage errors.
   }
+  return undefined;
+}
+
+function browserLocale(): LocaleCode | undefined {
   const candidates = navigator.languages ?? [navigator.language];
   for (const tag of candidates) {
     const base = tag.toLowerCase().split("-")[0] ?? "";
     if (base === "zh") return "zh";
     if (isLocaleCode(base)) return base;
   }
-  return DEFAULT_LOCALE;
+  return undefined;
+}
+
+/** Path without the language prefix, e.g. "/es/pricing" -> "/pricing". */
+function stripPrefix(pathname: string) {
+  const [, first = "", ...rest] = pathname.split("/");
+  // Also drops unknown two-letter prefixes so bogus /zz/pricing canonicalises.
+  if (prefixToLocale(first) || /^[a-z]{2}$/.test(first)) return "/" + rest.join("/");
+  return pathname;
 }
 
 export function LocaleProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<LocaleCode>(DEFAULT_LOCALE);
+  // The URL is the source of truth: /es/pricing renders Spanish.
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const navigate = useNavigate();
+  const urlPrefix = pathname.split("/")[1] || undefined;
+  const locale = prefixToLocale(urlPrefix) ?? DEFAULT_LOCALE;
   const [messages, setMessages] = useState<Record<string, string>>({});
 
-  // Read the visitor's choice after hydration so server and client markup match.
+  const goToLocale = useCallback(
+    (next: LocaleCode) => {
+      const rest = stripPrefix(pathname).replace(/\/$/, "");
+      navigate({
+        to: `/{-$locale}${rest}` as never,
+        params: { locale: localeToPrefix(next) } as never,
+      });
+    },
+    [navigate, pathname],
+  );
+
+  const setLocale = useCallback(
+    (next: LocaleCode) => {
+      try {
+        localStorage.setItem(STORAGE_KEY, next);
+      } catch {
+        // Ignore storage errors.
+      }
+      goToLocale(next);
+    },
+    [goToLocale],
+  );
+
+  // First visit on an unprefixed URL: honour a saved choice or the browser.
   useEffect(() => {
-    const detected = detectLocale();
-    if (detected !== DEFAULT_LOCALE) setLocaleState(detected);
+    if (urlPrefix && prefixToLocale(urlPrefix)) return;
+    const preferred = storedLocale() ?? browserLocale();
+    if (preferred && preferred !== DEFAULT_LOCALE) goToLocale(preferred);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // Canonicalise aliases such as /ua/ -> /uk/.
+  useEffect(() => {
+    if (urlPrefix && urlPrefix !== localeToPrefix(locale) && /^[a-z]{2}$/.test(urlPrefix)) {
+      goToLocale(locale);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [urlPrefix]);
 
   useEffect(() => {
     let active = true;
@@ -86,15 +143,6 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
       active = false;
     };
   }, [locale]);
-
-  const setLocale = useCallback((next: LocaleCode) => {
-    setLocaleState(next);
-    try {
-      localStorage.setItem(STORAGE_KEY, next);
-    } catch {
-      // Ignore storage errors.
-    }
-  }, []);
 
   const value = useMemo<LocaleContextValue>(
     () => ({
