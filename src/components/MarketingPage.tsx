@@ -53,7 +53,7 @@ export function MarketingPage({ content, slug }: { content: MarketingContent; sl
             </Link>
             <Link
               to="/pricing"
-              className="inline-flex items-center rounded-md border border-border px-6 py-3 text-sm font-semibold transition-colors hover:bg-secondary"
+              className="inline-flex items-center rounded-md border border-border px-6 py-3 text-sm font-semibold transition-colors hover:bg-dark hover:text-dark-foreground"
             >
               {t("See pricing")}
             </Link>
