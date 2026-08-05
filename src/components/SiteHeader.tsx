@@ -214,7 +214,7 @@ export function SiteHeader() {
             Log in
           </a>
           <a
-            href="/contact"
+            href="/pricing#talk-to-sales"
             className="hidden rounded-lg border border-border px-4 py-2 text-sm font-semibold transition-colors hover:bg-secondary sm:block"
           >
             Talk to sales
