@@ -30,7 +30,8 @@ export const Route = createFileRoute("/pricing")({
 
 type Plan = {
   name: string;
-  monthly: number | "Custom";
+  monthly: number;
+  annualMonthly: number;
   tagline: string;
   perks: string[];
   featured?: boolean;
@@ -39,90 +40,133 @@ type Plan = {
 
 const plans: Plan[] = [
   {
-    name: "Starter",
-    monthly: 19,
-    tagline: "For solo operators who never want to miss a call.",
+    name: "Trial",
+    monthly: 0,
+    annualMonthly: 0,
+    tagline: "14 days free with a demo number — see everything before you pay.",
     perks: [
-      "1 local or toll-free number",
-      "Unlimited calls & texts in US, CA, UK & EU",
-      "Shared inbox for 2 teammates",
-      "Voicemail transcription",
-      "Business hours & auto-replies",
+      "14-day free trial",
+      "Demo phone number included",
+      "Calling & messaging basics",
+      "No credit card required",
+    ],
+    cta: "Start 14-day trial",
+  },
+  {
+    name: "Startup",
+    monthly: 15,
+    annualMonthly: 12,
+    tagline: "For solo operators and small teams getting off a personal number.",
+    perks: [
+      "1 local number included",
+      "Free local & long-distance calls",
+      "SMS messaging included",
+      "WhatsApp, Telegram & chat apps",
+      "Mobile & desktop apps",
     ],
     cta: "Start free trial",
   },
   {
     name: "Business",
-    monthly: 34,
-    tagline: "For growing teams that answer together.",
+    monthly: 25,
+    annualMonthly: 20,
+    tagline: "For teams that answer together across the US, Canada and Europe.",
     featured: true,
     perks: [
-      "Everything in Starter",
-      "Unlimited shared numbers",
-      "Ring groups & call routing rules",
-      "AI call summaries & next steps",
-      "Team analytics dashboard",
-      "CRM & Zapier integrations",
+      "Everything in Startup",
+      "IVR phone menus",
+      "Call recording",
+      "Call hunting & call forwarding",
+      "AI assistance add-on",
+      "Live chat support",
     ],
     cta: "Start free trial",
   },
   {
-    name: "Enterprise",
-    monthly: "Custom",
-    tagline: "For multi-location teams with compliance needs.",
+    name: "Scale",
+    monthly: 35,
+    annualMonthly: 28,
+    tagline: "For contact centres and multi-location brands.",
     perks: [
       "Everything in Business",
-      "SSO & advanced permissions",
-      "Dedicated onboarding & CSM",
-      "Custom AI agent workflows",
-      "API access & webhooks",
-      "99.99% uptime SLA",
+      "Call transcription & AI summaries",
+      "Custom telephony flows",
+      "Slack & email integration flows",
+      "Advanced analytics",
+      "Dedicated priority support",
     ],
     cta: "Talk to sales",
   },
 ];
 
 const addOns: [string, string, string][] = [
-  ["Extra phone number", "$5 /number /mo", "Local, toll-free or vanity numbers in the US, Canada, the UK and 30+ European countries."],
-  ["AI receptionist", "$25 /mo", "Answers, qualifies and books while your team is busy."],
-  ["Advanced analytics", "$12 /user /mo", "Custom reports, exports and live wallboards."],
+  ["Extra phone number", "$15 /number /mo", "Local or toll-free numbers priced country by country across the US, Canada, the UK and Europe."],
+  ["Number porting", "$5 one-time", "Bring your existing US, Canadian or European number with you."],
+  ["IVR phone menu", "$1.50 /mo", "Multi-level menus that send every caller to the right team."],
+  ["Call recording", "$1.50 /mo", "Record, store and replay calls for coaching and compliance."],
+  ["Call hunting", "$0.50 /mo", "Ring the whole team in order until someone picks up."],
+  ["Call forwarding", "$1.50 /mo", "Send calls to mobiles, landlines or other countries."],
+  ["AI assistance", "$3.50 /mo", "AI answers, qualifies and helps your team while they are busy."],
+  ["Transcribe & summarise calls", "$2.50 /mo", "Every call written up with next steps, in any supported language."],
+  ["Help desk (ticketing)", "$5 /user /mo", "Turn calls, SMS and chats into trackable tickets."],
+  ["Connect center (CRM)", "$10 /user /mo", "Contacts, pipelines and history alongside every conversation."],
+  ["Advanced analytics", "$15 /mo", "Custom reports, exports and live wallboards."],
+  ["Integration flows (Slack, email)", "$10 /mo", "Push calls, notes and alerts into the tools you already use."],
+  ["Historical reports beyond 3 months", "$30 /mo", "Long-term call detail records for audits and QA."],
+  ["Custom telephony automated flows", "$50 one-time", "We build bespoke routing and automation for your operation."],
 ];
 
-const compareGroups: { group: string; rows: [string, string | boolean, string | boolean, string | boolean][] }[] = [
+const aiTiers: [string, string, string, string][] = [
+  ["Tier 1", "$0 /mo", "10 AI calls", "$1.00 per extra call"],
+  ["Tier 2", "$25 /mo", "40 AI calls", "$0.75 per extra call"],
+  ["Tier 3", "$49 /mo", "100 AI calls", "$0.65 per extra call"],
+  ["Tier 4", "$99 /mo", "250 AI calls", "$0.55 per extra call"],
+  ["Tier 5", "$199 /mo", "600 AI calls", "$0.45 per extra call"],
+];
+
+const compareGroups: {
+  group: string;
+  rows: [string, string | boolean, string | boolean, string | boolean, string | boolean][];
+}[] = [
   {
-    group: "Calling & texting",
+    group: "Numbers, calling & messaging",
     rows: [
-      ["Included numbers", "1", "3", "Unlimited"],
-      ["Unlimited calls & SMS (US, CA, UK, EU)", true, true, true],
-      ["Group calling", false, true, true],
-      ["Warm call transfer", false, true, true],
-      ["International numbers", false, true, true],
+      ["Included phone number", "Demo", "1", "1", "1"],
+      ["Local calls (US, CA, UK, EU)", true, true, true, true],
+      ["Long-distance calls", false, true, true, true],
+      ["SMS messaging", false, true, true, true],
+      ["WhatsApp, Telegram & chat apps", false, true, true, true],
+      ["Extra numbers per country", false, "$15 /mo", "$15 /mo", "$15 /mo"],
+      ["Number porting", false, "$5 once", "$5 once", "$5 once"],
     ],
   },
   {
-    group: "Collaboration",
+    group: "Call handling",
     rows: [
-      ["Shared inbox seats", "2", "Unlimited", "Unlimited"],
-      ["Internal threads & mentions", true, true, true],
-      ["Ring groups & routing rules", false, true, true],
-      ["Task assignment", false, true, true],
+      ["IVR phone menus", false, false, "$1.50 /mo", "$1.50 /mo"],
+      ["Call recording", false, false, "$1.50 /mo", "$1.50 /mo"],
+      ["Call hunting", false, false, "$0.50 /mo", "$0.50 /mo"],
+      ["Call forwarding", false, false, "$1.50 /mo", "$1.50 /mo"],
+      ["Custom telephony flows", false, false, false, "$50 once"],
     ],
   },
   {
     group: "AI & automation",
     rows: [
-      ["Voicemail transcription", true, true, true],
-      ["AI call summaries", false, true, true],
-      ["AI agent workflows", false, false, true],
-      ["API & webhooks", false, false, true],
+      ["AI assistance", false, false, "$3.50 /mo", "$3.50 /mo"],
+      ["Transcription & call summaries", false, false, false, "$2.50 /mo"],
+      ["AI call packages", false, "Tier 1–5", "Tier 1–5", "Tier 1–5"],
+      ["Integration flows (Slack, email)", false, false, false, "$10 /mo"],
     ],
   },
   {
-    group: "Admin & support",
+    group: "Apps, reporting & support",
     rows: [
-      ["Team analytics", false, true, true],
-      ["SSO / SAML", false, false, true],
-      ["Support", "Email", "Priority", "Dedicated CSM"],
+      ["Help desk (ticketing)", false, "$5 /user", "$5 /user", "$5 /user"],
+      ["Connect center (CRM)", false, "$10 /user", "$10 /user", "$10 /user"],
+      ["Advanced analytics", false, "$15 /mo", false, "$15 /mo"],
+      ["Reports beyond 3 months", false, false, "$30 /mo", "$30 /mo"],
+      ["Support", "Email", "Email", "Live chat", "Dedicated priority"],
     ],
   },
 ];
@@ -130,19 +174,27 @@ const compareGroups: { group: string; rows: [string, string | boolean, string | 
 const faqs: [string, string][] = [
   [
     "Is there a free trial?",
-    "Yes — every plan starts with a 14-day free trial. No credit card required, and you keep the number you pick if you upgrade.",
+    "Yes — every account starts on the 14-day Trial plan with a demo number. No credit card required, and you pick a real number when you subscribe.",
+  ],
+  [
+    "How much does it cost per user?",
+    "Startup is $15 per user per month, Business $25 and Scale $35. Pay yearly and you save 20% — $12, $20 and $28 per user per month.",
+  ],
+  [
+    "Which countries are included?",
+    "Local calling is included country by country across the US, Canada, the UK and the whole of Europe — Germany, France, Spain, Italy, the Netherlands, Poland, the Nordics and more. Numbers are priced per country.",
+  ],
+  [
+    "Are features charged separately?",
+    "Core calling and messaging are included in your plan. Optional modules like IVR, recording, AI assistance, CRM or advanced analytics are low monthly add-ons, so you only pay for what you switch on.",
+  ],
+  [
+    "Can I port my existing number?",
+    "Yes — porting is a $5 one-time fee per number and usually takes 2–5 business days. Your current line keeps working until the switch completes.",
   ],
   [
     "Can I change plans later?",
     "Change or cancel any time from billing settings. Upgrades apply instantly and we prorate the difference.",
-  ],
-  [
-    "Do you charge per number or per user?",
-    "Per user. Business and Enterprise include shared numbers so the whole team can answer from one line.",
-  ],
-  [
-    "Can I port my existing number?",
-    "Yes, porting is free and usually takes 2–5 business days. Your current line keeps working until the switch completes.",
   ],
 ];
 
@@ -157,10 +209,8 @@ function PriceCell({ value }: { value: string | boolean }) {
 function PricingPage() {
   const [annual, setAnnual] = useState(true);
 
-  const priceFor = (plan: Plan) =>
-    plan.monthly === "Custom"
-      ? "Custom"
-      : `$${annual ? Math.round(plan.monthly * 0.8) : plan.monthly}`;
+  const priceFor = (plan: Plan) => `$${annual ? plan.annualMonthly : plan.monthly}`;
+
 
   return (
     <div className="min-h-screen bg-background text-foreground">
