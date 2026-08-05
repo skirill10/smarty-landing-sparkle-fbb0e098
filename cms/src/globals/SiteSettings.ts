@@ -50,6 +50,44 @@ export const SiteSettings: GlobalConfig = {
     },
     { name: "footerNote", type: "textarea" },
     {
+      name: "announcement",
+      label: "Announcement bar",
+      type: "group",
+      fields: [
+        { name: "enabled", type: "checkbox", defaultValue: true },
+        { name: "message", type: "text" },
+        { name: "primaryLabel", type: "text" },
+        { name: "primaryUrl", type: "text" },
+        { name: "secondaryLabel", type: "text" },
+        { name: "secondaryUrl", type: "text" },
+      ],
+    },
+    {
+      name: "heyAi",
+      label: "Hey AI section",
+      type: "group",
+      fields: [
+        { name: "eyebrow", type: "text" },
+        { name: "heading", type: "text" },
+        { name: "body", type: "textarea" },
+        { name: "linkLabel", type: "text" },
+        {
+          name: "pageUrl",
+          type: "text",
+          admin: { description: "Page the AI prompts should summarise, e.g. https://smarty.tel/" },
+        },
+        {
+          name: "items",
+          label: "Assistant cards",
+          type: "array",
+          fields: [
+            { name: "name", type: "text" },
+            { name: "description", type: "textarea" },
+          ],
+        },
+      ],
+    },
+    {
       name: "cta",
       label: "Closing CTA band",
       type: "group",
