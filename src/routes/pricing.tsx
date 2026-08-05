@@ -417,17 +417,17 @@ function TalkToSalesSection() {
               <label className="block text-sm font-semibold sm:col-span-1">
                 Full name
                 <input name="name" maxLength={100} className={field} placeholder="Alex Moreau" />
-                {errors.name ? <span className="mt-1 block text-xs font-normal text-destructive">{errors.name}</span> : null}
+                {errors['name'] ? <span className="mt-1 block text-xs font-normal text-destructive">{errors['name']}</span> : null}
               </label>
               <label className="block text-sm font-semibold sm:col-span-1">
                 Work email
                 <input name="email" type="email" maxLength={255} className={field} placeholder="alex@company.com" />
-                {errors.email ? <span className="mt-1 block text-xs font-normal text-destructive">{errors.email}</span> : null}
+                {errors['email'] ? <span className="mt-1 block text-xs font-normal text-destructive">{errors['email']}</span> : null}
               </label>
               <label className="block text-sm font-semibold sm:col-span-1">
                 Company
                 <input name="company" maxLength={120} className={field} placeholder="Company name" />
-                {errors.company ? <span className="mt-1 block text-xs font-normal text-destructive">{errors.company}</span> : null}
+                {errors['company'] ? <span className="mt-1 block text-xs font-normal text-destructive">{errors['company']}</span> : null}
               </label>
               <label className="block text-sm font-semibold sm:col-span-1">
                 Phone number
