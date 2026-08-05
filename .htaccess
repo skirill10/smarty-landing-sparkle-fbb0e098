@@ -19,3 +19,9 @@
 </IfModule>
 
 DirectoryIndex public_html/index.html index.html
+
+# Block access to source files that get deployed alongside the build
+<FilesMatch "\.(ts|tsx|json|lockb?|toml|md|yml|yaml)$">
+  Require all denied
+</FilesMatch>
+RedirectMatch 403 ^/(src|node_modules|\.github|dist)/
