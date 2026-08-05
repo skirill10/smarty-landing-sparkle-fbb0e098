@@ -121,7 +121,7 @@ export function SiteFooter() {
             <p className="mt-4 max-w-xs text-sm text-muted-foreground">{t(note)}</p>
             <Link
               to="/pricing"
-              className="mt-6 inline-flex rounded-md bg-brand px-5 py-3 text-sm font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
+              className="mt-6 inline-flex rounded-md bg-brand px-5 py-3 text-sm font-semibold text-brand-foreground transition-all hover:-translate-y-0.5 hover:bg-dark hover:text-dark-foreground"
             >
               {t("Start free trial")}
             </Link>
