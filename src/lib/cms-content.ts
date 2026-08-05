@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { cmsEnabled, fetchGlobal } from "@/lib/cms";
+import { cmsEnabled, fetchGlobal, fetchIntegrations } from "@/lib/cms";
 
 /**
  * Copy overlay for the home and pricing pages.
@@ -237,4 +237,122 @@ export function usePricingContent<
       (faq, doc) => [text(doc.question, faq[0]), text(doc.answer, faq[1])] as [string, string],
     ),
   };
+}
+
+/* ------------------------------ site settings ----------------------------- */
+
+type CmsLink = { label?: string; to?: string; description?: string };
+
+type SiteGlobal = {
+  brandName?: string;
+  navGroups?: { label?: string; links?: CmsLink[] }[];
+  footerColumns?: { heading?: string; links?: CmsLink[] }[];
+  regions?: Val[];
+  footerNote?: string;
+  cta?: {
+    eyebrow?: string;
+    title?: string;
+    subtitle?: string;
+    primaryLabel?: string;
+    secondaryLabel?: string;
+    proofPoints?: Val[];
+  };
+};
+
+function useSite() {
+  return useGlobal<SiteGlobal>("site-settings");
+}
+
+/** Header mega-menus: CMS can rename labels and repoint links; icons stay local. */
+export function useHeaderMenus<
+  Menu extends { label: string; groups: { heading: string; items: { label: string; to?: string }[] }[] },
+>(fallback: Menu[]): Menu[] {
+  const cms = useSite();
+  return overlay(fallback, cms?.navGroups, (menu, doc) => {
+    const flat = doc.links ?? [];
+    let cursor = 0;
+    return {
+      ...menu,
+      label: text(doc.label, menu.label),
+      groups: menu.groups.map((group) => ({
+        ...group,
+        items: group.items.map((item) => {
+          const link = flat[cursor++];
+          return link
+            ? { ...item, label: text(link.label, item.label), to: text(link.to, item.to ?? "") || item.to }
+            : item;
+        }),
+      })),
+    };
+  });
+}
+
+/** Footer columns, coverage regions and the intro note. */
+export function useFooterContent<
+  Column extends { heading: string; links: { label: string; to?: string }[] },
+>(fallback: { columns: Column[]; regions: string[]; note: string }) {
+  const cms = useSite();
+  if (!cms) return fallback;
+  return {
+    columns: overlay(fallback.columns, cms.footerColumns, (column, doc) => ({
+      ...column,
+      heading: text(doc.heading, column.heading),
+      links: overlay(column.links, doc.links, (link, linkDoc) => ({
+        ...link,
+        label: text(linkDoc.label, link.label),
+        to: text(linkDoc.to, link.to ?? "") || link.to,
+      })),
+    })),
+    regions: list(cms.regions, fallback.regions),
+    note: text(cms.footerNote, fallback.note),
+  };
+}
+
+/** Closing CTA band copy. */
+export function useCtaContent(fallback: {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  primaryLabel: string;
+  secondaryLabel: string;
+  proofPoints: string[];
+}) {
+  const cms = useSite();
+  if (!cms?.cta) return fallback;
+  const cta = cms.cta;
+  return {
+    eyebrow: text(cta.eyebrow, fallback.eyebrow),
+    title: text(cta.title, fallback.title),
+    subtitle: text(cta.subtitle, fallback.subtitle),
+    primaryLabel: text(cta.primaryLabel, fallback.primaryLabel),
+    secondaryLabel: text(cta.secondaryLabel, fallback.secondaryLabel),
+    proofPoints: list(cta.proofPoints, fallback.proofPoints),
+  };
+}
+
+/* ------------------------------ integrations ------------------------------ */
+
+/**
+ * Integrations grid. The CMS supplies the name plus a simple-icons slug; the
+ * icon itself is resolved from the bundled icon set, so an unknown slug simply
+ * keeps the bundled list.
+ */
+export function useIntegrationBrands<Brand extends { name: string }>(
+  fallback: Brand[],
+  resolveIcon: (slug: string) => Brand["name"] extends never ? never : unknown,
+) {
+  const { data } = useQuery({
+    queryKey: ["cms-integrations"],
+    queryFn: () => fetchIntegrations(),
+    enabled: cmsEnabled,
+    staleTime: 60_000,
+  });
+  if (!data?.length) return fallback;
+  const mapped = data
+    .map((doc) => {
+      const icon = doc.iconSlug ? resolveIcon(doc.iconSlug) : null;
+      return icon ? ({ name: doc.name, icon } as unknown as Brand) : null;
+    })
+    .filter((brand): brand is Brand => brand !== null);
+  return mapped.length ? mapped : fallback;
 }
