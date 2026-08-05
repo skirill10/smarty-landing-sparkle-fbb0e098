@@ -110,7 +110,7 @@ export function IntegrationsSection() {
           </Link>
           <a
             href="#integrations"
-            className="inline-flex items-center gap-1.5 rounded-xl border border-border px-5 py-3 text-sm font-semibold transition-colors hover:bg-secondary"
+            className="inline-flex items-center gap-1.5 rounded-md border border-border px-5 py-3 text-sm font-semibold transition-colors hover:bg-secondary"
           >
             Browse all integrations
           </a>
