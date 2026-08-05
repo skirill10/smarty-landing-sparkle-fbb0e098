@@ -400,13 +400,13 @@ function Landing() {
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
             <a
               href="/pricing"
-              className="rounded-xl bg-brand px-6 py-3 font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
+              className="rounded-md bg-brand px-6 py-3 font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
             >
               {hero.primaryCta}
             </a>
             <a
               href="#features"
-              className="inline-flex items-center gap-2 rounded-xl px-4 py-3 font-medium text-foreground transition-colors hover:bg-secondary"
+              className="inline-flex items-center gap-2 rounded-md px-4 py-3 font-medium text-foreground transition-colors hover:bg-secondary"
             >
               <Play className="size-4" aria-hidden="true" />
               {hero.secondaryCta}
