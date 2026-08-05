@@ -224,25 +224,36 @@ const featureGroups = [
 
 const plans = [
   {
-    name: "Starter",
+    name: "Trial",
+    price: "$0",
+    unit: "/14 days",
+    tagline: "Try everything with a demo number, no card needed.",
+    perks: ["14-day free trial", "Demo phone number", "Calling & messaging basics", "Mobile & desktop apps"],
+  },
+  {
+    name: "Startup",
     price: "$15",
+    unit: "/user/mo",
     tagline: "For solo operators getting off a personal number.",
-    perks: ["1 local number per user", "Calls & texts in the US, Canada, UK & Europe", "Shared contacts", "Mobile & desktop apps"],
+    perks: ["1 local number included", "Local & long-distance calls", "SMS & chat apps", "Contacts and call history"],
   },
   {
     name: "Business",
-    price: "$29",
+    price: "$25",
+    unit: "/user/mo",
     tagline: "For teams that answer every call, together.",
-    perks: ["Everything in Starter", "Shared numbers & inboxes", "Call routing & IVR menus", "Analytics dashboards", "Integrations & API"],
+    perks: ["Everything in Startup", "IVR phone menus", "Call recording & hunting", "Call forwarding", "AI assistance add-on"],
     featured: true,
   },
   {
     name: "Scale",
-    price: "Custom",
+    price: "$35",
+    unit: "/user/mo",
     tagline: "For contact centers and multi-location brands.",
-    perks: ["Everything in Business", "Smarty AI agent, unlimited", "SSO & audit logs", "Dedicated onboarding"],
+    perks: ["Everything in Business", "AI transcripts & summaries", "Custom telephony flows", "Advanced analytics", "Priority support"],
   },
 ];
+
 
 function StoriesSlider({ items }: { items: typeof stories }) {
   const [index, setIndex] = useState(0);
@@ -502,12 +513,16 @@ function Landing() {
 
         {/* Pricing */}
         <section id="pricing" className="border-t border-border py-20 md:py-28">
-          <div className="mx-auto max-w-6xl px-5">
+          <div className="mx-auto max-w-7xl px-5">
             <h2 className="font-display text-4xl font-bold tracking-tight md:text-5xl">
               Simple pricing, per user
             </h2>
-            <p className="mt-4 text-muted-foreground">Billed monthly. Cancel any time.</p>
-            <div className="mt-12 grid gap-6 md:grid-cols-3">
+            <p className="mt-4 max-w-2xl text-muted-foreground">
+              14 days free, then from $12 per user per month billed yearly (save 20%). Local calling
+              across the US, Canada, the UK and all of Europe. Cancel any time.
+            </p>
+            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+
               {plans.map((plan) => (
                 <article
                   key={plan.name}
@@ -527,10 +542,9 @@ function Landing() {
                   </div>
                   <p className="mt-5 font-display text-4xl font-bold tracking-tight">
                     {plan.price}
-                    {plan.price !== "Custom" && (
-                      <span className="text-base font-medium text-muted-foreground">/user/mo</span>
-                    )}
+                    <span className="text-base font-medium text-muted-foreground">{plan.unit}</span>
                   </p>
+
                   <p className="mt-3 text-sm text-muted-foreground">{plan.tagline}</p>
                   <ul className="mt-6 space-y-3 text-sm">
                     {plan.perks.map((perk) => (
@@ -548,7 +562,7 @@ function Landing() {
                         : "mt-8 block rounded-xl border border-border px-4 py-3 text-center font-semibold transition-colors hover:bg-secondary"
                     }
                   >
-                    {plan.price === "Custom" ? "Talk to sales" : "Start free trial"}
+                    {plan.price === "$0" ? "Start 14-day trial" : "Start free trial"}
                   </a>
                 </article>
               ))}
