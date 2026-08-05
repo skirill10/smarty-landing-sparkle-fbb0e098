@@ -25,7 +25,7 @@ import {
 } from "lucide-react";
 import mark from "@/assets/smartytel-mark.png";
 
-type Item = { label: string; icon?: typeof Phone };
+type Item = { label: string; icon?: typeof Phone; to?: string };
 type Group = { heading: string; items: Item[] };
 type MenuDef = { label: string; groups: Group[]; wide?: boolean };
 
