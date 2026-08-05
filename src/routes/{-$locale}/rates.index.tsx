@@ -116,7 +116,7 @@ function RatesIndexPage() {
   // Push the debounced term into the URL so results stay shareable.
   useEffect(() => {
     if (debouncedTerm === search.q) return;
-    navigate({ to: "/rates", search: { ...search, q: debouncedTerm, page: 1 }, replace: true });
+    navigate({ to: ".", search: { ...search, q: debouncedTerm, page: 1 }, replace: true });
   }, [debouncedTerm, search.q, navigate]);
 
   const { data: content } = useSuspenseQuery(ratesQueries.content());
@@ -144,13 +144,13 @@ function RatesIndexPage() {
     if (typeof patch['currency'] === "string" && isCurrencyCode(patch['currency'])) {
       saveCurrency(patch['currency']);
     }
-    navigate({ to: "/rates", search: { ...search, ...patch, page: 1 } });
+    navigate({ to: ".", search: { ...search, ...patch, page: 1 } });
   };
 
   const reset = () => {
     setTerm("");
     navigate({
-      to: "/rates",
+      to: ".",
       search: { q: "", region: "all", service: "all", currency, sort: "name-asc", page: 1 },
     });
   };
@@ -253,7 +253,7 @@ function RatesIndexPage() {
               <button
                 type="button"
                 disabled={page <= 1}
-                onClick={() => navigate({ to: "/rates", search: { ...search, page: page - 1 } })}
+                onClick={() => navigate({ to: ".", search: { ...search, page: page - 1 } })}
                 className="rounded-md border border-border px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-secondary disabled:cursor-not-allowed disabled:opacity-40"
               >
                 Previous
@@ -264,7 +264,7 @@ function RatesIndexPage() {
               <button
                 type="button"
                 disabled={page >= totalPages}
-                onClick={() => navigate({ to: "/rates", search: { ...search, page: page + 1 } })}
+                onClick={() => navigate({ to: ".", search: { ...search, page: page + 1 } })}
                 className="rounded-md border border-border px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-secondary disabled:cursor-not-allowed disabled:opacity-40"
               >
                 Next
