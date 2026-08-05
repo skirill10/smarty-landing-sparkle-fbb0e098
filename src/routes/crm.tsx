@@ -124,7 +124,7 @@ function CrmPage() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   to="/pricing"
-                  className="inline-flex items-center gap-1.5 rounded-xl bg-brand px-5 py-3 font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-1.5 rounded-md bg-brand px-5 py-3 font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5"
                 >
                   Start free trial <ArrowRight className="size-4" />
                 </Link>
