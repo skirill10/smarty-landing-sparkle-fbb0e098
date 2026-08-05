@@ -223,11 +223,12 @@ function PricingPage() {
           <h1 className="mx-auto mt-4 max-w-3xl font-display text-4xl font-bold tracking-tight md:text-6xl">
             One phone system, priced per person
           </h1>
-          <p className="mx-auto mt-5 max-w-xl text-lg text-muted-foreground">
-            Every plan includes unlimited calling and texting across the US, Canada, the UK and all
-            of Europe. Add teammates as you grow — no contracts, no hardware.
-
+          <p className="mx-auto mt-5 max-w-2xl text-lg text-muted-foreground">
+            Start free for 14 days, then from $12 per user per month. Local calling included across
+            the US, Canada, the UK and every European country — and you only pay for the modules you
+            switch on.
           </p>
+
 
           <div className="mt-9 inline-flex items-center gap-1 rounded-full border border-border bg-card p-1">
             <button
