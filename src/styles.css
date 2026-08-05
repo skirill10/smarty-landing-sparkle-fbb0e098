@@ -23,6 +23,8 @@
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --color-brand: var(--brand);
   --color-brand-foreground: var(--brand-foreground);
+  --color-brand-pink: var(--brand-pink);
+  --color-brand-magenta: var(--brand-magenta);
   --color-surface: var(--surface);
   --color-light-grey: var(--light-grey);
   --color-dark: var(--dark);
