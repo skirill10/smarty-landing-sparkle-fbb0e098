@@ -69,29 +69,31 @@
 
 :root {
   --radius: 0.75rem;
-  --lime: oklch(0.9 0.2 118);
-  --lime-foreground: oklch(0.18 0.02 120);
-  --surface: oklch(0.965 0.006 90);
+  /* Brand periwinkle from the logo (#7071E5) */
+  --brand: oklch(0.6 0.181 283);
+  --brand-foreground: oklch(0.99 0 0);
+  --surface: oklch(0.972 0.008 290);
   --background: oklch(1 0 0);
-  --foreground: oklch(0.16 0.01 260);
+  --foreground: oklch(0.2 0.045 300);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.16 0.01 260);
+  --card-foreground: oklch(0.2 0.045 300);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.16 0.01 260);
-  --primary: oklch(0.16 0.01 260);
+  --popover-foreground: oklch(0.2 0.045 300);
+  /* Deep logo purple (#6D29A4) */
+  --primary: oklch(0.42 0.19 302);
   --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.965 0.006 90);
-  --secondary-foreground: oklch(0.16 0.01 260);
-  --muted: oklch(0.965 0.006 90);
-  --muted-foreground: oklch(0.52 0.01 260);
-  --accent: oklch(0.9 0.2 118);
-  --accent-foreground: oklch(0.18 0.02 120);
+  --secondary: oklch(0.972 0.008 290);
+  --secondary-foreground: oklch(0.2 0.045 300);
+  --muted: oklch(0.972 0.008 290);
+  --muted-foreground: oklch(0.52 0.03 293);
+  --accent: oklch(0.6 0.181 283);
+  --accent-foreground: oklch(0.6 0.181 283);
 
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --border: oklch(0.92 0.012 290);
+  --input: oklch(0.92 0.012 290);
+  --ring: oklch(0.6 0.181 283);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
