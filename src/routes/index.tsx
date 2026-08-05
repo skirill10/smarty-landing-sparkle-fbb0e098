@@ -24,6 +24,7 @@ import featTeamAnalytics from "@/assets/feat-team-analytics.jpg";
 import featFilters from "@/assets/feat-filters.jpg";
 import featCallLogs from "@/assets/feat-call-logs.jpg";
 import mark from "@/assets/smartytel-mark.png";
+import { SiteHeader } from "@/components/SiteHeader";
 import showcaseNumbers from "@/assets/showcase-numbers.jpg";
 import showcaseShared from "@/assets/showcase-shared.jpg";
 import showcaseRouting from "@/assets/showcase-routing.jpg";
@@ -161,7 +162,6 @@ export const Route = createFileRoute("/")({
   component: Landing,
 });
 
-const navLinks = ["Product", "Solutions", "Pricing", "Resources"];
 
 const featureGroups = [
   {
