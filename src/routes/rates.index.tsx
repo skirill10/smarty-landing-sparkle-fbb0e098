@@ -253,7 +253,7 @@ function RatesIndexPage() {
                 type="button"
                 disabled={page <= 1}
                 onClick={() => navigate({ to: "/rates", search: { ...search, page: page - 1 } })}
-                className="rounded-xl border border-border px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-secondary disabled:cursor-not-allowed disabled:opacity-40"
+                className="rounded-md border border-border px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-secondary disabled:cursor-not-allowed disabled:opacity-40"
               >
                 Previous
               </button>
