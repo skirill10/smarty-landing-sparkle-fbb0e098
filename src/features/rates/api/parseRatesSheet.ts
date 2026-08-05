@@ -60,7 +60,7 @@ const COLUMN_ALIASES: Record<string, string[]> = {
   interval: ["interval", "billinginterval", "billingincrement", "increment", "billing"],
   connectionFee: ["connectionfee", "setupfee", "callsetupfee", "connectcharge"],
   featured: ["featured", "popular", "highlight", "top"],
-  slug: ["slug", "urlslug"],
+  slug: ["slug", "urlslug", "countryslug"],
   destinationType: ["type", "destinationtype", "service", "servicetype"],
   destinationLabel: ["destination", "destinationlabel", "label", "carrier", "network", "breakout"],
   price: ["price", "rate", "perminute", "priceperminute", "cost", "amount"],
