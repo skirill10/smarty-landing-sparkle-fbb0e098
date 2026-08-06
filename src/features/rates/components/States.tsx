@@ -1,6 +1,12 @@
 import { AlertTriangle, Search } from "lucide-react";
 
-export function LoadingState({ rows = 6, label = "Loading rates" }: { rows?: number; label?: string }) {
+export function LoadingState({
+  rows = 6,
+  label = "Loading rates",
+}: {
+  rows?: number;
+  label?: string;
+}) {
   return (
     <div role="status" aria-live="polite" className="space-y-3">
       <span className="sr-only">{label}</span>

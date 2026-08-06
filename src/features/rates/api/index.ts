@@ -13,8 +13,8 @@ import type { RatesRepository } from "./ratesRepository";
  * VITE_CONTENT_SOURCE is still honoured for backwards compatibility.
  */
 const source =
-  (import.meta.env['VITE_RATES_SOURCE'] as string | undefined) ??
-  (import.meta.env['VITE_CONTENT_SOURCE'] as string | undefined) ??
+  (import.meta.env["VITE_RATES_SOURCE"] as string | undefined) ??
+  (import.meta.env["VITE_CONTENT_SOURCE"] as string | undefined) ??
   "sheet";
 
 export const ratesRepository: RatesRepository =

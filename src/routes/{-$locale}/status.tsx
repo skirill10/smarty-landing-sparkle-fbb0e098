@@ -8,9 +8,17 @@ export const Route = createFileRoute("/{-$locale}/status")({
   head: () => ({
     meta: [
       { title: "Platform status and incident history | Smartytel" },
-      { name: "description", content: "Live availability for calling, messaging, apps and the API, plus a record of past incidents." },
+      {
+        name: "description",
+        content:
+          "Live availability for calling, messaging, apps and the API, plus a record of past incidents.",
+      },
       { property: "og:title", content: "Platform status and incident history | Smartytel" },
-      { property: "og:description", content: "Live availability for calling, messaging, apps and the API, plus a record of past incidents." },
+      {
+        property: "og:description",
+        content:
+          "Live availability for calling, messaging, apps and the API, plus a record of past incidents.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

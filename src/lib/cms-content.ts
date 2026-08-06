@@ -19,7 +19,11 @@ const list = (cms: Val[] | null | undefined, fallback: string[]): string[] =>
   cms?.length ? cms.map((item) => item.value) : fallback;
 
 /** Merge a CMS array onto a bundled one, index by index. */
-function overlay<T, C>(fallback: T[], cms: C[] | null | undefined, merge: (item: T, doc: C) => T): T[] {
+function overlay<T, C>(
+  fallback: T[],
+  cms: C[] | null | undefined,
+  merge: (item: T, doc: C) => T,
+): T[] {
   if (!cms?.length) return fallback;
   return fallback.map((item, index) => (cms[index] ? merge(item, cms[index]!) : item));
 }
@@ -213,8 +217,7 @@ export function usePricingContent<
       ...plan,
       name: text(doc.name, plan.name),
       monthly: typeof doc.monthly === "number" ? doc.monthly : plan.monthly,
-      annualMonthly:
-        typeof doc.annualMonthly === "number" ? doc.annualMonthly : plan.annualMonthly,
+      annualMonthly: typeof doc.annualMonthly === "number" ? doc.annualMonthly : plan.annualMonthly,
       tagline: text(doc.tagline, plan.tagline),
       cta: text(doc.cta, plan.cta),
       perks: list(doc.perks, plan.perks),
@@ -289,7 +292,10 @@ function useSite() {
 
 /** Header mega-menus: CMS can rename labels and repoint links; icons stay local. */
 export function useHeaderMenus<
-  Menu extends { label: string; groups: { heading: string; items: { label: string; to?: string }[] }[] },
+  Menu extends {
+    label: string;
+    groups: { heading: string; items: { label: string; to?: string }[] }[];
+  },
 >(fallback: Menu[]): Menu[] {
   const cms = useSite();
   return overlay(fallback, cms?.navGroups, (menu, doc) => {
@@ -303,7 +309,11 @@ export function useHeaderMenus<
         items: group.items.map((item) => {
           const link = flat[cursor++];
           return link
-            ? { ...item, label: text(link.label, item.label), to: text(link.to, item.to ?? "") || item.to }
+            ? {
+                ...item,
+                label: text(link.label, item.label),
+                to: text(link.to, item.to ?? "") || item.to,
+              }
             : item;
         }),
       })),
@@ -325,7 +335,6 @@ export function useFooterContent<
         const to = text(linkDoc.to, link.to ?? "") || link.to;
         return { ...link, label: text(linkDoc.label, link.label), ...(to ? { to } : {}) };
       }),
-
     })),
     regions: list(cms.regions, fallback.regions),
     note: text(cms.footerNote, fallback.note),
@@ -485,7 +494,13 @@ export function usePricingCta(fallback: PricingCtaContent): PricingCtaContent {
 /* -------------------------- CRM & Hey AI pages ---------------------------- */
 
 type PageHeroGlobal = {
-  hero?: { eyebrow?: string; headline?: string; sub?: string; primaryCta?: string; secondaryCta?: string };
+  hero?: {
+    eyebrow?: string;
+    headline?: string;
+    sub?: string;
+    primaryCta?: string;
+    secondaryCta?: string;
+  };
   features?: { title?: string; body?: string }[];
   facts?: { term?: string; detail?: string }[];
   answers?: { question?: string; answer?: string }[];
@@ -493,7 +508,13 @@ type PageHeroGlobal = {
 
 /** /crm hero + feature card copy. */
 export function useCrmContent<Feature extends { title: string; body: string }>(fallback: {
-  hero: { eyebrow: string; headline: string; sub: string; primaryCta: string; secondaryCta: string };
+  hero: {
+    eyebrow: string;
+    headline: string;
+    sub: string;
+    primaryCta: string;
+    secondaryCta: string;
+  };
   features: Feature[];
 }) {
   const cms = useGlobal<PageHeroGlobal>("crm-page");

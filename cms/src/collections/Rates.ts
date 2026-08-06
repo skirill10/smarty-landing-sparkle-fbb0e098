@@ -51,7 +51,13 @@ export const Rates: CollectionConfig = {
     { name: "destinationLabel", type: "text" },
     { name: "prefix", type: "text" },
     { name: "price", type: "number", required: true, admin: { step: 0.001 } },
-    { name: "currency", type: "select", required: true, defaultValue: "EUR", options: currencyOptions },
+    {
+      name: "currency",
+      type: "select",
+      required: true,
+      defaultValue: "EUR",
+      options: currencyOptions,
+    },
     {
       name: "unit",
       type: "select",

@@ -35,11 +35,7 @@ export function RatesFAQ({ title, items }: { title: string; items: FAQItem[] }) 
                     />
                   </button>
                 </dt>
-                <dd
-                  id={panelId}
-                  hidden={!isOpen}
-                  className="mt-3 max-w-2xl text-muted-foreground"
-                >
+                <dd id={panelId} hidden={!isOpen} className="mt-3 max-w-2xl text-muted-foreground">
                   {item.answer}
                 </dd>
               </div>

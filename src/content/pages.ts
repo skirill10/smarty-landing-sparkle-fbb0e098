@@ -1,879 +1,909 @@
 import type { MarketingContent } from "@/components/MarketingPage";
 
 export const pages: Record<string, MarketingContent> = {
-  "calling": {
-    "eyebrow": "Calling",
-    "headline": "A business phone line your whole team can answer",
-    "sub": "Ring groups, transfers, voicemail and call recording on shiny local numbers across the US, Canada, the UK and every European country.",
-    "bullets": [
+  calling: {
+    eyebrow: "Calling",
+    headline: "A business phone line your whole team can answer",
+    sub: "Ring groups, transfers, voicemail and call recording on shiny local numbers across the US, Canada, the UK and every European country.",
+    bullets: [
       {
-        "title": "Shared inbound calling",
-        "body": "Route one number to a whole team so the first free person picks up — no more missed calls after hours."
+        title: "Shared inbound calling",
+        body: "Route one number to a whole team so the first free person picks up — no more missed calls after hours.",
       },
       {
-        "title": "Warm transfers",
-        "body": "Hand a caller to a colleague with context, or park the call and pick it up on another device."
+        title: "Warm transfers",
+        body: "Hand a caller to a colleague with context, or park the call and pick it up on another device.",
       },
       {
-        "title": "Call recording",
-        "body": "Record automatically or on demand, then store recordings on the contact record for coaching and disputes."
+        title: "Call recording",
+        body: "Record automatically or on demand, then store recordings on the contact record for coaching and disputes.",
       },
       {
-        "title": "Voicemail that gets read",
-        "body": "Voicemail-to-text lands in the shared inbox with an AI summary and the caller's history attached."
-      }
+        title: "Voicemail that gets read",
+        body: "Voicemail-to-text lands in the shared inbox with an AI summary and the caller's history attached.",
+      },
     ],
-    "metaTitle": "Business Phone System for Teams | Smartytel",
-    "metaDescription": "Business phone system with shared numbers, ring groups, transfers, voicemail-to-text and call recording across the US, Canada, the UK and Europe."
+    metaTitle: "Business Phone System for Teams | Smartytel",
+    metaDescription:
+      "Business phone system with shared numbers, ring groups, transfers, voicemail-to-text and call recording across the US, Canada, the UK and Europe.",
   },
-  "messaging": {
-    "eyebrow": "Messaging",
-    "headline": "Text, WhatsApp and Telegram from your business number",
-    "sub": "One shared inbox for SMS, WhatsApp and Telegram so customers can reply the way they prefer and nothing sits unanswered.",
-    "bullets": [
+  messaging: {
+    eyebrow: "Messaging",
+    headline: "Text, WhatsApp and Telegram from your business number",
+    sub: "One shared inbox for SMS, WhatsApp and Telegram so customers can reply the way they prefer and nothing sits unanswered.",
+    bullets: [
       {
-        "title": "Shared SMS inbox",
-        "body": "Assign threads, leave internal notes and see who is replying before you double-answer a customer."
+        title: "Shared SMS inbox",
+        body: "Assign threads, leave internal notes and see who is replying before you double-answer a customer.",
       },
       {
-        "title": "WhatsApp and Telegram",
-        "body": "Connect chat apps to the same number and thread so history stays in one place."
+        title: "WhatsApp and Telegram",
+        body: "Connect chat apps to the same number and thread so history stays in one place.",
       },
       {
-        "title": "Templates and snippets",
-        "body": "Save the answers you send every day and personalise them with contact fields in one click."
+        title: "Templates and snippets",
+        body: "Save the answers you send every day and personalise them with contact fields in one click.",
       },
       {
-        "title": "Bulk campaigns",
-        "body": "Send automated SMS to a saved segment from $0.01 per message and track replies in the same inbox."
-      }
+        title: "Bulk campaigns",
+        body: "Send automated SMS to a saved segment from $0.01 per message and track replies in the same inbox.",
+      },
     ],
-    "metaTitle": "Business SMS, WhatsApp & Telegram Inbox | Smartytel",
-    "metaDescription": "One shared inbox for business SMS, WhatsApp and Telegram, with templates, assignments and bulk campaigns from your business number."
+    metaTitle: "Business SMS, WhatsApp & Telegram Inbox | Smartytel",
+    metaDescription:
+      "One shared inbox for business SMS, WhatsApp and Telegram, with templates, assignments and bulk campaigns from your business number.",
   },
   "phone-menu": {
-    "eyebrow": "Routing",
-    "headline": "Phone menus and routing that match how you work",
-    "sub": "Build IVR menus, business-hours rules, hunt groups and forwarding without waiting on a telecoms engineer.",
-    "bullets": [
+    eyebrow: "Routing",
+    headline: "Phone menus and routing that match how you work",
+    sub: "Build IVR menus, business-hours rules, hunt groups and forwarding without waiting on a telecoms engineer.",
+    bullets: [
       {
-        "title": "Visual IVR builder",
-        "body": "Drag options into a menu, record or generate greetings, and publish changes instantly."
+        title: "Visual IVR builder",
+        body: "Drag options into a menu, record or generate greetings, and publish changes instantly.",
       },
       {
-        "title": "Business hours",
-        "body": "Different routing for daytime, evenings, weekends and public holidays in every country you operate in."
+        title: "Business hours",
+        body: "Different routing for daytime, evenings, weekends and public holidays in every country you operate in.",
       },
       {
-        "title": "Call hunting",
-        "body": "Ring in order, all at once or by skill, with fallbacks to mobiles and voicemail."
+        title: "Call hunting",
+        body: "Ring in order, all at once or by skill, with fallbacks to mobiles and voicemail.",
       },
       {
-        "title": "Forwarding rules",
-        "body": "Send overflow to an on-call phone, an outsourced team or another office abroad."
-      }
+        title: "Forwarding rules",
+        body: "Send overflow to an on-call phone, an outsourced team or another office abroad.",
+      },
     ],
-    "metaTitle": "IVR Phone Menu & Call Routing | Smartytel",
-    "metaDescription": "Build IVR phone menus, business-hours rules, hunt groups and call forwarding yourself \u2014 no telecoms engineer, no downtime."
+    metaTitle: "IVR Phone Menu & Call Routing | Smartytel",
+    metaDescription:
+      "Build IVR phone menus, business-hours rules, hunt groups and call forwarding yourself \u2014 no telecoms engineer, no downtime.",
   },
   "shared-numbers": {
-    "eyebrow": "Collaborate",
-    "headline": "Shared numbers, shared context",
-    "sub": "Give teams a number they own together, with permissions, notes and full call history for everyone who needs it.",
-    "bullets": [
+    eyebrow: "Collaborate",
+    headline: "Shared numbers, shared context",
+    sub: "Give teams a number they own together, with permissions, notes and full call history for everyone who needs it.",
+    bullets: [
       {
-        "title": "Team ownership",
-        "body": "Add or remove people from a number in seconds — no porting, no downtime."
+        title: "Team ownership",
+        body: "Add or remove people from a number in seconds — no porting, no downtime.",
       },
       {
-        "title": "Internal notes and mentions",
-        "body": "Tag a colleague on a thread and let them pick it up with the whole story visible."
+        title: "Internal notes and mentions",
+        body: "Tag a colleague on a thread and let them pick it up with the whole story visible.",
       },
       {
-        "title": "Permissions",
-        "body": "Decide who can listen to recordings, export data or change routing."
+        title: "Permissions",
+        body: "Decide who can listen to recordings, export data or change routing.",
       },
       {
-        "title": "Multi-country presence",
-        "body": "Run a UK, German and US number side by side from one workspace."
-      }
+        title: "Multi-country presence",
+        body: "Run a UK, German and US number side by side from one workspace.",
+      },
     ],
-    "metaTitle": "Shared Team Phone Number | Smartytel",
-    "metaDescription": "Give your team one shared business phone number: everyone sees every call and text, and the first free person answers."
+    metaTitle: "Shared Team Phone Number | Smartytel",
+    metaDescription:
+      "Give your team one shared business phone number: everyone sees every call and text, and the first free person answers.",
   },
-  "analytics": {
-    "eyebrow": "Oversight",
-    "headline": "Analytics that show what your phone is really doing",
-    "sub": "Volume, response times, missed calls and rep activity across every number, team and country.",
-    "bullets": [
+  analytics: {
+    eyebrow: "Oversight",
+    headline: "Analytics that show what your phone is really doing",
+    sub: "Volume, response times, missed calls and rep activity across every number, team and country.",
+    bullets: [
       {
-        "title": "Live dashboards",
-        "body": "Answer rate, wait time and missed calls updated as the day happens."
+        title: "Live dashboards",
+        body: "Answer rate, wait time and missed calls updated as the day happens.",
       },
       {
-        "title": "Rep activity",
-        "body": "Calls handled, talk time and first-response time per person or team."
+        title: "Rep activity",
+        body: "Calls handled, talk time and first-response time per person or team.",
       },
       {
-        "title": "Historical reports",
-        "body": "Long-range reporting add-on for trends across months and locations."
+        title: "Historical reports",
+        body: "Long-range reporting add-on for trends across months and locations.",
       },
       {
-        "title": "Exports and alerts",
-        "body": "Scheduled CSV exports plus Slack or email alerts when volumes spike."
-      }
+        title: "Exports and alerts",
+        body: "Scheduled CSV exports plus Slack or email alerts when volumes spike.",
+      },
     ],
-    "metaTitle": "Call Analytics & Reporting | Smartytel",
-    "metaDescription": "Call analytics and reporting for missed calls, response times, volumes by hour and per-agent performance across every number."
+    metaTitle: "Call Analytics & Reporting | Smartytel",
+    metaDescription:
+      "Call analytics and reporting for missed calls, response times, volumes by hour and per-agent performance across every number.",
   },
-  "tasks": {
-    "eyebrow": "Tasks",
-    "headline": "Follow-ups that survive the end of the call",
-    "sub": "Turn calls and messages into tasks with owners and due dates, so promises made on the phone actually happen.",
-    "bullets": [
+  tasks: {
+    eyebrow: "Tasks",
+    headline: "Follow-ups that survive the end of the call",
+    sub: "Turn calls and messages into tasks with owners and due dates, so promises made on the phone actually happen.",
+    bullets: [
       {
-        "title": "One-click tasks",
-        "body": "Create a follow-up from a call, message or voicemail with the context attached."
+        title: "One-click tasks",
+        body: "Create a follow-up from a call, message or voicemail with the context attached.",
       },
       {
-        "title": "Owners and due dates",
-        "body": "Assign work to a person or a team and see what is overdue at a glance."
+        title: "Owners and due dates",
+        body: "Assign work to a person or a team and see what is overdue at a glance.",
       },
       {
-        "title": "Automatic triggers",
-        "body": "Create tasks when a call is missed, a deal changes stage or a keyword appears in a text."
+        title: "Automatic triggers",
+        body: "Create tasks when a call is missed, a deal changes stage or a keyword appears in a text.",
       },
       {
-        "title": "Inside the record",
-        "body": "Tasks live on the contact, so the next person knows what was promised."
-      }
+        title: "Inside the record",
+        body: "Tasks live on the contact, so the next person knows what was promised.",
+      },
     ],
-    "metaTitle": "Call Follow-Up Tasks & Reminders | Smartytel",
-    "metaDescription": "Turn calls and messages into tasks with owners and due dates, so promises made on the phone actually happen."
+    metaTitle: "Call Follow-Up Tasks & Reminders | Smartytel",
+    metaDescription:
+      "Turn calls and messages into tasks with owners and due dates, so promises made on the phone actually happen.",
   },
   "ai-agent": {
-    "eyebrow": "Smarty AI Assist",
-    "headline": "An AI agent that answers, qualifies and summarises",
-    "sub": "Smarty AI Assist picks up when nobody can, asks the right questions, then hands a clean summary to the right person.",
-    "bullets": [
+    eyebrow: "Smarty AI Assist",
+    headline: "An AI agent that answers, qualifies and summarises",
+    sub: "Smarty AI Assist picks up when nobody can, asks the right questions, then hands a clean summary to the right person.",
+    bullets: [
       {
-        "title": "Answers every call",
-        "body": "Natural voice answering in business hours or out of hours, in multiple languages."
+        title: "Answers every call",
+        body: "Natural voice answering in business hours or out of hours, in multiple languages.",
       },
       {
-        "title": "Qualifies leads",
-        "body": "Collects the details you define, then routes to the right rep or books a slot."
+        title: "Qualifies leads",
+        body: "Collects the details you define, then routes to the right rep or books a slot.",
       },
       {
-        "title": "Summaries and transcripts",
-        "body": "Every call transcribed and summarised on the contact record."
+        title: "Summaries and transcripts",
+        body: "Every call transcribed and summarised on the contact record.",
       },
       {
-        "title": "Priced per module",
-        "body": "AI assistance from $3.50 per user, transcription from $2.50, with AI call packages as you grow."
-      }
+        title: "Priced per module",
+        body: "AI assistance from $3.50 per user, transcription from $2.50, with AI call packages as you grow.",
+      },
     ],
-    "metaTitle": "AI Phone Answering Agent | Smartytel",
-    "metaDescription": "An AI phone answering agent that picks up after hours, qualifies callers, books follow-ups and writes the summary for your team."
+    metaTitle: "AI Phone Answering Agent | Smartytel",
+    metaDescription:
+      "An AI phone answering agent that picks up after hours, qualifies callers, books follow-ups and writes the summary for your team.",
   },
-  "integrations": {
-    "eyebrow": "Integrations",
-    "headline": "Plays nicely with the tools you already run on",
-    "sub": "Sync contacts, log calls and texts, and trigger follow-ups across your CRM, help desk, inbox and automation stack.",
-    "bullets": [
+  integrations: {
+    eyebrow: "Integrations",
+    headline: "Plays nicely with the tools you already run on",
+    sub: "Sync contacts, log calls and texts, and trigger follow-ups across your CRM, help desk, inbox and automation stack.",
+    bullets: [
       {
-        "title": "CRM sync",
-        "body": "Two-way sync with Salesforce, HubSpot, Pipedrive and Zoho — or use the built-in Connect Center."
+        title: "CRM sync",
+        body: "Two-way sync with Salesforce, HubSpot, Pipedrive and Zoho — or use the built-in Connect Center.",
       },
       {
-        "title": "Messaging and email",
-        "body": "Slack, Microsoft Teams, Gmail and Outlook notifications and click-to-call."
+        title: "Messaging and email",
+        body: "Slack, Microsoft Teams, Gmail and Outlook notifications and click-to-call.",
       },
       {
-        "title": "Automation",
-        "body": "Zapier and Make recipes for anything you want to happen after a call."
+        title: "Automation",
+        body: "Zapier and Make recipes for anything you want to happen after a call.",
       },
       {
-        "title": "API and webhooks",
-        "body": "Build your own flows with a documented REST API and event webhooks."
-      }
+        title: "API and webhooks",
+        body: "Build your own flows with a documented REST API and event webhooks.",
+      },
     ],
-    "metaTitle": "Phone System Integrations | Smartytel",
-    "metaDescription": "Connect your business phone to the CRM, helpdesk and automation tools you already run \u2014 HubSpot, Slack, Zapier and more."
+    metaTitle: "Phone System Integrations | Smartytel",
+    metaDescription:
+      "Connect your business phone to the CRM, helpdesk and automation tools you already run \u2014 HubSpot, Slack, Zapier and more.",
   },
-  "developers": {
-    "eyebrow": "Developers",
-    "headline": "The Smartytel API",
-    "sub": "Provision numbers, place calls, send messages and stream events from your own product.",
-    "bullets": [
+  developers: {
+    eyebrow: "Developers",
+    headline: "The Smartytel API",
+    sub: "Provision numbers, place calls, send messages and stream events from your own product.",
+    bullets: [
       {
-        "title": "REST API",
-        "body": "Clean, versioned endpoints for numbers, calls, messages, contacts and recordings."
+        title: "REST API",
+        body: "Clean, versioned endpoints for numbers, calls, messages, contacts and recordings.",
       },
       {
-        "title": "Webhooks",
-        "body": "Subscribe to call started, call ended, message received and deal updated events."
+        title: "Webhooks",
+        body: "Subscribe to call started, call ended, message received and deal updated events.",
       },
       {
-        "title": "Sandbox keys",
-        "body": "Test against a sandbox workspace before you touch live traffic."
+        title: "Sandbox keys",
+        body: "Test against a sandbox workspace before you touch live traffic.",
       },
       {
-        "title": "Coverage aware",
-        "body": "Provision numbers in the US, Canada, the UK and every European country we serve."
-      }
+        title: "Coverage aware",
+        body: "Provision numbers in the US, Canada, the UK and every European country we serve.",
+      },
     ],
-    "metaTitle": "Voice & SMS API for Developers | Smartytel",
-    "metaDescription": "Voice and SMS APIs plus webhooks to build calling, messaging and number provisioning into your own product."
+    metaTitle: "Voice & SMS API for Developers | Smartytel",
+    metaDescription:
+      "Voice and SMS APIs plus webhooks to build calling, messaging and number provisioning into your own product.",
   },
   "solutions/home-services": {
-    "eyebrow": "Home services",
-    "headline": "Never miss the job because nobody could answer",
-    "sub": "Dispatchers, techs in vans and an after-hours line — all on one number your customers already know.",
-    "bullets": [
+    eyebrow: "Home services",
+    headline: "Never miss the job because nobody could answer",
+    sub: "Dispatchers, techs in vans and an after-hours line — all on one number your customers already know.",
+    bullets: [
       {
-        "title": "Ring the whole crew",
-        "body": "Calls hunt from the office to mobiles so a booking is never lost to voicemail."
+        title: "Ring the whole crew",
+        body: "Calls hunt from the office to mobiles so a booking is never lost to voicemail.",
       },
       {
-        "title": "Text before arrival",
-        "body": "Automated SMS with the tech's name and window, sent from your business number."
+        title: "Text before arrival",
+        body: "Automated SMS with the tech's name and window, sent from your business number.",
       },
       {
-        "title": "Job notes on the contact",
-        "body": "Every call, photo and text on the customer record for the next visit."
+        title: "Job notes on the contact",
+        body: "Every call, photo and text on the customer record for the next visit.",
       },
       {
-        "title": "After-hours AI",
-        "body": "Smarty AI Assist takes emergency calls at 2am and pages the on-call tech."
-      }
+        title: "After-hours AI",
+        body: "Smarty AI Assist takes emergency calls at 2am and pages the on-call tech.",
+      },
     ],
-    "metaTitle": "Phone System for Home Services | Smartytel",
-    "metaDescription": "Dispatchers, techs in vans and an after-hours line — all on one number your customers already know."
+    metaTitle: "Phone System for Home Services | Smartytel",
+    metaDescription:
+      "Dispatchers, techs in vans and an after-hours line — all on one number your customers already know.",
   },
   "solutions/law-firms": {
-    "eyebrow": "Law firms",
-    "headline": "A phone system that keeps client matters clean",
-    "sub": "Confidential lines, recorded consent, and every call logged against the right matter.",
-    "bullets": [
+    eyebrow: "Law firms",
+    headline: "A phone system that keeps client matters clean",
+    sub: "Confidential lines, recorded consent, and every call logged against the right matter.",
+    bullets: [
       {
-        "title": "Per-matter history",
-        "body": "Calls, texts and voicemails attached to the client record for billing and audit."
+        title: "Per-matter history",
+        body: "Calls, texts and voicemails attached to the client record for billing and audit.",
       },
       {
-        "title": "Recording controls",
-        "body": "Record with consent prompts and restrict who can listen."
+        title: "Recording controls",
+        body: "Record with consent prompts and restrict who can listen.",
       },
       {
-        "title": "Reception routing",
-        "body": "Route by practice area with overflow to an answering service."
+        title: "Reception routing",
+        body: "Route by practice area with overflow to an answering service.",
       },
       {
-        "title": "GDPR-ready",
-        "body": "EU data handling and numbers in every European country you practise in."
-      }
+        title: "GDPR-ready",
+        body: "EU data handling and numbers in every European country you practise in.",
+      },
     ],
-    "metaTitle": "Phone System for Law Firms | Smartytel",
-    "metaDescription": "Confidential lines, recorded consent, and every call logged against the right matter."
+    metaTitle: "Phone System for Law Firms | Smartytel",
+    metaDescription:
+      "Confidential lines, recorded consent, and every call logged against the right matter.",
   },
   "solutions/property-management": {
-    "eyebrow": "Property management",
-    "headline": "One line for tenants, owners and contractors",
-    "sub": "Route by building or portfolio, keep maintenance requests in writing, and prove what was promised.",
-    "bullets": [
+    eyebrow: "Property management",
+    headline: "One line for tenants, owners and contractors",
+    sub: "Route by building or portfolio, keep maintenance requests in writing, and prove what was promised.",
+    bullets: [
       {
-        "title": "Route by property",
-        "body": "Menus and hunt groups per building, region or portfolio."
+        title: "Route by property",
+        body: "Menus and hunt groups per building, region or portfolio.",
       },
       {
-        "title": "Maintenance in writing",
-        "body": "Tenants text photos; requests become tasks with owners and due dates."
+        title: "Maintenance in writing",
+        body: "Tenants text photos; requests become tasks with owners and due dates.",
       },
       {
-        "title": "Emergency escalation",
-        "body": "Out-of-hours calls escalate to the on-call manager automatically."
+        title: "Emergency escalation",
+        body: "Out-of-hours calls escalate to the on-call manager automatically.",
       },
       {
-        "title": "Owner reporting",
-        "body": "Response-time reports you can hand straight to landlords."
-      }
+        title: "Owner reporting",
+        body: "Response-time reports you can hand straight to landlords.",
+      },
     ],
-    "metaTitle": "Phone System for Property Managers | Smartytel",
-    "metaDescription": "Route by building or portfolio, keep maintenance requests in writing, and prove what was promised."
+    metaTitle: "Phone System for Property Managers | Smartytel",
+    metaDescription:
+      "Route by building or portfolio, keep maintenance requests in writing, and prove what was promised.",
   },
   "solutions/healthcare": {
-    "eyebrow": "Healthcare",
-    "headline": "Calm, compliant patient communication",
-    "sub": "Appointment reminders, triage menus and private lines for clinicians, with recordings locked down.",
-    "bullets": [
+    eyebrow: "Healthcare",
+    headline: "Calm, compliant patient communication",
+    sub: "Appointment reminders, triage menus and private lines for clinicians, with recordings locked down.",
+    bullets: [
       {
-        "title": "Triage menus",
-        "body": "Send urgent callers to a clinician and routine ones to reception or a callback queue."
+        title: "Triage menus",
+        body: "Send urgent callers to a clinician and routine ones to reception or a callback queue.",
       },
       {
-        "title": "Reminders by SMS",
-        "body": "Cut no-shows with automated reminders from your clinic number."
+        title: "Reminders by SMS",
+        body: "Cut no-shows with automated reminders from your clinic number.",
       },
       {
-        "title": "Access control",
-        "body": "Restrict recordings and transcripts to named roles."
+        title: "Access control",
+        body: "Restrict recordings and transcripts to named roles.",
       },
       {
-        "title": "Multi-site",
-        "body": "Numbers per clinic across the UK, Europe, the US and Canada."
-      }
+        title: "Multi-site",
+        body: "Numbers per clinic across the UK, Europe, the US and Canada.",
+      },
     ],
-    "metaTitle": "Phone System for Clinics & Healthcare | Smartytel",
-    "metaDescription": "Appointment reminders, triage menus and private lines for clinicians, with recordings locked down."
+    metaTitle: "Phone System for Clinics & Healthcare | Smartytel",
+    metaDescription:
+      "Appointment reminders, triage menus and private lines for clinicians, with recordings locked down.",
   },
   "solutions/education": {
-    "eyebrow": "Education",
-    "headline": "One number for parents, students and staff",
-    "sub": "Term-time hours, departmental routing and broadcast SMS for closures and reminders.",
-    "bullets": [
+    eyebrow: "Education",
+    headline: "One number for parents, students and staff",
+    sub: "Term-time hours, departmental routing and broadcast SMS for closures and reminders.",
+    bullets: [
       {
-        "title": "Departmental routing",
-        "body": "Admissions, finance and pastoral teams behind one main number."
+        title: "Departmental routing",
+        body: "Admissions, finance and pastoral teams behind one main number.",
       },
       {
-        "title": "Broadcast SMS",
-        "body": "Send closure or event notices to a saved parent segment in minutes."
+        title: "Broadcast SMS",
+        body: "Send closure or event notices to a saved parent segment in minutes.",
       },
       {
-        "title": "Term-time hours",
-        "body": "Different routing for term, holidays and exam weeks."
+        title: "Term-time hours",
+        body: "Different routing for term, holidays and exam weeks.",
       },
       {
-        "title": "Shared oversight",
-        "body": "See which enquiries were answered and which were missed."
-      }
+        title: "Shared oversight",
+        body: "See which enquiries were answered and which were missed.",
+      },
     ],
-    "metaTitle": "Phone System for Schools & Education | Smartytel",
-    "metaDescription": "Term-time hours, departmental routing and broadcast SMS for closures and reminders."
+    metaTitle: "Phone System for Schools & Education | Smartytel",
+    metaDescription:
+      "Term-time hours, departmental routing and broadcast SMS for closures and reminders.",
   },
   "solutions/startups": {
-    "eyebrow": "Startups",
-    "headline": "A real phone presence on day one",
-    "sub": "Pick a number, invite the team and start taking calls in minutes — from $12 per user per month.",
-    "bullets": [
+    eyebrow: "Startups",
+    headline: "A real phone presence on day one",
+    sub: "Pick a number, invite the team and start taking calls in minutes — from $12 per user per month.",
+    bullets: [
       {
-        "title": "Set up in minutes",
-        "body": "Choose a local or toll-free number and go live without hardware."
+        title: "Set up in minutes",
+        body: "Choose a local or toll-free number and go live without hardware.",
       },
       {
-        "title": "Grow module by module",
-        "body": "Turn on IVR, recording, AI or CRM only when you need them."
+        title: "Grow module by module",
+        body: "Turn on IVR, recording, AI or CRM only when you need them.",
       },
       {
-        "title": "Founder-friendly pricing",
-        "body": "Start free for 14 days with a demo number, no credit card."
+        title: "Founder-friendly pricing",
+        body: "Start free for 14 days with a demo number, no credit card.",
       },
       {
-        "title": "Global from the start",
-        "body": "Look local in the US, Canada, the UK and any European market you sell into."
-      }
+        title: "Global from the start",
+        body: "Look local in the US, Canada, the UK and any European market you sell into.",
+      },
     ],
-    "metaTitle": "Business Phone for Startups | Smartytel",
-    "metaDescription": "Pick a number, invite the team and start taking calls in minutes — from $12 per user per month."
+    metaTitle: "Business Phone for Startups | Smartytel",
+    metaDescription:
+      "Pick a number, invite the team and start taking calls in minutes — from $12 per user per month.",
   },
   "solutions/small-business": {
-    "eyebrow": "Small business",
-    "headline": "Stop running the business off a personal mobile",
-    "sub": "A shared business number your team can answer, with texting, voicemail and simple reporting.",
-    "bullets": [
+    eyebrow: "Small business",
+    headline: "Stop running the business off a personal mobile",
+    sub: "A shared business number your team can answer, with texting, voicemail and simple reporting.",
+    bullets: [
       {
-        "title": "Shared answering",
-        "body": "Anyone free picks up; nobody has to be the only one with the number."
+        title: "Shared answering",
+        body: "Anyone free picks up; nobody has to be the only one with the number.",
       },
       {
-        "title": "Text back fast",
-        "body": "Reply to customers by SMS or WhatsApp from the same number."
+        title: "Text back fast",
+        body: "Reply to customers by SMS or WhatsApp from the same number.",
       },
       {
-        "title": "No IT project",
-        "body": "Works on mobile and desktop apps with no PBX to maintain."
+        title: "No IT project",
+        body: "Works on mobile and desktop apps with no PBX to maintain.",
       },
       {
-        "title": "Predictable cost",
-        "body": "Per-user pricing plus only the add-ons you switch on."
-      }
+        title: "Predictable cost",
+        body: "Per-user pricing plus only the add-ons you switch on.",
+      },
     ],
-    "metaTitle": "Business Phone for Small Business | Smartytel",
-    "metaDescription": "Business phone for small business: a shared number, mobile and desktop apps, and per-user pricing in the US, UK, Canada and Europe."
+    metaTitle: "Business Phone for Small Business | Smartytel",
+    metaDescription:
+      "Business phone for small business: a shared number, mobile and desktop apps, and per-user pricing in the US, UK, Canada and Europe.",
   },
   "solutions/franchise": {
-    "eyebrow": "Franchise",
-    "headline": "Local numbers, central oversight",
-    "sub": "Give every location a local number while head office keeps one view of volume, response times and quality.",
-    "bullets": [
+    eyebrow: "Franchise",
+    headline: "Local numbers, central oversight",
+    sub: "Give every location a local number while head office keeps one view of volume, response times and quality.",
+    bullets: [
       {
-        "title": "Number per location",
-        "body": "Local presence in each city or country, managed from one workspace."
+        title: "Number per location",
+        body: "Local presence in each city or country, managed from one workspace.",
       },
       {
-        "title": "Central routing rules",
-        "body": "Push hours, menus and scripts to every site at once."
+        title: "Central routing rules",
+        body: "Push hours, menus and scripts to every site at once.",
       },
       {
-        "title": "Group reporting",
-        "body": "Compare answer rates and missed calls across locations."
+        title: "Group reporting",
+        body: "Compare answer rates and missed calls across locations.",
       },
       {
-        "title": "Role-based access",
-        "body": "Franchisees see their site; head office sees everything."
-      }
+        title: "Role-based access",
+        body: "Franchisees see their site; head office sees everything.",
+      },
     ],
-    "metaTitle": "Multi-Location Phone System | Smartytel",
-    "metaDescription": "Give every location a local number while head office keeps one view of volume, response times and quality."
+    metaTitle: "Multi-Location Phone System | Smartytel",
+    metaDescription:
+      "Give every location a local number while head office keeps one view of volume, response times and quality.",
   },
   "solutions/sales": {
-    "eyebrow": "Sales",
-    "headline": "Call more, guess less",
-    "sub": "Click-to-call from the pipeline, AI notes after every conversation and reporting on what actually closes.",
-    "bullets": [
+    eyebrow: "Sales",
+    headline: "Call more, guess less",
+    sub: "Click-to-call from the pipeline, AI notes after every conversation and reporting on what actually closes.",
+    bullets: [
       {
-        "title": "Click-to-call",
-        "body": "Dial straight from a deal with the right number and full history in view."
+        title: "Click-to-call",
+        body: "Dial straight from a deal with the right number and full history in view.",
       },
       {
-        "title": "AI notes and next steps",
-        "body": "Transcripts and summaries written to the record automatically."
+        title: "AI notes and next steps",
+        body: "Transcripts and summaries written to the record automatically.",
       },
       {
-        "title": "Pipeline in the phone",
-        "body": "Connect Center CRM for $10 per user per month, no extra tab."
+        title: "Pipeline in the phone",
+        body: "Connect Center CRM for $10 per user per month, no extra tab.",
       },
       {
-        "title": "Coverage that converts",
-        "body": "Local caller ID in the US, Canada, the UK and Europe."
-      }
+        title: "Coverage that converts",
+        body: "Local caller ID in the US, Canada, the UK and Europe.",
+      },
     ],
-    "metaTitle": "Sales Phone System & Power Dialer | Smartytel",
-    "metaDescription": "Click-to-call from the pipeline, AI notes after every conversation and reporting on what actually closes."
+    metaTitle: "Sales Phone System & Power Dialer | Smartytel",
+    metaDescription:
+      "Click-to-call from the pipeline, AI notes after every conversation and reporting on what actually closes.",
   },
   "solutions/support": {
-    "eyebrow": "Support",
-    "headline": "Support queues without a call-centre budget",
-    "sub": "Queues, hunt groups, SLAs and a shared inbox for calls, SMS and chat apps.",
-    "bullets": [
+    eyebrow: "Support",
+    headline: "Support queues without a call-centre budget",
+    sub: "Queues, hunt groups, SLAs and a shared inbox for calls, SMS and chat apps.",
+    bullets: [
       {
-        "title": "Queues and overflow",
-        "body": "Hold callers with position and route overflow to a backup team."
+        title: "Queues and overflow",
+        body: "Hold callers with position and route overflow to a backup team.",
       },
       {
-        "title": "One thread per customer",
-        "body": "Calls, texts and help-desk tickets on the same contact."
+        title: "One thread per customer",
+        body: "Calls, texts and help-desk tickets on the same contact.",
       },
       {
-        "title": "SLA visibility",
-        "body": "First-response and resolution reporting per queue."
+        title: "SLA visibility",
+        body: "First-response and resolution reporting per queue.",
       },
       {
-        "title": "Help desk add-on",
-        "body": "Ticketing for $5 per user per month when you need it."
-      }
+        title: "Help desk add-on",
+        body: "Ticketing for $5 per user per month when you need it.",
+      },
     ],
-    "metaTitle": "Customer Support Phone System | Smartytel",
-    "metaDescription": "Queues, hunt groups, SLAs and a shared inbox for calls, SMS and chat apps."
+    metaTitle: "Customer Support Phone System | Smartytel",
+    metaDescription: "Queues, hunt groups, SLAs and a shared inbox for calls, SMS and chat apps.",
   },
   "solutions/operations": {
-    "eyebrow": "Operations",
-    "headline": "Make the phone part of your process",
-    "sub": "Automate what happens after a call: tasks, alerts, handovers and reporting.",
-    "bullets": [
+    eyebrow: "Operations",
+    headline: "Make the phone part of your process",
+    sub: "Automate what happens after a call: tasks, alerts, handovers and reporting.",
+    bullets: [
       {
-        "title": "Custom flows",
-        "body": "Build the routing and automation your operation actually needs."
+        title: "Custom flows",
+        body: "Build the routing and automation your operation actually needs.",
       },
       {
-        "title": "Alerts where you work",
-        "body": "Slack and email alerts on missed calls and escalations."
+        title: "Alerts where you work",
+        body: "Slack and email alerts on missed calls and escalations.",
       },
       {
-        "title": "Handover-ready records",
-        "body": "Every interaction logged so shifts hand over cleanly."
+        title: "Handover-ready records",
+        body: "Every interaction logged so shifts hand over cleanly.",
       },
       {
-        "title": "Audit trail",
-        "body": "Recordings, transcripts and change history for review."
-      }
+        title: "Audit trail",
+        body: "Recordings, transcripts and change history for review.",
+      },
     ],
-    "metaTitle": "Phone System for Operations Teams | Smartytel",
-    "metaDescription": "Automate what happens after a call: tasks, alerts, handovers and reporting."
+    metaTitle: "Phone System for Operations Teams | Smartytel",
+    metaDescription: "Automate what happens after a call: tasks, alerts, handovers and reporting.",
   },
-  "blog": {
-    "eyebrow": "Blog",
-    "headline": "Notes on phones, teams and customer conversations",
-    "sub": "Practical writing on call handling, AI answering, coverage in Europe and getting more out of your phone system.",
-    "bullets": [
+  blog: {
+    eyebrow: "Blog",
+    headline: "Notes on phones, teams and customer conversations",
+    sub: "Practical writing on call handling, AI answering, coverage in Europe and getting more out of your phone system.",
+    bullets: [
       {
-        "title": "How-to guides",
-        "body": "Set up IVR menus, hunt groups and after-hours routing properly."
+        title: "How-to guides",
+        body: "Set up IVR menus, hunt groups and after-hours routing properly.",
       },
       {
-        "title": "Benchmarks",
-        "body": "What good answer rates and response times look like by industry."
+        title: "Benchmarks",
+        body: "What good answer rates and response times look like by industry.",
       },
       {
-        "title": "Product updates",
-        "body": "New modules, integrations and country coverage as it ships."
+        title: "Product updates",
+        body: "New modules, integrations and country coverage as it ships.",
       },
       {
-        "title": "Playbooks",
-        "body": "Scripts and templates for sales, support and dispatch teams."
-      }
+        title: "Playbooks",
+        body: "Scripts and templates for sales, support and dispatch teams.",
+      },
     ],
-    "metaTitle": "Business Phone & VoIP Blog | Smartytel",
-    "metaDescription": "Practical writing on call handling, AI answering, coverage in Europe and getting more out of your phone system."
+    metaTitle: "Business Phone & VoIP Blog | Smartytel",
+    metaDescription:
+      "Practical writing on call handling, AI answering, coverage in Europe and getting more out of your phone system.",
   },
-  "customers": {
-    "eyebrow": "Customers",
-    "headline": "Teams that answer with Smartytel",
-    "sub": "Dental groups, law firms, HVAC dispatchers, property managers and startups across the US, Canada, the UK and Europe.",
-    "bullets": [
+  customers: {
+    eyebrow: "Customers",
+    headline: "Teams that answer with Smartytel",
+    sub: "Dental groups, law firms, HVAC dispatchers, property managers and startups across the US, Canada, the UK and Europe.",
+    bullets: [
       {
-        "title": "Home services",
-        "body": "A 12-van team cut missed calls by 63% with hunt groups and after-hours AI."
+        title: "Home services",
+        body: "A 12-van team cut missed calls by 63% with hunt groups and after-hours AI.",
       },
       {
-        "title": "Legal",
-        "body": "A four-office firm moved to per-matter call logging without changing numbers."
+        title: "Legal",
+        body: "A four-office firm moved to per-matter call logging without changing numbers.",
       },
       {
-        "title": "Healthcare",
-        "body": "A clinic group cut no-shows with automated SMS reminders."
+        title: "Healthcare",
+        body: "A clinic group cut no-shows with automated SMS reminders.",
       },
       {
-        "title": "SaaS",
-        "body": "A startup opened UK and German numbers in a single afternoon."
-      }
+        title: "SaaS",
+        body: "A startup opened UK and German numbers in a single afternoon.",
+      },
     ],
-    "metaTitle": "Customer Stories | Smartytel",
-    "metaDescription": "Dental groups, law firms, HVAC dispatchers, property managers and startups across the US, Canada, the UK and Europe."
+    metaTitle: "Customer Stories | Smartytel",
+    metaDescription:
+      "Dental groups, law firms, HVAC dispatchers, property managers and startups across the US, Canada, the UK and Europe.",
   },
-  "partners": {
-    "eyebrow": "Partners",
-    "headline": "Build and resell with Smartytel",
-    "sub": "Agencies, MSPs and consultancies deploying business phone, AI answering and CRM for their clients.",
-    "bullets": [
+  partners: {
+    eyebrow: "Partners",
+    headline: "Build and resell with Smartytel",
+    sub: "Agencies, MSPs and consultancies deploying business phone, AI answering and CRM for their clients.",
+    bullets: [
       {
-        "title": "Referral programme",
-        "body": "Recurring commission on every workspace you introduce."
+        title: "Referral programme",
+        body: "Recurring commission on every workspace you introduce.",
       },
       {
-        "title": "Reseller pricing",
-        "body": "Manage multiple client workspaces with consolidated billing."
+        title: "Reseller pricing",
+        body: "Manage multiple client workspaces with consolidated billing.",
       },
       {
-        "title": "Implementation support",
-        "body": "Migration help, number porting and routing design."
+        title: "Implementation support",
+        body: "Migration help, number porting and routing design.",
       },
       {
-        "title": "Technical enablement",
-        "body": "API access, sandbox keys and integration guidance."
-      }
+        title: "Technical enablement",
+        body: "API access, sandbox keys and integration guidance.",
+      },
     ],
-    "metaTitle": "Partner & Reseller Program | Smartytel",
-    "metaDescription": "Agencies, MSPs and consultancies deploying business phone, AI answering and CRM for their clients."
+    metaTitle: "Partner & Reseller Program | Smartytel",
+    metaDescription:
+      "Agencies, MSPs and consultancies deploying business phone, AI answering and CRM for their clients.",
   },
-  "demo": {
-    "eyebrow": "Product demo",
-    "headline": "See Smartytel in ten minutes",
-    "sub": "A walkthrough of shared numbers, routing, the AI agent, the built-in CRM and reporting.",
-    "bullets": [
+  demo: {
+    eyebrow: "Product demo",
+    headline: "See Smartytel in ten minutes",
+    sub: "A walkthrough of shared numbers, routing, the AI agent, the built-in CRM and reporting.",
+    bullets: [
       {
-        "title": "Live walkthrough",
-        "body": "A guided tour tailored to your team size and countries."
+        title: "Live walkthrough",
+        body: "A guided tour tailored to your team size and countries.",
       },
       {
-        "title": "Bring your scenario",
-        "body": "We build your routing and menus on the call."
+        title: "Bring your scenario",
+        body: "We build your routing and menus on the call.",
       },
       {
-        "title": "Pricing clarity",
-        "body": "Exactly which modules you need and what they cost."
+        title: "Pricing clarity",
+        body: "Exactly which modules you need and what they cost.",
       },
       {
-        "title": "Migration plan",
-        "body": "Number porting and rollout mapped out before you commit."
-      }
+        title: "Migration plan",
+        body: "Number porting and rollout mapped out before you commit.",
+      },
     ],
-    "metaTitle": "Book a Live Demo | Smartytel",
-    "metaDescription": "A walkthrough of shared numbers, routing, the AI agent, the built-in CRM and reporting."
+    metaTitle: "Book a Live Demo | Smartytel",
+    metaDescription:
+      "A walkthrough of shared numbers, routing, the AI agent, the built-in CRM and reporting.",
   },
-  "resources": {
-    "eyebrow": "Resource center",
-    "headline": "Everything you need to run your phone system well",
-    "sub": "Guides, tutorials, downloads and status information in one place.",
-    "bullets": [
+  resources: {
+    eyebrow: "Resource center",
+    headline: "Everything you need to run your phone system well",
+    sub: "Guides, tutorials, downloads and status information in one place.",
+    bullets: [
       {
-        "title": "Getting started",
-        "body": "Set up your first number, team and routing in under an hour."
+        title: "Getting started",
+        body: "Set up your first number, team and routing in under an hour.",
       },
       {
-        "title": "Tutorials",
-        "body": "Short walkthroughs for every module, from IVR to CRM campaigns."
+        title: "Tutorials",
+        body: "Short walkthroughs for every module, from IVR to CRM campaigns.",
       },
       {
-        "title": "Downloads",
-        "body": "Desktop and mobile apps for the whole team."
+        title: "Downloads",
+        body: "Desktop and mobile apps for the whole team.",
       },
       {
-        "title": "Number tools",
-        "body": "Voicemail script and number generators to get going faster."
-      }
+        title: "Number tools",
+        body: "Voicemail script and number generators to get going faster.",
+      },
     ],
-    "metaTitle": "Business Phone Resources & Guides | Smartytel",
-    "metaDescription": "Guides, tutorials, downloads and status information in one place."
+    metaTitle: "Business Phone Resources & Guides | Smartytel",
+    metaDescription: "Guides, tutorials, downloads and status information in one place.",
   },
-  "docs": {
-    "eyebrow": "Developer docs",
-    "headline": "Documentation for builders",
-    "sub": "Authentication, endpoints, webhooks and examples for the Smartytel API.",
-    "bullets": [
+  docs: {
+    eyebrow: "Developer docs",
+    headline: "Documentation for builders",
+    sub: "Authentication, endpoints, webhooks and examples for the Smartytel API.",
+    bullets: [
       {
-        "title": "Quickstart",
-        "body": "Get an API key and place your first call in a few minutes."
+        title: "Quickstart",
+        body: "Get an API key and place your first call in a few minutes.",
       },
       {
-        "title": "Reference",
-        "body": "Numbers, calls, messages, contacts, recordings and reporting endpoints."
+        title: "Reference",
+        body: "Numbers, calls, messages, contacts, recordings and reporting endpoints.",
       },
       {
-        "title": "Webhooks",
-        "body": "Event payloads, retries and signature verification."
+        title: "Webhooks",
+        body: "Event payloads, retries and signature verification.",
       },
       {
-        "title": "Guides",
-        "body": "Provision numbers by country and sync contacts with your own CRM."
-      }
+        title: "Guides",
+        body: "Provision numbers by country and sync contacts with your own CRM.",
+      },
     ],
-    "metaTitle": "Help Centre & Documentation | Smartytel",
-    "metaDescription": "Authentication, endpoints, webhooks and examples for the Smartytel API."
+    metaTitle: "Help Centre & Documentation | Smartytel",
+    metaDescription: "Authentication, endpoints, webhooks and examples for the Smartytel API.",
   },
-  "status": {
-    "eyebrow": "System status",
-    "headline": "Platform status and incident history",
-    "sub": "Live availability for calling, messaging, apps and the API, plus a record of past incidents.",
-    "bullets": [
+  status: {
+    eyebrow: "System status",
+    headline: "Platform status and incident history",
+    sub: "Live availability for calling, messaging, apps and the API, plus a record of past incidents.",
+    bullets: [
       {
-        "title": "Component status",
-        "body": "Voice, SMS, chat apps, dashboard and API tracked separately."
+        title: "Component status",
+        body: "Voice, SMS, chat apps, dashboard and API tracked separately.",
       },
       {
-        "title": "Regional detail",
-        "body": "US, Canada, UK and European infrastructure reported individually."
+        title: "Regional detail",
+        body: "US, Canada, UK and European infrastructure reported individually.",
       },
       {
-        "title": "Incident history",
-        "body": "Timelines, impact and root cause for every incident."
+        title: "Incident history",
+        body: "Timelines, impact and root cause for every incident.",
       },
       {
-        "title": "Subscriptions",
-        "body": "Get notified by email when something changes."
-      }
+        title: "Subscriptions",
+        body: "Get notified by email when something changes.",
+      },
     ],
-    "metaTitle": "System Status & Uptime | Smartytel",
-    "metaDescription": "Live availability for calling, messaging, apps and the API, plus a record of past incidents."
+    metaTitle: "System Status & Uptime | Smartytel",
+    metaDescription:
+      "Live availability for calling, messaging, apps and the API, plus a record of past incidents.",
   },
-  "about": {
-    "eyebrow": "Company",
-    "headline": "Why we built Smartytel",
-    "sub": "We think a business phone should be as easy to run as email — and should work the same in Berlin as in Boston.",
-    "bullets": [
+  about: {
+    eyebrow: "Company",
+    headline: "Why we built Smartytel",
+    sub: "We think a business phone should be as easy to run as email — and should work the same in Berlin as in Boston.",
+    bullets: [
       {
-        "title": "Built for teams",
-        "body": "Shared numbers first, not extensions bolted onto a desk phone."
+        title: "Built for teams",
+        body: "Shared numbers first, not extensions bolted onto a desk phone.",
       },
       {
-        "title": "Modular by design",
-        "body": "Pay for the features you use, not a bundle you don't."
+        title: "Modular by design",
+        body: "Pay for the features you use, not a bundle you don't.",
       },
       {
-        "title": "European coverage",
-        "body": "Numbers and compliance across the EU, UK, US and Canada."
+        title: "European coverage",
+        body: "Numbers and compliance across the EU, UK, US and Canada.",
       },
       {
-        "title": "Independent",
-        "body": "Funded by customers, focused on the product."
-      }
+        title: "Independent",
+        body: "Funded by customers, focused on the product.",
+      },
     ],
-    "metaTitle": "About Smartytel \u2014 Business Phone for Europe & US",
-    "metaDescription": "We think a business phone should be as easy to run as email — and should work the same in Berlin as in Boston."
+    metaTitle: "About Smartytel \u2014 Business Phone for Europe & US",
+    metaDescription:
+      "We think a business phone should be as easy to run as email — and should work the same in Berlin as in Boston.",
   },
-  "careers": {
-    "eyebrow": "Careers",
-    "headline": "Come build the phone system teams actually like",
-    "sub": "Engineering, support and go-to-market roles across Europe and North America.",
-    "bullets": [
+  careers: {
+    eyebrow: "Careers",
+    headline: "Come build the phone system teams actually like",
+    sub: "Engineering, support and go-to-market roles across Europe and North America.",
+    bullets: [
       {
-        "title": "Remote-friendly",
-        "body": "Distributed team across European and North American time zones."
+        title: "Remote-friendly",
+        body: "Distributed team across European and North American time zones.",
       },
       {
-        "title": "Real ownership",
-        "body": "Small teams shipping to customers every week."
+        title: "Real ownership",
+        body: "Small teams shipping to customers every week.",
       },
       {
-        "title": "Support-led culture",
-        "body": "Everyone spends time with customers, including engineers."
+        title: "Support-led culture",
+        body: "Everyone spends time with customers, including engineers.",
       },
       {
-        "title": "Open roles",
-        "body": "Backend, telephony, product design and customer support."
-      }
+        title: "Open roles",
+        body: "Backend, telephony, product design and customer support.",
+      },
     ],
-    "metaTitle": "Careers at Smartytel",
-    "metaDescription": "Engineering, support and go-to-market roles across Europe and North America."
+    metaTitle: "Careers at Smartytel",
+    metaDescription: "Engineering, support and go-to-market roles across Europe and North America.",
   },
-  "contact": {
-    "eyebrow": "Contact",
-    "headline": "Talk to a human",
-    "sub": "Sales, support and partnership enquiries — answered on the phone system we build.",
-    "bullets": [
+  contact: {
+    eyebrow: "Contact",
+    headline: "Talk to a human",
+    sub: "Sales, support and partnership enquiries — answered on the phone system we build.",
+    bullets: [
       {
-        "title": "Talk to sales",
-        "body": "Pricing, coverage and migration questions for teams of any size."
+        title: "Talk to sales",
+        body: "Pricing, coverage and migration questions for teams of any size.",
       },
       {
-        "title": "Support",
-        "body": "Live chat and email support on every paid plan."
+        title: "Support",
+        body: "Live chat and email support on every paid plan.",
       },
       {
-        "title": "Porting help",
-        "body": "Bring existing numbers over for a one-time $5 per number."
+        title: "Porting help",
+        body: "Bring existing numbers over for a one-time $5 per number.",
       },
       {
-        "title": "Partnerships",
-        "body": "Agencies, MSPs and technology partners welcome."
-      }
+        title: "Partnerships",
+        body: "Agencies, MSPs and technology partners welcome.",
+      },
     ],
-    "metaTitle": "Contact Sales & Support | Smartytel",
-    "metaDescription": "Sales, support and partnership enquiries — answered on the phone system we build."
+    metaTitle: "Contact Sales & Support | Smartytel",
+    metaDescription:
+      "Sales, support and partnership enquiries — answered on the phone system we build.",
   },
   "port-your-number": {
-    "eyebrow": "Porting",
-    "headline": "Keep the number your customers already dial",
-    "sub": "Port landline, mobile and toll-free numbers from your current provider for a one-time $5 per number.",
-    "bullets": [
+    eyebrow: "Porting",
+    headline: "Keep the number your customers already dial",
+    sub: "Port landline, mobile and toll-free numbers from your current provider for a one-time $5 per number.",
+    bullets: [
       {
-        "title": "Simple process",
-        "body": "Send us the numbers and a recent bill; we handle the carrier side."
+        title: "Simple process",
+        body: "Send us the numbers and a recent bill; we handle the carrier side.",
       },
       {
-        "title": "No downtime",
-        "body": "Calls keep landing on your old service until the cutover completes."
+        title: "No downtime",
+        body: "Calls keep landing on your old service until the cutover completes.",
       },
       {
-        "title": "Multi-country",
-        "body": "Porting supported across the US, Canada, the UK and Europe."
+        title: "Multi-country",
+        body: "Porting supported across the US, Canada, the UK and Europe.",
       },
       {
-        "title": "Flat fee",
-        "body": "$5 one-time per number, no monthly porting charges."
-      }
+        title: "Flat fee",
+        body: "$5 one-time per number, no monthly porting charges.",
+      },
     ],
-    "metaTitle": "Port Your Business Number Free | Smartytel",
-    "metaDescription": "Port your existing business number to Smartytel for free from any US, Canadian, UK or European carrier \u2014 keep the number customers dial."
+    metaTitle: "Port Your Business Number Free | Smartytel",
+    metaDescription:
+      "Port your existing business number to Smartytel for free from any US, Canadian, UK or European carrier \u2014 keep the number customers dial.",
   },
-  "privacy": {
-    "eyebrow": "Legal",
-    "headline": "Privacy at Smartytel",
-    "sub": "What we collect, why we collect it, where it is stored and how long we keep it.",
-    "bullets": [
+  privacy: {
+    eyebrow: "Legal",
+    headline: "Privacy at Smartytel",
+    sub: "What we collect, why we collect it, where it is stored and how long we keep it.",
+    bullets: [
       {
-        "title": "What we collect",
-        "body": "Account details, call and message metadata, and content you choose to store."
+        title: "What we collect",
+        body: "Account details, call and message metadata, and content you choose to store.",
       },
       {
-        "title": "Where data lives",
-        "body": "EU or US hosting depending on your workspace region."
+        title: "Where data lives",
+        body: "EU or US hosting depending on your workspace region.",
       },
       {
-        "title": "Retention",
-        "body": "Configurable retention for recordings, transcripts and message history."
+        title: "Retention",
+        body: "Configurable retention for recordings, transcripts and message history.",
       },
       {
-        "title": "Your rights",
-        "body": "Access, export and deletion requests handled within statutory timeframes."
-      }
+        title: "Your rights",
+        body: "Access, export and deletion requests handled within statutory timeframes.",
+      },
     ],
-    "metaTitle": "Privacy Policy | Smartytel",
-    "metaDescription": "What we collect, why we collect it, where it is stored and how long we keep it."
+    metaTitle: "Privacy Policy | Smartytel",
+    metaDescription:
+      "What we collect, why we collect it, where it is stored and how long we keep it.",
   },
-  "terms": {
-    "eyebrow": "Legal",
-    "headline": "Terms of service",
-    "sub": "The agreement covering your use of Smartytel numbers, calling, messaging and add-on modules.",
-    "bullets": [
+  terms: {
+    eyebrow: "Legal",
+    headline: "Terms of service",
+    sub: "The agreement covering your use of Smartytel numbers, calling, messaging and add-on modules.",
+    bullets: [
       {
-        "title": "Subscriptions",
-        "body": "Per-user plans billed monthly or annually, cancel at the end of a term."
+        title: "Subscriptions",
+        body: "Per-user plans billed monthly or annually, cancel at the end of a term.",
       },
       {
-        "title": "Acceptable use",
-        "body": "No spam, fraud or misuse of numbers and messaging."
+        title: "Acceptable use",
+        body: "No spam, fraud or misuse of numbers and messaging.",
       },
       {
-        "title": "Numbers",
-        "body": "Ownership, porting and reclamation rules by country."
+        title: "Numbers",
+        body: "Ownership, porting and reclamation rules by country.",
       },
       {
-        "title": "Service levels",
-        "body": "Availability commitments and support response targets."
-      }
+        title: "Service levels",
+        body: "Availability commitments and support response targets.",
+      },
     ],
-    "metaTitle": "Terms of Service | Smartytel",
-    "metaDescription": "The agreement covering your use of Smartytel numbers, calling, messaging and add-on modules."
+    metaTitle: "Terms of Service | Smartytel",
+    metaDescription:
+      "The agreement covering your use of Smartytel numbers, calling, messaging and add-on modules.",
   },
-  "gdpr": {
-    "eyebrow": "Legal",
-    "headline": "GDPR and EU data protection",
-    "sub": "Data processing terms, subprocessors and transfer mechanisms for European customers.",
-    "bullets": [
+  gdpr: {
+    eyebrow: "Legal",
+    headline: "GDPR and EU data protection",
+    sub: "Data processing terms, subprocessors and transfer mechanisms for European customers.",
+    bullets: [
       {
-        "title": "Data processing agreement",
-        "body": "Available to every customer with European users or numbers."
+        title: "Data processing agreement",
+        body: "Available to every customer with European users or numbers.",
       },
       {
-        "title": "EU hosting",
-        "body": "Workspaces can be pinned to European infrastructure."
+        title: "EU hosting",
+        body: "Workspaces can be pinned to European infrastructure.",
       },
       {
-        "title": "Subprocessors",
-        "body": "A maintained list of carriers and vendors with their roles."
+        title: "Subprocessors",
+        body: "A maintained list of carriers and vendors with their roles.",
       },
       {
-        "title": "Transfers",
-        "body": "Standard contractual clauses for any transfer outside the EEA."
-      }
+        title: "Transfers",
+        body: "Standard contractual clauses for any transfer outside the EEA.",
+      },
     ],
-    "metaTitle": "GDPR & Data Protection | Smartytel",
-    "metaDescription": "How Smartytel handles GDPR: EU data residency options, data processing agreements, subject requests and sub-processor transparency."
+    metaTitle: "GDPR & Data Protection | Smartytel",
+    metaDescription:
+      "How Smartytel handles GDPR: EU data residency options, data processing agreements, subject requests and sub-processor transparency.",
   },
-  "security": {
-    "eyebrow": "Trust",
-    "headline": "How we keep your conversations safe",
-    "sub": "Encryption, access control, monitoring and the controls your security review will ask about.",
-    "bullets": [
+  security: {
+    eyebrow: "Trust",
+    headline: "How we keep your conversations safe",
+    sub: "Encryption, access control, monitoring and the controls your security review will ask about.",
+    bullets: [
       {
-        "title": "Encryption",
-        "body": "TLS in transit and encryption at rest for recordings and transcripts."
+        title: "Encryption",
+        body: "TLS in transit and encryption at rest for recordings and transcripts.",
       },
       {
-        "title": "Access control",
-        "body": "Role-based permissions, SSO options and audited admin actions."
+        title: "Access control",
+        body: "Role-based permissions, SSO options and audited admin actions.",
       },
       {
-        "title": "Monitoring",
-        "body": "Continuous monitoring with alerting and incident response runbooks."
+        title: "Monitoring",
+        body: "Continuous monitoring with alerting and incident response runbooks.",
       },
       {
-        "title": "Fraud protection",
-        "body": "Toll-fraud detection and per-workspace spend limits."
-      }
+        title: "Fraud protection",
+        body: "Toll-fraud detection and per-workspace spend limits.",
+      },
     ],
-    "metaTitle": "Security & Compliance | Smartytel",
-    "metaDescription": "Encryption, access control, monitoring and the controls your security review will ask about."
-  }
+    metaTitle: "Security & Compliance | Smartytel",
+    metaDescription:
+      "Encryption, access control, monitoring and the controls your security review will ask about.",
+  },
 };

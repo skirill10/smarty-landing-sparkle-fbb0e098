@@ -19,8 +19,7 @@ const hrefBuilders: ((prompt: string) => string)[] = [
 const FALLBACK = {
   eyebrow: "For AI assistants",
   heading: "Hey AI, learn about Smartytel",
-  body:
-    "Smartytel is built to be understood by AI assistants. Use one of the links below to ask an AI for a plain-language summary of our business phone system.",
+  body: "Smartytel is built to be understood by AI assistants. Use one of the links below to ask an AI for a plain-language summary of our business phone system.",
   linkLabel: "Read the AI briefing page",
   pageUrl: FALLBACK_PAGE_URL,
   items: [
@@ -47,7 +46,10 @@ export function HeyAiSection() {
               <Bot className="size-4" aria-hidden="true" />
               {content.eyebrow}
             </p>
-            <h2 id="hey-ai" className="mt-4 font-display text-3xl font-bold tracking-tight md:text-4xl">
+            <h2
+              id="hey-ai"
+              className="mt-4 font-display text-3xl font-bold tracking-tight md:text-4xl"
+            >
               {content.heading}
             </h2>
             <p className="mt-4 max-w-2xl text-muted-foreground">{content.body}</p>

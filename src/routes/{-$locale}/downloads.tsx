@@ -247,7 +247,10 @@ export const Route = createFileRoute("/{-$locale}/downloads")({
         content:
           "Get Smartytel on iPhone, Android, Mac, Windows and the web — one business phone system with shared numbers, texting and CRM on every device.",
       },
-      { property: "og:title", content: "Download the Smartytel apps for iOS, Android, Mac & Windows" },
+      {
+        property: "og:title",
+        content: "Download the Smartytel apps for iOS, Android, Mac & Windows",
+      },
       {
         property: "og:description",
         content:

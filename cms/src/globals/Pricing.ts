@@ -35,7 +35,9 @@ export const Pricing: GlobalConfig = {
         {
           name: "unit",
           type: "textarea",
-          admin: { description: "First line is the billing unit; a second line shows as the note." },
+          admin: {
+            description: "First line is the billing unit; a second line shows as the note.",
+          },
         },
         { name: "note", type: "textarea" },
         { name: "linkLabel", type: "text" },

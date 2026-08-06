@@ -24,9 +24,7 @@ function buildRows(dataset: RatesDataset): CountryRateRow[] {
     .map((country) => {
       const rates = dataset.rates.filter(
         (rate) =>
-          rate.countryId === country.id &&
-          rate.active &&
-          !rate.destinationLabel?.includes("—"),
+          rate.countryId === country.id && rate.active && !rate.destinationLabel?.includes("—"),
       );
       return {
         country,
@@ -64,9 +62,7 @@ function matchesSearch(row: CountryRateRow, search: string): boolean {
  * Wraps any dataset (mock, Google Sheet, CMS) in the shared query/sort/paging
  * logic so every source behaves identically for the UI.
  */
-export function createDatasetRepository(
-  load: () => Promise<RatesDataset>,
-): RatesRepository {
+export function createDatasetRepository(load: () => Promise<RatesDataset>): RatesRepository {
   const cache = { rows: null as CountryRateRow[] | null, dataset: null as RatesDataset | null };
 
   async function ensure(): Promise<{ dataset: RatesDataset; rows: CountryRateRow[] }> {
@@ -148,7 +144,9 @@ export function createDatasetRepository(
     async getFAQs(countryId?: string): Promise<FAQItem[]> {
       const { dataset } = await ensure();
       return dataset.faqs
-        .filter((faq) => (countryId ? !faq.countryId || faq.countryId === countryId : !faq.countryId))
+        .filter((faq) =>
+          countryId ? !faq.countryId || faq.countryId === countryId : !faq.countryId,
+        )
         .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
     },
 

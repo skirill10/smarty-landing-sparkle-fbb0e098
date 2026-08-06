@@ -30,8 +30,6 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { PricingCta } from "@/components/PricingCta";
 import { usePricingContent } from "@/lib/cms-content";
 
-
-
 export const Route = createFileRoute("/{-$locale}/pricing")({
   head: () => ({
     meta: [
@@ -221,7 +219,6 @@ const addOns: AddOn[] = [
   },
 ];
 
-
 const aiTiers: [string, string, string, string][] = [
   ["Tier 1", "$0 /mo", "10 AI calls", "$1.00 per extra call"],
   ["Tier 2", "$25 /mo", "40 AI calls", "$0.75 per extra call"],
@@ -312,7 +309,6 @@ function PriceCell({ value }: { value: string | boolean }) {
   return <span className="text-sm text-muted-foreground">{value}</span>;
 }
 
-
 function FaqList({ items }: { items: [string, string][] }) {
   const [open, setOpen] = useState<number | null>(0);
 
@@ -377,13 +373,16 @@ function TalkToSalesSection() {
     setSent(true);
   };
 
-  const field = "mt-2 w-full rounded-xl border border-border bg-card px-4 py-3 text-sm outline-none focus:border-foreground";
+  const field =
+    "mt-2 w-full rounded-xl border border-border bg-card px-4 py-3 text-sm outline-none focus:border-foreground";
 
   return (
     <section id="talk-to-sales" className="border-t border-border py-20">
       <div className="mx-auto grid max-w-6xl gap-12 px-5 md:grid-cols-[1fr_1.1fr]">
         <div>
-          <p className="font-semibold uppercase tracking-widest text-accent-foreground">Talk to sales</p>
+          <p className="font-semibold uppercase tracking-widest text-accent-foreground">
+            Talk to sales
+          </p>
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight md:text-4xl">
             Request a call with our team
           </h2>
@@ -399,7 +398,10 @@ function TalkToSalesSection() {
               "Security, GDPR and procurement questions",
             ].map((item) => (
               <li key={item} className="flex gap-2">
-                <Check className="mt-0.5 size-4 shrink-0 text-accent-foreground" aria-hidden="true" />
+                <Check
+                  className="mt-0.5 size-4 shrink-0 text-accent-foreground"
+                  aria-hidden="true"
+                />
                 <span className="text-muted-foreground">{item}</span>
               </li>
             ))}
@@ -420,21 +422,49 @@ function TalkToSalesSection() {
               <label className="block text-sm font-semibold sm:col-span-1">
                 Full name
                 <input name="name" maxLength={100} className={field} placeholder="Alex Moreau" />
-                {errors['name'] ? <span className="mt-1 block text-xs font-normal text-destructive">{errors['name']}</span> : null}
+                {errors["name"] ? (
+                  <span className="mt-1 block text-xs font-normal text-destructive">
+                    {errors["name"]}
+                  </span>
+                ) : null}
               </label>
               <label className="block text-sm font-semibold sm:col-span-1">
                 Work email
-                <input name="email" type="email" maxLength={255} className={field} placeholder="alex@company.com" />
-                {errors['email'] ? <span className="mt-1 block text-xs font-normal text-destructive">{errors['email']}</span> : null}
+                <input
+                  name="email"
+                  type="email"
+                  maxLength={255}
+                  className={field}
+                  placeholder="alex@company.com"
+                />
+                {errors["email"] ? (
+                  <span className="mt-1 block text-xs font-normal text-destructive">
+                    {errors["email"]}
+                  </span>
+                ) : null}
               </label>
               <label className="block text-sm font-semibold sm:col-span-1">
                 Company
-                <input name="company" maxLength={120} className={field} placeholder="Company name" />
-                {errors['company'] ? <span className="mt-1 block text-xs font-normal text-destructive">{errors['company']}</span> : null}
+                <input
+                  name="company"
+                  maxLength={120}
+                  className={field}
+                  placeholder="Company name"
+                />
+                {errors["company"] ? (
+                  <span className="mt-1 block text-xs font-normal text-destructive">
+                    {errors["company"]}
+                  </span>
+                ) : null}
               </label>
               <label className="block text-sm font-semibold sm:col-span-1">
                 Phone number
-                <input name="phone" maxLength={30} className={field} placeholder="+1 555 000 1234" />
+                <input
+                  name="phone"
+                  maxLength={30}
+                  className={field}
+                  placeholder="+1 555 000 1234"
+                />
               </label>
               <label className="block text-sm font-semibold sm:col-span-2">
                 Team size
@@ -449,7 +479,13 @@ function TalkToSalesSection() {
               </label>
               <label className="block text-sm font-semibold sm:col-span-2">
                 What would you like to cover?
-                <textarea name="message" rows={4} maxLength={1000} className={field} placeholder="Countries you need numbers in, current provider, timeline…" />
+                <textarea
+                  name="message"
+                  rows={4}
+                  maxLength={1000}
+                  className={field}
+                  placeholder="Countries you need numbers in, current provider, timeline…"
+                />
               </label>
               <button
                 type="submit"
@@ -481,7 +517,6 @@ function PricingPage() {
 
   const priceFor = (plan: Plan) => `$${annual ? plan.annualMonthly : plan.monthly}`;
 
-
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
@@ -498,7 +533,6 @@ function PricingPage() {
             the US, Canada, the UK and every European country — and you only pay for the modules you
             switch on.
           </p>
-
 
           <div className="mt-9 inline-flex items-center gap-1 rounded-md border border-border bg-card p-1">
             <button
@@ -563,7 +597,10 @@ function PricingPage() {
                 <ul className="mt-7 space-y-3 text-sm">
                   {plan.perks.map((perk) => (
                     <li key={perk} className="flex gap-2">
-                      <Check className="mt-0.5 size-4 shrink-0 text-accent-foreground" aria-hidden="true" />
+                      <Check
+                        className="mt-0.5 size-4 shrink-0 text-accent-foreground"
+                        aria-hidden="true"
+                      />
                       <span className="text-muted-foreground">{perk}</span>
                     </li>
                   ))}
@@ -628,7 +665,6 @@ function PricingPage() {
           </div>
         </section>
 
-
         {/* AI call packages */}
         <section className="mx-auto max-w-7xl px-5 py-20">
           <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">
@@ -663,7 +699,10 @@ function PricingPage() {
                 <tr className="border-b border-border">
                   <th className="py-4 pr-4 font-display text-sm font-semibold">Feature</th>
                   {planList.map((plan) => (
-                    <th key={plan.name} className="py-4 px-4 text-center font-display text-sm font-semibold">
+                    <th
+                      key={plan.name}
+                      className="py-4 px-4 text-center font-display text-sm font-semibold"
+                    >
                       {plan.name}
                     </th>
                   ))}
@@ -694,7 +733,6 @@ function PricingPage() {
           </div>
         </section>
 
-
         <TalkToSalesSection />
 
         {/* FAQ */}
@@ -710,7 +748,6 @@ function PricingPage() {
       </main>
 
       <SiteFooter />
-
     </div>
   );
 }

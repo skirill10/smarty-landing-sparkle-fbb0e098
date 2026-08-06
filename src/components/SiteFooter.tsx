@@ -17,8 +17,6 @@ const fallbackSocials: { name: string; href: string; path: string }[] = [
   { name: "YouTube", href: "https://www.youtube.com/@smartytel", path: si.siYoutube.path },
 ];
 
-
-
 type Column = { heading: string; links: { label: string; to?: string }[] };
 
 const fallbackColumns: Column[] = [
@@ -73,7 +71,6 @@ const fallbackColumns: Column[] = [
     ],
   },
 ];
-
 
 const fallbackRegions = [
   "United States",
@@ -165,7 +162,9 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-10 flex flex-wrap items-center justify-between gap-6 border-t border-border pt-8 text-sm text-muted-foreground">
-          <span>© {new Date().getFullYear()} Smartytel. {t("All rights reserved.")}</span>
+          <span>
+            © {new Date().getFullYear()} Smartytel. {t("All rights reserved.")}
+          </span>
 
           <ul className="flex items-center gap-3" aria-label="Smartytel on social media">
             {socials.map((social) => (
@@ -188,14 +187,23 @@ export function SiteFooter() {
           <LanguageSelector />
 
           <span className="flex flex-wrap gap-5">
-            <Link to="/privacy" className="hover:text-foreground">{t("Privacy")}</Link>
-            <Link to="/terms" className="hover:text-foreground">{t("Terms")}</Link>
-            <Link to="/gdpr" className="hover:text-foreground">{t("GDPR")}</Link>
-            <Link to="/security" className="hover:text-foreground">{t("Security")}</Link>
-            <Link to="/llm-info" className="hover:text-foreground">{t("Hey AI")}</Link>
+            <Link to="/privacy" className="hover:text-foreground">
+              {t("Privacy")}
+            </Link>
+            <Link to="/terms" className="hover:text-foreground">
+              {t("Terms")}
+            </Link>
+            <Link to="/gdpr" className="hover:text-foreground">
+              {t("GDPR")}
+            </Link>
+            <Link to="/security" className="hover:text-foreground">
+              {t("Security")}
+            </Link>
+            <Link to="/llm-info" className="hover:text-foreground">
+              {t("Hey AI")}
+            </Link>
           </span>
         </div>
-
       </div>
     </footer>
   );

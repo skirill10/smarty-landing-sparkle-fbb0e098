@@ -19,15 +19,26 @@ const ORIGIN = "https://smarty-landing-sparkle.lovable.app";
 
 export const Route = createFileRoute("/{-$locale}/rates/$countrySlug")({
   loader: async ({ context, params }) => {
-    const country = await context.queryClient.ensureQueryData(ratesQueries.country(params.countrySlug));
+    const country = await context.queryClient.ensureQueryData(
+      ratesQueries.country(params.countrySlug),
+    );
     if (!country) throw notFound();
     await context.queryClient.ensureQueryData(ratesQueries.countryRates(country.id));
-    return { name: country.name, dialCode: country.dialCode, description: country.shortDescription ?? "" };
+    return {
+      name: country.name,
+      dialCode: country.dialCode,
+      description: country.shortDescription ?? "",
+    };
   },
   head: ({ params, loaderData }) => {
     const url = `${ORIGIN}/rates/${params.countrySlug}`;
     if (!loaderData) {
-      return { meta: [{ title: "Destination unavailable | Smartytel" }, { name: "robots", content: "noindex" }] };
+      return {
+        meta: [
+          { title: "Destination unavailable | Smartytel" },
+          { name: "robots", content: "noindex" },
+        ],
+      };
     }
     const title = `Call ${loaderData.name} Rates (${loaderData.dialCode}) | Smartytel`;
     const description =
@@ -52,7 +63,12 @@ export const Route = createFileRoute("/{-$locale}/rates/$countrySlug")({
             "@type": "BreadcrumbList",
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Home", item: `${ORIGIN}/` },
-              { "@type": "ListItem", position: 2, name: "International rates", item: `${ORIGIN}/rates` },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "International rates",
+                item: `${ORIGIN}/rates`,
+              },
               { "@type": "ListItem", position: 3, name: loaderData.name, item: url },
             ],
           }),
@@ -72,7 +88,10 @@ export const Route = createFileRoute("/{-$locale}/rates/$countrySlug")({
         title="We don't publish rates for that destination yet"
         body="Check the full directory for every country we currently cover."
         action={
-          <Link to="/rates" className="rounded-md bg-foreground px-5 py-2.5 text-sm font-semibold text-background">
+          <Link
+            to="/rates"
+            className="rounded-md bg-foreground px-5 py-2.5 text-sm font-semibold text-background"
+          >
             Back to all rates
           </Link>
         }
@@ -105,7 +124,9 @@ function CountryRatesPage() {
     enabled: Boolean(country?.id),
   });
   const faqQuery = useQuery(ratesQueries.faqs(country?.id));
-  const related = useQuery(ratesQueries.countries(country ? { region: country.region, limit: 8 } : {}));
+  const related = useQuery(
+    ratesQueries.countries(country ? { region: country.region, limit: 8 } : {}),
+  );
 
   if (!country) return null;
   const rates = ratesQuery.data ?? [];
@@ -120,21 +141,32 @@ function CountryRatesPage() {
             <nav aria-label="Breadcrumb" className="mb-6 text-sm text-muted-foreground">
               <ol className="flex flex-wrap items-center gap-2">
                 <li>
-                  <Link to="/" className="hover:underline">Home</Link>
+                  <Link to="/" className="hover:underline">
+                    Home
+                  </Link>
                 </li>
                 <li aria-hidden="true">/</li>
                 <li>
-                  <Link to="/rates" className="hover:underline">International rates</Link>
+                  <Link to="/rates" className="hover:underline">
+                    International rates
+                  </Link>
                 </li>
                 <li aria-hidden="true">/</li>
-                <li aria-current="page" className="font-medium text-foreground">{country.name}</li>
+                <li aria-current="page" className="font-medium text-foreground">
+                  {country.name}
+                </li>
               </ol>
             </nav>
 
             <div className="flex flex-wrap items-end justify-between gap-6">
               <div>
                 <div className="flex items-center gap-3">
-                  <CountryFlag iso2={country.iso2} name={country.name} flagUrl={country.flagUrl} className="text-3xl" />
+                  <CountryFlag
+                    iso2={country.iso2}
+                    name={country.name}
+                    flagUrl={country.flagUrl}
+                    className="text-3xl"
+                  />
                   <p className="text-sm font-semibold uppercase tracking-wide text-brand">
                     {REGION_LABELS[country.region]} · {country.dialCode}
                   </p>
@@ -143,7 +175,9 @@ function CountryRatesPage() {
                   Calling and SMS rates for {country.name}
                 </h1>
                 {country.shortDescription ? (
-                  <p className="mt-4 max-w-2xl text-lg text-muted-foreground">{country.shortDescription}</p>
+                  <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
+                    {country.shortDescription}
+                  </p>
                 ) : null}
               </div>
               <div className="w-full max-w-[200px]">
@@ -180,10 +214,18 @@ function CountryRatesPage() {
                 <caption className="sr-only">Rates to {country.name} by service</caption>
                 <thead>
                   <tr className="border-b border-border bg-light-grey/60">
-                    <th scope="col" className="px-6 py-4 font-display text-sm font-semibold">Service</th>
-                    <th scope="col" className="px-4 py-4 font-display text-sm font-semibold">Destination</th>
-                    <th scope="col" className="px-4 py-4 font-display text-sm font-semibold">Rate</th>
-                    <th scope="col" className="px-6 py-4 font-display text-sm font-semibold">Billing</th>
+                    <th scope="col" className="px-6 py-4 font-display text-sm font-semibold">
+                      Service
+                    </th>
+                    <th scope="col" className="px-4 py-4 font-display text-sm font-semibold">
+                      Destination
+                    </th>
+                    <th scope="col" className="px-4 py-4 font-display text-sm font-semibold">
+                      Rate
+                    </th>
+                    <th scope="col" className="px-6 py-4 font-display text-sm font-semibold">
+                      Billing
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -199,7 +241,9 @@ function CountryRatesPage() {
                         {formatRate(rate, currency)}
                       </td>
                       <td className="px-6 py-4 text-sm text-muted-foreground">
-                        {rate.unit === "message" ? "Per message" : formatInterval(rate.billingIntervalSeconds)}
+                        {rate.unit === "message"
+                          ? "Per message"
+                          : formatInterval(rate.billingIntervalSeconds)}
                       </td>
                     </tr>
                   ))}
@@ -228,8 +272,8 @@ function CountryRatesPage() {
                 Good to know
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                Rates exclude local taxes and are converted from EUR at indicative FX. Premium, satellite
-                and special-service numbers are priced separately.
+                Rates exclude local taxes and are converted from EUR at indicative FX. Premium,
+                satellite and special-service numbers are priced separately.
               </p>
             </div>
           </div>
@@ -238,7 +282,10 @@ function CountryRatesPage() {
         {related.data && related.data.length > 1 ? (
           <section aria-labelledby="related-destinations" className="border-t border-border py-14">
             <div className="mx-auto max-w-6xl px-5">
-              <h2 id="related-destinations" className="font-display text-xl font-semibold tracking-tight">
+              <h2
+                id="related-destinations"
+                className="font-display text-xl font-semibold tracking-tight"
+              >
                 More destinations in {REGION_LABELS[country.region]}
               </h2>
               <ul className="mt-6 flex flex-wrap gap-3">

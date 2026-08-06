@@ -33,7 +33,6 @@ export const Route = createFileRoute("/api/public/rates-sheet")({
               sheetId!,
             )}/gviz/tq?tqx=out:csv&gid=${encodeURIComponent(gid ?? "0")}`;
 
-
         try {
           const upstream = await fetch(exportUrl, { redirect: "follow" });
           const body = await upstream.text();
@@ -67,7 +66,6 @@ export const Route = createFileRoute("/api/public/rates-sheet")({
             { headers: { "Cache-Control": "no-store" } },
           );
         }
-
       },
     },
   },

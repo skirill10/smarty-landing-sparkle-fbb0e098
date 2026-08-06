@@ -120,7 +120,12 @@ export const pricingPage = {
     { tier: "Tier 2", price: "$25 /mo", included: "40 AI calls", overage: "$0.75 per extra call" },
     { tier: "Tier 3", price: "$49 /mo", included: "100 AI calls", overage: "$0.65 per extra call" },
     { tier: "Tier 4", price: "$99 /mo", included: "250 AI calls", overage: "$0.55 per extra call" },
-    { tier: "Tier 5", price: "$199 /mo", included: "600 AI calls", overage: "$0.45 per extra call" },
+    {
+      tier: "Tier 5",
+      price: "$199 /mo",
+      included: "600 AI calls",
+      overage: "$0.45 per extra call",
+    },
   ],
   faqs: [
     {

@@ -1,10 +1,4 @@
-import type {
-  Country,
-  CurrencyCode,
-  DestinationType,
-  Rate,
-  Region,
-} from "../types";
+import type { Country, CurrencyCode, DestinationType, Rate, Region } from "../types";
 
 /* ------------------------------------------------------------------ CSV ---- */
 
@@ -45,7 +39,11 @@ export function parseCsv(input: string): string[][] {
 
 /* -------------------------------------------------------------- mapping ---- */
 
-const norm = (value: string) => value.trim().toLowerCase().replace(/[^a-z0-9]+/g, "");
+const norm = (value: string) =>
+  value
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "");
 
 const COLUMN_ALIASES: Record<string, string[]> = {
   country: ["country", "countryname", "destination", "destinationcountry", "name"],
@@ -53,7 +51,14 @@ const COLUMN_ALIASES: Record<string, string[]> = {
   iso3: ["iso3", "iso3code"],
   dialCode: ["dialcode", "callingcode", "countryprefix", "prefix", "idd", "dial", "code"],
   region: ["region", "continent", "zone", "area"],
-  landline: ["landline", "fixed", "fixedline", "landlinerate", "landlineperminute", "fixedlinerate"],
+  landline: [
+    "landline",
+    "fixed",
+    "fixedline",
+    "landlinerate",
+    "landlineperminute",
+    "fixedlinerate",
+  ],
   mobile: ["mobile", "mobilerate", "cell", "cellular", "mobileperminute"],
   sms: ["sms", "smsrate", "message", "messagerate", "smsprice"],
   currency: ["currency", "currencycode", "ccy"],
@@ -69,34 +74,129 @@ const COLUMN_ALIASES: Record<string, string[]> = {
 
 /** ISO2 -> region for the destinations we ship flags/copy for. */
 const REGION_BY_ISO2: Record<string, Region> = {
-  AT: "europe", BE: "europe", BG: "europe", CH: "europe", CY: "europe", CZ: "europe",
-  DE: "europe", DK: "europe", EE: "europe", ES: "europe", FI: "europe", FR: "europe",
-  GB: "europe", GR: "europe", HR: "europe", HU: "europe", IE: "europe", IS: "europe",
-  IT: "europe", LT: "europe", LU: "europe", LV: "europe", MT: "europe", NL: "europe",
-  NO: "europe", PL: "europe", PT: "europe", RO: "europe", RS: "europe", SE: "europe",
-  SI: "europe", SK: "europe", UA: "europe", MD: "europe", AL: "europe", TR: "asia",
-  US: "north-america", CA: "north-america", MX: "north-america", GT: "north-america",
-  CR: "north-america", PA: "north-america", DO: "north-america", JM: "north-america",
-  BR: "south-america", AR: "south-america", CL: "south-america", CO: "south-america",
-  PE: "south-america", UY: "south-america", EC: "south-america", VE: "south-america",
-  CN: "asia", JP: "asia", KR: "asia", IN: "asia", ID: "asia", MY: "asia", SG: "asia",
-  TH: "asia", VN: "asia", PH: "asia", PK: "asia", BD: "asia", IL: "asia", AE: "asia",
-  SA: "asia", QA: "asia", KZ: "asia", HK: "asia", TW: "asia",
-  ZA: "africa", NG: "africa", EG: "africa", KE: "africa", MA: "africa", GH: "africa",
-  TN: "africa", DZ: "africa", ET: "africa", TZ: "africa",
-  AU: "oceania", NZ: "oceania", FJ: "oceania", PG: "oceania",
+  AT: "europe",
+  BE: "europe",
+  BG: "europe",
+  CH: "europe",
+  CY: "europe",
+  CZ: "europe",
+  DE: "europe",
+  DK: "europe",
+  EE: "europe",
+  ES: "europe",
+  FI: "europe",
+  FR: "europe",
+  GB: "europe",
+  GR: "europe",
+  HR: "europe",
+  HU: "europe",
+  IE: "europe",
+  IS: "europe",
+  IT: "europe",
+  LT: "europe",
+  LU: "europe",
+  LV: "europe",
+  MT: "europe",
+  NL: "europe",
+  NO: "europe",
+  PL: "europe",
+  PT: "europe",
+  RO: "europe",
+  RS: "europe",
+  SE: "europe",
+  SI: "europe",
+  SK: "europe",
+  UA: "europe",
+  MD: "europe",
+  AL: "europe",
+  TR: "asia",
+  US: "north-america",
+  CA: "north-america",
+  MX: "north-america",
+  GT: "north-america",
+  CR: "north-america",
+  PA: "north-america",
+  DO: "north-america",
+  JM: "north-america",
+  BR: "south-america",
+  AR: "south-america",
+  CL: "south-america",
+  CO: "south-america",
+  PE: "south-america",
+  UY: "south-america",
+  EC: "south-america",
+  VE: "south-america",
+  CN: "asia",
+  JP: "asia",
+  KR: "asia",
+  IN: "asia",
+  ID: "asia",
+  MY: "asia",
+  SG: "asia",
+  TH: "asia",
+  VN: "asia",
+  PH: "asia",
+  PK: "asia",
+  BD: "asia",
+  IL: "asia",
+  AE: "asia",
+  SA: "asia",
+  QA: "asia",
+  KZ: "asia",
+  HK: "asia",
+  TW: "asia",
+  ZA: "africa",
+  NG: "africa",
+  EG: "africa",
+  KE: "africa",
+  MA: "africa",
+  GH: "africa",
+  TN: "africa",
+  DZ: "africa",
+  ET: "africa",
+  TZ: "africa",
+  AU: "oceania",
+  NZ: "oceania",
+  FJ: "oceania",
+  PG: "oceania",
 };
 
 const REGION_ALIASES: Record<string, Region> = {
-  europe: "europe", eu: "europe", eea: "europe", emea: "europe",
-  northamerica: "north-america", namer: "north-america", na: "north-america",
-  usacanada: "north-america", southamerica: "south-america", latam: "south-america",
-  latinamerica: "south-america", asia: "asia", apac: "asia", asiapacific: "asia",
-  middleeast: "asia", africa: "africa", oceania: "oceania", australia: "oceania",
+  europe: "europe",
+  eu: "europe",
+  eea: "europe",
+  emea: "europe",
+  northamerica: "north-america",
+  namer: "north-america",
+  na: "north-america",
+  usacanada: "north-america",
+  southamerica: "south-america",
+  latam: "south-america",
+  latinamerica: "south-america",
+  asia: "asia",
+  apac: "asia",
+  asiapacific: "asia",
+  middleeast: "asia",
+  africa: "africa",
+  oceania: "oceania",
+  australia: "oceania",
 };
 
 const CURRENCIES: CurrencyCode[] = [
-  "EUR", "USD", "GBP", "CHF", "CAD", "AUD", "PLN", "SEK", "NOK", "DKK", "CZK", "RON", "AED", "INR",
+  "EUR",
+  "USD",
+  "GBP",
+  "CHF",
+  "CAD",
+  "AUD",
+  "PLN",
+  "SEK",
+  "NOK",
+  "DKK",
+  "CZK",
+  "RON",
+  "AED",
+  "INR",
 ];
 
 function buildHeaderIndex(header: string[]): Record<string, number> {
@@ -125,7 +225,6 @@ function buildHeaderIndex(header: string[]): Record<string, number> {
   }
   return map;
 }
-
 
 function slugify(value: string): string {
   return value
@@ -200,14 +299,14 @@ export function parseRatesSheet(
   let index = buildHeaderIndex(header);
   for (let i = 0; i < Math.min(table.length, 6); i += 1) {
     const candidate = buildHeaderIndex(table[i] ?? []);
-    if (candidate['country'] !== undefined) {
+    if (candidate["country"] !== undefined) {
       headerIndex = i;
       header = table[i] ?? [];
       index = candidate;
       break;
     }
   }
-  if (index['country'] === undefined) return { countries: [], rates: [] };
+  if (index["country"] === undefined) return { countries: [], rates: [] };
 
   const cell = (row: string[], field: string): string | undefined => {
     const at = index[field];
@@ -218,7 +317,7 @@ export function parseRatesSheet(
 
   const countries = new Map<string, Country>();
   const rates: Rate[] = [];
-  const isLong = index['destinationType'] !== undefined && index['price'] !== undefined;
+  const isLong = index["destinationType"] !== undefined && index["price"] !== undefined;
   const seenHeadline = new Set<string>();
 
   for (const row of table.slice(headerIndex + 1)) {

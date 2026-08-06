@@ -16,7 +16,8 @@ const FILES = [
   "src/components/LanguageSelector.tsx",
 ];
 
-const bad = /(^\/|^#|^https?:|px-|py-|text-|bg-|rounded|grid|flex|@\/|\.(tsx?|jpg|png|svg|json)$|^[a-z-]+$)/;
+const bad =
+  /(^\/|^#|^https?:|px-|py-|text-|bg-|rounded|grid|flex|@\/|\.(tsx?|jpg|png|svg|json)$|^[a-z-]+$)/;
 const out = new Set();
 for (const file of FILES) {
   const src = readFileSync(file, "utf8");
@@ -29,7 +30,11 @@ for (const file of FILES) {
   // JSX text nodes on their own line, e.g. "  Start free trial"
   for (const line of src.split("\n")) {
     const text = line.trim();
-    if (/^[A-Z][A-Za-z0-9 ,.'&?!:%$—–()+/-]{3,120}$/.test(text) && / /.test(text) && !text.includes("=")) {
+    if (
+      /^[A-Z][A-Za-z0-9 ,.'&?!:%$—–()+/-]{3,120}$/.test(text) &&
+      / /.test(text) &&
+      !text.includes("=")
+    ) {
       out.add(text.replace(/\s*→$/, " →"));
     }
   }

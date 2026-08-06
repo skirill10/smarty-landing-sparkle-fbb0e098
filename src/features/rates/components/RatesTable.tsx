@@ -12,7 +12,11 @@ type RatesTableProps = {
   caption?: string;
 };
 
-export function RatesTable({ rows, currency, caption = "International calling and messaging rates by destination" }: RatesTableProps) {
+export function RatesTable({
+  rows,
+  currency,
+  caption = "International calling and messaging rates by destination",
+}: RatesTableProps) {
   return (
     <>
       {/* Mobile: stacked cards */}
@@ -28,21 +32,42 @@ export function RatesTable({ rows, currency, caption = "International calling an
           <caption className="sr-only">{caption}</caption>
           <thead>
             <tr className="border-b border-border bg-light-grey/60">
-              <th scope="col" className="px-6 py-4 font-display text-sm font-semibold">Destination</th>
-              <th scope="col" className="px-4 py-4 font-display text-sm font-semibold">Calling code</th>
-              <th scope="col" className="px-4 py-4 font-display text-sm font-semibold">Landline</th>
-              <th scope="col" className="px-4 py-4 font-display text-sm font-semibold">Mobile</th>
-              <th scope="col" className="px-4 py-4 font-display text-sm font-semibold">SMS</th>
-              <th scope="col" className="px-4 py-4 font-display text-sm font-semibold">Billing interval</th>
-              <th scope="col" className="px-6 py-4 text-right font-display text-sm font-semibold">Action</th>
+              <th scope="col" className="px-6 py-4 font-display text-sm font-semibold">
+                Destination
+              </th>
+              <th scope="col" className="px-4 py-4 font-display text-sm font-semibold">
+                Calling code
+              </th>
+              <th scope="col" className="px-4 py-4 font-display text-sm font-semibold">
+                Landline
+              </th>
+              <th scope="col" className="px-4 py-4 font-display text-sm font-semibold">
+                Mobile
+              </th>
+              <th scope="col" className="px-4 py-4 font-display text-sm font-semibold">
+                SMS
+              </th>
+              <th scope="col" className="px-4 py-4 font-display text-sm font-semibold">
+                Billing interval
+              </th>
+              <th scope="col" className="px-6 py-4 text-right font-display text-sm font-semibold">
+                Action
+              </th>
             </tr>
           </thead>
           <tbody>
             {rows.map(({ country, landline, mobile, sms }) => (
-              <tr key={country.id} className="border-b border-border last:border-0 transition-colors hover:bg-light-grey/40">
+              <tr
+                key={country.id}
+                className="border-b border-border last:border-0 transition-colors hover:bg-light-grey/40"
+              >
                 <th scope="row" className="h-[68px] px-6 py-4 text-left font-normal">
                   <span className="flex items-center gap-3">
-                    <CountryFlag iso2={country.iso2} name={country.name} flagUrl={country.flagUrl} />
+                    <CountryFlag
+                      iso2={country.iso2}
+                      name={country.name}
+                      flagUrl={country.flagUrl}
+                    />
                     <span>
                       <Link
                         to="/rates/$countrySlug"
@@ -57,7 +82,9 @@ export function RatesTable({ rows, currency, caption = "International calling an
                     </span>
                   </span>
                 </th>
-                <td className="px-4 py-4 text-sm tabular-nums text-muted-foreground">{country.dialCode}</td>
+                <td className="px-4 py-4 text-sm tabular-nums text-muted-foreground">
+                  {country.dialCode}
+                </td>
                 <td className="px-4 py-4">
                   <RateValue rate={landline} currency={currency} service="landline" />
                 </td>

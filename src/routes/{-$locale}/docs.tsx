@@ -8,9 +8,15 @@ export const Route = createFileRoute("/{-$locale}/docs")({
   head: () => ({
     meta: [
       { title: "Documentation for builders | Smartytel" },
-      { name: "description", content: "Authentication, endpoints, webhooks and examples for the Smartytel API." },
+      {
+        name: "description",
+        content: "Authentication, endpoints, webhooks and examples for the Smartytel API.",
+      },
       { property: "og:title", content: "Documentation for builders | Smartytel" },
-      { property: "og:description", content: "Authentication, endpoints, webhooks and examples for the Smartytel API." },
+      {
+        property: "og:description",
+        content: "Authentication, endpoints, webhooks and examples for the Smartytel API.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

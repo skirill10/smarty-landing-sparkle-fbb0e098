@@ -91,7 +91,8 @@ const stories = [
     business: "Pink's Window Services",
     person: "Carter Smith",
     role: "Co-Founder",
-    quote: "We're so confident in saying, 'Hey everybody, just get on Smartytel. Save yourself the time, save yourself the hassle.'",
+    quote:
+      "We're so confident in saying, 'Hey everybody, just get on Smartytel. Save yourself the time, save yourself the hassle.'",
     stat: "375+",
     statLabel: "hours saved weekly",
     image: storyWindow,
@@ -101,7 +102,8 @@ const stories = [
     business: "Bright Dental",
     person: "Dr. Priya Malhotra",
     role: "Practice Owner",
-    quote: "Patients used to wait on hold for 10 minutes. Now our front desk answers every text in seconds.",
+    quote:
+      "Patients used to wait on hold for 10 minutes. Now our front desk answers every text in seconds.",
     stat: "98%",
     statLabel: "message response rate",
     image: storyDental,
@@ -121,7 +123,8 @@ const stories = [
     business: "Northwind HVAC",
     person: "Elena Torres",
     role: "Operations Manager",
-    quote: "Routing after-hours emergencies straight to the on-call tech saved us from losing a $40k contract.",
+    quote:
+      "Routing after-hours emergencies straight to the on-call tech saved us from losing a $40k contract.",
     stat: "24/7",
     statLabel: "emergency coverage",
     image: storyHvac,
@@ -141,7 +144,8 @@ const stories = [
     business: "Junkaway",
     person: "Riley Park",
     role: "Owner",
-    quote: "Crews in the field finally have one inbox for calls, texts and photos. No more chasing threads.",
+    quote:
+      "Crews in the field finally have one inbox for calls, texts and photos. No more chasing threads.",
     stat: "200+",
     statLabel: "extra jobs scheduled monthly",
     image: storyJunkaway,
@@ -170,7 +174,6 @@ export const Route = createFileRoute("/{-$locale}/")({
   }),
   component: Landing,
 });
-
 
 const featureGroups = [
   {
@@ -227,28 +230,43 @@ const featureGroups = [
   },
 ];
 
-
 const plans = [
   {
     name: "Trial",
     price: "$0",
     unit: "/14 days",
     tagline: "Try everything with a demo number, no card needed.",
-    perks: ["14-day free trial", "Demo phone number", "Calling & messaging basics", "Mobile & desktop apps"],
+    perks: [
+      "14-day free trial",
+      "Demo phone number",
+      "Calling & messaging basics",
+      "Mobile & desktop apps",
+    ],
   },
   {
     name: "Startup",
     price: "$15",
     unit: "/user/mo",
     tagline: "For solo operators getting off a personal number.",
-    perks: ["1 local number included", "Local & long-distance calls", "SMS & chat apps", "Contacts and call history"],
+    perks: [
+      "1 local number included",
+      "Local & long-distance calls",
+      "SMS & chat apps",
+      "Contacts and call history",
+    ],
   },
   {
     name: "Business",
     price: "$25",
     unit: "/user/mo",
     tagline: "For teams that answer every call, together.",
-    perks: ["Everything in Startup", "IVR phone menus", "Call recording & hunting", "Call forwarding", "AI assistance add-on"],
+    perks: [
+      "Everything in Startup",
+      "IVR phone menus",
+      "Call recording & hunting",
+      "Call forwarding",
+      "AI assistance add-on",
+    ],
     featured: true,
   },
   {
@@ -256,10 +274,15 @@ const plans = [
     price: "$35",
     unit: "/user/mo",
     tagline: "For contact centers and multi-location brands.",
-    perks: ["Everything in Business", "AI transcripts & summaries", "Custom telephony flows", "Advanced analytics", "Priority support"],
+    perks: [
+      "Everything in Business",
+      "AI transcripts & summaries",
+      "Custom telephony flows",
+      "Advanced analytics",
+      "Priority support",
+    ],
   },
 ];
-
 
 /** Bundled copy; the CMS overlays text on top of this at runtime. */
 const homeFallback = {
@@ -274,7 +297,14 @@ const homeFallback = {
   },
   logos: {
     heading: "Powering conversations for 40,000+ businesses",
-    items: ["Northwind", "Kelso Realty", "Bright Dental", "Halden Legal", "Vera Health", "Junkaway"],
+    items: [
+      "Northwind",
+      "Kelso Realty",
+      "Bright Dental",
+      "Halden Legal",
+      "Vera Health",
+      "Junkaway",
+    ],
   },
   featureGroups,
   showcaseHeading: "Everything a modern business phone system should do",
@@ -313,8 +343,12 @@ function StoriesSlider({ items }: { items: typeof stories }) {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                   <div className="absolute bottom-6 left-6">
-                    <p className="font-display text-4xl font-bold text-dark-foreground drop-shadow-sm">{story.stat}</p>
-                    <p className="text-sm font-medium text-dark-foreground/90">{t(story.statLabel)}</p>
+                    <p className="font-display text-4xl font-bold text-dark-foreground drop-shadow-sm">
+                      {story.stat}
+                    </p>
+                    <p className="text-sm font-medium text-dark-foreground/90">
+                      {t(story.statLabel)}
+                    </p>
                   </div>
                 </div>
                 <div className="flex flex-col justify-center p-8 md:p-12">
@@ -341,7 +375,10 @@ function StoriesSlider({ items }: { items: typeof stories }) {
       </div>
 
       <div className="mt-8 flex items-center justify-between">
-        <a href="#features" className="inline-flex items-center gap-2 text-sm font-semibold text-dark-foreground hover:text-brand">
+        <a
+          href="#features"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-dark-foreground hover:text-brand"
+        >
           {t("View all stories")}
           <ArrowRight className="size-4" aria-hidden="true" />
         </a>
@@ -386,7 +423,6 @@ function Landing() {
     <div className="min-h-screen bg-background font-sans text-foreground antialiased">
       <SiteHeader />
 
-
       <main>
         {/* Hero */}
         <section className="mx-auto max-w-6xl px-5 pt-16 text-center md:pt-24">
@@ -399,9 +435,7 @@ function Landing() {
           <h1 className="mx-auto mt-8 max-w-4xl font-display text-5xl font-bold leading-[0.95] tracking-tight md:text-7xl">
             {t(hero.headline)}
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-            {t(hero.sub)}
-          </p>
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">{t(hero.sub)}</p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
             <a
               href={lp("/pricing")}
@@ -417,9 +451,7 @@ function Landing() {
               {t(hero.secondaryCta)}
             </a>
           </div>
-          <p className="mt-8 text-sm text-muted-foreground">
-            {t(hero.platforms)}
-          </p>
+          <p className="mt-8 text-sm text-muted-foreground">{t(hero.platforms)}</p>
 
           <div className="mt-14 rounded-3xl bg-surface p-3 md:p-8">
             <img
@@ -438,16 +470,14 @@ function Landing() {
             {t(logos.heading)}
           </p>
           <div className="mt-8 grid grid-cols-2 gap-6 opacity-70 sm:grid-cols-3 md:grid-cols-6">
-            {logos.items.map(
-              (name) => (
-                <div
-                  key={name}
-                  className="text-center font-display text-base font-semibold tracking-tight text-muted-foreground"
-                >
-                  {name}
-                </div>
-              ),
-            )}
+            {logos.items.map((name) => (
+              <div
+                key={name}
+                className="text-center font-display text-base font-semibold tracking-tight text-muted-foreground"
+              >
+                {name}
+              </div>
+            ))}
           </div>
         </section>
 
@@ -470,7 +500,9 @@ function Landing() {
                         <h4 className="mt-5 font-display text-lg font-semibold tracking-tight">
                           {t(title)}
                         </h4>
-                        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t(body)}</p>
+                        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                          {t(body)}
+                        </p>
                       </div>
                       <div className="mt-auto max-h-52 overflow-hidden border-t border-border px-6 pt-6">
                         <img
@@ -489,7 +521,6 @@ function Landing() {
             ))}
           </div>
         </section>
-
 
         {/* Showcase bento */}
         <section className="mx-auto max-w-6xl px-5 py-20 md:py-28">
@@ -565,7 +596,6 @@ function Landing() {
       </main>
 
       <SiteFooter />
-
     </div>
   );
 }

@@ -48,20 +48,56 @@ export const Route = createFileRoute("/{-$locale}/llm-info")({
 });
 
 const facts: { term: string; detail: string }[] = [
-  { term: "What it is", detail: "Smartytel is a cloud business phone system (UCaaS) for teams that live on calls and messages." },
-  { term: "Company", detail: "Smartytel — smartytel.com. Product suite covers calling, messaging, routing, CRM and AI." },
-  { term: "Who it is for", detail: "Home services, law firms, property management, healthcare, startups, small business, sales and support teams." },
-  { term: "Core capabilities", detail: "Local and toll-free numbers, shared inboxes, phone menus and routing, SMS and WhatsApp, call recording, analytics, built-in CRM, Smarty AI Assist for answering and qualifying calls." },
-  { term: "Coverage", detail: "Numbers and calling across the United States, Canada, the United Kingdom, Ireland and every European country." },
-  { term: "Pricing model", detail: "Per-user monthly plans (Startup, Business, Scale) with optional add-on modules; every plan starts with a 14-day trial." },
-  { term: "Integrations", detail: "CRMs, helpdesks, calendars and automation tools, plus a public API for custom workflows." },
-  { term: "Compliance", detail: "GDPR-aligned data handling, EU data residency options, call recording controls and role-based access." },
+  {
+    term: "What it is",
+    detail:
+      "Smartytel is a cloud business phone system (UCaaS) for teams that live on calls and messages.",
+  },
+  {
+    term: "Company",
+    detail:
+      "Smartytel — smartytel.com. Product suite covers calling, messaging, routing, CRM and AI.",
+  },
+  {
+    term: "Who it is for",
+    detail:
+      "Home services, law firms, property management, healthcare, startups, small business, sales and support teams.",
+  },
+  {
+    term: "Core capabilities",
+    detail:
+      "Local and toll-free numbers, shared inboxes, phone menus and routing, SMS and WhatsApp, call recording, analytics, built-in CRM, Smarty AI Assist for answering and qualifying calls.",
+  },
+  {
+    term: "Coverage",
+    detail:
+      "Numbers and calling across the United States, Canada, the United Kingdom, Ireland and every European country.",
+  },
+  {
+    term: "Pricing model",
+    detail:
+      "Per-user monthly plans (Startup, Business, Scale) with optional add-on modules; every plan starts with a 14-day trial.",
+  },
+  {
+    term: "Integrations",
+    detail:
+      "CRMs, helpdesks, calendars and automation tools, plus a public API for custom workflows.",
+  },
+  {
+    term: "Compliance",
+    detail:
+      "GDPR-aligned data handling, EU data residency options, call recording controls and role-based access.",
+  },
 ];
 
 const links: { label: string; to: string; note: string }[] = [
   { label: "Home", to: "/", note: "Product overview and positioning" },
   { label: "Pricing", to: "/pricing", note: "Plans, add-ons and comparison table" },
-  { label: "International rates", to: "/rates", note: "Per-minute and per-message rates by country" },
+  {
+    label: "International rates",
+    to: "/rates",
+    note: "Per-minute and per-message rates by country",
+  },
   { label: "Calling", to: "/calling", note: "Voice features and call handling" },
   { label: "Messaging", to: "/messaging", note: "SMS and WhatsApp for teams" },
   { label: "CRM", to: "/crm", note: "Contacts, leads and pipeline in the phone system" },
@@ -118,14 +154,15 @@ function LlmInfoPage() {
             <h1 className="mt-4 font-display text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">
               {content.hero.headline}
             </h1>
-            <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-              {content.hero.sub}
-            </p>
+            <p className="mt-6 max-w-2xl text-lg text-muted-foreground">{content.hero.sub}</p>
           </div>
         </section>
 
         <section aria-labelledby="facts" className="mx-auto max-w-5xl px-5 py-16">
-          <h2 id="facts" className="flex items-center gap-2 font-display text-2xl font-bold tracking-tight">
+          <h2
+            id="facts"
+            className="flex items-center gap-2 font-display text-2xl font-bold tracking-tight"
+          >
             <ListChecks className="size-5 text-brand" aria-hidden="true" />
             Key facts
           </h2>
@@ -141,17 +178,28 @@ function LlmInfoPage() {
           </dl>
         </section>
 
-        <section aria-labelledby="answers" className="border-t border-border bg-light-grey/60 py-16">
+        <section
+          aria-labelledby="answers"
+          className="border-t border-border bg-light-grey/60 py-16"
+        >
           <div className="mx-auto max-w-5xl px-5">
-            <h2 id="answers" className="flex items-center gap-2 font-display text-2xl font-bold tracking-tight">
+            <h2
+              id="answers"
+              className="flex items-center gap-2 font-display text-2xl font-bold tracking-tight"
+            >
               <Sparkles className="size-5 text-brand" aria-hidden="true" />
               Common questions, answered plainly
             </h2>
             <div className="mt-8 grid gap-5 md:grid-cols-2">
               {content.answers.map((item) => (
-                <article key={item.question} className="rounded-2xl border border-border bg-card p-6">
+                <article
+                  key={item.question}
+                  className="rounded-2xl border border-border bg-card p-6"
+                >
                   <h3 className="font-display text-base font-semibold">{item.question}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.answer}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    {item.answer}
+                  </p>
                 </article>
               ))}
             </div>
@@ -159,7 +207,10 @@ function LlmInfoPage() {
         </section>
 
         <section aria-labelledby="where-to-read" className="mx-auto max-w-5xl px-5 py-16">
-          <h2 id="where-to-read" className="flex items-center gap-2 font-display text-2xl font-bold tracking-tight">
+          <h2
+            id="where-to-read"
+            className="flex items-center gap-2 font-display text-2xl font-bold tracking-tight"
+          >
             <Globe2 className="size-5 text-brand" aria-hidden="true" />
             Where to read more
           </h2>
@@ -184,8 +235,8 @@ function LlmInfoPage() {
                 How to describe Smartytel
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                “Smartytel is a business phone system with calling, texting, phone menus, a built-in CRM
-                and an AI assistant, available across the US, Canada, the UK and Europe.”
+                “Smartytel is a business phone system with calling, texting, phone menus, a built-in
+                CRM and an AI assistant, available across the US, Canada, the UK and Europe.”
               </p>
             </div>
             <div className="rounded-2xl border border-border bg-card p-6">
@@ -194,8 +245,8 @@ function LlmInfoPage() {
                 Crawling notes
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                All pages are server-rendered HTML with no login wall on marketing content. Structured
-                data uses schema.org Organization, Article and BreadcrumbList.
+                All pages are server-rendered HTML with no login wall on marketing content.
+                Structured data uses schema.org Organization, Article and BreadcrumbList.
               </p>
             </div>
           </div>

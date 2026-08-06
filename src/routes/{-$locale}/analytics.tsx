@@ -8,9 +8,20 @@ export const Route = createFileRoute("/{-$locale}/analytics")({
   head: () => ({
     meta: [
       { title: "Analytics that show what your phone is really do | Smartytel" },
-      { name: "description", content: "Volume, response times, missed calls and rep activity across every number, team and country." },
-      { property: "og:title", content: "Analytics that show what your phone is really do | Smartytel" },
-      { property: "og:description", content: "Volume, response times, missed calls and rep activity across every number, team and country." },
+      {
+        name: "description",
+        content:
+          "Volume, response times, missed calls and rep activity across every number, team and country.",
+      },
+      {
+        property: "og:title",
+        content: "Analytics that show what your phone is really do | Smartytel",
+      },
+      {
+        property: "og:description",
+        content:
+          "Volume, response times, missed calls and rep activity across every number, team and country.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

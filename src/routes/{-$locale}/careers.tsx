@@ -8,9 +8,18 @@ export const Route = createFileRoute("/{-$locale}/careers")({
   head: () => ({
     meta: [
       { title: "Come build the phone system teams actually like | Smartytel" },
-      { name: "description", content: "Engineering, support and go-to-market roles across Europe and North America." },
-      { property: "og:title", content: "Come build the phone system teams actually like | Smartytel" },
-      { property: "og:description", content: "Engineering, support and go-to-market roles across Europe and North America." },
+      {
+        name: "description",
+        content: "Engineering, support and go-to-market roles across Europe and North America.",
+      },
+      {
+        property: "og:title",
+        content: "Come build the phone system teams actually like | Smartytel",
+      },
+      {
+        property: "og:description",
+        content: "Engineering, support and go-to-market roles across Europe and North America.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

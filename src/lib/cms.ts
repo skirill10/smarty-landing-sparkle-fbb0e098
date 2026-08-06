@@ -8,7 +8,7 @@ import { pages as fallbackPages } from "@/content/pages";
  * unreachable, the hardcoded copy in src/content/pages.ts is used, so the site
  * always builds and always renders.
  */
-const CMS_URL = import.meta.env['VITE_CMS_URL'] as string | undefined;
+const CMS_URL = import.meta.env["VITE_CMS_URL"] as string | undefined;
 
 type PayloadDoc = {
   slug: string;
@@ -71,12 +71,7 @@ export async function fetchIntegrations(): Promise<CmsIntegration[] | null> {
 
 /** Fetch a Payload global (home, pricing, site-settings). */
 export type CmsGlobalSlug =
-  | "home"
-  | "pricing"
-  | "site-settings"
-  | "rates-page"
-  | "crm-page"
-  | "llm-info-page";
+  "home" | "pricing" | "site-settings" | "rates-page" | "crm-page" | "llm-info-page";
 
 export async function fetchGlobal<T>(slug: CmsGlobalSlug): Promise<T | null> {
   return cmsFetch<T>(`/globals/${slug}?depth=2`);

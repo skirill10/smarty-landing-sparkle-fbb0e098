@@ -128,9 +128,7 @@ function CrmPage() {
               <h1 className="mt-4 font-display text-4xl font-bold tracking-tight md:text-6xl">
                 {hero.headline}
               </h1>
-              <p className="mt-5 max-w-xl text-lg text-muted-foreground">
-                {hero.sub}
-              </p>
+              <p className="mt-5 max-w-xl text-lg text-muted-foreground">{hero.sub}</p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   to="/pricing"
@@ -166,7 +164,10 @@ function CrmPage() {
             </h2>
             <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {cards.map((feature) => (
-                <article key={feature.title} className="rounded-2xl border border-border bg-card p-7">
+                <article
+                  key={feature.title}
+                  className="rounded-2xl border border-border bg-card p-7"
+                >
                   <feature.icon className="size-6 text-brand" strokeWidth={2} aria-hidden="true" />
                   <h3 className="mt-5 font-display text-lg font-semibold">{feature.title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground">{feature.body}</p>
@@ -200,7 +201,10 @@ function CrmPage() {
               <ul className="mt-8 grid gap-3 sm:grid-cols-2">
                 {included.map((item) => (
                   <li key={item} className="flex gap-2 text-sm">
-                    <Check className="mt-0.5 size-4 shrink-0 text-accent-foreground" aria-hidden="true" />
+                    <Check
+                      className="mt-0.5 size-4 shrink-0 text-accent-foreground"
+                      aria-hidden="true"
+                    />
                     <span className="text-muted-foreground">{item}</span>
                   </li>
                 ))}
