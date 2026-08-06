@@ -205,6 +205,15 @@ export function SiteFooter() {
             </Link>
           </span>
         </div>
+
+        <p
+          className="mt-6 text-center text-xs text-muted-foreground/70"
+          data-build-stamp={buildStamp}
+          title="Deployment build identifier"
+        >
+          {t("Build")} {buildStamp}
+        </p>
+
       </div>
     </footer>
   );
