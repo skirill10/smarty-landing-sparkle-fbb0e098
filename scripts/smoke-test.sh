@@ -3,9 +3,11 @@
 set -uo pipefail
 
 URL="${1:-https://smarty.tel/pricing/}"
+EXPECTED_COMMIT="${EXPECTED_COMMIT:-}"
 FAILED=0
 TMP="$(mktemp -d)"
 HTML="$TMP/page.html"
+trap 'rm -rf "$TMP"' EXIT
 
 echo "== Smoke testing $URL"
 
@@ -35,9 +37,23 @@ if ! grep -aqi '<div id="root"\|<!DOCTYPE html' "$HTML"; then
   FAILED=1
 fi
 
-# 2) Every local asset referenced by the page must return 2xx.
-BASE="${FINAL_URL%/*}/"
+# 2) The deployment marker must be available and, in CI, match the source commit.
 ORIGIN="$(printf '%s' "$FINAL_URL" | awk -F/ '{print $1"//"$3}')"
+VERSION_JSON="$TMP/version.json"
+VERSION_STATUS="$(curl -sS -L --max-time 20 -o "$VERSION_JSON" -w '%{http_code}' "$ORIGIN/version.json" || echo 000)"
+if [ "$VERSION_STATUS" != "200" ]; then
+  echo "::error::Deployment marker returned HTTP $VERSION_STATUS: $ORIGIN/version.json"
+  FAILED=1
+elif [ -n "$EXPECTED_COMMIT" ] && ! grep -aq "\"commit\"[[:space:]]*:[[:space:]]*\"${EXPECTED_COMMIT:0:7}\"" "$VERSION_JSON"; then
+  echo "::error::Live deployment does not match expected commit ${EXPECTED_COMMIT:0:7}"
+  echo "Deployed marker: $(tr -d '\n' < "$VERSION_JSON")"
+  FAILED=1
+else
+  echo "ok  $VERSION_STATUS  $ORIGIN/version.json"
+fi
+
+# 3) Every local asset referenced by the page must return 2xx.
+BASE="${FINAL_URL%/*}/"
 
 ASSETS="$(
   grep -aoE '(src|href)="[^"]+"' "$HTML" \

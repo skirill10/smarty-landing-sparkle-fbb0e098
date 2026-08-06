@@ -9,6 +9,8 @@
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
+    "typecheck": "tsgo --noEmit",
+    "smoke:static": "bash scripts/smoke-static.sh",
     "format": "prettier --write ."
   },
   "dependencies": {

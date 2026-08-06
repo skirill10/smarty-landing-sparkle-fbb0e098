@@ -33,14 +33,15 @@ function gitCommit() {
   }
 }
 
-const buildCommit = (
-  env["BUILD_COMMIT"] ??
-  env["GITHUB_SHA"] ??
-  env["CF_PAGES_COMMIT_SHA"] ??
-  env["VERCEL_GIT_COMMIT_SHA"] ??
-  gitCommit() ??
-  "local"
-).slice(0, 7) || "local";
+const buildCommit =
+  (
+    env["BUILD_COMMIT"] ??
+    env["GITHUB_SHA"] ??
+    env["CF_PAGES_COMMIT_SHA"] ??
+    env["VERCEL_GIT_COMMIT_SHA"] ??
+    gitCommit() ??
+    "local"
+  ).slice(0, 7) || "local";
 const buildTimeIso = buildTime.toISOString();
 
 // Machine-readable stamp so a deploy can be verified with a single request
@@ -87,4 +88,3 @@ export default defineConfig({
     ...(staticExport ? { prerender: { enabled: true, crawlLinks: true } } : {}),
   },
 });
-
