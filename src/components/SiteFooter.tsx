@@ -4,6 +4,7 @@ import mark from "@/assets/smartytel-mark.png";
 import { useFooterContent, useSocialLinks } from "@/lib/cms-content";
 import { useT } from "@/i18n/LocaleProvider";
 import { LanguageSelector } from "@/components/LanguageSelector";
+import { buildStamp } from "@/lib/build-info";
 
 /** LinkedIn's mark isn't shipped by simple-icons, so its path is inlined. */
 const linkedinPath =
@@ -204,6 +205,15 @@ export function SiteFooter() {
             </Link>
           </span>
         </div>
+
+        <p
+          className="mt-6 text-center text-xs text-muted-foreground/70"
+          data-build-stamp={buildStamp}
+          title="Deployment build identifier"
+        >
+          {t("Build")} {buildStamp}
+        </p>
+
       </div>
     </footer>
   );
