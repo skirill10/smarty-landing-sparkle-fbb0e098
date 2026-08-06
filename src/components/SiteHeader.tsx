@@ -119,7 +119,7 @@ const fallbackMenus: MenuDef[] = [
           { label: "Smartytel Academy", to: "/resources" },
           { label: "Developer docs", to: "/docs" },
           { label: "What's new", to: "/blog" },
-          { label: "Downloads", to: "/resources" },
+          { label: "Downloads", to: "/downloads" },
           { label: "Port your number", to: "/port-your-number" },
           { label: "Carrier registration", to: "/port-your-number" },
           { label: "System status", to: "/status" },
