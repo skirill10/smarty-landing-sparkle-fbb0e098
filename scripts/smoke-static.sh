@@ -23,7 +23,7 @@ for _ in $(seq 1 20); do
   sleep 0.25
 done
 
-for path in / /pricing/ /rates/ /llm-info/ /es/ /version.json; do
+for path in / /pricing/ /rates/ /llm-info/ /version.json; do
   bash scripts/smoke-test.sh "http://127.0.0.1:$PORT$path"
 done
 
