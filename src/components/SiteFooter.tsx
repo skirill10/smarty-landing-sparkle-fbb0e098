@@ -213,7 +213,6 @@ export function SiteFooter() {
         >
           {t("Build")} {buildStamp}
         </p>
-
       </div>
     </footer>
   );
