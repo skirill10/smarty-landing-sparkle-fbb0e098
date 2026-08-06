@@ -111,6 +111,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://smarty-landing-sparkle.lovable.app/downloads</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://smarty-landing-sparkle.lovable.app/security</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
