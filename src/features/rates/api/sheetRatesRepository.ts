@@ -9,8 +9,8 @@ const SHEET_PUB_ID = import.meta.env["VITE_RATES_SHEET_PUB_ID"] as string | unde
 const SHEET_ID = import.meta.env["VITE_RATES_SHEET_ID"] as string | undefined;
 const SHEET_GID = import.meta.env["VITE_RATES_SHEET_GID"] as string | undefined;
 const DEFAULT_CURRENCY =
-  ((import.meta.env["VITE_RATES_SHEET_CURRENCY"] as string | undefined) as CurrencyCode | undefined) ??
-  "EUR";
+  (import.meta.env["VITE_RATES_SHEET_CURRENCY"] as string | undefined as
+    CurrencyCode | undefined) ?? "EUR";
 const SITE_URL = (import.meta.env["VITE_SITE_URL"] as string | undefined) ?? "";
 
 function endpoint(): string {
@@ -23,7 +23,6 @@ function endpoint(): string {
   if (typeof window !== "undefined") return path;
   return SITE_URL ? `${SITE_URL.replace(/\/$/, "")}${path}` : path;
 }
-
 
 async function loadSheetDataset(): Promise<RatesDataset> {
   try {

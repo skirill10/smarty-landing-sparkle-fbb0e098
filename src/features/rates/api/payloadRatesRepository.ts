@@ -24,9 +24,16 @@ import type {
  * local mock repository when the API is unset or unreachable, so switching
  * `VITE_CONTENT_SOURCE=payload` can never break the site.
  */
-const API_URL = (import.meta.env['VITE_PAYLOAD_API_URL'] as string | undefined)?.replace(/\/$/, "");
+const API_URL = (import.meta.env["VITE_PAYLOAD_API_URL"] as string | undefined)?.replace(/\/$/, "");
 
-type PayloadList<T> = { docs: T[]; totalDocs: number; page: number; limit: number; totalPages: number; hasNextPage: boolean };
+type PayloadList<T> = {
+  docs: T[];
+  totalDocs: number;
+  page: number;
+  limit: number;
+  totalPages: number;
+  hasNextPage: boolean;
+};
 
 type QueryValue = string | number | boolean | undefined;
 
@@ -73,12 +80,20 @@ function toRow(country: Country, rates: Rate[]): CountryRateRow {
 
 export const payloadRatesRepository: RatesRepository = {
   async getRates(params: RatesQueryParams = {}): Promise<PaginatedRates> {
-    const { search = "", region = "all", sort = "name-asc", page = 1, limit = DEFAULT_PAGE_SIZE } = params;
+    const {
+      search = "",
+      region = "all",
+      sort = "name-asc",
+      page = 1,
+      limit = DEFAULT_PAGE_SIZE,
+    } = params;
 
     const countryQuery = buildQuery({
       "where[active][equals]": true,
       ...(region !== "all" ? { "where[region][equals]": region } : {}),
-      ...(search ? { "where[or][0][name][like]": search, "where[or][1][dialCode][like]": search } : {}),
+      ...(search
+        ? { "where[or][0][name][like]": search, "where[or][1][dialCode][like]": search }
+        : {}),
       sort: sort === "name-desc" ? "-name" : "name",
       limit: limit * page,
       page: 1,
@@ -115,7 +130,9 @@ export const payloadRatesRepository: RatesRepository = {
         depth: 0,
       })}`,
     );
-    return result?.docs ? result.docs.map(normalizeCountry) : localRatesRepository.getCountries(params);
+    return result?.docs
+      ? result.docs.map(normalizeCountry)
+      : localRatesRepository.getCountries(params);
   },
 
   async getCountryBySlug(slug: string): Promise<Country | null> {
@@ -151,7 +168,9 @@ export const payloadRatesRepository: RatesRepository = {
   },
 
   async getRatesPageContent(): Promise<RatesPageContent> {
-    const result = await payloadFetch<RatesPageContent>(`/globals/rates-page${buildQuery({ depth: 1 })}`);
+    const result = await payloadFetch<RatesPageContent>(
+      `/globals/rates-page${buildQuery({ depth: 1 })}`,
+    );
     return result ?? localRatesRepository.getRatesPageContent();
   },
 };

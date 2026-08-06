@@ -33,7 +33,15 @@ const searchSchema = z.object({
   page: fallback(z.number().int(), 1).default(1),
 });
 
-const REGION_VALUES = ["all", "europe", "north-america", "south-america", "asia", "africa", "oceania"];
+const REGION_VALUES = [
+  "all",
+  "europe",
+  "north-america",
+  "south-america",
+  "asia",
+  "africa",
+  "oceania",
+];
 const SERVICE_VALUES = ["all", "landline", "mobile", "sms"];
 const SORT_VALUES = ["name-asc", "name-desc", "price-asc", "price-desc"];
 
@@ -68,7 +76,12 @@ export const Route = createFileRoute("/{-$locale}/rates/")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "https://smarty-landing-sparkle.lovable.app/" },
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://smarty-landing-sparkle.lovable.app/",
+            },
             { "@type": "ListItem", position: 2, name: "International rates", item: CANONICAL },
           ],
         }),
@@ -93,7 +106,8 @@ function RatesIndexPage() {
   const navigate = Route.useNavigate();
 
   const region = (REGION_VALUES.includes(search.region) ? search.region : "all") as Region | "all";
-  const service = (SERVICE_VALUES.includes(search.service) ? search.service : "all") as DestinationType | "all";
+  const service = (SERVICE_VALUES.includes(search.service) ? search.service : "all") as
+    DestinationType | "all";
   const sort = (SORT_VALUES.includes(search.sort) ? search.sort : "name-asc") as RatesSort;
   // "auto" means: resolve from the visitor's saved choice or their region.
   const explicitCurrency = isCurrencyCode(search.currency) ? search.currency : null;
@@ -121,10 +135,19 @@ function RatesIndexPage() {
 
   const { data: content } = useSuspenseQuery(ratesQueries.content());
   const listQuery = useQuery(
-    ratesQueries.list({ search: debouncedTerm, region, service, sort, page, limit: DEFAULT_PAGE_SIZE }),
+    ratesQueries.list({
+      search: debouncedTerm,
+      region,
+      service,
+      sort,
+      page,
+      limit: DEFAULT_PAGE_SIZE,
+    }),
   );
   // Wide page size so the featured subset is drawn from every destination.
-  const featuredQuery = useQuery(ratesQueries.list({ region: "all", sort: "name-asc", limit: 100, page: 1 }));
+  const featuredQuery = useQuery(
+    ratesQueries.list({ region: "all", sort: "name-asc", limit: 100, page: 1 }),
+  );
   const faqQuery = useQuery(ratesQueries.faqs());
 
   const rows = listQuery.data?.docs ?? [];
@@ -141,8 +164,8 @@ function RatesIndexPage() {
     : `${total} destination${total === 1 ? "" : "s"}`;
 
   const update = (patch: Record<string, string | number>) => {
-    if (typeof patch['currency'] === "string" && isCurrencyCode(patch['currency'])) {
-      saveCurrency(patch['currency']);
+    if (typeof patch["currency"] === "string" && isCurrencyCode(patch["currency"])) {
+      saveCurrency(patch["currency"]);
     }
     navigate({ to: ".", search: { ...search, ...patch, page: 1 } });
   };
@@ -184,10 +207,16 @@ function RatesIndexPage() {
             <h1 className="mt-4 max-w-3xl font-display text-4xl font-bold tracking-tight md:text-6xl">
               {content.heroTitle}
             </h1>
-            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">{content.heroDescription}</p>
+            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
+              {content.heroDescription}
+            </p>
 
             <div className="mt-8 max-w-xl">
-              <RatesSearch value={term} onChange={setTerm} placeholder={content.searchPlaceholder} />
+              <RatesSearch
+                value={term}
+                onChange={setTerm}
+                placeholder={content.searchPlaceholder}
+              />
             </div>
 
             <dl className="mt-10 flex flex-wrap gap-x-10 gap-y-4 text-sm">
@@ -209,7 +238,10 @@ function RatesIndexPage() {
 
         {/* Directory */}
         <section aria-labelledby="rates-directory" className="mx-auto max-w-7xl px-5 py-12">
-          <h2 id="rates-directory" className="font-display text-2xl font-bold tracking-tight md:text-3xl">
+          <h2
+            id="rates-directory"
+            className="font-display text-2xl font-bold tracking-tight md:text-3xl"
+          >
             All destinations
           </h2>
 

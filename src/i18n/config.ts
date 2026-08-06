@@ -1,17 +1,5 @@
 export type LocaleCode =
-  | "en"
-  | "es"
-  | "nl"
-  | "fr"
-  | "de"
-  | "sv"
-  | "pl"
-  | "el"
-  | "uk"
-  | "ja"
-  | "zh"
-  | "tr"
-  | "ar";
+  "en" | "es" | "nl" | "fr" | "de" | "sv" | "pl" | "el" | "uk" | "ja" | "zh" | "tr" | "ar";
 
 export type LocaleDef = {
   code: LocaleCode;

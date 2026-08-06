@@ -23,7 +23,9 @@ export const CrmPage: GlobalConfig = {
     {
       name: "features",
       type: "array",
-      admin: { description: "Matched to the bundled cards in order; blank fields keep the built-in copy." },
+      admin: {
+        description: "Matched to the bundled cards in order; blank fields keep the built-in copy.",
+      },
       fields: [
         { name: "title", type: "text" },
         { name: "body", type: "textarea" },

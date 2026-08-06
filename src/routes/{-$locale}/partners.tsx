@@ -8,9 +8,17 @@ export const Route = createFileRoute("/{-$locale}/partners")({
   head: () => ({
     meta: [
       { title: "Build and resell with Smartytel | Smartytel" },
-      { name: "description", content: "Agencies, MSPs and consultancies deploying business phone, AI answering and CRM for their clients." },
+      {
+        name: "description",
+        content:
+          "Agencies, MSPs and consultancies deploying business phone, AI answering and CRM for their clients.",
+      },
       { property: "og:title", content: "Build and resell with Smartytel | Smartytel" },
-      { property: "og:description", content: "Agencies, MSPs and consultancies deploying business phone, AI answering and CRM for their clients." },
+      {
+        property: "og:description",
+        content:
+          "Agencies, MSPs and consultancies deploying business phone, AI answering and CRM for their clients.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

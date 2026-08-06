@@ -18,7 +18,10 @@ export function CurrencySelector({
 }) {
   return (
     <div>
-      <label htmlFor={id} className="mb-2 block text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+      <label
+        htmlFor={id}
+        className="mb-2 block text-xs font-semibold uppercase tracking-wide text-muted-foreground"
+      >
         Currency
       </label>
       <select

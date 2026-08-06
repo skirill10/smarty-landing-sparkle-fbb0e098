@@ -96,8 +96,8 @@ export function IntegrationsSection() {
             ))}
           </ul>
           <p className="mt-6 text-center text-sm text-muted-foreground">
-            Plus Salesforce, Pipedrive, Microsoft Teams and Outlook — and anything else you can reach
-            with our open API and webhooks.
+            Plus Salesforce, Pipedrive, Microsoft Teams and Outlook — and anything else you can
+            reach with our open API and webhooks.
           </p>
         </div>
 

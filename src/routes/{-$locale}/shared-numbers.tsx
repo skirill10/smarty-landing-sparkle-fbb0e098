@@ -8,9 +8,17 @@ export const Route = createFileRoute("/{-$locale}/shared-numbers")({
   head: () => ({
     meta: [
       { title: "Shared numbers, shared context | Smartytel" },
-      { name: "description", content: "Give teams a number they own together, with permissions, notes and full call history for everyone who needs it." },
+      {
+        name: "description",
+        content:
+          "Give teams a number they own together, with permissions, notes and full call history for everyone who needs it.",
+      },
       { property: "og:title", content: "Shared numbers, shared context | Smartytel" },
-      { property: "og:description", content: "Give teams a number they own together, with permissions, notes and full call history for everyone who needs it." },
+      {
+        property: "og:description",
+        content:
+          "Give teams a number they own together, with permissions, notes and full call history for everyone who needs it.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

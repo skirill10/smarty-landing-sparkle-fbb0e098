@@ -6,13 +6,7 @@
  * component changes.
  */
 
-export type Region =
-  | "europe"
-  | "north-america"
-  | "south-america"
-  | "asia"
-  | "africa"
-  | "oceania";
+export type Region = "europe" | "north-america" | "south-america" | "asia" | "africa" | "oceania";
 
 export type CurrencyCode =
   | "EUR"

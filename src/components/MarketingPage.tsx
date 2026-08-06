@@ -31,7 +31,6 @@ export function MarketingPage({ content, slug }: { content: MarketingContent; sl
   const page = data ?? content;
 
   return (
-
     <div className="min-h-screen bg-background">
       <SiteHeader />
 
@@ -98,12 +97,14 @@ export function MarketingPage({ content, slug }: { content: MarketingContent; sl
               </Link>
             </div>
             <ul className="grid gap-3 self-start">
-              {(page.proof ?? [
-                "14-day free trial with a demo number",
-                "Only pay for the modules you switch on",
-                "AI notes, transcription and summaries",
-                "Built-in CRM for $10 per user per month",
-              ]).map((p) => (
+              {(
+                page.proof ?? [
+                  "14-day free trial with a demo number",
+                  "Only pay for the modules you switch on",
+                  "AI notes, transcription and summaries",
+                  "Built-in CRM for $10 per user per month",
+                ]
+              ).map((p) => (
                 <li
                   key={p}
                   className="flex items-start gap-3 rounded-xl border border-border bg-card px-5 py-4 text-sm font-medium"

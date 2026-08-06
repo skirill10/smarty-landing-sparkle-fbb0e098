@@ -8,9 +8,17 @@ export const Route = createFileRoute("/{-$locale}/security")({
   head: () => ({
     meta: [
       { title: "How we keep your conversations safe | Smartytel" },
-      { name: "description", content: "Encryption, access control, monitoring and the controls your security review will ask about." },
+      {
+        name: "description",
+        content:
+          "Encryption, access control, monitoring and the controls your security review will ask about.",
+      },
       { property: "og:title", content: "How we keep your conversations safe | Smartytel" },
-      { property: "og:description", content: "Encryption, access control, monitoring and the controls your security review will ask about." },
+      {
+        property: "og:description",
+        content:
+          "Encryption, access control, monitoring and the controls your security review will ask about.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

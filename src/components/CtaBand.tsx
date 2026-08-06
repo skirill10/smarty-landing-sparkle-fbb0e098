@@ -33,7 +33,6 @@ export function CtaBand(props: CtaBandProps) {
   return (
     <section className="w-full">
       <div className="relative isolate w-full overflow-hidden bg-cta-mesh px-6 py-20 text-primary-foreground md:px-14 md:py-28">
-
         {/* glow orbs */}
         <div
           aria-hidden="true"
@@ -44,7 +43,10 @@ export function CtaBand(props: CtaBandProps) {
           className="pointer-events-none absolute -bottom-32 -right-20 size-[22rem] rounded-full bg-primary-foreground/15 blur-3xl animate-glow-drift-slow"
         />
         {/* fine grid */}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-cta-grid opacity-40" />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-cta-grid opacity-40"
+        />
 
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 md:grid-cols-[1.15fr_0.85fr]">
           <div>
@@ -97,7 +99,10 @@ export function CtaBand(props: CtaBandProps) {
               <div className="flex items-center gap-3">
                 <span className="relative flex size-12 items-center justify-center rounded-2xl bg-brand text-brand-foreground">
                   <Phone className="size-5 animate-ring-tilt" aria-hidden="true" />
-                  <span className="absolute inset-0 rounded-2xl bg-brand animate-ping-slow" aria-hidden="true" />
+                  <span
+                    className="absolute inset-0 rounded-2xl bg-brand animate-ping-slow"
+                    aria-hidden="true"
+                  />
                 </span>
                 <div>
                   <p className="font-display font-bold">Incoming call</p>

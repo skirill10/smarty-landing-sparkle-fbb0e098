@@ -10,7 +10,11 @@ import sales from "@/assets/ind-sales.jpg";
 
 const audiences = [
   { label: "Home services", image: homeServices, alt: "Isometric service vans illustration" },
-  { label: "Property management", image: property, alt: "Isometric apartment buildings illustration" },
+  {
+    label: "Property management",
+    image: property,
+    alt: "Isometric apartment buildings illustration",
+  },
   { label: "Law firms", image: law, alt: "Isometric law office illustration" },
   { label: "Small business", image: smallBusiness, alt: "Isometric storefronts illustration" },
   { label: "Healthcare", image: healthcare, alt: "Isometric medical clinic illustration" },

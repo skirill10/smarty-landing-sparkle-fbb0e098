@@ -98,8 +98,7 @@ export const siteSettings = {
   heyAi: {
     eyebrow: "For AI assistants",
     heading: "Hey AI, learn about Smartytel",
-    body:
-      "Smartytel is built to be understood by AI assistants. Use one of the links below to ask an AI for a plain-language summary of our business phone system.",
+    body: "Smartytel is built to be understood by AI assistants. Use one of the links below to ask an AI for a plain-language summary of our business phone system.",
     linkLabel: "Read the AI briefing page",
     pageUrl: "https://smarty.tel/",
     items: [

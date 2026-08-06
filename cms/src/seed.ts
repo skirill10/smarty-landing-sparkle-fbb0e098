@@ -69,7 +69,11 @@ const run = async () => {
       limit: 1,
     });
     if (existing.docs[0]) {
-      await payload.update({ collection: "countries", id: existing.docs[0].id, data: country as never });
+      await payload.update({
+        collection: "countries",
+        id: existing.docs[0].id,
+        data: country as never,
+      });
     } else {
       await payload.create({ collection: "countries", data: country as never });
     }

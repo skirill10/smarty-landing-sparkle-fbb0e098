@@ -144,9 +144,7 @@ function MegaPanel({ menu }: { menu: MenuDef }) {
   const t = useT();
 
   return (
-    <div
-      className={`grid gap-8 p-7 ${menu.wide ? "grid-cols-3" : "grid-cols-3"}`}
-    >
+    <div className={`grid gap-8 p-7 ${menu.wide ? "grid-cols-3" : "grid-cols-3"}`}>
       {menu.groups.map((g) => (
         <div key={g.heading}>
           <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
@@ -166,7 +164,6 @@ function MegaPanel({ menu }: { menu: MenuDef }) {
                 </a>
               </li>
             ))}
-
           </ul>
         </div>
       ))}
@@ -296,12 +293,14 @@ export function SiteHeader() {
                   <ul className="space-y-0.5">
                     {g.items.map((it) => (
                       <li key={it.label}>
-                        <a href={lp(it.to ?? "/pricing")} className="block py-1 text-sm text-foreground/85">
+                        <a
+                          href={lp(it.to ?? "/pricing")}
+                          className="block py-1 text-sm text-foreground/85"
+                        >
                           {t(it.label)}
                         </a>
                       </li>
                     ))}
-
                   </ul>
                 </div>
               ))}
@@ -338,9 +337,7 @@ function MenuTrigger({
       }`}
     >
       {t(menu.label)}
-      <ChevronDown
-        className={`size-3.5 transition-transform ${active ? "rotate-180" : ""}`}
-      />
+      <ChevronDown className={`size-3.5 transition-transform ${active ? "rotate-180" : ""}`} />
     </button>
   );
 }

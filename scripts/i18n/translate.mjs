@@ -3,9 +3,18 @@
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 
 const LOCALES = [
-  ["es", "Spanish"], ["nl", "Dutch"], ["fr", "French"], ["de", "German"],
-  ["sv", "Swedish"], ["pl", "Polish"], ["el", "Greek"], ["uk", "Ukrainian"],
-  ["ja", "Japanese"], ["zh", "Simplified Chinese"], ["tr", "Turkish"], ["ar", "Arabic"],
+  ["es", "Spanish"],
+  ["nl", "Dutch"],
+  ["fr", "French"],
+  ["de", "German"],
+  ["sv", "Swedish"],
+  ["pl", "Polish"],
+  ["el", "Greek"],
+  ["uk", "Ukrainian"],
+  ["ja", "Japanese"],
+  ["zh", "Simplified Chinese"],
+  ["tr", "Turkish"],
+  ["ar", "Arabic"],
 ];
 const CHUNK = 40;
 const source = JSON.parse(readFileSync("src/i18n/source.json", "utf8"));

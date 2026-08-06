@@ -1,9 +1,4 @@
-import {
-  mockCountries,
-  mockFaqs,
-  mockRates,
-  mockRatesPageContent,
-} from "../data/mockRates";
+import { mockCountries, mockFaqs, mockRates, mockRatesPageContent } from "../data/mockRates";
 import { createDatasetRepository, type RatesDataset } from "./datasetRepository";
 import type { RatesRepository } from "./ratesRepository";
 

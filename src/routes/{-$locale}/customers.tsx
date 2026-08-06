@@ -8,9 +8,17 @@ export const Route = createFileRoute("/{-$locale}/customers")({
   head: () => ({
     meta: [
       { title: "Teams that answer with Smartytel | Smartytel" },
-      { name: "description", content: "Dental groups, law firms, HVAC dispatchers, property managers and startups across the US, Canada, the UK and Europe." },
+      {
+        name: "description",
+        content:
+          "Dental groups, law firms, HVAC dispatchers, property managers and startups across the US, Canada, the UK and Europe.",
+      },
       { property: "og:title", content: "Teams that answer with Smartytel | Smartytel" },
-      { property: "og:description", content: "Dental groups, law firms, HVAC dispatchers, property managers and startups across the US, Canada, the UK and Europe." },
+      {
+        property: "og:description",
+        content:
+          "Dental groups, law firms, HVAC dispatchers, property managers and startups across the US, Canada, the UK and Europe.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
