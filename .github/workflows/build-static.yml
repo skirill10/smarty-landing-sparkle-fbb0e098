@@ -10,33 +10,55 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: build-static
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
 
-      - run: bun install --frozen-lockfile
+      - name: Install dependencies
+        run: bun install --frozen-lockfile || bun install
 
       - name: Build static export
         env:
           STATIC_EXPORT: "1"
+          BUILD_COMMIT: ${{ github.sha }}
         run: bun run build
 
       - name: Add server config to the build output
-        run: cp .htaccess dist/client/.htaccess
+        run: |
+          test -f dist/client/index.html || { echo "::error::dist/client/index.html missing - build produced no output"; exit 1; }
+          cp .htaccess dist/client/.htaccess
+          # GitHub Pages / static hosts must not treat _-prefixed asset dirs specially
+          touch dist/client/.nojekyll
+          echo "Files to publish: $(find dist/client -type f | wc -l)"
+          cat dist/client/version.json || true
 
       - name: Publish build output to the deploy branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
         run: |
+          set -euo pipefail
           cd dist/client
-          git init -q
+          git init -q -b deploy
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout -q -b deploy
+          # A parent .gitignore must never filter the build output
+          printf '' > .gitignore
           git add -A
-          git commit -q -m "chore: static build $GITHUB_SHA"
-          git push -q --force "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" deploy
+          git commit -q --allow-empty -m "chore: static build ${GITHUB_SHA}"
+          git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git"
+          git push --force origin deploy
+          echo "Pushed $(git rev-parse --short HEAD) to deploy"
