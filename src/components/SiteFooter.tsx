@@ -4,6 +4,7 @@ import mark from "@/assets/smartytel-mark.png";
 import { useFooterContent, useSocialLinks } from "@/lib/cms-content";
 import { useT } from "@/i18n/LocaleProvider";
 import { LanguageSelector } from "@/components/LanguageSelector";
+import { buildStamp } from "@/lib/build-info";
 
 /** LinkedIn's mark isn't shipped by simple-icons, so its path is inlined. */
 const linkedinPath =
