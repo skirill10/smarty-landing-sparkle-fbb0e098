@@ -21,10 +21,7 @@ export const buildCommit = read(
   "local",
 );
 
-export const buildTime = read(
-  typeof __BUILD_TIME__ === "string" ? __BUILD_TIME__ : undefined,
-  "",
-);
+export const buildTime = read(typeof __BUILD_TIME__ === "string" ? __BUILD_TIME__ : undefined, "");
 
 /** e.g. "v1.4.0 · a1b2c3d · 2026-08-06 20:41 UTC" */
 export const buildStamp = [
