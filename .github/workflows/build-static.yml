@@ -28,7 +28,12 @@ jobs:
           bun-version: latest
 
       - name: Install dependencies
-        run: bun install --frozen-lockfile || bun install
+        run: bun install --frozen-lockfile
+
+      - name: Validate source
+        run: |
+          bun run typecheck
+          bun run lint
 
       - name: Build static export
         env:
@@ -44,6 +49,9 @@ jobs:
           touch dist/client/.nojekyll
           echo "Files to publish: $(find dist/client -type f | wc -l)"
           cat dist/client/version.json || true
+
+      - name: Smoke test static artifact
+        run: bun run smoke:static
 
       - name: Publish build output to the deploy branch
         env:
@@ -61,4 +69,15 @@ jobs:
           git commit -q --allow-empty -m "chore: static build ${GITHUB_SHA}"
           git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git"
           git push --force origin deploy
-          echo "Pushed $(git rev-parse --short HEAD) to deploy"
+          LOCAL_SHA="$(git rev-parse HEAD)"
+          REMOTE_SHA="$(git ls-remote origin refs/heads/deploy | awk '{print $1}')"
+          test "$LOCAL_SHA" = "$REMOTE_SHA" || { echo "::error::Remote deploy branch verification failed"; exit 1; }
+          echo "Pushed ${LOCAL_SHA:0:7} to deploy and verified the remote branch"
+
+      - name: Upload static artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: smartytel-static-${{ github.run_number }}
+          path: dist/client
+          include-hidden-files: true
+          retention-days: 7

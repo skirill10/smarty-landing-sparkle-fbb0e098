@@ -15,11 +15,23 @@ on:
 
 jobs:
   smoke:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
 
       - name: Smoke test pricing page
         env:
           TARGET_URL: ${{ github.event.inputs.url || 'https://smarty.tel/pricing/' }}
-        run: bash scripts/smoke-test.sh "$TARGET_URL"
+          EXPECTED_COMMIT: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || '' }}
+        run: |
+          # Hostinger may need a few minutes to pull the refreshed deploy branch.
+          for attempt in $(seq 1 10); do
+            echo "Smoke-test attempt $attempt of 10"
+            if bash scripts/smoke-test.sh "$TARGET_URL"; then
+              exit 0
+            fi
+            [ "$attempt" -eq 10 ] && exit 1
+            sleep 60
+          done
