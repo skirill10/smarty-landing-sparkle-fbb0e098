@@ -55,6 +55,7 @@ const fallbackColumns: Column[] = [
       { label: "Blog", to: "/blog" },
       { label: "Guides", to: "/resources" },
       { label: "Developer docs", to: "/docs" },
+      { label: "Downloads", to: "/downloads" },
       { label: "Number porting", to: "/port-your-number" },
       { label: "Customers", to: "/customers" },
       { label: "Product demo", to: "/demo" },
