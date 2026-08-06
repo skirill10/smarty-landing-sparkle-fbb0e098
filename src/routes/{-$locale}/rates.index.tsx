@@ -131,7 +131,7 @@ function RatesIndexPage() {
   useEffect(() => {
     if (debouncedTerm === search.q) return;
     navigate({ to: ".", search: { ...search, q: debouncedTerm, page: 1 }, replace: true });
-  }, [debouncedTerm, search.q, navigate]);
+  }, [debouncedTerm, search, navigate]);
 
   const { data: content } = useSuspenseQuery(ratesQueries.content());
   const listQuery = useQuery(
