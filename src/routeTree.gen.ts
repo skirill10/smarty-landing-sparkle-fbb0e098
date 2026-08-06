@@ -22,6 +22,7 @@ import { Route as Char123LocaleChar125CustomersRouteImport } from './routes/{-$l
 import { Route as Char123LocaleChar125DemoRouteImport } from './routes/{-$locale}/demo'
 import { Route as Char123LocaleChar125DevelopersRouteImport } from './routes/{-$locale}/developers'
 import { Route as Char123LocaleChar125DocsRouteImport } from './routes/{-$locale}/docs'
+import { Route as Char123LocaleChar125DownloadsRouteImport } from './routes/{-$locale}/downloads'
 import { Route as Char123LocaleChar125GdprRouteImport } from './routes/{-$locale}/gdpr'
 import { Route as Char123LocaleChar125IntegrationsRouteImport } from './routes/{-$locale}/integrations'
 import { Route as Char123LocaleChar125LlmInfoRouteImport } from './routes/{-$locale}/llm-info'
@@ -127,6 +128,12 @@ const Char123LocaleChar125DocsRoute =
   Char123LocaleChar125DocsRouteImport.update({
     id: '/{-$locale}/docs',
     path: '/{-$locale}/docs',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125DownloadsRoute =
+  Char123LocaleChar125DownloadsRouteImport.update({
+    id: '/{-$locale}/downloads',
+    path: '/{-$locale}/downloads',
     getParentRoute: () => rootRouteImport,
   } as any)
 const Char123LocaleChar125GdprRoute =
@@ -316,6 +323,7 @@ export interface FileRoutesByFullPath {
   '/{-$locale}/demo': typeof Char123LocaleChar125DemoRoute
   '/{-$locale}/developers': typeof Char123LocaleChar125DevelopersRoute
   '/{-$locale}/docs': typeof Char123LocaleChar125DocsRoute
+  '/{-$locale}/downloads': typeof Char123LocaleChar125DownloadsRoute
   '/{-$locale}/gdpr': typeof Char123LocaleChar125GdprRoute
   '/{-$locale}/integrations': typeof Char123LocaleChar125IntegrationsRoute
   '/{-$locale}/llm-info': typeof Char123LocaleChar125LlmInfoRoute
@@ -360,6 +368,7 @@ export interface FileRoutesByTo {
   '/{-$locale}/demo': typeof Char123LocaleChar125DemoRoute
   '/{-$locale}/developers': typeof Char123LocaleChar125DevelopersRoute
   '/{-$locale}/docs': typeof Char123LocaleChar125DocsRoute
+  '/{-$locale}/downloads': typeof Char123LocaleChar125DownloadsRoute
   '/{-$locale}/gdpr': typeof Char123LocaleChar125GdprRoute
   '/{-$locale}/integrations': typeof Char123LocaleChar125IntegrationsRoute
   '/{-$locale}/llm-info': typeof Char123LocaleChar125LlmInfoRoute
@@ -405,6 +414,7 @@ export interface FileRoutesById {
   '/{-$locale}/demo': typeof Char123LocaleChar125DemoRoute
   '/{-$locale}/developers': typeof Char123LocaleChar125DevelopersRoute
   '/{-$locale}/docs': typeof Char123LocaleChar125DocsRoute
+  '/{-$locale}/downloads': typeof Char123LocaleChar125DownloadsRoute
   '/{-$locale}/gdpr': typeof Char123LocaleChar125GdprRoute
   '/{-$locale}/integrations': typeof Char123LocaleChar125IntegrationsRoute
   '/{-$locale}/llm-info': typeof Char123LocaleChar125LlmInfoRoute
@@ -451,6 +461,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/demo'
     | '/{-$locale}/developers'
     | '/{-$locale}/docs'
+    | '/{-$locale}/downloads'
     | '/{-$locale}/gdpr'
     | '/{-$locale}/integrations'
     | '/{-$locale}/llm-info'
@@ -495,6 +506,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/demo'
     | '/{-$locale}/developers'
     | '/{-$locale}/docs'
+    | '/{-$locale}/downloads'
     | '/{-$locale}/gdpr'
     | '/{-$locale}/integrations'
     | '/{-$locale}/llm-info'
@@ -539,6 +551,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/demo'
     | '/{-$locale}/developers'
     | '/{-$locale}/docs'
+    | '/{-$locale}/downloads'
     | '/{-$locale}/gdpr'
     | '/{-$locale}/integrations'
     | '/{-$locale}/llm-info'
@@ -584,6 +597,7 @@ export interface RootRouteChildren {
   Char123LocaleChar125DemoRoute: typeof Char123LocaleChar125DemoRoute
   Char123LocaleChar125DevelopersRoute: typeof Char123LocaleChar125DevelopersRoute
   Char123LocaleChar125DocsRoute: typeof Char123LocaleChar125DocsRoute
+  Char123LocaleChar125DownloadsRoute: typeof Char123LocaleChar125DownloadsRoute
   Char123LocaleChar125GdprRoute: typeof Char123LocaleChar125GdprRoute
   Char123LocaleChar125IntegrationsRoute: typeof Char123LocaleChar125IntegrationsRoute
   Char123LocaleChar125LlmInfoRoute: typeof Char123LocaleChar125LlmInfoRoute
@@ -707,6 +721,13 @@ declare module '@tanstack/react-router' {
       path: '/{-$locale}/docs'
       fullPath: '/{-$locale}/docs'
       preLoaderRoute: typeof Char123LocaleChar125DocsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/{-$locale}/downloads': {
+      id: '/{-$locale}/downloads'
+      path: '/{-$locale}/downloads'
+      fullPath: '/{-$locale}/downloads'
+      preLoaderRoute: typeof Char123LocaleChar125DownloadsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/{-$locale}/gdpr': {
@@ -928,6 +949,7 @@ const rootRouteChildren: RootRouteChildren = {
   Char123LocaleChar125DemoRoute: Char123LocaleChar125DemoRoute,
   Char123LocaleChar125DevelopersRoute: Char123LocaleChar125DevelopersRoute,
   Char123LocaleChar125DocsRoute: Char123LocaleChar125DocsRoute,
+  Char123LocaleChar125DownloadsRoute: Char123LocaleChar125DownloadsRoute,
   Char123LocaleChar125GdprRoute: Char123LocaleChar125GdprRoute,
   Char123LocaleChar125IntegrationsRoute: Char123LocaleChar125IntegrationsRoute,
   Char123LocaleChar125LlmInfoRoute: Char123LocaleChar125LlmInfoRoute,
@@ -976,13 +998,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
