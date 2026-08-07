@@ -40,6 +40,7 @@ import { Route as Char123LocaleChar125SharedNumbersRouteImport } from './routes/
 import { Route as Char123LocaleChar125StatusRouteImport } from './routes/{-$locale}/status'
 import { Route as Char123LocaleChar125TasksRouteImport } from './routes/{-$locale}/tasks'
 import { Route as Char123LocaleChar125TermsRouteImport } from './routes/{-$locale}/terms'
+import { Route as Char123LocaleChar125UsageRouteImport } from './routes/{-$locale}/usage'
 import { Route as ApiPublicRatesSheetRouteImport } from './routes/api/public/rates-sheet'
 import { Route as Char123LocaleChar125RatesIndexRouteImport } from './routes/{-$locale}/rates.index'
 import { Route as Char123LocaleChar125RatesCountrySlugRouteImport } from './routes/{-$locale}/rates.$countrySlug'
@@ -240,6 +241,12 @@ const Char123LocaleChar125TermsRoute =
     path: '/{-$locale}/terms',
     getParentRoute: () => rootRouteImport,
   } as any)
+const Char123LocaleChar125UsageRoute =
+  Char123LocaleChar125UsageRouteImport.update({
+    id: '/{-$locale}/usage',
+    path: '/{-$locale}/usage',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiPublicRatesSheetRoute = ApiPublicRatesSheetRouteImport.update({
   id: '/api/public/rates-sheet',
   path: '/api/public/rates-sheet',
@@ -355,6 +362,7 @@ export interface FileRoutesByFullPath {
   '/{-$locale}/status': typeof Char123LocaleChar125StatusRoute
   '/{-$locale}/tasks': typeof Char123LocaleChar125TasksRoute
   '/{-$locale}/terms': typeof Char123LocaleChar125TermsRoute
+  '/{-$locale}/usage': typeof Char123LocaleChar125UsageRoute
   '/{-$locale}/': typeof Char123LocaleChar125IndexRoute
   '/api/public/rates-sheet': typeof ApiPublicRatesSheetRoute
   '/{-$locale}/rates/$countrySlug': typeof Char123LocaleChar125RatesCountrySlugRoute
@@ -402,6 +410,7 @@ export interface FileRoutesByTo {
   '/{-$locale}/status': typeof Char123LocaleChar125StatusRoute
   '/{-$locale}/tasks': typeof Char123LocaleChar125TasksRoute
   '/{-$locale}/terms': typeof Char123LocaleChar125TermsRoute
+  '/{-$locale}/usage': typeof Char123LocaleChar125UsageRoute
   '/{-$locale}': typeof Char123LocaleChar125IndexRoute
   '/api/public/rates-sheet': typeof ApiPublicRatesSheetRoute
   '/{-$locale}/rates/$countrySlug': typeof Char123LocaleChar125RatesCountrySlugRoute
@@ -450,6 +459,7 @@ export interface FileRoutesById {
   '/{-$locale}/status': typeof Char123LocaleChar125StatusRoute
   '/{-$locale}/tasks': typeof Char123LocaleChar125TasksRoute
   '/{-$locale}/terms': typeof Char123LocaleChar125TermsRoute
+  '/{-$locale}/usage': typeof Char123LocaleChar125UsageRoute
   '/{-$locale}/': typeof Char123LocaleChar125IndexRoute
   '/api/public/rates-sheet': typeof ApiPublicRatesSheetRoute
   '/{-$locale}/rates/$countrySlug': typeof Char123LocaleChar125RatesCountrySlugRoute
@@ -499,6 +509,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/status'
     | '/{-$locale}/tasks'
     | '/{-$locale}/terms'
+    | '/{-$locale}/usage'
     | '/{-$locale}/'
     | '/api/public/rates-sheet'
     | '/{-$locale}/rates/$countrySlug'
@@ -546,6 +557,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/status'
     | '/{-$locale}/tasks'
     | '/{-$locale}/terms'
+    | '/{-$locale}/usage'
     | '/{-$locale}'
     | '/api/public/rates-sheet'
     | '/{-$locale}/rates/$countrySlug'
@@ -593,6 +605,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/status'
     | '/{-$locale}/tasks'
     | '/{-$locale}/terms'
+    | '/{-$locale}/usage'
     | '/{-$locale}/'
     | '/api/public/rates-sheet'
     | '/{-$locale}/rates/$countrySlug'
@@ -641,6 +654,7 @@ export interface RootRouteChildren {
   Char123LocaleChar125StatusRoute: typeof Char123LocaleChar125StatusRoute
   Char123LocaleChar125TasksRoute: typeof Char123LocaleChar125TasksRoute
   Char123LocaleChar125TermsRoute: typeof Char123LocaleChar125TermsRoute
+  Char123LocaleChar125UsageRoute: typeof Char123LocaleChar125UsageRoute
   Char123LocaleChar125IndexRoute: typeof Char123LocaleChar125IndexRoute
   ApiPublicRatesSheetRoute: typeof ApiPublicRatesSheetRoute
   Char123LocaleChar125RatesCountrySlugRoute: typeof Char123LocaleChar125RatesCountrySlugRoute
@@ -877,6 +891,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char123LocaleChar125TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/{-$locale}/usage': {
+      id: '/{-$locale}/usage'
+      path: '/{-$locale}/usage'
+      fullPath: '/{-$locale}/usage'
+      preLoaderRoute: typeof Char123LocaleChar125UsageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/rates-sheet': {
       id: '/api/public/rates-sheet'
       path: '/api/public/rates-sheet'
@@ -1011,6 +1032,7 @@ const rootRouteChildren: RootRouteChildren = {
   Char123LocaleChar125StatusRoute: Char123LocaleChar125StatusRoute,
   Char123LocaleChar125TasksRoute: Char123LocaleChar125TasksRoute,
   Char123LocaleChar125TermsRoute: Char123LocaleChar125TermsRoute,
+  Char123LocaleChar125UsageRoute: Char123LocaleChar125UsageRoute,
   Char123LocaleChar125IndexRoute: Char123LocaleChar125IndexRoute,
   ApiPublicRatesSheetRoute: ApiPublicRatesSheetRoute,
   Char123LocaleChar125RatesCountrySlugRoute:

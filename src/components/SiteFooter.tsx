@@ -200,6 +200,10 @@ export function SiteFooter() {
             <Link to="/connectivity" className="hover:text-foreground">
               {t("Connectivity")}
             </Link>
+            <Link to="/usage" className="hover:text-foreground">
+              {t("Usage")}
+            </Link>
+
 
 
 
