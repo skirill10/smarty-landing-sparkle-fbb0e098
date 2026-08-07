@@ -197,6 +197,10 @@ export function SiteFooter() {
             <Link to="/refund" className="hover:text-foreground">
               {t("Refund")}
             </Link>
+            <Link to="/connectivity" className="hover:text-foreground">
+              {t("Connectivity")}
+            </Link>
+
 
 
             <Link to="/gdpr" className="hover:text-foreground">
