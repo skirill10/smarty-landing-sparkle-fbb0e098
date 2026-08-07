@@ -15,6 +15,8 @@ export type LegalDoc = {
   updated: string;
   sections: LegalSection[];
   footer?: string[];
+  /** Render lists as plain bullets instead of cards. */
+  plain?: boolean;
 };
 
 export function LegalDocument({ doc }: { doc: LegalDoc }) {
