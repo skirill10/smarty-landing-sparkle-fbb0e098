@@ -1,10 +1,77 @@
 import { createFileRoute } from "@tanstack/react-router";
+import * as si from "simple-icons";
 import { ArrowRight, Bell, Check, Headphones, RefreshCw, ShieldCheck, Zap } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { CtaBand } from "@/components/CtaBand";
 import { Link } from "@/components/Link";
 import { useT } from "@/i18n/LocaleProvider";
+
+/** Windows' mark isn't shipped by simple-icons, so its path is inlined. */
+const windowsPath =
+  "M0 3.449L9.75 2.1v9.451H0V3.449zm10.949-1.5L24 0v11.4H10.949V1.949zM0 12.6h9.75v9.451L0 20.699V12.6zm10.949 0H24V24l-13.051-1.85V12.6z";
+
+/** A simple browser-window glyph stands in for the web app. */
+const webPath =
+  "M2 2h20a1 1 0 011 1v18a1 1 0 01-1 1H2a1 1 0 01-1-1V3a1 1 0 011-1zm1 5v13h18V7H3zm1.5-3.25a.9.9 0 100 1.8.9.9 0 000-1.8zm3 0a.9.9 0 100 1.8.9.9 0 000-1.8zM5 9h5v9H5V9zm7 0h7v9h-7V9z";
+
+type Platform = {
+  name: string;
+  kind: string;
+  path: string;
+  color: string;
+  requirement: string;
+  cta: string;
+  href: string;
+};
+
+const platforms: Platform[] = [
+  {
+    name: "iOS",
+    kind: "Mobile app",
+    path: si.siAppstore.path,
+    color: "#0D96F6",
+    requirement: "iPhone and iPad, iOS 16 or later",
+    cta: "Get it on the App Store",
+    href: "https://apps.apple.com/app/smartytel",
+  },
+  {
+    name: "Android",
+    kind: "Mobile app",
+    path: si.siGoogleplay.path,
+    color: "#00A263",
+    requirement: "Phones and tablets, Android 10 or later",
+    cta: "Get it on Google Play",
+    href: "https://play.google.com/store/apps/details?id=com.smartytel.app",
+  },
+  {
+    name: "Mac",
+    kind: "Desktop app",
+    path: si.siApple.path,
+    color: "#111111",
+    requirement: "Apple silicon and Intel, macOS 13 or later",
+    cta: "Download for Mac",
+    href: "https://smartytel.com/download/mac",
+  },
+  {
+    name: "Windows",
+    kind: "Desktop app",
+    path: windowsPath,
+    color: "#0F8CE9",
+    requirement: "Windows 10 and 11, 64-bit installer",
+    cta: "Download for Windows",
+    href: "https://smartytel.com/download/windows",
+  },
+  {
+    name: "Web",
+    kind: "Web app",
+    path: webPath,
+    color: "#7071E5",
+    requirement: "Chrome, Edge, Safari and Firefox — nothing to install",
+    cta: "Open the web app",
+    href: "https://app.smartytel.com",
+  },
+];
 
 const highlights = [
   {
@@ -39,6 +106,36 @@ const highlights = [
   },
 ];
 
+function PlatformCard({ platform }: { platform: Platform }) {
+  const t = useT();
+
+  return (
+    <a
+      href={platform.href}
+      target="_blank"
+      rel="noreferrer noopener"
+      className="group flex flex-col items-center rounded-2xl border-2 border-foreground/85 bg-card px-5 py-8 text-center transition-all hover:-translate-y-1 hover:shadow-xl"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        className="size-12 fill-current"
+        style={{ color: platform.color }}
+        aria-hidden="true"
+      >
+        <path d={platform.path} />
+      </svg>
+      <span className="mt-6 font-display text-2xl font-bold tracking-tight">{platform.name}</span>
+      <span className="mt-1 text-sm text-muted-foreground">{t(platform.kind)}</span>
+      <span className="mt-4 text-xs leading-relaxed text-muted-foreground">
+        {t(platform.requirement)}
+      </span>
+      <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand group-hover:underline">
+        {t(platform.cta)} <ArrowRight className="size-4" />
+      </span>
+    </a>
+  );
+}
+
 function Downloads() {
   const t = useT();
 
@@ -59,6 +156,14 @@ function Downloads() {
               "Download the iOS, Android, Mac and Windows apps, or work straight from the browser. Your numbers, shared inbox and CRM follow you everywhere.",
             )}
           </p>
+        </section>
+
+        <section className="mx-auto max-w-6xl px-5 pb-20">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+            {platforms.map((p) => (
+              <PlatformCard key={p.name} platform={p} />
+            ))}
+          </div>
         </section>
 
         <section className="bg-light-grey py-20">
