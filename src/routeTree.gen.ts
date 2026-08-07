@@ -16,6 +16,7 @@ import { Route as Char123LocaleChar125AnalyticsRouteImport } from './routes/{-$l
 import { Route as Char123LocaleChar125BlogRouteImport } from './routes/{-$locale}/blog'
 import { Route as Char123LocaleChar125CallingRouteImport } from './routes/{-$locale}/calling'
 import { Route as Char123LocaleChar125CareersRouteImport } from './routes/{-$locale}/careers'
+import { Route as Char123LocaleChar125ConnectivityRouteImport } from './routes/{-$locale}/connectivity'
 import { Route as Char123LocaleChar125ContactRouteImport } from './routes/{-$locale}/contact'
 import { Route as Char123LocaleChar125CrmRouteImport } from './routes/{-$locale}/crm'
 import { Route as Char123LocaleChar125CustomersRouteImport } from './routes/{-$locale}/customers'
@@ -94,6 +95,12 @@ const Char123LocaleChar125CareersRoute =
   Char123LocaleChar125CareersRouteImport.update({
     id: '/{-$locale}/careers',
     path: '/{-$locale}/careers',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125ConnectivityRoute =
+  Char123LocaleChar125ConnectivityRouteImport.update({
+    id: '/{-$locale}/connectivity',
+    path: '/{-$locale}/connectivity',
     getParentRoute: () => rootRouteImport,
   } as any)
 const Char123LocaleChar125ContactRoute =
@@ -324,6 +331,7 @@ export interface FileRoutesByFullPath {
   '/{-$locale}/blog': typeof Char123LocaleChar125BlogRoute
   '/{-$locale}/calling': typeof Char123LocaleChar125CallingRoute
   '/{-$locale}/careers': typeof Char123LocaleChar125CareersRoute
+  '/{-$locale}/connectivity': typeof Char123LocaleChar125ConnectivityRoute
   '/{-$locale}/contact': typeof Char123LocaleChar125ContactRoute
   '/{-$locale}/crm': typeof Char123LocaleChar125CrmRoute
   '/{-$locale}/customers': typeof Char123LocaleChar125CustomersRoute
@@ -370,6 +378,7 @@ export interface FileRoutesByTo {
   '/{-$locale}/blog': typeof Char123LocaleChar125BlogRoute
   '/{-$locale}/calling': typeof Char123LocaleChar125CallingRoute
   '/{-$locale}/careers': typeof Char123LocaleChar125CareersRoute
+  '/{-$locale}/connectivity': typeof Char123LocaleChar125ConnectivityRoute
   '/{-$locale}/contact': typeof Char123LocaleChar125ContactRoute
   '/{-$locale}/crm': typeof Char123LocaleChar125CrmRoute
   '/{-$locale}/customers': typeof Char123LocaleChar125CustomersRoute
@@ -417,6 +426,7 @@ export interface FileRoutesById {
   '/{-$locale}/blog': typeof Char123LocaleChar125BlogRoute
   '/{-$locale}/calling': typeof Char123LocaleChar125CallingRoute
   '/{-$locale}/careers': typeof Char123LocaleChar125CareersRoute
+  '/{-$locale}/connectivity': typeof Char123LocaleChar125ConnectivityRoute
   '/{-$locale}/contact': typeof Char123LocaleChar125ContactRoute
   '/{-$locale}/crm': typeof Char123LocaleChar125CrmRoute
   '/{-$locale}/customers': typeof Char123LocaleChar125CustomersRoute
@@ -465,6 +475,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/blog'
     | '/{-$locale}/calling'
     | '/{-$locale}/careers'
+    | '/{-$locale}/connectivity'
     | '/{-$locale}/contact'
     | '/{-$locale}/crm'
     | '/{-$locale}/customers'
@@ -511,6 +522,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/blog'
     | '/{-$locale}/calling'
     | '/{-$locale}/careers'
+    | '/{-$locale}/connectivity'
     | '/{-$locale}/contact'
     | '/{-$locale}/crm'
     | '/{-$locale}/customers'
@@ -557,6 +569,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/blog'
     | '/{-$locale}/calling'
     | '/{-$locale}/careers'
+    | '/{-$locale}/connectivity'
     | '/{-$locale}/contact'
     | '/{-$locale}/crm'
     | '/{-$locale}/customers'
@@ -604,6 +617,7 @@ export interface RootRouteChildren {
   Char123LocaleChar125BlogRoute: typeof Char123LocaleChar125BlogRoute
   Char123LocaleChar125CallingRoute: typeof Char123LocaleChar125CallingRoute
   Char123LocaleChar125CareersRoute: typeof Char123LocaleChar125CareersRoute
+  Char123LocaleChar125ConnectivityRoute: typeof Char123LocaleChar125ConnectivityRoute
   Char123LocaleChar125ContactRoute: typeof Char123LocaleChar125ContactRoute
   Char123LocaleChar125CrmRoute: typeof Char123LocaleChar125CrmRoute
   Char123LocaleChar125CustomersRoute: typeof Char123LocaleChar125CustomersRoute
@@ -693,6 +707,13 @@ declare module '@tanstack/react-router' {
       path: '/{-$locale}/careers'
       fullPath: '/{-$locale}/careers'
       preLoaderRoute: typeof Char123LocaleChar125CareersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/{-$locale}/connectivity': {
+      id: '/{-$locale}/connectivity'
+      path: '/{-$locale}/connectivity'
+      fullPath: '/{-$locale}/connectivity'
+      preLoaderRoute: typeof Char123LocaleChar125ConnectivityRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/{-$locale}/contact': {
@@ -964,6 +985,7 @@ const rootRouteChildren: RootRouteChildren = {
   Char123LocaleChar125BlogRoute: Char123LocaleChar125BlogRoute,
   Char123LocaleChar125CallingRoute: Char123LocaleChar125CallingRoute,
   Char123LocaleChar125CareersRoute: Char123LocaleChar125CareersRoute,
+  Char123LocaleChar125ConnectivityRoute: Char123LocaleChar125ConnectivityRoute,
   Char123LocaleChar125ContactRoute: Char123LocaleChar125ContactRoute,
   Char123LocaleChar125CrmRoute: Char123LocaleChar125CrmRoute,
   Char123LocaleChar125CustomersRoute: Char123LocaleChar125CustomersRoute,
