@@ -1,0 +1,69 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { LegalDocument, type LegalDoc } from "@/components/LegalDocument";
+
+const doc: LegalDoc = {
+  eyebrow: "Legal",
+  title: "Connectivity Policy for Smartytel.com",
+  updated: "Effective date: 7 August 2026",
+  plain: true,
+  intro: [
+    "The connectivity policy for the Smartytel.com service ensures reliable and secure access to telecommunications networks. It prioritizes the following principles.",
+  ],
+  sections: [
+    {
+      heading: "Network Availability",
+      paragraphs: [
+        "Smartytel.com commits to maintaining high network uptime, ensuring users have consistent access to telecom services. Scheduled maintenance will be communicated in advance to minimize disruptions.",
+      ],
+    },
+    {
+      heading: "Data Security",
+      paragraphs: [
+        "All data transmitted through Smartytel.com services will be encrypted and protected against unauthorized access. Security measures will comply with industry standards and regulations.",
+      ],
+    },
+    {
+      heading: "Fair Usage",
+      paragraphs: [
+        "To maintain the quality of service for all users, Smartytel.com implements a fair usage policy. Excessive or abusive use of network resources may result in temporary service restrictions.",
+      ],
+    },
+    {
+      heading: "Service Transparency",
+      paragraphs: [
+        "Smartytel.com will provide clear and transparent information about service plans, pricing, and network policies. Users will be informed promptly about any changes to the policy.",
+      ],
+    },
+    {
+      heading: "Customer Support",
+      paragraphs: [
+        "Reliable customer support will be available to address connectivity issues or questions related to the service. You can reach us at support@smartytel.com.",
+      ],
+    },
+  ],
+  footer: [
+    "This policy ensures that Smartytel.com delivers a dependable and secure telecom experience to all users.",
+  ],
+};
+
+export const Route = createFileRoute("/{-$locale}/connectivity")({
+  head: () => ({
+    meta: [
+      { title: "Connectivity Policy | Smartytel" },
+      {
+        name: "description",
+        content:
+          "Smartytel connectivity policy: network availability, data security, fair usage, service transparency and customer support.",
+      },
+      { property: "og:title", content: "Connectivity Policy | Smartytel" },
+      {
+        property: "og:description",
+        content:
+          "Smartytel connectivity policy: network availability, data security, fair usage, service transparency and customer support.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: () => <LegalDocument doc={doc} />,
+});
