@@ -11,7 +11,9 @@ const doc: LegalDoc = {
   sections: [
     {
       heading: "Information We Collect",
-      paragraphs: ["We collect different types of information to provide and improve our services, including:"],
+      paragraphs: [
+        "We collect different types of information to provide and improve our services, including:",
+      ],
       items: [
         {
           term: "Personal Information",
