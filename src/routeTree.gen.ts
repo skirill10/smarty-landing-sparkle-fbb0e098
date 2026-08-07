@@ -32,6 +32,7 @@ import { Route as Char123LocaleChar125PhoneMenuRouteImport } from './routes/{-$l
 import { Route as Char123LocaleChar125PortYourNumberRouteImport } from './routes/{-$locale}/port-your-number'
 import { Route as Char123LocaleChar125PricingRouteImport } from './routes/{-$locale}/pricing'
 import { Route as Char123LocaleChar125PrivacyRouteImport } from './routes/{-$locale}/privacy'
+import { Route as Char123LocaleChar125RefundRouteImport } from './routes/{-$locale}/refund'
 import { Route as Char123LocaleChar125ResourcesRouteImport } from './routes/{-$locale}/resources'
 import { Route as Char123LocaleChar125SecurityRouteImport } from './routes/{-$locale}/security'
 import { Route as Char123LocaleChar125SharedNumbersRouteImport } from './routes/{-$locale}/shared-numbers'
@@ -190,6 +191,12 @@ const Char123LocaleChar125PrivacyRoute =
     path: '/{-$locale}/privacy',
     getParentRoute: () => rootRouteImport,
   } as any)
+const Char123LocaleChar125RefundRoute =
+  Char123LocaleChar125RefundRouteImport.update({
+    id: '/{-$locale}/refund',
+    path: '/{-$locale}/refund',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const Char123LocaleChar125ResourcesRoute =
   Char123LocaleChar125ResourcesRouteImport.update({
     id: '/{-$locale}/resources',
@@ -333,6 +340,7 @@ export interface FileRoutesByFullPath {
   '/{-$locale}/port-your-number': typeof Char123LocaleChar125PortYourNumberRoute
   '/{-$locale}/pricing': typeof Char123LocaleChar125PricingRoute
   '/{-$locale}/privacy': typeof Char123LocaleChar125PrivacyRoute
+  '/{-$locale}/refund': typeof Char123LocaleChar125RefundRoute
   '/{-$locale}/resources': typeof Char123LocaleChar125ResourcesRoute
   '/{-$locale}/security': typeof Char123LocaleChar125SecurityRoute
   '/{-$locale}/shared-numbers': typeof Char123LocaleChar125SharedNumbersRoute
@@ -378,6 +386,7 @@ export interface FileRoutesByTo {
   '/{-$locale}/port-your-number': typeof Char123LocaleChar125PortYourNumberRoute
   '/{-$locale}/pricing': typeof Char123LocaleChar125PricingRoute
   '/{-$locale}/privacy': typeof Char123LocaleChar125PrivacyRoute
+  '/{-$locale}/refund': typeof Char123LocaleChar125RefundRoute
   '/{-$locale}/resources': typeof Char123LocaleChar125ResourcesRoute
   '/{-$locale}/security': typeof Char123LocaleChar125SecurityRoute
   '/{-$locale}/shared-numbers': typeof Char123LocaleChar125SharedNumbersRoute
@@ -424,6 +433,7 @@ export interface FileRoutesById {
   '/{-$locale}/port-your-number': typeof Char123LocaleChar125PortYourNumberRoute
   '/{-$locale}/pricing': typeof Char123LocaleChar125PricingRoute
   '/{-$locale}/privacy': typeof Char123LocaleChar125PrivacyRoute
+  '/{-$locale}/refund': typeof Char123LocaleChar125RefundRoute
   '/{-$locale}/resources': typeof Char123LocaleChar125ResourcesRoute
   '/{-$locale}/security': typeof Char123LocaleChar125SecurityRoute
   '/{-$locale}/shared-numbers': typeof Char123LocaleChar125SharedNumbersRoute
@@ -471,6 +481,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/port-your-number'
     | '/{-$locale}/pricing'
     | '/{-$locale}/privacy'
+    | '/{-$locale}/refund'
     | '/{-$locale}/resources'
     | '/{-$locale}/security'
     | '/{-$locale}/shared-numbers'
@@ -516,6 +527,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/port-your-number'
     | '/{-$locale}/pricing'
     | '/{-$locale}/privacy'
+    | '/{-$locale}/refund'
     | '/{-$locale}/resources'
     | '/{-$locale}/security'
     | '/{-$locale}/shared-numbers'
@@ -561,6 +573,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/port-your-number'
     | '/{-$locale}/pricing'
     | '/{-$locale}/privacy'
+    | '/{-$locale}/refund'
     | '/{-$locale}/resources'
     | '/{-$locale}/security'
     | '/{-$locale}/shared-numbers'
@@ -607,6 +620,7 @@ export interface RootRouteChildren {
   Char123LocaleChar125PortYourNumberRoute: typeof Char123LocaleChar125PortYourNumberRoute
   Char123LocaleChar125PricingRoute: typeof Char123LocaleChar125PricingRoute
   Char123LocaleChar125PrivacyRoute: typeof Char123LocaleChar125PrivacyRoute
+  Char123LocaleChar125RefundRoute: typeof Char123LocaleChar125RefundRoute
   Char123LocaleChar125ResourcesRoute: typeof Char123LocaleChar125ResourcesRoute
   Char123LocaleChar125SecurityRoute: typeof Char123LocaleChar125SecurityRoute
   Char123LocaleChar125SharedNumbersRoute: typeof Char123LocaleChar125SharedNumbersRoute
@@ -793,6 +807,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char123LocaleChar125PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/{-$locale}/refund': {
+      id: '/{-$locale}/refund'
+      path: '/{-$locale}/refund'
+      fullPath: '/{-$locale}/refund'
+      preLoaderRoute: typeof Char123LocaleChar125RefundRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/{-$locale}/resources': {
       id: '/{-$locale}/resources'
       path: '/{-$locale}/resources'
@@ -960,6 +981,7 @@ const rootRouteChildren: RootRouteChildren = {
     Char123LocaleChar125PortYourNumberRoute,
   Char123LocaleChar125PricingRoute: Char123LocaleChar125PricingRoute,
   Char123LocaleChar125PrivacyRoute: Char123LocaleChar125PrivacyRoute,
+  Char123LocaleChar125RefundRoute: Char123LocaleChar125RefundRoute,
   Char123LocaleChar125ResourcesRoute: Char123LocaleChar125ResourcesRoute,
   Char123LocaleChar125SecurityRoute: Char123LocaleChar125SecurityRoute,
   Char123LocaleChar125SharedNumbersRoute:
@@ -998,13 +1020,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

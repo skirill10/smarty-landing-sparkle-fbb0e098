@@ -15,6 +15,8 @@ export type LegalDoc = {
   updated: string;
   sections: LegalSection[];
   footer?: string[];
+  /** Render lists as plain bullets instead of cards. */
+  plain?: boolean;
 };
 
 export function LegalDocument({ doc }: { doc: LegalDoc }) {
@@ -54,11 +56,21 @@ export function LegalDocument({ doc }: { doc: LegalDoc }) {
                   </p>
                 ))}
                 {section.items ? (
-                  <ul className="mt-5 grid gap-3">
+                  <ul
+                    className={
+                      doc.plain
+                        ? "mt-4 grid list-disc gap-2 pl-5 leading-relaxed text-muted-foreground"
+                        : "mt-5 grid gap-3"
+                    }
+                  >
                     {section.items.map((item) => (
                       <li
                         key={item.body}
-                        className="rounded-xl border border-border bg-card px-5 py-4 text-sm leading-relaxed text-muted-foreground"
+                        className={
+                          doc.plain
+                            ? ""
+                            : "rounded-xl border border-border bg-card px-5 py-4 text-sm leading-relaxed text-muted-foreground"
+                        }
                       >
                         {item.term ? (
                           <span className="font-semibold text-foreground">{t(item.term)}: </span>
