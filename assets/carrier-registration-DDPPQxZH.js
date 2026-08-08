@@ -1,0 +1,1 @@
+import{n as e}from"./createLucideIcon-BrE3mqFR.js";import{_ as t}from"./index-B_QpCRZX.js";import{t as n}from"./MarketingPage-Bx0ixhzZ.js";var r=e(),i=t[`carrier-registration`],a=()=>(0,r.jsx)(n,{content:i,slug:`carrier-registration`});export{a as component};
