@@ -39,7 +39,9 @@ const doc: LegalDoc = {
       heading: "Prohibited Activities",
       paragraphs: ["You agree not to:"],
       items: [
-        { body: "Use automated tools (e.g., bots, scrapers) to access or interact with our services." },
+        {
+          body: "Use automated tools (e.g., bots, scrapers) to access or interact with our services.",
+        },
         { body: "Introduce malware, viruses, or any other harmful software." },
         { body: "Interfere with the proper functioning of the platform." },
       ],
