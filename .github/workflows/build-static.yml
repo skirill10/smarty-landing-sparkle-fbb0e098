@@ -56,6 +56,20 @@ jobs:
       - name: Smoke test static artifact
         run: bun run smoke:static
 
+      - name: Install Playwright browser
+        run: bunx playwright install --with-deps chromium
+
+      - name: Playwright smoke tests (home + contact)
+        run: bun run test:e2e
+
+      - name: Upload Playwright report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report-${{ github.run_number }}
+          path: playwright-report
+          retention-days: 7
+
       # Pull requests must pass validation, build, and the artifact smoke test,
       # but only main publishes to the deploy branch.
       - name: Publish build output to the deploy branch
