@@ -23,7 +23,7 @@ import { CURRENCY_LABELS, isCurrencyCode } from "@/features/rates/utils/format";
 import type { CurrencyCode, DestinationType, RatesSort, Region } from "@/features/rates/types";
 import { canonicalUrl } from "@/lib/seo";
 
-const CANONICAL = "https://smarty-landing-sparkle.lovable.app/rates";
+const CANONICAL = canonicalUrl("/rates");
 
 const searchSchema = z.object({
   q: fallback(z.string(), "").default(""),
@@ -51,10 +51,8 @@ export const Route = createFileRoute("/{-$locale}/rates/")({
   loader: async ({ context }) => {
     await context.queryClient.ensureQueryData(ratesQueries.content());
   },
-  head: ({ params }) => ({
-    links: [{ rel: "canonical", href: canonicalUrl("/rates", params.locale) }],
+  head: () => ({
     meta: [
-      { property: "og:url", content: canonicalUrl("/rates", params.locale) },
       { title: "International Calling & SMS Rates by Country | Smartytel" },
       {
         name: "description",
@@ -83,7 +81,7 @@ export const Route = createFileRoute("/{-$locale}/rates/")({
               "@type": "ListItem",
               position: 1,
               name: "Home",
-              item: "https://smarty-landing-sparkle.lovable.app/",
+              item: "https://smarty.tel/",
             },
             { "@type": "ListItem", position: 2, name: "International rates", item: CANONICAL },
           ],

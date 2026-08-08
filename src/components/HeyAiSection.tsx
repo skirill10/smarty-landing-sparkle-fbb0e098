@@ -2,7 +2,7 @@ import { Link } from "@/components/Link";
 import { Bot, ExternalLink } from "lucide-react";
 import { useHeyAiContent } from "@/lib/cms-content";
 
-const FALLBACK_PAGE_URL = "https://smarty-landing-sparkle.lovable.app/";
+const FALLBACK_PAGE_URL = "https://smarty.tel/";
 
 const buildPrompt = (pageUrl: string) =>
   encodeURIComponent(

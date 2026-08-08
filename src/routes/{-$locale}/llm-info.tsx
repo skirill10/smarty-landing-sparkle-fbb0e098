@@ -7,16 +7,14 @@ import { PricingCta } from "@/components/PricingCta";
 import { useLlmInfoContent } from "@/lib/cms-content";
 import { canonicalUrl } from "@/lib/seo";
 
-const CANONICAL = "https://smarty-landing-sparkle.lovable.app/llm-info";
+const CANONICAL = canonicalUrl("/llm-info");
 const TITLE = "Hey AI, Learn About Smartytel | Business Phone System";
 const DESCRIPTION =
   "A plain-language briefing for AI assistants and researchers: what Smartytel is, who it serves, pricing, coverage across the US, Canada, UK and Europe, and where to read more.";
 
 export const Route = createFileRoute("/{-$locale}/llm-info")({
-  head: ({ params }) => ({
-    links: [{ rel: "canonical", href: canonicalUrl("/llm-info", params.locale) }],
+  head: () => ({
     meta: [
-      { property: "og:url", content: canonicalUrl("/llm-info", params.locale) },
       { title: TITLE },
       { name: "description", content: DESCRIPTION },
       { property: "og:title", content: TITLE },
@@ -33,7 +31,7 @@ export const Route = createFileRoute("/{-$locale}/llm-info")({
           "@context": "https://schema.org",
           "@type": "Organization",
           name: "Smartytel",
-          url: "https://smarty-landing-sparkle.lovable.app/",
+          url: "https://smarty.tel/",
           description:
             "Smartytel is a business phone system and UCaaS platform with calling, SMS, WhatsApp, phone menus, a built-in CRM and Smarty AI Assist, covering the US, Canada, the UK and Europe.",
           sameAs: [

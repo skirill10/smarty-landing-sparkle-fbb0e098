@@ -15,7 +15,7 @@ import { REGION_LABELS, SERVICE_LABELS, type CurrencyCode } from "@/features/rat
 import { CURRENCY_LABELS, formatInterval, formatRate } from "@/features/rates/utils/format";
 import { detectCurrency, saveCurrency } from "@/features/rates/utils/detectCurrency";
 
-const ORIGIN = "https://smarty-landing-sparkle.lovable.app";
+const ORIGIN = "https://smarty.tel";
 
 export const Route = createFileRoute("/{-$locale}/rates/$countrySlug")({
   loader: async ({ context, params }) => {
