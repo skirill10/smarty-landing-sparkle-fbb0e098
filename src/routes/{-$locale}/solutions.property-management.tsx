@@ -7,9 +7,14 @@ const content = pages["solutions/property-management"]!;
 
 export const Route = createFileRoute("/{-$locale}/solutions/property-management")({
   head: ({ params }) => ({
-    links: [{ rel: "canonical", href: canonicalUrl("/solutions/property-management", params.locale) }],
+    links: [
+      { rel: "canonical", href: canonicalUrl("/solutions/property-management", params.locale) },
+    ],
     meta: [
-      { property: "og:url", content: canonicalUrl("/solutions/property-management", params.locale) },
+      {
+        property: "og:url",
+        content: canonicalUrl("/solutions/property-management", params.locale),
+      },
       { title: "One line for tenants, owners and contractors | Smartytel" },
       {
         name: "description",
