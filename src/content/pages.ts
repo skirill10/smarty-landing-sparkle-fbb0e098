@@ -906,4 +906,264 @@ export const pages: Record<string, MarketingContent> = {
     metaDescription:
       "Encryption, access control, monitoring and the controls your security review will ask about.",
   },
+  webinars: {
+    eyebrow: "Webinars",
+    headline: "Live webinars for phone teams",
+    sub: "Join our team and customers live for practical sessions on call routing, AI answering and scaling a shared inbox.",
+    bullets: [
+      {
+        title: "Live product deep dives",
+        body: "Monthly sessions where our product team builds routing flows, IVR menus and AI prompts on screen.",
+      },
+      {
+        title: "Customer panels",
+        body: "Hear how home services, clinics and law firms run their phones day to day.",
+      },
+      {
+        title: "Q&A with support engineers",
+        body: "Bring your setup and get it reviewed live \u2014 porting, carriers, compliance and analytics.",
+      },
+      {
+        title: "On-demand replays",
+        body: "Every webinar is recorded and published with slides and a written summary.",
+      },
+    ],
+    metaTitle: "Business Phone Webinars & Live Sessions | Smartytel",
+    metaDescription:
+      "Live webinars and on-demand replays on call routing, AI answering, porting and running a shared team inbox with Smartytel.",
+  },
+  tutorials: {
+    eyebrow: "Tutorials",
+    headline: "Step-by-step Smartytel tutorials",
+    sub: "Short, screenshot-led guides that take you from a fresh account to a fully routed business phone system.",
+    bullets: [
+      {
+        title: "Getting started",
+        body: "Claim a number, invite your team and send your first business text in under ten minutes.",
+      },
+      {
+        title: "Routing recipes",
+        body: "Copyable setups for after-hours cover, on-call rotations and multi-country teams.",
+      },
+      {
+        title: "AI Assist prompts",
+        body: "Prompt patterns for greetings, qualification questions and voicemail summaries.",
+      },
+      {
+        title: "Integrations walkthroughs",
+        body: "Connect your CRM, helpdesk and calendar and check the data flows both ways.",
+      },
+    ],
+    metaTitle: "Smartytel Tutorials & How-To Guides | Smartytel",
+    metaDescription:
+      "Step-by-step tutorials for setting up numbers, call routing, AI Assist and integrations in your Smartytel workspace.",
+  },
+  "voicemail-generator": {
+    eyebrow: "Free tool",
+    headline: "Voicemail greeting generator",
+    sub: "Generate a professional voicemail script for your business in seconds, then record it or let AI voice it for you.",
+    bullets: [
+      {
+        title: "Scripts for every scenario",
+        body: "After hours, holidays, overflow, out of office and seasonal closures.",
+      },
+      {
+        title: "Tone you control",
+        body: "Warm, formal or brief \u2014 with your business name, hours and callback promise filled in.",
+      },
+      {
+        title: "Multi-language greetings",
+        body: "Generate the same greeting in every language you sell in.",
+      },
+      {
+        title: "One-click publish",
+        body: "Push the greeting straight onto a Smartytel number, or download the audio.",
+      },
+    ],
+    metaTitle: "Free Voicemail Greeting Generator | Smartytel",
+    metaDescription:
+      "Free voicemail greeting generator: create professional business voicemail scripts for after hours, holidays and overflow, in any language.",
+  },
+  "number-generator": {
+    eyebrow: "Free tool",
+    headline: "Phone number generator",
+    sub: "Generate valid-format example phone numbers for testing forms, seeding demos and validating your integrations.",
+    bullets: [
+      {
+        title: "Country-correct formats",
+        body: "E.164, national and local formats for the US, Canada, the UK and every European country.",
+      },
+      {
+        title: "Safe for testing",
+        body: "Numbers use reserved test ranges so you never dial a real person.",
+      },
+      {
+        title: "Bulk export",
+        body: "Generate hundreds at once and export as CSV for your test suite.",
+      },
+      {
+        title: "Validation helper",
+        body: "Paste a list and see which numbers would fail carrier validation before you import them.",
+      },
+    ],
+    metaTitle: "Free Phone Number Generator for Testing | Smartytel",
+    metaDescription:
+      "Generate valid-format test phone numbers for the US, Canada, the UK and Europe. Bulk export as CSV and validate lists before importing.",
+  },
+  community: {
+    eyebrow: "Community",
+    headline: "The Smartytel community",
+    sub: "Swap routing setups, AI prompts and operations advice with thousands of teams running their business on Smartytel.",
+    bullets: [
+      {
+        title: "Ask and answer",
+        body: "Real setups from real operators, searchable and answered by staff too.",
+      },
+      {
+        title: "Feature requests",
+        body: "Post an idea, vote on others and follow it through to shipped.",
+      },
+      {
+        title: "Local chapters",
+        body: "Country channels for numbering rules, carriers and regulation.",
+      },
+      {
+        title: "Build in public",
+        body: "Developers share API snippets, webhooks and automations you can copy.",
+      },
+    ],
+    metaTitle: "Smartytel Community Forum | Smartytel",
+    metaDescription:
+      "Join the Smartytel community to share call routing setups, AI prompts and API automations, and vote on what we build next.",
+  },
+  academy: {
+    eyebrow: "Academy",
+    headline: "Smartytel Academy",
+    sub: "Free, structured courses that take admins, agents and managers from first login to confident daily use.",
+    bullets: [
+      {
+        title: "Admin certification",
+        body: "Numbers, routing, permissions, billing and compliance in one guided track.",
+      },
+      {
+        title: "Agent essentials",
+        body: "Answer, transfer, note and close conversations without leaving the inbox.",
+      },
+      {
+        title: "Manager analytics",
+        body: "Read answer rates, response times and rep activity, then act on them.",
+      },
+      {
+        title: "Certificates",
+        body: "Finish a track and get a shareable certificate for your team records.",
+      },
+    ],
+    metaTitle: "Smartytel Academy: Free Courses & Certification | Smartytel",
+    metaDescription:
+      "Free Smartytel Academy courses for admins, agents and managers, with certification on routing, analytics and daily inbox workflow.",
+  },
+  "whats-new": {
+    eyebrow: "Product updates",
+    headline: "What's new in Smartytel",
+    sub: "Every release, in plain language: new features, improvements and fixes across calling, messaging, AI and analytics.",
+    bullets: [
+      {
+        title: "Monthly release notes",
+        body: "What shipped, what changed and what you need to do \u2014 if anything.",
+      },
+      {
+        title: "Feature spotlights",
+        body: "Short walkthroughs of the bigger launches with setup steps.",
+      },
+      {
+        title: "Deprecations early",
+        body: "Advance notice whenever an API or setting changes.",
+      },
+      {
+        title: "Roadmap signals",
+        body: "What we are actively building next, straight from the product team.",
+      },
+    ],
+    metaTitle: "What's New: Smartytel Product Updates | Smartytel",
+    metaDescription:
+      "Smartytel release notes and product updates across calling, messaging, AI Assist, analytics and the API \u2014 with early deprecation notices.",
+  },
+  press: {
+    eyebrow: "Press",
+    headline: "Press and media",
+    sub: "Company facts, brand assets and a direct line to our communications team.",
+    bullets: [
+      {
+        title: "Company facts",
+        body: "Founding, headquarters, coverage across the US, Canada, the UK and Europe, and customer numbers.",
+      },
+      {
+        title: "Brand assets",
+        body: "Logos, product screenshots and colour references, ready to publish.",
+      },
+      {
+        title: "Executive bios",
+        body: "Headshots and biographies for interviews and event listings.",
+      },
+      {
+        title: "Media contact",
+        body: "Reach our communications team and get a response within one business day.",
+      },
+    ],
+    metaTitle: "Press & Media Resources | Smartytel",
+    metaDescription:
+      "Smartytel press kit: company facts, brand assets, executive bios and a direct media contact for journalists and analysts.",
+  },
+  podcast: {
+    eyebrow: "Podcast",
+    headline: "The Smartytel podcast",
+    sub: "Conversations with operators about phones, customer conversations and the unglamorous work of never missing a call.",
+    bullets: [
+      {
+        title: "Operator interviews",
+        body: "How teams staff, route and measure their phone lines as they grow.",
+      },
+      {
+        title: "Telecom explained",
+        body: "Porting, carriers, spam labelling and regulation in language you can use.",
+      },
+      {
+        title: "AI in the front line",
+        body: "What AI answering actually changes, and where humans still win.",
+      },
+      {
+        title: "Everywhere you listen",
+        body: "Apple Podcasts, Spotify and YouTube, with full transcripts on every episode.",
+      },
+    ],
+    metaTitle: "The Smartytel Podcast | Smartytel",
+    metaDescription:
+      "A podcast about business phones and customer conversations: operator interviews, telecom explained and honest takes on AI answering.",
+  },
+  "carrier-registration": {
+    eyebrow: "Compliance",
+    headline: "Carrier and sender registration",
+    sub: "Get your business registered with carriers so your calls connect and your texts actually get delivered.",
+    bullets: [
+      {
+        title: "10DLC and toll-free",
+        body: "US brand and campaign registration handled with you, start to finish.",
+      },
+      {
+        title: "Caller ID and branding",
+        body: "Register your business name so customers see who is calling instead of a number.",
+      },
+      {
+        title: "Anti-spam labelling",
+        body: "Reduce mislabelled calls and appeal wrongly flagged numbers.",
+      },
+      {
+        title: "EU and UK requirements",
+        body: "Sender IDs, local presence rules and documentation for each country you message in.",
+      },
+    ],
+    metaTitle: "Carrier & 10DLC Sender Registration | Smartytel",
+    metaDescription:
+      "Register your business for 10DLC, toll-free messaging, branded caller ID and EU/UK sender IDs so calls connect and texts get delivered.",
+  },
 };
