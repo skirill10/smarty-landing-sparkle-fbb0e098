@@ -16,7 +16,10 @@ export const Route = createFileRoute("/{-$locale}/academy")({
         content:
           "Free Smartytel Academy courses for admins, agents and managers, with certification on routing, analytics and daily inbox workflow.",
       },
-      { property: "og:title", content: "Smartytel Academy: Free Courses & Certification | Smartytel" },
+      {
+        property: "og:title",
+        content: "Smartytel Academy: Free Courses & Certification | Smartytel",
+      },
       {
         property: "og:description",
         content:
