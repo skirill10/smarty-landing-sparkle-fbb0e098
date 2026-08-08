@@ -3,6 +3,8 @@ name: Build static site
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   repository_dispatch:
     types: [cms-publish]
   workflow_dispatch:
@@ -11,8 +13,9 @@ permissions:
   contents: write
 
 concurrency:
-  group: build-static
+  group: build-static-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
+
 
 jobs:
   build:
