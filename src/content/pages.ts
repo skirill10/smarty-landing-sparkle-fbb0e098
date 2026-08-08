@@ -906,7 +906,7 @@ export const pages: Record<string, MarketingContent> = {
     metaDescription:
       "Encryption, access control, monitoring and the controls your security review will ask about.",
   },
-  "webinars": {
+  webinars: {
     eyebrow: "Webinars",
     headline: "Live webinars for phone teams",
     sub: "Join our team and customers live for practical sessions on call routing, AI answering and scaling a shared inbox.",
@@ -929,9 +929,10 @@ export const pages: Record<string, MarketingContent> = {
       },
     ],
     metaTitle: "Business Phone Webinars & Live Sessions | Smartytel",
-    metaDescription: "Live webinars and on-demand replays on call routing, AI answering, porting and running a shared team inbox with Smartytel.",
+    metaDescription:
+      "Live webinars and on-demand replays on call routing, AI answering, porting and running a shared team inbox with Smartytel.",
   },
-  "tutorials": {
+  tutorials: {
     eyebrow: "Tutorials",
     headline: "Step-by-step Smartytel tutorials",
     sub: "Short, screenshot-led guides that take you from a fresh account to a fully routed business phone system.",
@@ -954,7 +955,8 @@ export const pages: Record<string, MarketingContent> = {
       },
     ],
     metaTitle: "Smartytel Tutorials & How-To Guides | Smartytel",
-    metaDescription: "Step-by-step tutorials for setting up numbers, call routing, AI Assist and integrations in your Smartytel workspace.",
+    metaDescription:
+      "Step-by-step tutorials for setting up numbers, call routing, AI Assist and integrations in your Smartytel workspace.",
   },
   "voicemail-generator": {
     eyebrow: "Free tool",
@@ -979,7 +981,8 @@ export const pages: Record<string, MarketingContent> = {
       },
     ],
     metaTitle: "Free Voicemail Greeting Generator | Smartytel",
-    metaDescription: "Free voicemail greeting generator: create professional business voicemail scripts for after hours, holidays and overflow, in any language.",
+    metaDescription:
+      "Free voicemail greeting generator: create professional business voicemail scripts for after hours, holidays and overflow, in any language.",
   },
   "number-generator": {
     eyebrow: "Free tool",
@@ -1004,9 +1007,10 @@ export const pages: Record<string, MarketingContent> = {
       },
     ],
     metaTitle: "Free Phone Number Generator for Testing | Smartytel",
-    metaDescription: "Generate valid-format test phone numbers for the US, Canada, the UK and Europe. Bulk export as CSV and validate lists before importing.",
+    metaDescription:
+      "Generate valid-format test phone numbers for the US, Canada, the UK and Europe. Bulk export as CSV and validate lists before importing.",
   },
-  "community": {
+  community: {
     eyebrow: "Community",
     headline: "The Smartytel community",
     sub: "Swap routing setups, AI prompts and operations advice with thousands of teams running their business on Smartytel.",
@@ -1029,9 +1033,10 @@ export const pages: Record<string, MarketingContent> = {
       },
     ],
     metaTitle: "Smartytel Community Forum | Smartytel",
-    metaDescription: "Join the Smartytel community to share call routing setups, AI prompts and API automations, and vote on what we build next.",
+    metaDescription:
+      "Join the Smartytel community to share call routing setups, AI prompts and API automations, and vote on what we build next.",
   },
-  "academy": {
+  academy: {
     eyebrow: "Academy",
     headline: "Smartytel Academy",
     sub: "Free, structured courses that take admins, agents and managers from first login to confident daily use.",
@@ -1054,7 +1059,8 @@ export const pages: Record<string, MarketingContent> = {
       },
     ],
     metaTitle: "Smartytel Academy: Free Courses & Certification | Smartytel",
-    metaDescription: "Free Smartytel Academy courses for admins, agents and managers, with certification on routing, analytics and daily inbox workflow.",
+    metaDescription:
+      "Free Smartytel Academy courses for admins, agents and managers, with certification on routing, analytics and daily inbox workflow.",
   },
   "whats-new": {
     eyebrow: "Product updates",
@@ -1079,9 +1085,10 @@ export const pages: Record<string, MarketingContent> = {
       },
     ],
     metaTitle: "What's New: Smartytel Product Updates | Smartytel",
-    metaDescription: "Smartytel release notes and product updates across calling, messaging, AI Assist, analytics and the API \u2014 with early deprecation notices.",
+    metaDescription:
+      "Smartytel release notes and product updates across calling, messaging, AI Assist, analytics and the API \u2014 with early deprecation notices.",
   },
-  "press": {
+  press: {
     eyebrow: "Press",
     headline: "Press and media",
     sub: "Company facts, brand assets and a direct line to our communications team.",
@@ -1104,9 +1111,10 @@ export const pages: Record<string, MarketingContent> = {
       },
     ],
     metaTitle: "Press & Media Resources | Smartytel",
-    metaDescription: "Smartytel press kit: company facts, brand assets, executive bios and a direct media contact for journalists and analysts.",
+    metaDescription:
+      "Smartytel press kit: company facts, brand assets, executive bios and a direct media contact for journalists and analysts.",
   },
-  "podcast": {
+  podcast: {
     eyebrow: "Podcast",
     headline: "The Smartytel podcast",
     sub: "Conversations with operators about phones, customer conversations and the unglamorous work of never missing a call.",
@@ -1129,7 +1137,8 @@ export const pages: Record<string, MarketingContent> = {
       },
     ],
     metaTitle: "The Smartytel Podcast | Smartytel",
-    metaDescription: "A podcast about business phones and customer conversations: operator interviews, telecom explained and honest takes on AI answering.",
+    metaDescription:
+      "A podcast about business phones and customer conversations: operator interviews, telecom explained and honest takes on AI answering.",
   },
   "carrier-registration": {
     eyebrow: "Compliance",
@@ -1154,6 +1163,7 @@ export const pages: Record<string, MarketingContent> = {
       },
     ],
     metaTitle: "Carrier & 10DLC Sender Registration | Smartytel",
-    metaDescription: "Register your business for 10DLC, toll-free messaging, branded caller ID and EU/UK sender IDs so calls connect and texts get delivered.",
+    metaDescription:
+      "Register your business for 10DLC, toll-free messaging, branded caller ID and EU/UK sender IDs so calls connect and texts get delivered.",
   },
 };
