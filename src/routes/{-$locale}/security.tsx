@@ -1,12 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { MarketingPage } from "@/components/MarketingPage";
 import { pages } from "@/content/pages";
+import { canonicalUrl } from "@/lib/seo";
 
 const content = pages["security"]!;
 
 export const Route = createFileRoute("/{-$locale}/security")({
-  head: () => ({
+  head: ({ params }) => ({
+    links: [{ rel: "canonical", href: canonicalUrl("/security", params.locale) }],
     meta: [
+      { property: "og:url", content: canonicalUrl("/security", params.locale) },
       { title: "How we keep your conversations safe | Smartytel" },
       {
         name: "description",

@@ -21,6 +21,7 @@ import { DEFAULT_PAGE_SIZE } from "@/features/rates/api/ratesRepository";
 import { detectCurrency, saveCurrency } from "@/features/rates/utils/detectCurrency";
 import { CURRENCY_LABELS, isCurrencyCode } from "@/features/rates/utils/format";
 import type { CurrencyCode, DestinationType, RatesSort, Region } from "@/features/rates/types";
+import { canonicalUrl } from "@/lib/seo";
 
 const CANONICAL = "https://smarty-landing-sparkle.lovable.app/rates";
 
@@ -50,8 +51,10 @@ export const Route = createFileRoute("/{-$locale}/rates/")({
   loader: async ({ context }) => {
     await context.queryClient.ensureQueryData(ratesQueries.content());
   },
-  head: () => ({
+  head: ({ params }) => ({
+    links: [{ rel: "canonical", href: canonicalUrl("/rates", params.locale) }],
     meta: [
+      { property: "og:url", content: canonicalUrl("/rates", params.locale) },
       { title: "International Calling & SMS Rates by Country | Smartytel" },
       {
         name: "description",

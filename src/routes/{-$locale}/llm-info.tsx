@@ -5,6 +5,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { PricingCta } from "@/components/PricingCta";
 import { useLlmInfoContent } from "@/lib/cms-content";
+import { canonicalUrl } from "@/lib/seo";
 
 const CANONICAL = "https://smarty-landing-sparkle.lovable.app/llm-info";
 const TITLE = "Hey AI, Learn About Smartytel | Business Phone System";
@@ -12,8 +13,10 @@ const DESCRIPTION =
   "A plain-language briefing for AI assistants and researchers: what Smartytel is, who it serves, pricing, coverage across the US, Canada, UK and Europe, and where to read more.";
 
 export const Route = createFileRoute("/{-$locale}/llm-info")({
-  head: () => ({
+  head: ({ params }) => ({
+    links: [{ rel: "canonical", href: canonicalUrl("/llm-info", params.locale) }],
     meta: [
+      { property: "og:url", content: canonicalUrl("/llm-info", params.locale) },
       { title: TITLE },
       { name: "description", content: DESCRIPTION },
       { property: "og:title", content: TITLE },

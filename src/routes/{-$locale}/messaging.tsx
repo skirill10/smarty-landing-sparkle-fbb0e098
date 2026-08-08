@@ -1,12 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { MarketingPage } from "@/components/MarketingPage";
 import { pages } from "@/content/pages";
+import { canonicalUrl } from "@/lib/seo";
 
 const content = pages["messaging"]!;
 
 export const Route = createFileRoute("/{-$locale}/messaging")({
-  head: () => ({
+  head: ({ params }) => ({
+    links: [{ rel: "canonical", href: canonicalUrl("/messaging", params.locale) }],
     meta: [
+      { property: "og:url", content: canonicalUrl("/messaging", params.locale) },
       { title: "Text, WhatsApp and Telegram from your business n | Smartytel" },
       {
         name: "description",

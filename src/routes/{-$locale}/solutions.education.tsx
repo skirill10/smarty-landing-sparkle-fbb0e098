@@ -1,12 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { MarketingPage } from "@/components/MarketingPage";
 import { pages } from "@/content/pages";
+import { canonicalUrl } from "@/lib/seo";
 
 const content = pages["solutions/education"]!;
 
 export const Route = createFileRoute("/{-$locale}/solutions/education")({
-  head: () => ({
+  head: ({ params }) => ({
+    links: [{ rel: "canonical", href: canonicalUrl("/solutions/education", params.locale) }],
     meta: [
+      { property: "og:url", content: canonicalUrl("/solutions/education", params.locale) },
       { title: "One number for parents, students and staff | Smartytel" },
       {
         name: "description",
