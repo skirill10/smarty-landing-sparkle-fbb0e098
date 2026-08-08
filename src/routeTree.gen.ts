@@ -11,11 +11,14 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as Char123LocaleChar125IndexRouteImport } from './routes/{-$locale}/index'
 import { Route as Char123LocaleChar125AboutRouteImport } from './routes/{-$locale}/about'
+import { Route as Char123LocaleChar125AcademyRouteImport } from './routes/{-$locale}/academy'
 import { Route as Char123LocaleChar125AiAgentRouteImport } from './routes/{-$locale}/ai-agent'
 import { Route as Char123LocaleChar125AnalyticsRouteImport } from './routes/{-$locale}/analytics'
 import { Route as Char123LocaleChar125BlogRouteImport } from './routes/{-$locale}/blog'
 import { Route as Char123LocaleChar125CallingRouteImport } from './routes/{-$locale}/calling'
 import { Route as Char123LocaleChar125CareersRouteImport } from './routes/{-$locale}/careers'
+import { Route as Char123LocaleChar125CarrierRegistrationRouteImport } from './routes/{-$locale}/carrier-registration'
+import { Route as Char123LocaleChar125CommunityRouteImport } from './routes/{-$locale}/community'
 import { Route as Char123LocaleChar125ConnectivityRouteImport } from './routes/{-$locale}/connectivity'
 import { Route as Char123LocaleChar125ContactRouteImport } from './routes/{-$locale}/contact'
 import { Route as Char123LocaleChar125CrmRouteImport } from './routes/{-$locale}/crm'
@@ -28,9 +31,12 @@ import { Route as Char123LocaleChar125GdprRouteImport } from './routes/{-$locale
 import { Route as Char123LocaleChar125IntegrationsRouteImport } from './routes/{-$locale}/integrations'
 import { Route as Char123LocaleChar125LlmInfoRouteImport } from './routes/{-$locale}/llm-info'
 import { Route as Char123LocaleChar125MessagingRouteImport } from './routes/{-$locale}/messaging'
+import { Route as Char123LocaleChar125NumberGeneratorRouteImport } from './routes/{-$locale}/number-generator'
 import { Route as Char123LocaleChar125PartnersRouteImport } from './routes/{-$locale}/partners'
 import { Route as Char123LocaleChar125PhoneMenuRouteImport } from './routes/{-$locale}/phone-menu'
+import { Route as Char123LocaleChar125PodcastRouteImport } from './routes/{-$locale}/podcast'
 import { Route as Char123LocaleChar125PortYourNumberRouteImport } from './routes/{-$locale}/port-your-number'
+import { Route as Char123LocaleChar125PressRouteImport } from './routes/{-$locale}/press'
 import { Route as Char123LocaleChar125PricingRouteImport } from './routes/{-$locale}/pricing'
 import { Route as Char123LocaleChar125PrivacyRouteImport } from './routes/{-$locale}/privacy'
 import { Route as Char123LocaleChar125RefundRouteImport } from './routes/{-$locale}/refund'
@@ -40,7 +46,11 @@ import { Route as Char123LocaleChar125SharedNumbersRouteImport } from './routes/
 import { Route as Char123LocaleChar125StatusRouteImport } from './routes/{-$locale}/status'
 import { Route as Char123LocaleChar125TasksRouteImport } from './routes/{-$locale}/tasks'
 import { Route as Char123LocaleChar125TermsRouteImport } from './routes/{-$locale}/terms'
+import { Route as Char123LocaleChar125TutorialsRouteImport } from './routes/{-$locale}/tutorials'
 import { Route as Char123LocaleChar125UsageRouteImport } from './routes/{-$locale}/usage'
+import { Route as Char123LocaleChar125VoicemailGeneratorRouteImport } from './routes/{-$locale}/voicemail-generator'
+import { Route as Char123LocaleChar125WebinarsRouteImport } from './routes/{-$locale}/webinars'
+import { Route as Char123LocaleChar125WhatsNewRouteImport } from './routes/{-$locale}/whats-new'
 import { Route as ApiPublicRatesSheetRouteImport } from './routes/api/public/rates-sheet'
 import { Route as Char123LocaleChar125RatesIndexRouteImport } from './routes/{-$locale}/rates.index'
 import { Route as Char123LocaleChar125RatesCountrySlugRouteImport } from './routes/{-$locale}/rates.$countrySlug'
@@ -66,6 +76,12 @@ const Char123LocaleChar125AboutRoute =
   Char123LocaleChar125AboutRouteImport.update({
     id: '/{-$locale}/about',
     path: '/{-$locale}/about',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125AcademyRoute =
+  Char123LocaleChar125AcademyRouteImport.update({
+    id: '/{-$locale}/academy',
+    path: '/{-$locale}/academy',
     getParentRoute: () => rootRouteImport,
   } as any)
 const Char123LocaleChar125AiAgentRoute =
@@ -96,6 +112,18 @@ const Char123LocaleChar125CareersRoute =
   Char123LocaleChar125CareersRouteImport.update({
     id: '/{-$locale}/careers',
     path: '/{-$locale}/careers',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125CarrierRegistrationRoute =
+  Char123LocaleChar125CarrierRegistrationRouteImport.update({
+    id: '/{-$locale}/carrier-registration',
+    path: '/{-$locale}/carrier-registration',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125CommunityRoute =
+  Char123LocaleChar125CommunityRouteImport.update({
+    id: '/{-$locale}/community',
+    path: '/{-$locale}/community',
     getParentRoute: () => rootRouteImport,
   } as any)
 const Char123LocaleChar125ConnectivityRoute =
@@ -169,6 +197,12 @@ const Char123LocaleChar125MessagingRoute =
     path: '/{-$locale}/messaging',
     getParentRoute: () => rootRouteImport,
   } as any)
+const Char123LocaleChar125NumberGeneratorRoute =
+  Char123LocaleChar125NumberGeneratorRouteImport.update({
+    id: '/{-$locale}/number-generator',
+    path: '/{-$locale}/number-generator',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const Char123LocaleChar125PartnersRoute =
   Char123LocaleChar125PartnersRouteImport.update({
     id: '/{-$locale}/partners',
@@ -181,10 +215,22 @@ const Char123LocaleChar125PhoneMenuRoute =
     path: '/{-$locale}/phone-menu',
     getParentRoute: () => rootRouteImport,
   } as any)
+const Char123LocaleChar125PodcastRoute =
+  Char123LocaleChar125PodcastRouteImport.update({
+    id: '/{-$locale}/podcast',
+    path: '/{-$locale}/podcast',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const Char123LocaleChar125PortYourNumberRoute =
   Char123LocaleChar125PortYourNumberRouteImport.update({
     id: '/{-$locale}/port-your-number',
     path: '/{-$locale}/port-your-number',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125PressRoute =
+  Char123LocaleChar125PressRouteImport.update({
+    id: '/{-$locale}/press',
+    path: '/{-$locale}/press',
     getParentRoute: () => rootRouteImport,
   } as any)
 const Char123LocaleChar125PricingRoute =
@@ -241,10 +287,34 @@ const Char123LocaleChar125TermsRoute =
     path: '/{-$locale}/terms',
     getParentRoute: () => rootRouteImport,
   } as any)
+const Char123LocaleChar125TutorialsRoute =
+  Char123LocaleChar125TutorialsRouteImport.update({
+    id: '/{-$locale}/tutorials',
+    path: '/{-$locale}/tutorials',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const Char123LocaleChar125UsageRoute =
   Char123LocaleChar125UsageRouteImport.update({
     id: '/{-$locale}/usage',
     path: '/{-$locale}/usage',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125VoicemailGeneratorRoute =
+  Char123LocaleChar125VoicemailGeneratorRouteImport.update({
+    id: '/{-$locale}/voicemail-generator',
+    path: '/{-$locale}/voicemail-generator',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125WebinarsRoute =
+  Char123LocaleChar125WebinarsRouteImport.update({
+    id: '/{-$locale}/webinars',
+    path: '/{-$locale}/webinars',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125WhatsNewRoute =
+  Char123LocaleChar125WhatsNewRouteImport.update({
+    id: '/{-$locale}/whats-new',
+    path: '/{-$locale}/whats-new',
     getParentRoute: () => rootRouteImport,
   } as any)
 const ApiPublicRatesSheetRoute = ApiPublicRatesSheetRouteImport.update({
@@ -333,11 +403,14 @@ const Char123LocaleChar125SolutionsSupportRoute =
 
 export interface FileRoutesByFullPath {
   '/{-$locale}/about': typeof Char123LocaleChar125AboutRoute
+  '/{-$locale}/academy': typeof Char123LocaleChar125AcademyRoute
   '/{-$locale}/ai-agent': typeof Char123LocaleChar125AiAgentRoute
   '/{-$locale}/analytics': typeof Char123LocaleChar125AnalyticsRoute
   '/{-$locale}/blog': typeof Char123LocaleChar125BlogRoute
   '/{-$locale}/calling': typeof Char123LocaleChar125CallingRoute
   '/{-$locale}/careers': typeof Char123LocaleChar125CareersRoute
+  '/{-$locale}/carrier-registration': typeof Char123LocaleChar125CarrierRegistrationRoute
+  '/{-$locale}/community': typeof Char123LocaleChar125CommunityRoute
   '/{-$locale}/connectivity': typeof Char123LocaleChar125ConnectivityRoute
   '/{-$locale}/contact': typeof Char123LocaleChar125ContactRoute
   '/{-$locale}/crm': typeof Char123LocaleChar125CrmRoute
@@ -350,9 +423,12 @@ export interface FileRoutesByFullPath {
   '/{-$locale}/integrations': typeof Char123LocaleChar125IntegrationsRoute
   '/{-$locale}/llm-info': typeof Char123LocaleChar125LlmInfoRoute
   '/{-$locale}/messaging': typeof Char123LocaleChar125MessagingRoute
+  '/{-$locale}/number-generator': typeof Char123LocaleChar125NumberGeneratorRoute
   '/{-$locale}/partners': typeof Char123LocaleChar125PartnersRoute
   '/{-$locale}/phone-menu': typeof Char123LocaleChar125PhoneMenuRoute
+  '/{-$locale}/podcast': typeof Char123LocaleChar125PodcastRoute
   '/{-$locale}/port-your-number': typeof Char123LocaleChar125PortYourNumberRoute
+  '/{-$locale}/press': typeof Char123LocaleChar125PressRoute
   '/{-$locale}/pricing': typeof Char123LocaleChar125PricingRoute
   '/{-$locale}/privacy': typeof Char123LocaleChar125PrivacyRoute
   '/{-$locale}/refund': typeof Char123LocaleChar125RefundRoute
@@ -362,7 +438,11 @@ export interface FileRoutesByFullPath {
   '/{-$locale}/status': typeof Char123LocaleChar125StatusRoute
   '/{-$locale}/tasks': typeof Char123LocaleChar125TasksRoute
   '/{-$locale}/terms': typeof Char123LocaleChar125TermsRoute
+  '/{-$locale}/tutorials': typeof Char123LocaleChar125TutorialsRoute
   '/{-$locale}/usage': typeof Char123LocaleChar125UsageRoute
+  '/{-$locale}/voicemail-generator': typeof Char123LocaleChar125VoicemailGeneratorRoute
+  '/{-$locale}/webinars': typeof Char123LocaleChar125WebinarsRoute
+  '/{-$locale}/whats-new': typeof Char123LocaleChar125WhatsNewRoute
   '/{-$locale}/': typeof Char123LocaleChar125IndexRoute
   '/api/public/rates-sheet': typeof ApiPublicRatesSheetRoute
   '/{-$locale}/rates/$countrySlug': typeof Char123LocaleChar125RatesCountrySlugRoute
@@ -381,11 +461,14 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/{-$locale}/about': typeof Char123LocaleChar125AboutRoute
+  '/{-$locale}/academy': typeof Char123LocaleChar125AcademyRoute
   '/{-$locale}/ai-agent': typeof Char123LocaleChar125AiAgentRoute
   '/{-$locale}/analytics': typeof Char123LocaleChar125AnalyticsRoute
   '/{-$locale}/blog': typeof Char123LocaleChar125BlogRoute
   '/{-$locale}/calling': typeof Char123LocaleChar125CallingRoute
   '/{-$locale}/careers': typeof Char123LocaleChar125CareersRoute
+  '/{-$locale}/carrier-registration': typeof Char123LocaleChar125CarrierRegistrationRoute
+  '/{-$locale}/community': typeof Char123LocaleChar125CommunityRoute
   '/{-$locale}/connectivity': typeof Char123LocaleChar125ConnectivityRoute
   '/{-$locale}/contact': typeof Char123LocaleChar125ContactRoute
   '/{-$locale}/crm': typeof Char123LocaleChar125CrmRoute
@@ -398,9 +481,12 @@ export interface FileRoutesByTo {
   '/{-$locale}/integrations': typeof Char123LocaleChar125IntegrationsRoute
   '/{-$locale}/llm-info': typeof Char123LocaleChar125LlmInfoRoute
   '/{-$locale}/messaging': typeof Char123LocaleChar125MessagingRoute
+  '/{-$locale}/number-generator': typeof Char123LocaleChar125NumberGeneratorRoute
   '/{-$locale}/partners': typeof Char123LocaleChar125PartnersRoute
   '/{-$locale}/phone-menu': typeof Char123LocaleChar125PhoneMenuRoute
+  '/{-$locale}/podcast': typeof Char123LocaleChar125PodcastRoute
   '/{-$locale}/port-your-number': typeof Char123LocaleChar125PortYourNumberRoute
+  '/{-$locale}/press': typeof Char123LocaleChar125PressRoute
   '/{-$locale}/pricing': typeof Char123LocaleChar125PricingRoute
   '/{-$locale}/privacy': typeof Char123LocaleChar125PrivacyRoute
   '/{-$locale}/refund': typeof Char123LocaleChar125RefundRoute
@@ -410,7 +496,11 @@ export interface FileRoutesByTo {
   '/{-$locale}/status': typeof Char123LocaleChar125StatusRoute
   '/{-$locale}/tasks': typeof Char123LocaleChar125TasksRoute
   '/{-$locale}/terms': typeof Char123LocaleChar125TermsRoute
+  '/{-$locale}/tutorials': typeof Char123LocaleChar125TutorialsRoute
   '/{-$locale}/usage': typeof Char123LocaleChar125UsageRoute
+  '/{-$locale}/voicemail-generator': typeof Char123LocaleChar125VoicemailGeneratorRoute
+  '/{-$locale}/webinars': typeof Char123LocaleChar125WebinarsRoute
+  '/{-$locale}/whats-new': typeof Char123LocaleChar125WhatsNewRoute
   '/{-$locale}': typeof Char123LocaleChar125IndexRoute
   '/api/public/rates-sheet': typeof ApiPublicRatesSheetRoute
   '/{-$locale}/rates/$countrySlug': typeof Char123LocaleChar125RatesCountrySlugRoute
@@ -430,11 +520,14 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/{-$locale}/about': typeof Char123LocaleChar125AboutRoute
+  '/{-$locale}/academy': typeof Char123LocaleChar125AcademyRoute
   '/{-$locale}/ai-agent': typeof Char123LocaleChar125AiAgentRoute
   '/{-$locale}/analytics': typeof Char123LocaleChar125AnalyticsRoute
   '/{-$locale}/blog': typeof Char123LocaleChar125BlogRoute
   '/{-$locale}/calling': typeof Char123LocaleChar125CallingRoute
   '/{-$locale}/careers': typeof Char123LocaleChar125CareersRoute
+  '/{-$locale}/carrier-registration': typeof Char123LocaleChar125CarrierRegistrationRoute
+  '/{-$locale}/community': typeof Char123LocaleChar125CommunityRoute
   '/{-$locale}/connectivity': typeof Char123LocaleChar125ConnectivityRoute
   '/{-$locale}/contact': typeof Char123LocaleChar125ContactRoute
   '/{-$locale}/crm': typeof Char123LocaleChar125CrmRoute
@@ -447,9 +540,12 @@ export interface FileRoutesById {
   '/{-$locale}/integrations': typeof Char123LocaleChar125IntegrationsRoute
   '/{-$locale}/llm-info': typeof Char123LocaleChar125LlmInfoRoute
   '/{-$locale}/messaging': typeof Char123LocaleChar125MessagingRoute
+  '/{-$locale}/number-generator': typeof Char123LocaleChar125NumberGeneratorRoute
   '/{-$locale}/partners': typeof Char123LocaleChar125PartnersRoute
   '/{-$locale}/phone-menu': typeof Char123LocaleChar125PhoneMenuRoute
+  '/{-$locale}/podcast': typeof Char123LocaleChar125PodcastRoute
   '/{-$locale}/port-your-number': typeof Char123LocaleChar125PortYourNumberRoute
+  '/{-$locale}/press': typeof Char123LocaleChar125PressRoute
   '/{-$locale}/pricing': typeof Char123LocaleChar125PricingRoute
   '/{-$locale}/privacy': typeof Char123LocaleChar125PrivacyRoute
   '/{-$locale}/refund': typeof Char123LocaleChar125RefundRoute
@@ -459,7 +555,11 @@ export interface FileRoutesById {
   '/{-$locale}/status': typeof Char123LocaleChar125StatusRoute
   '/{-$locale}/tasks': typeof Char123LocaleChar125TasksRoute
   '/{-$locale}/terms': typeof Char123LocaleChar125TermsRoute
+  '/{-$locale}/tutorials': typeof Char123LocaleChar125TutorialsRoute
   '/{-$locale}/usage': typeof Char123LocaleChar125UsageRoute
+  '/{-$locale}/voicemail-generator': typeof Char123LocaleChar125VoicemailGeneratorRoute
+  '/{-$locale}/webinars': typeof Char123LocaleChar125WebinarsRoute
+  '/{-$locale}/whats-new': typeof Char123LocaleChar125WhatsNewRoute
   '/{-$locale}/': typeof Char123LocaleChar125IndexRoute
   '/api/public/rates-sheet': typeof ApiPublicRatesSheetRoute
   '/{-$locale}/rates/$countrySlug': typeof Char123LocaleChar125RatesCountrySlugRoute
@@ -480,11 +580,14 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/{-$locale}/about'
+    | '/{-$locale}/academy'
     | '/{-$locale}/ai-agent'
     | '/{-$locale}/analytics'
     | '/{-$locale}/blog'
     | '/{-$locale}/calling'
     | '/{-$locale}/careers'
+    | '/{-$locale}/carrier-registration'
+    | '/{-$locale}/community'
     | '/{-$locale}/connectivity'
     | '/{-$locale}/contact'
     | '/{-$locale}/crm'
@@ -497,9 +600,12 @@ export interface FileRouteTypes {
     | '/{-$locale}/integrations'
     | '/{-$locale}/llm-info'
     | '/{-$locale}/messaging'
+    | '/{-$locale}/number-generator'
     | '/{-$locale}/partners'
     | '/{-$locale}/phone-menu'
+    | '/{-$locale}/podcast'
     | '/{-$locale}/port-your-number'
+    | '/{-$locale}/press'
     | '/{-$locale}/pricing'
     | '/{-$locale}/privacy'
     | '/{-$locale}/refund'
@@ -509,7 +615,11 @@ export interface FileRouteTypes {
     | '/{-$locale}/status'
     | '/{-$locale}/tasks'
     | '/{-$locale}/terms'
+    | '/{-$locale}/tutorials'
     | '/{-$locale}/usage'
+    | '/{-$locale}/voicemail-generator'
+    | '/{-$locale}/webinars'
+    | '/{-$locale}/whats-new'
     | '/{-$locale}/'
     | '/api/public/rates-sheet'
     | '/{-$locale}/rates/$countrySlug'
@@ -528,11 +638,14 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/{-$locale}/about'
+    | '/{-$locale}/academy'
     | '/{-$locale}/ai-agent'
     | '/{-$locale}/analytics'
     | '/{-$locale}/blog'
     | '/{-$locale}/calling'
     | '/{-$locale}/careers'
+    | '/{-$locale}/carrier-registration'
+    | '/{-$locale}/community'
     | '/{-$locale}/connectivity'
     | '/{-$locale}/contact'
     | '/{-$locale}/crm'
@@ -545,9 +658,12 @@ export interface FileRouteTypes {
     | '/{-$locale}/integrations'
     | '/{-$locale}/llm-info'
     | '/{-$locale}/messaging'
+    | '/{-$locale}/number-generator'
     | '/{-$locale}/partners'
     | '/{-$locale}/phone-menu'
+    | '/{-$locale}/podcast'
     | '/{-$locale}/port-your-number'
+    | '/{-$locale}/press'
     | '/{-$locale}/pricing'
     | '/{-$locale}/privacy'
     | '/{-$locale}/refund'
@@ -557,7 +673,11 @@ export interface FileRouteTypes {
     | '/{-$locale}/status'
     | '/{-$locale}/tasks'
     | '/{-$locale}/terms'
+    | '/{-$locale}/tutorials'
     | '/{-$locale}/usage'
+    | '/{-$locale}/voicemail-generator'
+    | '/{-$locale}/webinars'
+    | '/{-$locale}/whats-new'
     | '/{-$locale}'
     | '/api/public/rates-sheet'
     | '/{-$locale}/rates/$countrySlug'
@@ -576,11 +696,14 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/{-$locale}/about'
+    | '/{-$locale}/academy'
     | '/{-$locale}/ai-agent'
     | '/{-$locale}/analytics'
     | '/{-$locale}/blog'
     | '/{-$locale}/calling'
     | '/{-$locale}/careers'
+    | '/{-$locale}/carrier-registration'
+    | '/{-$locale}/community'
     | '/{-$locale}/connectivity'
     | '/{-$locale}/contact'
     | '/{-$locale}/crm'
@@ -593,9 +716,12 @@ export interface FileRouteTypes {
     | '/{-$locale}/integrations'
     | '/{-$locale}/llm-info'
     | '/{-$locale}/messaging'
+    | '/{-$locale}/number-generator'
     | '/{-$locale}/partners'
     | '/{-$locale}/phone-menu'
+    | '/{-$locale}/podcast'
     | '/{-$locale}/port-your-number'
+    | '/{-$locale}/press'
     | '/{-$locale}/pricing'
     | '/{-$locale}/privacy'
     | '/{-$locale}/refund'
@@ -605,7 +731,11 @@ export interface FileRouteTypes {
     | '/{-$locale}/status'
     | '/{-$locale}/tasks'
     | '/{-$locale}/terms'
+    | '/{-$locale}/tutorials'
     | '/{-$locale}/usage'
+    | '/{-$locale}/voicemail-generator'
+    | '/{-$locale}/webinars'
+    | '/{-$locale}/whats-new'
     | '/{-$locale}/'
     | '/api/public/rates-sheet'
     | '/{-$locale}/rates/$countrySlug'
@@ -625,11 +755,14 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   Char123LocaleChar125AboutRoute: typeof Char123LocaleChar125AboutRoute
+  Char123LocaleChar125AcademyRoute: typeof Char123LocaleChar125AcademyRoute
   Char123LocaleChar125AiAgentRoute: typeof Char123LocaleChar125AiAgentRoute
   Char123LocaleChar125AnalyticsRoute: typeof Char123LocaleChar125AnalyticsRoute
   Char123LocaleChar125BlogRoute: typeof Char123LocaleChar125BlogRoute
   Char123LocaleChar125CallingRoute: typeof Char123LocaleChar125CallingRoute
   Char123LocaleChar125CareersRoute: typeof Char123LocaleChar125CareersRoute
+  Char123LocaleChar125CarrierRegistrationRoute: typeof Char123LocaleChar125CarrierRegistrationRoute
+  Char123LocaleChar125CommunityRoute: typeof Char123LocaleChar125CommunityRoute
   Char123LocaleChar125ConnectivityRoute: typeof Char123LocaleChar125ConnectivityRoute
   Char123LocaleChar125ContactRoute: typeof Char123LocaleChar125ContactRoute
   Char123LocaleChar125CrmRoute: typeof Char123LocaleChar125CrmRoute
@@ -642,9 +775,12 @@ export interface RootRouteChildren {
   Char123LocaleChar125IntegrationsRoute: typeof Char123LocaleChar125IntegrationsRoute
   Char123LocaleChar125LlmInfoRoute: typeof Char123LocaleChar125LlmInfoRoute
   Char123LocaleChar125MessagingRoute: typeof Char123LocaleChar125MessagingRoute
+  Char123LocaleChar125NumberGeneratorRoute: typeof Char123LocaleChar125NumberGeneratorRoute
   Char123LocaleChar125PartnersRoute: typeof Char123LocaleChar125PartnersRoute
   Char123LocaleChar125PhoneMenuRoute: typeof Char123LocaleChar125PhoneMenuRoute
+  Char123LocaleChar125PodcastRoute: typeof Char123LocaleChar125PodcastRoute
   Char123LocaleChar125PortYourNumberRoute: typeof Char123LocaleChar125PortYourNumberRoute
+  Char123LocaleChar125PressRoute: typeof Char123LocaleChar125PressRoute
   Char123LocaleChar125PricingRoute: typeof Char123LocaleChar125PricingRoute
   Char123LocaleChar125PrivacyRoute: typeof Char123LocaleChar125PrivacyRoute
   Char123LocaleChar125RefundRoute: typeof Char123LocaleChar125RefundRoute
@@ -654,7 +790,11 @@ export interface RootRouteChildren {
   Char123LocaleChar125StatusRoute: typeof Char123LocaleChar125StatusRoute
   Char123LocaleChar125TasksRoute: typeof Char123LocaleChar125TasksRoute
   Char123LocaleChar125TermsRoute: typeof Char123LocaleChar125TermsRoute
+  Char123LocaleChar125TutorialsRoute: typeof Char123LocaleChar125TutorialsRoute
   Char123LocaleChar125UsageRoute: typeof Char123LocaleChar125UsageRoute
+  Char123LocaleChar125VoicemailGeneratorRoute: typeof Char123LocaleChar125VoicemailGeneratorRoute
+  Char123LocaleChar125WebinarsRoute: typeof Char123LocaleChar125WebinarsRoute
+  Char123LocaleChar125WhatsNewRoute: typeof Char123LocaleChar125WhatsNewRoute
   Char123LocaleChar125IndexRoute: typeof Char123LocaleChar125IndexRoute
   ApiPublicRatesSheetRoute: typeof ApiPublicRatesSheetRoute
   Char123LocaleChar125RatesCountrySlugRoute: typeof Char123LocaleChar125RatesCountrySlugRoute
@@ -686,6 +826,13 @@ declare module '@tanstack/react-router' {
       path: '/{-$locale}/about'
       fullPath: '/{-$locale}/about'
       preLoaderRoute: typeof Char123LocaleChar125AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/{-$locale}/academy': {
+      id: '/{-$locale}/academy'
+      path: '/{-$locale}/academy'
+      fullPath: '/{-$locale}/academy'
+      preLoaderRoute: typeof Char123LocaleChar125AcademyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/{-$locale}/ai-agent': {
@@ -721,6 +868,20 @@ declare module '@tanstack/react-router' {
       path: '/{-$locale}/careers'
       fullPath: '/{-$locale}/careers'
       preLoaderRoute: typeof Char123LocaleChar125CareersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/{-$locale}/carrier-registration': {
+      id: '/{-$locale}/carrier-registration'
+      path: '/{-$locale}/carrier-registration'
+      fullPath: '/{-$locale}/carrier-registration'
+      preLoaderRoute: typeof Char123LocaleChar125CarrierRegistrationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/{-$locale}/community': {
+      id: '/{-$locale}/community'
+      path: '/{-$locale}/community'
+      fullPath: '/{-$locale}/community'
+      preLoaderRoute: typeof Char123LocaleChar125CommunityRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/{-$locale}/connectivity': {
@@ -807,6 +968,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char123LocaleChar125MessagingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/{-$locale}/number-generator': {
+      id: '/{-$locale}/number-generator'
+      path: '/{-$locale}/number-generator'
+      fullPath: '/{-$locale}/number-generator'
+      preLoaderRoute: typeof Char123LocaleChar125NumberGeneratorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/{-$locale}/partners': {
       id: '/{-$locale}/partners'
       path: '/{-$locale}/partners'
@@ -821,11 +989,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char123LocaleChar125PhoneMenuRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/{-$locale}/podcast': {
+      id: '/{-$locale}/podcast'
+      path: '/{-$locale}/podcast'
+      fullPath: '/{-$locale}/podcast'
+      preLoaderRoute: typeof Char123LocaleChar125PodcastRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/{-$locale}/port-your-number': {
       id: '/{-$locale}/port-your-number'
       path: '/{-$locale}/port-your-number'
       fullPath: '/{-$locale}/port-your-number'
       preLoaderRoute: typeof Char123LocaleChar125PortYourNumberRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/{-$locale}/press': {
+      id: '/{-$locale}/press'
+      path: '/{-$locale}/press'
+      fullPath: '/{-$locale}/press'
+      preLoaderRoute: typeof Char123LocaleChar125PressRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/{-$locale}/pricing': {
@@ -891,11 +1073,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char123LocaleChar125TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/{-$locale}/tutorials': {
+      id: '/{-$locale}/tutorials'
+      path: '/{-$locale}/tutorials'
+      fullPath: '/{-$locale}/tutorials'
+      preLoaderRoute: typeof Char123LocaleChar125TutorialsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/{-$locale}/usage': {
       id: '/{-$locale}/usage'
       path: '/{-$locale}/usage'
       fullPath: '/{-$locale}/usage'
       preLoaderRoute: typeof Char123LocaleChar125UsageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/{-$locale}/voicemail-generator': {
+      id: '/{-$locale}/voicemail-generator'
+      path: '/{-$locale}/voicemail-generator'
+      fullPath: '/{-$locale}/voicemail-generator'
+      preLoaderRoute: typeof Char123LocaleChar125VoicemailGeneratorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/{-$locale}/webinars': {
+      id: '/{-$locale}/webinars'
+      path: '/{-$locale}/webinars'
+      fullPath: '/{-$locale}/webinars'
+      preLoaderRoute: typeof Char123LocaleChar125WebinarsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/{-$locale}/whats-new': {
+      id: '/{-$locale}/whats-new'
+      path: '/{-$locale}/whats-new'
+      fullPath: '/{-$locale}/whats-new'
+      preLoaderRoute: typeof Char123LocaleChar125WhatsNewRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/public/rates-sheet': {
@@ -1001,11 +1211,15 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   Char123LocaleChar125AboutRoute: Char123LocaleChar125AboutRoute,
+  Char123LocaleChar125AcademyRoute: Char123LocaleChar125AcademyRoute,
   Char123LocaleChar125AiAgentRoute: Char123LocaleChar125AiAgentRoute,
   Char123LocaleChar125AnalyticsRoute: Char123LocaleChar125AnalyticsRoute,
   Char123LocaleChar125BlogRoute: Char123LocaleChar125BlogRoute,
   Char123LocaleChar125CallingRoute: Char123LocaleChar125CallingRoute,
   Char123LocaleChar125CareersRoute: Char123LocaleChar125CareersRoute,
+  Char123LocaleChar125CarrierRegistrationRoute:
+    Char123LocaleChar125CarrierRegistrationRoute,
+  Char123LocaleChar125CommunityRoute: Char123LocaleChar125CommunityRoute,
   Char123LocaleChar125ConnectivityRoute: Char123LocaleChar125ConnectivityRoute,
   Char123LocaleChar125ContactRoute: Char123LocaleChar125ContactRoute,
   Char123LocaleChar125CrmRoute: Char123LocaleChar125CrmRoute,
@@ -1018,10 +1232,14 @@ const rootRouteChildren: RootRouteChildren = {
   Char123LocaleChar125IntegrationsRoute: Char123LocaleChar125IntegrationsRoute,
   Char123LocaleChar125LlmInfoRoute: Char123LocaleChar125LlmInfoRoute,
   Char123LocaleChar125MessagingRoute: Char123LocaleChar125MessagingRoute,
+  Char123LocaleChar125NumberGeneratorRoute:
+    Char123LocaleChar125NumberGeneratorRoute,
   Char123LocaleChar125PartnersRoute: Char123LocaleChar125PartnersRoute,
   Char123LocaleChar125PhoneMenuRoute: Char123LocaleChar125PhoneMenuRoute,
+  Char123LocaleChar125PodcastRoute: Char123LocaleChar125PodcastRoute,
   Char123LocaleChar125PortYourNumberRoute:
     Char123LocaleChar125PortYourNumberRoute,
+  Char123LocaleChar125PressRoute: Char123LocaleChar125PressRoute,
   Char123LocaleChar125PricingRoute: Char123LocaleChar125PricingRoute,
   Char123LocaleChar125PrivacyRoute: Char123LocaleChar125PrivacyRoute,
   Char123LocaleChar125RefundRoute: Char123LocaleChar125RefundRoute,
@@ -1032,7 +1250,12 @@ const rootRouteChildren: RootRouteChildren = {
   Char123LocaleChar125StatusRoute: Char123LocaleChar125StatusRoute,
   Char123LocaleChar125TasksRoute: Char123LocaleChar125TasksRoute,
   Char123LocaleChar125TermsRoute: Char123LocaleChar125TermsRoute,
+  Char123LocaleChar125TutorialsRoute: Char123LocaleChar125TutorialsRoute,
   Char123LocaleChar125UsageRoute: Char123LocaleChar125UsageRoute,
+  Char123LocaleChar125VoicemailGeneratorRoute:
+    Char123LocaleChar125VoicemailGeneratorRoute,
+  Char123LocaleChar125WebinarsRoute: Char123LocaleChar125WebinarsRoute,
+  Char123LocaleChar125WhatsNewRoute: Char123LocaleChar125WhatsNewRoute,
   Char123LocaleChar125IndexRoute: Char123LocaleChar125IndexRoute,
   ApiPublicRatesSheetRoute: ApiPublicRatesSheetRoute,
   Char123LocaleChar125RatesCountrySlugRoute:
@@ -1064,3 +1287,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
