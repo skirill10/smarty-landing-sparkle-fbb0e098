@@ -6,6 +6,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { CtaBand } from "@/components/CtaBand";
 import { Link } from "@/components/Link";
 import { useT } from "@/i18n/LocaleProvider";
+import { canonicalUrl } from "@/lib/seo";
 
 /** Windows' mark isn't shipped by simple-icons, so its path is inlined. */
 const windowsPath =
@@ -239,8 +240,10 @@ function Downloads() {
 }
 
 export const Route = createFileRoute("/{-$locale}/downloads")({
-  head: () => ({
+  head: ({ params }) => ({
+    links: [{ rel: "canonical", href: canonicalUrl("/downloads", params.locale) }],
     meta: [
+      { property: "og:url", content: canonicalUrl("/downloads", params.locale) },
       { title: "Download the Smartytel apps for iOS, Android, Mac & Windows" },
       {
         name: "description",

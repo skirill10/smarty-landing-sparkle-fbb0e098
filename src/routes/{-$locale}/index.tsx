@@ -46,6 +46,7 @@ import storyRealty from "@/assets/story-realty.jpg";
 import storyHvac from "@/assets/story-hvac.jpg";
 import storyLegal from "@/assets/story-legal.jpg";
 import storyJunkaway from "@/assets/story-junkaway.jpg";
+import { canonicalUrl } from "@/lib/seo";
 
 const showcase = [
   {
@@ -154,8 +155,10 @@ const stories = [
 ];
 
 export const Route = createFileRoute("/{-$locale}/")({
-  head: () => ({
+  head: ({ params }) => ({
+    links: [{ rel: "canonical", href: canonicalUrl("/", params.locale) }],
     meta: [
+      { property: "og:url", content: canonicalUrl("/", params.locale) },
       { title: "Business Phone System & Shared Inbox | Smartytel" },
       {
         name: "description",

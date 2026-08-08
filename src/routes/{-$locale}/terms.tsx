@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { LegalDocument, type LegalDoc } from "@/components/LegalDocument";
+import { canonicalUrl } from "@/lib/seo";
 
 const doc: LegalDoc = {
   eyebrow: "Legal",
@@ -71,8 +72,10 @@ const doc: LegalDoc = {
 };
 
 export const Route = createFileRoute("/{-$locale}/terms")({
-  head: () => ({
+  head: ({ params }) => ({
+    links: [{ rel: "canonical", href: canonicalUrl("/terms", params.locale) }],
     meta: [
+      { property: "og:url", content: canonicalUrl("/terms", params.locale) },
       { title: "Terms of Service | Smartytel" },
       {
         name: "description",

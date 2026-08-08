@@ -1,12 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { MarketingPage } from "@/components/MarketingPage";
 import { pages } from "@/content/pages";
+import { canonicalUrl } from "@/lib/seo";
 
 const content = pages["phone-menu"]!;
 
 export const Route = createFileRoute("/{-$locale}/phone-menu")({
-  head: () => ({
+  head: ({ params }) => ({
+    links: [{ rel: "canonical", href: canonicalUrl("/phone-menu", params.locale) }],
     meta: [
+      { property: "og:url", content: canonicalUrl("/phone-menu", params.locale) },
       { title: "Phone menus and routing that match how you work | Smartytel" },
       {
         name: "description",

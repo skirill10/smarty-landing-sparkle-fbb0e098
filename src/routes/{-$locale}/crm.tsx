@@ -20,10 +20,13 @@ import { CtaBand } from "@/components/CtaBand";
 import { useCrmContent } from "@/lib/cms-content";
 import crmShot from "@/assets/showcase-ai.jpg";
 import pipelineShot from "@/assets/showcase-analytics.jpg";
+import { canonicalUrl } from "@/lib/seo";
 
 export const Route = createFileRoute("/{-$locale}/crm")({
-  head: () => ({
+  head: ({ params }) => ({
+    links: [{ rel: "canonical", href: canonicalUrl("/crm", params.locale) }],
     meta: [
+      { property: "og:url", content: canonicalUrl("/crm", params.locale) },
       { title: "CRM Built Into Your Business Phone | Smartytel" },
       {
         name: "description",

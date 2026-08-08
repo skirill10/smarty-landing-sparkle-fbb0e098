@@ -21,8 +21,9 @@ import { DEFAULT_PAGE_SIZE } from "@/features/rates/api/ratesRepository";
 import { detectCurrency, saveCurrency } from "@/features/rates/utils/detectCurrency";
 import { CURRENCY_LABELS, isCurrencyCode } from "@/features/rates/utils/format";
 import type { CurrencyCode, DestinationType, RatesSort, Region } from "@/features/rates/types";
+import { canonicalUrl } from "@/lib/seo";
 
-const CANONICAL = "https://smarty-landing-sparkle.lovable.app/rates";
+const CANONICAL = canonicalUrl("/rates");
 
 const searchSchema = z.object({
   q: fallback(z.string(), "").default(""),
@@ -80,7 +81,7 @@ export const Route = createFileRoute("/{-$locale}/rates/")({
               "@type": "ListItem",
               position: 1,
               name: "Home",
-              item: "https://smarty-landing-sparkle.lovable.app/",
+              item: "https://smarty.tel/",
             },
             { "@type": "ListItem", position: 2, name: "International rates", item: CANONICAL },
           ],

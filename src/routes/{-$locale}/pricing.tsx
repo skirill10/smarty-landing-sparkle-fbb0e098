@@ -29,10 +29,13 @@ import { useLocalePath } from "@/components/Link";
 import { SiteFooter } from "@/components/SiteFooter";
 import { PricingCta } from "@/components/PricingCta";
 import { usePricingContent } from "@/lib/cms-content";
+import { canonicalUrl } from "@/lib/seo";
 
 export const Route = createFileRoute("/{-$locale}/pricing")({
-  head: () => ({
+  head: ({ params }) => ({
+    links: [{ rel: "canonical", href: canonicalUrl("/pricing", params.locale) }],
     meta: [
+      { property: "og:url", content: canonicalUrl("/pricing", params.locale) },
       { title: "Business Phone System Pricing & Plans | Smartytel" },
       {
         name: "description",

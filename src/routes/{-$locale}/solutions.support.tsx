@@ -1,12 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { MarketingPage } from "@/components/MarketingPage";
 import { pages } from "@/content/pages";
+import { canonicalUrl } from "@/lib/seo";
 
 const content = pages["solutions/support"]!;
 
 export const Route = createFileRoute("/{-$locale}/solutions/support")({
-  head: () => ({
+  head: ({ params }) => ({
+    links: [{ rel: "canonical", href: canonicalUrl("/solutions/support", params.locale) }],
     meta: [
+      { property: "og:url", content: canonicalUrl("/solutions/support", params.locale) },
       { title: "Support queues without a call-centre budget | Smartytel" },
       {
         name: "description",

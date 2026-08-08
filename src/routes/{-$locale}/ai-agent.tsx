@@ -1,12 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { MarketingPage } from "@/components/MarketingPage";
 import { pages } from "@/content/pages";
+import { canonicalUrl } from "@/lib/seo";
 
 const content = pages["ai-agent"]!;
 
 export const Route = createFileRoute("/{-$locale}/ai-agent")({
-  head: () => ({
+  head: ({ params }) => ({
+    links: [{ rel: "canonical", href: canonicalUrl("/ai-agent", params.locale) }],
     meta: [
+      { property: "og:url", content: canonicalUrl("/ai-agent", params.locale) },
       { title: "An AI agent that answers, qualifies and summaris | Smartytel" },
       {
         name: "description",

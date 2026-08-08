@@ -1,12 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { MarketingPage } from "@/components/MarketingPage";
 import { pages } from "@/content/pages";
+import { canonicalUrl } from "@/lib/seo";
 
 const content = pages["demo"]!;
 
 export const Route = createFileRoute("/{-$locale}/demo")({
-  head: () => ({
+  head: ({ params }) => ({
+    links: [{ rel: "canonical", href: canonicalUrl("/demo", params.locale) }],
     meta: [
+      { property: "og:url", content: canonicalUrl("/demo", params.locale) },
       { title: "See Smartytel in ten minutes | Smartytel" },
       {
         name: "description",
