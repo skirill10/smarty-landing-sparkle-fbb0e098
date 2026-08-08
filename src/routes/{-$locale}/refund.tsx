@@ -36,11 +36,15 @@ const doc: LegalDoc = {
       heading: "When Refunds Are Not Issued",
       paragraphs: ["Refunds will not be issued under the following circumstances:"],
       items: [
-        { body: "Issues caused by the customer's hardware, software, or internet service provider." },
+        {
+          body: "Issues caused by the customer's hardware, software, or internet service provider.",
+        },
         {
           body: "Failure to use the service due to customer negligence or misunderstanding of the service features.",
         },
-        { body: "Dissatisfaction based on subjective preferences (e.g., \u201cI didn't like it\u201d)." },
+        {
+          body: "Dissatisfaction based on subjective preferences (e.g., \u201cI didn't like it\u201d).",
+        },
         { body: "Refund requests made outside the eligible refund window." },
       ],
     },
@@ -74,7 +78,10 @@ const doc: LegalDoc = {
           term: "Provide necessary information",
           body: "Include your order number, the reason for the refund request, and any evidence supporting your claim (e.g., screenshots of errors, payment confirmation).",
         },
-        { term: "Await review", body: "Our team will review your request and respond within 10 business days." },
+        {
+          term: "Await review",
+          body: "Our team will review your request and respond within 10 business days.",
+        },
         {
           term: "Refund decision",
           body: "If approved, the refund will be processed to the original payment method within 5-10 business days.",

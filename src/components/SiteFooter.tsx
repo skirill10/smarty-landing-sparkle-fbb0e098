@@ -204,9 +204,6 @@ export function SiteFooter() {
               {t("Usage")}
             </Link>
 
-
-
-
             <Link to="/gdpr" className="hover:text-foreground">
               {t("GDPR")}
             </Link>
