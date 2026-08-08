@@ -41,7 +41,7 @@ jobs:
       - name: Build static export
         env:
           STATIC_EXPORT: "1"
-          BUILD_COMMIT: ${{ github.sha }}
+          BUILD_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
         run: bun run build
 
       - name: Add server config to the build output
@@ -56,7 +56,11 @@ jobs:
       - name: Smoke test static artifact
         run: bun run smoke:static
 
+      # Pull requests must pass validation, build, and the artifact smoke test,
+      # but only main publishes to the deploy branch.
       - name: Publish build output to the deploy branch
+        if: github.event_name != 'pull_request'
+
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
