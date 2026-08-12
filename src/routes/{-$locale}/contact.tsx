@@ -4,7 +4,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { CtaBand } from "@/components/CtaBand";
 import { Link } from "@/components/Link";
 import { useT } from "@/i18n/LocaleProvider";
-import { useSocialLinks } from "@/lib/cms-content";
+import { useContactContent, useSocialLinks } from "@/lib/cms-content";
 import * as si from "simple-icons";
 import {
   ArrowRight,
@@ -31,7 +31,7 @@ type Channel = {
   href?: string;
 };
 
-const channels: Channel[] = [
+const channelFallback: Channel[] = [
   {
     icon: MessageSquare,
     title: "Talk to sales",
@@ -86,6 +86,14 @@ const fallbackSocials = [
 function ContactPage() {
   const t = useT();
   const socials = useSocialLinks(fallbackSocials);
+  const { hero, channels } = useContactContent({
+    hero: {
+      eyebrow: "Contact",
+      headline: "Contact us",
+      sub: "Get in touch with Smartytel for demos, support, billing questions, partnerships and press \u2014 answered on the phone system we build.",
+    },
+    channels: channelFallback,
+  });
 
   return (
     <div className="min-h-screen bg-background">
@@ -94,15 +102,13 @@ function ContactPage() {
       <main>
         <section className="mx-auto max-w-4xl px-5 pb-12 pt-16 text-center md:pt-24">
           <p className="text-sm font-semibold uppercase tracking-widest text-brand">
-            {t("Contact")}
+            {t(hero.eyebrow)}
           </p>
           <h1 className="mt-4 font-display text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">
-            {t("Contact us")}
+            {t(hero.headline)}
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            {t(
-              "Get in touch with Smartytel for demos, support, billing questions, partnerships and press \u2014 answered on the phone system we build.",
-            )}
+            {t(hero.sub)}
           </p>
         </section>
 
