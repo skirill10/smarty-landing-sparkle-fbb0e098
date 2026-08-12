@@ -68,7 +68,6 @@ export function AnnouncementBar() {
         </span>
       </div>
 
-
       <button
         type="button"
         onClick={close}
