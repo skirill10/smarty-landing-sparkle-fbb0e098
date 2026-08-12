@@ -86,6 +86,20 @@ export const HomePage: GlobalConfig = {
       ],
     },
     {
+      name: "builtFor",
+      label: "Built for section",
+      type: "group",
+      fields: [
+        { name: "heading", type: "text" },
+        {
+          name: "items",
+          type: "array",
+          admin: { description: "Matched to the bundled tiles in order; images stay in code." },
+          fields: [{ name: "label", type: "text" }],
+        },
+      ],
+    },
+    {
       name: "plans",
       label: "Plan teasers",
       type: "array",
