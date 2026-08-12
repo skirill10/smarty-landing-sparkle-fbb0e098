@@ -95,4 +95,3 @@ export async function fetchCollectionDoc<T>(
 }
 
 export const cmsEnabled = Boolean(CMS_URL);
-

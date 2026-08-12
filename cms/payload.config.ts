@@ -34,16 +34,7 @@ export default buildConfig({
     meta: { titleSuffix: " · Smartytel CMS" },
   },
   editor: lexicalEditor(),
-  collections: [
-    MarketingPages,
-    Integrations,
-    Countries,
-    Rates,
-    Faqs,
-    LegalDocuments,
-    Media,
-    Users,
-  ],
+  collections: [MarketingPages, Integrations, Countries, Rates, Faqs, LegalDocuments, Media, Users],
   globals: [SiteSettings, HomePage, Pricing, RatesPage, CrmPage, ContactPage, LlmInfoPage],
   secret: process.env.PAYLOAD_SECRET ?? "",
   db: postgresAdapter({

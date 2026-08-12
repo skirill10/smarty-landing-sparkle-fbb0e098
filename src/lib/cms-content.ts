@@ -647,7 +647,11 @@ export function useLegalDoc<
     title: string;
     updated: string;
     intro: string[];
-    sections: { heading: string; paragraphs?: string[]; items?: { term?: string; body: string }[] }[];
+    sections: {
+      heading: string;
+      paragraphs?: string[];
+      items?: { term?: string; body: string }[];
+    }[];
     footer?: string[];
   },
 >(slug: string, fallback: Doc): Doc {
@@ -669,9 +673,7 @@ export function useLegalDoc<
     sections: overlay(fallback.sections, data.sections, (section, doc) => ({
       ...section,
       heading: text(doc.heading, section.heading),
-      ...(section.paragraphs
-        ? { paragraphs: list(doc.paragraphs, section.paragraphs) }
-        : {}),
+      ...(section.paragraphs ? { paragraphs: list(doc.paragraphs, section.paragraphs) } : {}),
       ...(section.items
         ? {
             items: overlay(section.items, doc.items, (item, itemDoc) => ({

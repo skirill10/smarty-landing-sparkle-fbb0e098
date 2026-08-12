@@ -24,7 +24,7 @@ export const LegalDocuments: CollectionConfig = {
       unique: true,
       admin: {
         position: "sidebar",
-        description: 'Route slug without slashes: privacy, terms, refund, connectivity, usage.',
+        description: "Route slug without slashes: privacy, terms, refund, connectivity, usage.",
       },
     },
     { name: "eyebrow", type: "text", defaultValue: "Legal" },

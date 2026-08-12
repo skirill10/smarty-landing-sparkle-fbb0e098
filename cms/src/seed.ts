@@ -7,6 +7,7 @@ import { homePage } from "./seed-data/home";
 import { pricingPage } from "./seed-data/pricing";
 import { countries, faqs, rates, ratesPage } from "./seed-data/rates";
 import { crmPage, llmInfoPage } from "./seed-data/extra-pages";
+import { contactPage } from "./seed-data/contact";
 
 /**
  * Seeds the CMS with the copy that currently ships in the repo, so nothing is
@@ -116,6 +117,7 @@ const run = async () => {
   await payload.updateGlobal({ slug: "rates-page", data: ratesPage as never });
   await payload.updateGlobal({ slug: "crm-page", data: crmPage as never });
   await payload.updateGlobal({ slug: "llm-info-page", data: llmInfoPage as never });
+  await payload.updateGlobal({ slug: "contact-page", data: contactPage as never });
   console.log("seeded rates, CRM and Hey AI page copy");
 
   process.exit(0);
