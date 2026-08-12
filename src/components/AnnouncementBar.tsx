@@ -43,25 +43,25 @@ export function AnnouncementBar() {
   return (
     <div
       role="banner"
-      className="relative h-[52px] bg-gradient-to-r from-primary to-brand px-4 text-brand-foreground"
+      className="relative min-h-[52px] bg-gradient-to-r from-primary to-brand py-2 pl-4 pr-11 text-brand-foreground sm:px-4"
     >
-      <div className="mx-auto flex h-full max-w-7xl items-center justify-center gap-3 text-sm sm:gap-4">
-        <span className="flex shrink-0 items-center gap-2.5">
-          <span className="flex size-7 items-center justify-center rounded-lg bg-gradient-to-br from-brand-pink to-brand-magenta shadow-sm">
+      <div className="mx-auto flex min-h-[36px] w-full max-w-7xl items-center gap-3 sm:h-full sm:justify-center sm:gap-4">
+        <span className="flex min-w-0 flex-1 items-center gap-2.5 text-xs sm:flex-none sm:shrink-0 sm:text-sm">
+          <span className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-brand-pink to-brand-magenta shadow-sm">
             <Sparkles className="size-4 text-brand-foreground" aria-hidden="true" />
           </span>
-          <span className="font-medium">{content.message}</span>
+          <span className="line-clamp-2 font-medium sm:line-clamp-none">{content.message}</span>
         </span>
-        <span className="flex shrink-0 flex-wrap items-center gap-2">
+        <span className="flex shrink-0 items-center gap-2">
           <a
             href={lp(content.primaryUrl)}
-            className="rounded-[6px] bg-dark px-4 py-2 text-xs font-semibold text-dark-foreground transition-colors hover:bg-dark/90"
+            className="whitespace-nowrap rounded-[6px] bg-dark px-3 py-2 text-xs font-semibold text-dark-foreground transition-colors hover:bg-dark/90 sm:px-4"
           >
             {content.primaryLabel}
           </a>
           <a
             href={lp(content.secondaryUrl)}
-            className="rounded-[6px] border border-brand-foreground/40 px-4 py-2 text-xs font-semibold text-brand-foreground transition-colors hover:bg-brand-foreground/10"
+            className="hidden whitespace-nowrap rounded-[6px] border border-brand-foreground/40 px-4 py-2 text-xs font-semibold text-brand-foreground transition-colors hover:bg-brand-foreground/10 sm:inline-block"
           >
             {content.secondaryLabel}
           </a>
