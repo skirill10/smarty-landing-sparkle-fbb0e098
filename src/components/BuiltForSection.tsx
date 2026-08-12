@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useBuiltForContent } from "@/lib/cms-content";
 import homeServices from "@/assets/ind-home-services.jpg";
 import property from "@/assets/ind-property.jpg";
 import law from "@/assets/ind-law.jpg";
@@ -8,7 +9,7 @@ import startups from "@/assets/ind-startups.jpg";
 import support from "@/assets/ind-support.jpg";
 import sales from "@/assets/ind-sales.jpg";
 
-const audiences = [
+const audienceFallback = [
   { label: "Home services", image: homeServices, alt: "Isometric service vans illustration" },
   {
     label: "Property management",
@@ -25,13 +26,17 @@ const audiences = [
 
 export function BuiltForSection() {
   const [active, setActive] = useState(0);
+  const { heading, items: audiences } = useBuiltForContent({
+    heading: "Built for how your team actually works",
+    items: audienceFallback,
+  });
 
   return (
     <section className="bg-light-grey py-20 md:py-28">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 md:grid-cols-2">
         <div>
           <h2 className="max-w-md font-display text-4xl font-bold leading-[1.08] tracking-tight md:text-5xl">
-            Built for how your team actually works
+            {heading}
           </h2>
 
           <div className="mt-10 flex flex-wrap gap-3">

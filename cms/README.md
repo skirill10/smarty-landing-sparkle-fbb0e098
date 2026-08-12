@@ -31,9 +31,14 @@ nginx. Keep `ALLOWED_ORIGINS` in sync with the public site origins.
 `src/lib/cms.ts` in the main app reads the REST API at `VITE_CMS_URL`:
 
 - `/api/marketing-pages?where[slug][equals]=...` — one page per URL
+- `/api/legal-documents?where[slug][equals]=privacy|terms|refund|connectivity|usage`
 - `/api/globals/home`, `/api/globals/pricing`, `/api/globals/site-settings`
-- `/api/globals/rates-page`, `/api/globals/crm-page`, `/api/globals/llm-info-page`
+- `/api/globals/rates-page`, `/api/globals/crm-page`, `/api/globals/contact-page`,
+  `/api/globals/llm-info-page`
 - `/api/integrations`, `/api/countries`, `/api/rates`, `/api/faqs`
+
+Every field is an overlay: blank values fall back to the copy bundled in the
+repo, so pages never render empty and the static build never breaks.
 
 International rates use their own switch, so they can move to Payload
 independently of the rest of the copy:

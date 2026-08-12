@@ -1,5 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import { cmsEnabled, fetchGlobal, fetchIntegrations, type CmsGlobalSlug } from "@/lib/cms";
+import {
+  cmsEnabled,
+  fetchCollectionDoc,
+  fetchGlobal,
+  fetchIntegrations,
+  type CmsGlobalSlug,
+} from "@/lib/cms";
 
 /**
  * Copy overlay for the home and pricing pages.
@@ -562,5 +568,122 @@ export function useLlmInfoContent<
       question: text(doc.question, answer.question),
       answer: text(doc.answer, answer.answer),
     })),
+  };
+}
+
+/* ------------------------------- built for -------------------------------- */
+
+/** Heading + tile labels of the "Built for how your team actually works" grid.
+ *  Images stay in code; editors control the wording. */
+export function useBuiltForContent<Item extends { label: string }>(fallback: {
+  heading: string;
+  items: Item[];
+}) {
+  const cms = useGlobal<{ builtFor?: { heading?: string; items?: { label?: string }[] } }>("home");
+  if (!cms?.builtFor) return fallback;
+  return {
+    heading: text(cms.builtFor.heading, fallback.heading),
+    items: overlay(fallback.items, cms.builtFor.items, (item, doc) => ({
+      ...item,
+      label: text(doc.label, item.label),
+    })),
+  };
+}
+
+/* -------------------------------- contact --------------------------------- */
+
+type ContactGlobal = {
+  hero?: { eyebrow?: string; headline?: string; sub?: string };
+  channels?: { title?: string; body?: string; cta?: string; to?: string; href?: string }[];
+};
+
+/** /contact hero copy and channel cards. Icons stay in code. */
+export function useContactContent<
+  Channel extends { title: string; body: string; cta: string; to?: string; href?: string },
+>(fallback: { hero: { eyebrow: string; headline: string; sub: string }; channels: Channel[] }) {
+  const cms = useGlobal<ContactGlobal>("contact-page");
+  if (!cms) return fallback;
+  return {
+    hero: {
+      eyebrow: text(cms.hero?.eyebrow, fallback.hero.eyebrow),
+      headline: text(cms.hero?.headline, fallback.hero.headline),
+      sub: text(cms.hero?.sub, fallback.hero.sub),
+    },
+    channels: overlay(fallback.channels, cms.channels, (channel, doc) => ({
+      ...channel,
+      title: text(doc.title, channel.title),
+      body: text(doc.body, channel.body),
+      cta: text(doc.cta, channel.cta),
+      ...(doc.to ? { to: doc.to } : {}),
+      ...(doc.href ? { href: doc.href } : {}),
+    })),
+  };
+}
+
+/* ----------------------------- legal documents ---------------------------- */
+
+type LegalGlobalSection = {
+  heading?: string;
+  paragraphs?: Val[];
+  items?: { term?: string; body?: string }[];
+};
+
+type LegalGlobalDoc = {
+  eyebrow?: string;
+  title?: string;
+  updated?: string;
+  intro?: Val[];
+  sections?: LegalGlobalSection[];
+  footer?: Val[];
+};
+
+/**
+ * Overlay a Payload `legal-documents` entry (matched by slug) onto the copy
+ * bundled in the route file. Sections are matched in order.
+ */
+export function useLegalDoc<
+  Doc extends {
+    eyebrow: string;
+    title: string;
+    updated: string;
+    intro: string[];
+    sections: {
+      heading: string;
+      paragraphs?: string[];
+      items?: { term?: string; body: string }[];
+    }[];
+    footer?: string[];
+  },
+>(slug: string, fallback: Doc): Doc {
+  const { data } = useQuery({
+    queryKey: ["cms-legal", slug],
+    queryFn: () => fetchCollectionDoc<LegalGlobalDoc>("legal-documents", slug),
+    enabled: cmsEnabled,
+    staleTime: 60_000,
+  });
+
+  if (!data) return fallback;
+
+  return {
+    ...fallback,
+    eyebrow: text(data.eyebrow, fallback.eyebrow),
+    title: text(data.title, fallback.title),
+    updated: text(data.updated, fallback.updated),
+    intro: list(data.intro, fallback.intro),
+    sections: overlay(fallback.sections, data.sections, (section, doc) => ({
+      ...section,
+      heading: text(doc.heading, section.heading),
+      ...(section.paragraphs ? { paragraphs: list(doc.paragraphs, section.paragraphs) } : {}),
+      ...(section.items
+        ? {
+            items: overlay(section.items, doc.items, (item, itemDoc) => ({
+              ...item,
+              ...(itemDoc.term ? { term: itemDoc.term } : {}),
+              body: text(itemDoc.body, item.body),
+            })),
+          }
+        : {}),
+    })),
+    ...(fallback.footer ? { footer: list(data.footer, fallback.footer) } : {}),
   };
 }

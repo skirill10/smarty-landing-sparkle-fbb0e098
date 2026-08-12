@@ -71,10 +71,27 @@ export async function fetchIntegrations(): Promise<CmsIntegration[] | null> {
 
 /** Fetch a Payload global (home, pricing, site-settings). */
 export type CmsGlobalSlug =
-  "home" | "pricing" | "site-settings" | "rates-page" | "crm-page" | "llm-info-page";
+  | "home"
+  | "pricing"
+  | "site-settings"
+  | "rates-page"
+  | "crm-page"
+  | "contact-page"
+  | "llm-info-page";
 
 export async function fetchGlobal<T>(slug: CmsGlobalSlug): Promise<T | null> {
   return cmsFetch<T>(`/globals/${slug}?depth=2`);
+}
+
+/** Fetch one document of a collection by its `slug` field. */
+export async function fetchCollectionDoc<T>(
+  collection: "legal-documents" | "marketing-pages",
+  slug: string,
+): Promise<T | null> {
+  const result = await cmsFetch<{ docs: T[] }>(
+    `/${collection}?where[slug][equals]=${encodeURIComponent(slug)}&limit=1&depth=2`,
+  );
+  return result?.docs?.[0] ?? null;
 }
 
 export const cmsEnabled = Boolean(CMS_URL);

@@ -10,6 +10,7 @@ import { Integrations } from "./src/collections/Integrations";
 import { Countries } from "./src/collections/Countries";
 import { Rates } from "./src/collections/Rates";
 import { Faqs } from "./src/collections/Faqs";
+import { LegalDocuments } from "./src/collections/LegalDocuments";
 import { Media } from "./src/collections/Media";
 import { Users } from "./src/collections/Users";
 import { SiteSettings } from "./src/globals/SiteSettings";
@@ -17,6 +18,7 @@ import { HomePage } from "./src/globals/HomePage";
 import { Pricing } from "./src/globals/Pricing";
 import { RatesPage } from "./src/globals/RatesPage";
 import { CrmPage } from "./src/globals/CrmPage";
+import { ContactPage } from "./src/globals/ContactPage";
 import { LlmInfoPage } from "./src/globals/LlmInfoPage";
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -32,8 +34,8 @@ export default buildConfig({
     meta: { titleSuffix: " · Smartytel CMS" },
   },
   editor: lexicalEditor(),
-  collections: [MarketingPages, Integrations, Countries, Rates, Faqs, Media, Users],
-  globals: [SiteSettings, HomePage, Pricing, RatesPage, CrmPage, LlmInfoPage],
+  collections: [MarketingPages, Integrations, Countries, Rates, Faqs, LegalDocuments, Media, Users],
+  globals: [SiteSettings, HomePage, Pricing, RatesPage, CrmPage, ContactPage, LlmInfoPage],
   secret: process.env.PAYLOAD_SECRET ?? "",
   db: postgresAdapter({
     pool: { connectionString: process.env.DATABASE_URI ?? "" },

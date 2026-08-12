@@ -1,6 +1,7 @@
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { useT } from "@/i18n/LocaleProvider";
+import { useLegalDoc } from "@/lib/cms-content";
 
 export type LegalSection = {
   heading: string;
@@ -19,8 +20,9 @@ export type LegalDoc = {
   plain?: boolean;
 };
 
-export function LegalDocument({ doc }: { doc: LegalDoc }) {
+export function LegalDocument({ doc, slug }: { doc: LegalDoc; slug: string }) {
   const t = useT();
+  const content = useLegalDoc(slug, doc);
 
   return (
     <div className="min-h-screen bg-background">
@@ -29,13 +31,13 @@ export function LegalDocument({ doc }: { doc: LegalDoc }) {
       <main>
         <section className="mx-auto max-w-3xl px-5 pb-10 pt-16 md:pt-24">
           <p className="text-sm font-semibold uppercase tracking-widest text-brand">
-            {t(doc.eyebrow)}
+            {t(content.eyebrow)}
           </p>
           <h1 className="mt-4 font-display text-4xl font-bold leading-[1.08] tracking-tight md:text-5xl">
-            {t(doc.title)}
+            {t(content.title)}
           </h1>
-          <p className="mt-4 text-sm text-muted-foreground">{t(doc.updated)}</p>
-          {doc.intro.map((p) => (
+          <p className="mt-4 text-sm text-muted-foreground">{t(content.updated)}</p>
+          {content.intro.map((p) => (
             <p key={p} className="mt-6 text-lg leading-relaxed text-muted-foreground">
               {t(p)}
             </p>
@@ -44,7 +46,7 @@ export function LegalDocument({ doc }: { doc: LegalDoc }) {
 
         <section className="mx-auto max-w-3xl px-5 pb-16">
           <div className="divide-y divide-border border-t border-border">
-            {doc.sections.map((section, index) => (
+            {content.sections.map((section, index) => (
               <article key={section.heading} className="py-9">
                 <h2 className="font-display text-xl font-bold tracking-tight md:text-2xl">
                   <span className="mr-2 text-brand">{index + 1}.</span>
@@ -58,7 +60,7 @@ export function LegalDocument({ doc }: { doc: LegalDoc }) {
                 {section.items ? (
                   <ul
                     className={
-                      doc.plain
+                      content.plain
                         ? "mt-4 grid list-disc gap-2 pl-5 leading-relaxed text-muted-foreground"
                         : "mt-5 grid gap-3"
                     }
@@ -67,7 +69,7 @@ export function LegalDocument({ doc }: { doc: LegalDoc }) {
                       <li
                         key={item.body}
                         className={
-                          doc.plain
+                          content.plain
                             ? ""
                             : "rounded-xl border border-border bg-card px-5 py-4 text-sm leading-relaxed text-muted-foreground"
                         }
@@ -84,7 +86,7 @@ export function LegalDocument({ doc }: { doc: LegalDoc }) {
             ))}
           </div>
 
-          {doc.footer?.map((p) => (
+          {content.footer?.map((p) => (
             <p key={p} className="mt-8 leading-relaxed text-muted-foreground">
               {t(p)}
             </p>

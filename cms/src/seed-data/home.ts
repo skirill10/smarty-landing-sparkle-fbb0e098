@@ -124,6 +124,19 @@ export const homePage = {
       },
     ],
   },
+  builtFor: {
+    heading: "Built for how your team actually works",
+    items: [
+      { label: "Home services" },
+      { label: "Property management" },
+      { label: "Law firms" },
+      { label: "Small business" },
+      { label: "Healthcare" },
+      { label: "Startups" },
+      { label: "Support teams" },
+      { label: "Sales teams" },
+    ],
+  },
   plans: [
     {
       name: "Trial",

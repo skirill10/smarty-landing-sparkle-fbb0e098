@@ -116,5 +116,5 @@ export const Route = createFileRoute("/{-$locale}/usage")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: () => <LegalDocument doc={doc} />,
+  component: () => <LegalDocument doc={doc} slug="usage" />,
 });
