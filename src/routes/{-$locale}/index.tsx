@@ -340,6 +340,7 @@ function StoriesSlider({ items }: { items: typeof stories }) {
                     src={story.image}
                     alt={story.alt}
                     loading="lazy"
+                    decoding="async"
                     width={1024}
                     height={768}
                     className="h-64 w-full object-cover md:h-full"
@@ -512,6 +513,7 @@ function Landing() {
                           src={image}
                           alt={alt}
                           loading="lazy"
+                    decoding="async"
                           width={720}
                           height={560}
                           className="w-full rounded-t-xl"
@@ -550,6 +552,7 @@ function Landing() {
                   src={image}
                   alt={alt}
                   loading="lazy"
+                    decoding="async"
                   width={928}
                   height={720}
                   className="mt-8 w-full rounded-xl"

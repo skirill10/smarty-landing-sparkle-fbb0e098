@@ -191,6 +191,7 @@ function CrmPage() {
                 width={1024}
                 height={768}
                 loading="lazy"
+                    decoding="async"
               />
             </div>
             <div>
