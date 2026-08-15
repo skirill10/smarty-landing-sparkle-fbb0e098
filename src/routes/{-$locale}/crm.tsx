@@ -152,6 +152,8 @@ function CrmPage() {
                 src={crmShot}
                 alt="Smartytel CRM contact record with call history and AI lead summary"
                 className="h-full w-full object-cover"
+                fetchPriority="high"
+                decoding="async"
                 width={1024}
                 height={768}
               />
@@ -191,7 +193,7 @@ function CrmPage() {
                 width={1024}
                 height={768}
                 loading="lazy"
-                    decoding="async"
+                decoding="async"
               />
             </div>
             <div>

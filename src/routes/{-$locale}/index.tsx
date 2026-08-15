@@ -463,6 +463,8 @@ function Landing() {
               alt="Smartytel shared inbox showing calls, texts and contact details"
               width={1600}
               height={1008}
+              fetchPriority="high"
+              decoding="async"
               className="w-full rounded-2xl shadow-2xl"
             />
           </div>
@@ -513,7 +515,7 @@ function Landing() {
                           src={image}
                           alt={alt}
                           loading="lazy"
-                    decoding="async"
+                          decoding="async"
                           width={720}
                           height={560}
                           className="w-full rounded-t-xl"
@@ -552,7 +554,7 @@ function Landing() {
                   src={image}
                   alt={alt}
                   loading="lazy"
-                    decoding="async"
+                  decoding="async"
                   width={928}
                   height={720}
                   className="mt-8 w-full rounded-xl"

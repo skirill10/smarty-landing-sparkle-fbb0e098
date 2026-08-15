@@ -69,7 +69,7 @@ export function BuiltForSection() {
               width={1024}
               height={768}
               loading="lazy"
-                    decoding="async"
+              decoding="async"
               className={`absolute inset-0 size-full rounded-3xl object-contain transition-opacity duration-500 ${
                 active === index ? "opacity-100" : "opacity-0"
               }`}
