@@ -28,7 +28,6 @@ export function CountryFlag({ iso2, name, flagUrl, className = "" }: CountryFlag
         alt={`Flag of ${name}`}
         loading="lazy"
         decoding="async"
-        decoding="async"
         width={24}
         height={18}
         className="relative h-full w-full object-cover"
