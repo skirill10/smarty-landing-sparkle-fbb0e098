@@ -18,8 +18,8 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { CtaBand } from "@/components/CtaBand";
 import { useCrmContent } from "@/lib/cms-content";
-import crmShot from "@/assets/showcase-ai.jpg";
-import pipelineShot from "@/assets/showcase-analytics.jpg";
+import crmShot from "@/assets/showcase-ai.webp";
+import pipelineShot from "@/assets/showcase-analytics.webp";
 import { canonicalUrl } from "@/lib/seo";
 
 export const Route = createFileRoute("/{-$locale}/crm")({
