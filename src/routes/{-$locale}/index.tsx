@@ -156,7 +156,11 @@ const stories = [
 
 export const Route = createFileRoute("/{-$locale}/")({
   head: ({ params }) => ({
-    links: [{ rel: "canonical", href: canonicalUrl("/", params.locale) }],
+    links: [
+      { rel: "canonical", href: canonicalUrl("/", params.locale) },
+      // Preload the hero screenshot: it is the LCP element on this page.
+      { rel: "preload", as: "image", href: dashboard, fetchpriority: "high" },
+    ],
     meta: [
       { property: "og:url", content: canonicalUrl("/", params.locale) },
       { title: "Business Phone System & Shared Inbox | Smartytel" },
