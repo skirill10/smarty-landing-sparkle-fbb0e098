@@ -18,8 +18,8 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { CtaBand } from "@/components/CtaBand";
 import { useCrmContent } from "@/lib/cms-content";
-import crmShot from "@/assets/showcase-ai.jpg";
-import pipelineShot from "@/assets/showcase-analytics.jpg";
+import crmShot from "@/assets/showcase-ai.webp";
+import pipelineShot from "@/assets/showcase-analytics.webp";
 import { canonicalUrl } from "@/lib/seo";
 
 export const Route = createFileRoute("/{-$locale}/crm")({
@@ -152,6 +152,8 @@ function CrmPage() {
                 src={crmShot}
                 alt="Smartytel CRM contact record with call history and AI lead summary"
                 className="h-full w-full object-cover"
+                fetchPriority="high"
+                decoding="async"
                 width={1024}
                 height={768}
               />
@@ -191,6 +193,7 @@ function CrmPage() {
                 width={1024}
                 height={768}
                 loading="lazy"
+                decoding="async"
               />
             </div>
             <div>

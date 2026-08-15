@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useBuiltForContent } from "@/lib/cms-content";
-import homeServices from "@/assets/ind-home-services.jpg";
-import property from "@/assets/ind-property.jpg";
-import law from "@/assets/ind-law.jpg";
-import smallBusiness from "@/assets/ind-small-business.jpg";
-import healthcare from "@/assets/ind-healthcare.jpg";
-import startups from "@/assets/ind-startups.jpg";
-import support from "@/assets/ind-support.jpg";
-import sales from "@/assets/ind-sales.jpg";
+import homeServices from "@/assets/ind-home-services.webp";
+import property from "@/assets/ind-property.webp";
+import law from "@/assets/ind-law.webp";
+import smallBusiness from "@/assets/ind-small-business.webp";
+import healthcare from "@/assets/ind-healthcare.webp";
+import startups from "@/assets/ind-startups.webp";
+import support from "@/assets/ind-support.webp";
+import sales from "@/assets/ind-sales.webp";
 
 const audienceFallback = [
   { label: "Home services", image: homeServices, alt: "Isometric service vans illustration" },
@@ -69,6 +69,7 @@ export function BuiltForSection() {
               width={1024}
               height={768}
               loading="lazy"
+              decoding="async"
               className={`absolute inset-0 size-full rounded-3xl object-contain transition-opacity duration-500 ${
                 active === index ? "opacity-100" : "opacity-0"
               }`}

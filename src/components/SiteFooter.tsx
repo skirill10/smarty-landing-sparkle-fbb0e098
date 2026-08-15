@@ -1,6 +1,6 @@
 import { Link } from "@/components/Link";
 import * as si from "simple-icons";
-import mark from "@/assets/smartytel-mark.png";
+import mark from "@/assets/smartytel-mark.webp";
 import { useFooterContent, useSocialLinks } from "@/lib/cms-content";
 import { useT } from "@/i18n/LocaleProvider";
 import { LanguageSelector } from "@/components/LanguageSelector";
@@ -114,7 +114,15 @@ export function SiteFooter() {
         <div className="grid gap-12 lg:grid-cols-[1.2fr_3fr]">
           <div>
             <Link to="/" className="flex items-center gap-2 font-display text-xl font-bold">
-              <img src={mark} alt="" width={40} height={49} loading="lazy" className="h-7 w-auto" />
+              <img
+                src={mark}
+                alt=""
+                width={40}
+                height={49}
+                loading="lazy"
+                decoding="async"
+                className="h-7 w-auto"
+              />
               smartytel
             </Link>
             <p className="mt-4 max-w-xs text-sm text-muted-foreground">{t(note)}</p>

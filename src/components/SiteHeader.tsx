@@ -24,7 +24,7 @@ import {
   Wrench,
   X,
 } from "lucide-react";
-import mark from "@/assets/smartytel-mark.png";
+import mark from "@/assets/smartytel-mark.webp";
 import { useHeaderMenus } from "@/lib/cms-content";
 import { useT } from "@/i18n/LocaleProvider";
 

@@ -16,13 +16,13 @@ import {
   ChevronRight,
   Star,
 } from "lucide-react";
-import dashboard from "@/assets/app-dashboard.jpg";
-import featThreads from "@/assets/feat-threads.jpg";
-import featGroupCall from "@/assets/feat-group-call.jpg";
-import featTransfer from "@/assets/feat-transfer.jpg";
-import featTeamAnalytics from "@/assets/feat-team-analytics.jpg";
-import featFilters from "@/assets/feat-filters.jpg";
-import featCallLogs from "@/assets/feat-call-logs.jpg";
+import dashboard from "@/assets/app-dashboard.webp";
+import featThreads from "@/assets/feat-threads.webp";
+import featGroupCall from "@/assets/feat-group-call.webp";
+import featTransfer from "@/assets/feat-transfer.webp";
+import featTeamAnalytics from "@/assets/feat-team-analytics.webp";
+import featFilters from "@/assets/feat-filters.webp";
+import featCallLogs from "@/assets/feat-call-logs.webp";
 import { SiteHeader } from "@/components/SiteHeader";
 import { useLocalePath } from "@/components/Link";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -34,18 +34,18 @@ import { HeyAiSection } from "@/components/HeyAiSection";
 import { useT } from "@/i18n/LocaleProvider";
 import { useHomeContent } from "@/lib/cms-content";
 
-import showcaseNumbers from "@/assets/showcase-numbers.jpg";
-import showcaseShared from "@/assets/showcase-shared.jpg";
-import showcaseRouting from "@/assets/showcase-routing.jpg";
-import showcaseAi from "@/assets/showcase-ai.jpg";
-import showcaseAnalytics from "@/assets/showcase-analytics.jpg";
-import showcaseIntegrations from "@/assets/showcase-integrations.jpg";
-import storyWindow from "@/assets/story-window-services.jpg";
-import storyDental from "@/assets/story-dental.jpg";
-import storyRealty from "@/assets/story-realty.jpg";
-import storyHvac from "@/assets/story-hvac.jpg";
-import storyLegal from "@/assets/story-legal.jpg";
-import storyJunkaway from "@/assets/story-junkaway.jpg";
+import showcaseNumbers from "@/assets/showcase-numbers.webp";
+import showcaseShared from "@/assets/showcase-shared.webp";
+import showcaseRouting from "@/assets/showcase-routing.webp";
+import showcaseAi from "@/assets/showcase-ai.webp";
+import showcaseAnalytics from "@/assets/showcase-analytics.webp";
+import showcaseIntegrations from "@/assets/showcase-integrations.webp";
+import storyWindow from "@/assets/story-window-services.webp";
+import storyDental from "@/assets/story-dental.webp";
+import storyRealty from "@/assets/story-realty.webp";
+import storyHvac from "@/assets/story-hvac.webp";
+import storyLegal from "@/assets/story-legal.webp";
+import storyJunkaway from "@/assets/story-junkaway.webp";
 import { canonicalUrl } from "@/lib/seo";
 
 const showcase = [
@@ -156,7 +156,11 @@ const stories = [
 
 export const Route = createFileRoute("/{-$locale}/")({
   head: ({ params }) => ({
-    links: [{ rel: "canonical", href: canonicalUrl("/", params.locale) }],
+    links: [
+      { rel: "canonical", href: canonicalUrl("/", params.locale) },
+      // Preload the hero screenshot: it is the LCP element on this page.
+      { rel: "preload", as: "image", href: dashboard, fetchpriority: "high" },
+    ],
     meta: [
       { property: "og:url", content: canonicalUrl("/", params.locale) },
       { title: "Business Phone System & Shared Inbox | Smartytel" },
@@ -340,6 +344,7 @@ function StoriesSlider({ items }: { items: typeof stories }) {
                     src={story.image}
                     alt={story.alt}
                     loading="lazy"
+                    decoding="async"
                     width={1024}
                     height={768}
                     className="h-64 w-full object-cover md:h-full"
@@ -462,6 +467,8 @@ function Landing() {
               alt="Smartytel shared inbox showing calls, texts and contact details"
               width={1600}
               height={1008}
+              fetchPriority="high"
+              decoding="async"
               className="w-full rounded-2xl shadow-2xl"
             />
           </div>
@@ -512,6 +519,7 @@ function Landing() {
                           src={image}
                           alt={alt}
                           loading="lazy"
+                          decoding="async"
                           width={720}
                           height={560}
                           className="w-full rounded-t-xl"
@@ -550,6 +558,7 @@ function Landing() {
                   src={image}
                   alt={alt}
                   loading="lazy"
+                  decoding="async"
                   width={928}
                   height={720}
                   className="mt-8 w-full rounded-xl"
