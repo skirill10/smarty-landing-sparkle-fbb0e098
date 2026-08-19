@@ -8,8 +8,8 @@ export const Integrations: CollectionConfig = {
     useAsTitle: "name",
     defaultColumns: ["name", "iconSlug", "category", "order"],
     group: "Content",
-    defaultSort: "order",
   },
+  defaultSort: "order",
   access: { read: () => true },
   hooks: { afterChange: [triggerRebuild] },
   fields: [

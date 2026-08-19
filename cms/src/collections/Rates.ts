@@ -25,8 +25,8 @@ export const Rates: CollectionConfig = {
     useAsTitle: "destinationLabel",
     defaultColumns: ["countryId", "destinationType", "price", "currency", "active"],
     group: "Rates",
-    defaultSort: "countryId",
   },
+  defaultSort: "countryId",
   access: { read: () => true },
   hooks: { afterChange: [triggerRebuild] },
   fields: [

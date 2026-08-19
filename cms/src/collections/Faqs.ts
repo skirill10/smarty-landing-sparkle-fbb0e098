@@ -8,8 +8,8 @@ export const Faqs: CollectionConfig = {
     useAsTitle: "question",
     defaultColumns: ["question", "countryId", "order"],
     group: "Rates",
-    defaultSort: "order",
   },
+  defaultSort: "order",
   access: { read: () => true },
   hooks: { afterChange: [triggerRebuild] },
   fields: [

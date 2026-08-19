@@ -23,8 +23,8 @@ export const Countries: CollectionConfig = {
     useAsTitle: "name",
     defaultColumns: ["name", "iso2", "dialCode", "region", "featured", "active"],
     group: "Rates",
-    defaultSort: "name",
   },
+  defaultSort: "name",
   access: { read: () => true },
   hooks: { afterChange: [triggerRebuild] },
   fields: [

@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "next dev -p 3000",
-    "build": "next build",
+    "build": "next build --turbopack",
     "start": "next start -p 3000",
     "seed": "tsx src/seed.ts",
     "payload": "payload",
@@ -19,7 +19,7 @@
     "@payloadcms/richtext-lexical": "^3.33.0",
     "@payloadcms/ui": "^3.33.0",
     "graphql": "^16.9.0",
-    "next": "^15.2.4",
+    "next": "16.3.0",
     "payload": "^3.33.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -29,7 +29,8 @@
     "@types/node": "^22.10.2",
     "@types/react": "^19.0.2",
     "tsx": "^4.19.2",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "sass": "^1.83.0"
   },
   "engines": {
     "node": ">=20.9.0"
