@@ -1,0 +1,1 @@
+import{n as e}from"./createLucideIcon-BrE3mqFR.js";import{x as t}from"./index-DRCcFrhC.js";import{t as n}from"./MarketingPage-Cy624yVW.js";var r=e(),i=t[`solutions/healthcare`],a=()=>(0,r.jsx)(n,{content:i,slug:`solutions/healthcare`});export{a as component};

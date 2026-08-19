@@ -1,0 +1,1 @@
+import{n as e}from"./createLucideIcon-BrE3mqFR.js";import{t}from"./States-CQ4gwlM8.js";var n=e(),r=()=>(0,n.jsx)(`div`,{className:`mx-auto max-w-3xl px-5 py-32`,children:(0,n.jsx)(t,{title:`Rates unavailable`,body:`We couldn't find the rates directory.`})});export{r as notFoundComponent};
