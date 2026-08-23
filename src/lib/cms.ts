@@ -1,3 +1,4 @@
+import { queryOptions } from "@tanstack/react-query";
 import type { MarketingContent } from "@/components/MarketingPage";
 import { pages as fallbackPages } from "@/content/pages";
 
@@ -85,13 +86,89 @@ export async function fetchGlobal<T>(slug: CmsGlobalSlug): Promise<T | null> {
 
 /** Fetch one document of a collection by its `slug` field. */
 export async function fetchCollectionDoc<T>(
-  collection: "legal-documents" | "marketing-pages",
+  collection: "legal-documents" | "marketing-pages" | "articles",
   slug: string,
 ): Promise<T | null> {
   const result = await cmsFetch<{ docs: T[] }>(
     `/${collection}?where[slug][equals]=${encodeURIComponent(slug)}&limit=1&depth=2`,
   );
   return result?.docs?.[0] ?? null;
+}
+
+export type CmsArticle = {
+  id: string;
+  slug: string;
+  title: string;
+  excerpt: string;
+  author?: string;
+  publishedDate?: string;
+  coverImage?: { url?: string; alt?: string } | null;
+  body?: unknown;
+  metaTitle?: string;
+  metaDescription?: string;
+};
+
+/** Fetch published articles for the /blog list, newest first. */
+export async function fetchArticles(): Promise<CmsArticle[] | null> {
+  const result = await cmsFetch<{ docs: CmsArticle[] }>(
+    `/articles?where[status][equals]=published&sort=-publishedDate&limit=50&depth=1`,
+  );
+  return result?.docs ?? null;
+}
+
+/** Fetch one published article by slug. */
+export async function fetchArticle(slug: string): Promise<CmsArticle | null> {
+  const result = await cmsFetch<{ docs: CmsArticle[] }>(
+    `/articles?where[slug][equals]=${encodeURIComponent(slug)}&where[status][equals]=published&limit=1&depth=1`,
+  );
+  return result?.docs?.[0] ?? null;
+}
+
+/** Query definitions for articles, shared by loaders and components. */
+export const articlesQueries = {
+  list: () =>
+    queryOptions({
+      queryKey: ["cms-articles", "list"],
+      queryFn: fetchArticles,
+      enabled: cmsEnabled,
+      staleTime: 60_000,
+    }),
+  detail: (slug: string) =>
+    queryOptions({
+      queryKey: ["cms-articles", "detail", slug],
+      queryFn: () => fetchArticle(slug),
+      enabled: cmsEnabled,
+      staleTime: 60_000,
+    }),
+};
+
+export type CmsFormType = "contact" | "demo";
+
+/** Fetch a @payloadcms/plugin-form-builder form by its semantic `formType`. */
+export async function fetchForm<T>(formType: CmsFormType): Promise<T | null> {
+  const result = await cmsFetch<{ docs: T[] }>(
+    `/forms?where[formType][equals]=${encodeURIComponent(formType)}&limit=1&depth=0`,
+  );
+  return result?.docs?.[0] ?? null;
+}
+
+/** Submit a form-builder submission. Returns true on success. */
+export async function submitForm(
+  formId: string,
+  submissionData: { field: string; value: unknown }[],
+): Promise<boolean> {
+  if (!CMS_URL) return false;
+  try {
+    const response = await fetch(`${CMS_URL.replace(/\/$/, "")}/api/form-submissions`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ form: formId, submissionData }),
+    });
+    return response.ok;
+  } catch (error) {
+    console.warn("Form submission errored", error);
+    return false;
+  }
 }
 
 export const cmsEnabled = Boolean(CMS_URL);

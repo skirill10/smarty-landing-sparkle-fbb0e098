@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { CtaBand } from "@/components/CtaBand";
+import { PayloadForm } from "@/components/PayloadForm";
 import { Link } from "@/components/Link";
 import { useT } from "@/i18n/LocaleProvider";
 import { useContactContent, useSocialLinks } from "@/lib/cms-content";
@@ -167,6 +168,20 @@ function ContactPage() {
               {t("Check system status")}
               <ArrowRight className="size-4" />
             </Link>
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-2xl px-5 py-16">
+          <div className="rounded-2xl border border-border bg-card p-7 md:p-10">
+            <h2 className="font-display text-2xl font-bold tracking-tight md:text-3xl">
+              {t("Send us a message")}
+            </h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              {t("Tell us what you need and someone from the team will follow up.")}
+            </p>
+            <div className="mt-8">
+              <PayloadForm formType="contact" />
+            </div>
           </div>
         </section>
 

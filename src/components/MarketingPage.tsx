@@ -4,6 +4,7 @@ import { ArrowRight, Check } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { CtaBand } from "@/components/CtaBand";
+import { PayloadForm } from "@/components/PayloadForm";
 import { cmsEnabled, fetchMarketingPage } from "@/lib/cms";
 import { useT } from "@/i18n/LocaleProvider";
 
@@ -17,7 +18,16 @@ export type MarketingContent = {
   metaDescription: string;
 };
 
-export function MarketingPage({ content, slug }: { content: MarketingContent; slug?: string }) {
+export function MarketingPage({
+  content,
+  slug,
+  formType,
+}: {
+  content: MarketingContent;
+  slug?: string;
+  /** Optional Payload form-builder form rendered before the closing CTA band. */
+  formType?: "contact" | "demo";
+}) {
   // Copy is baked in at build time; when a CMS is configured we refresh it at
   // runtime so edits appear without waiting for the next deploy.
   const t = useT();
@@ -116,6 +126,14 @@ export function MarketingPage({ content, slug }: { content: MarketingContent; sl
             </ul>
           </div>
         </section>
+
+        {formType && (
+          <section className="mx-auto max-w-2xl px-5 pb-20">
+            <div className="rounded-2xl border border-border bg-card p-7 md:p-10">
+              <PayloadForm formType={formType} />
+            </div>
+          </section>
+        )}
 
         <CtaBand />
       </main>

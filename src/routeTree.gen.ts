@@ -52,6 +52,7 @@ import { Route as Char123LocaleChar125VoicemailGeneratorRouteImport } from './ro
 import { Route as Char123LocaleChar125WebinarsRouteImport } from './routes/{-$locale}/webinars'
 import { Route as Char123LocaleChar125WhatsNewRouteImport } from './routes/{-$locale}/whats-new'
 import { Route as ApiPublicRatesSheetRouteImport } from './routes/api/public/rates-sheet'
+import { Route as Char123LocaleChar125BlogSlugRouteImport } from './routes/{-$locale}/blog.$slug'
 import { Route as Char123LocaleChar125RatesIndexRouteImport } from './routes/{-$locale}/rates.index'
 import { Route as Char123LocaleChar125RatesCountrySlugRouteImport } from './routes/{-$locale}/rates.$countrySlug'
 import { Route as Char123LocaleChar125SolutionsEducationRouteImport } from './routes/{-$locale}/solutions.education'
@@ -322,6 +323,12 @@ const ApiPublicRatesSheetRoute = ApiPublicRatesSheetRouteImport.update({
   path: '/api/public/rates-sheet',
   getParentRoute: () => rootRouteImport,
 } as any)
+const Char123LocaleChar125BlogSlugRoute =
+  Char123LocaleChar125BlogSlugRouteImport.update({
+    id: '/$slug',
+    path: '/$slug',
+    getParentRoute: () => Char123LocaleChar125BlogRoute,
+  } as any)
 const Char123LocaleChar125RatesIndexRoute =
   Char123LocaleChar125RatesIndexRouteImport.update({
     id: '/{-$locale}/rates/',
@@ -406,7 +413,7 @@ export interface FileRoutesByFullPath {
   '/{-$locale}/academy': typeof Char123LocaleChar125AcademyRoute
   '/{-$locale}/ai-agent': typeof Char123LocaleChar125AiAgentRoute
   '/{-$locale}/analytics': typeof Char123LocaleChar125AnalyticsRoute
-  '/{-$locale}/blog': typeof Char123LocaleChar125BlogRoute
+  '/{-$locale}/blog': typeof Char123LocaleChar125BlogRouteWithChildren
   '/{-$locale}/calling': typeof Char123LocaleChar125CallingRoute
   '/{-$locale}/careers': typeof Char123LocaleChar125CareersRoute
   '/{-$locale}/carrier-registration': typeof Char123LocaleChar125CarrierRegistrationRoute
@@ -445,6 +452,7 @@ export interface FileRoutesByFullPath {
   '/{-$locale}/whats-new': typeof Char123LocaleChar125WhatsNewRoute
   '/{-$locale}/': typeof Char123LocaleChar125IndexRoute
   '/api/public/rates-sheet': typeof ApiPublicRatesSheetRoute
+  '/{-$locale}/blog/$slug': typeof Char123LocaleChar125BlogSlugRoute
   '/{-$locale}/rates/$countrySlug': typeof Char123LocaleChar125RatesCountrySlugRoute
   '/{-$locale}/solutions/education': typeof Char123LocaleChar125SolutionsEducationRoute
   '/{-$locale}/solutions/franchise': typeof Char123LocaleChar125SolutionsFranchiseRoute
@@ -464,7 +472,7 @@ export interface FileRoutesByTo {
   '/{-$locale}/academy': typeof Char123LocaleChar125AcademyRoute
   '/{-$locale}/ai-agent': typeof Char123LocaleChar125AiAgentRoute
   '/{-$locale}/analytics': typeof Char123LocaleChar125AnalyticsRoute
-  '/{-$locale}/blog': typeof Char123LocaleChar125BlogRoute
+  '/{-$locale}/blog': typeof Char123LocaleChar125BlogRouteWithChildren
   '/{-$locale}/calling': typeof Char123LocaleChar125CallingRoute
   '/{-$locale}/careers': typeof Char123LocaleChar125CareersRoute
   '/{-$locale}/carrier-registration': typeof Char123LocaleChar125CarrierRegistrationRoute
@@ -503,6 +511,7 @@ export interface FileRoutesByTo {
   '/{-$locale}/whats-new': typeof Char123LocaleChar125WhatsNewRoute
   '/{-$locale}': typeof Char123LocaleChar125IndexRoute
   '/api/public/rates-sheet': typeof ApiPublicRatesSheetRoute
+  '/{-$locale}/blog/$slug': typeof Char123LocaleChar125BlogSlugRoute
   '/{-$locale}/rates/$countrySlug': typeof Char123LocaleChar125RatesCountrySlugRoute
   '/{-$locale}/solutions/education': typeof Char123LocaleChar125SolutionsEducationRoute
   '/{-$locale}/solutions/franchise': typeof Char123LocaleChar125SolutionsFranchiseRoute
@@ -523,7 +532,7 @@ export interface FileRoutesById {
   '/{-$locale}/academy': typeof Char123LocaleChar125AcademyRoute
   '/{-$locale}/ai-agent': typeof Char123LocaleChar125AiAgentRoute
   '/{-$locale}/analytics': typeof Char123LocaleChar125AnalyticsRoute
-  '/{-$locale}/blog': typeof Char123LocaleChar125BlogRoute
+  '/{-$locale}/blog': typeof Char123LocaleChar125BlogRouteWithChildren
   '/{-$locale}/calling': typeof Char123LocaleChar125CallingRoute
   '/{-$locale}/careers': typeof Char123LocaleChar125CareersRoute
   '/{-$locale}/carrier-registration': typeof Char123LocaleChar125CarrierRegistrationRoute
@@ -562,6 +571,7 @@ export interface FileRoutesById {
   '/{-$locale}/whats-new': typeof Char123LocaleChar125WhatsNewRoute
   '/{-$locale}/': typeof Char123LocaleChar125IndexRoute
   '/api/public/rates-sheet': typeof ApiPublicRatesSheetRoute
+  '/{-$locale}/blog/$slug': typeof Char123LocaleChar125BlogSlugRoute
   '/{-$locale}/rates/$countrySlug': typeof Char123LocaleChar125RatesCountrySlugRoute
   '/{-$locale}/solutions/education': typeof Char123LocaleChar125SolutionsEducationRoute
   '/{-$locale}/solutions/franchise': typeof Char123LocaleChar125SolutionsFranchiseRoute
@@ -622,6 +632,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/whats-new'
     | '/{-$locale}/'
     | '/api/public/rates-sheet'
+    | '/{-$locale}/blog/$slug'
     | '/{-$locale}/rates/$countrySlug'
     | '/{-$locale}/solutions/education'
     | '/{-$locale}/solutions/franchise'
@@ -680,6 +691,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/whats-new'
     | '/{-$locale}'
     | '/api/public/rates-sheet'
+    | '/{-$locale}/blog/$slug'
     | '/{-$locale}/rates/$countrySlug'
     | '/{-$locale}/solutions/education'
     | '/{-$locale}/solutions/franchise'
@@ -738,6 +750,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/whats-new'
     | '/{-$locale}/'
     | '/api/public/rates-sheet'
+    | '/{-$locale}/blog/$slug'
     | '/{-$locale}/rates/$countrySlug'
     | '/{-$locale}/solutions/education'
     | '/{-$locale}/solutions/franchise'
@@ -758,7 +771,7 @@ export interface RootRouteChildren {
   Char123LocaleChar125AcademyRoute: typeof Char123LocaleChar125AcademyRoute
   Char123LocaleChar125AiAgentRoute: typeof Char123LocaleChar125AiAgentRoute
   Char123LocaleChar125AnalyticsRoute: typeof Char123LocaleChar125AnalyticsRoute
-  Char123LocaleChar125BlogRoute: typeof Char123LocaleChar125BlogRoute
+  Char123LocaleChar125BlogRoute: typeof Char123LocaleChar125BlogRouteWithChildren
   Char123LocaleChar125CallingRoute: typeof Char123LocaleChar125CallingRoute
   Char123LocaleChar125CareersRoute: typeof Char123LocaleChar125CareersRoute
   Char123LocaleChar125CarrierRegistrationRoute: typeof Char123LocaleChar125CarrierRegistrationRoute
@@ -1115,6 +1128,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicRatesSheetRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/{-$locale}/blog/$slug': {
+      id: '/{-$locale}/blog/$slug'
+      path: '/$slug'
+      fullPath: '/{-$locale}/blog/$slug'
+      preLoaderRoute: typeof Char123LocaleChar125BlogSlugRouteImport
+      parentRoute: typeof Char123LocaleChar125BlogRoute
+    }
     '/{-$locale}/rates/': {
       id: '/{-$locale}/rates/'
       path: '/{-$locale}/rates'
@@ -1209,12 +1229,26 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface Char123LocaleChar125BlogRouteChildren {
+  Char123LocaleChar125BlogSlugRoute: typeof Char123LocaleChar125BlogSlugRoute
+}
+
+const Char123LocaleChar125BlogRouteChildren: Char123LocaleChar125BlogRouteChildren =
+  {
+    Char123LocaleChar125BlogSlugRoute: Char123LocaleChar125BlogSlugRoute,
+  }
+
+const Char123LocaleChar125BlogRouteWithChildren =
+  Char123LocaleChar125BlogRoute._addFileChildren(
+    Char123LocaleChar125BlogRouteChildren,
+  )
+
 const rootRouteChildren: RootRouteChildren = {
   Char123LocaleChar125AboutRoute: Char123LocaleChar125AboutRoute,
   Char123LocaleChar125AcademyRoute: Char123LocaleChar125AcademyRoute,
   Char123LocaleChar125AiAgentRoute: Char123LocaleChar125AiAgentRoute,
   Char123LocaleChar125AnalyticsRoute: Char123LocaleChar125AnalyticsRoute,
-  Char123LocaleChar125BlogRoute: Char123LocaleChar125BlogRoute,
+  Char123LocaleChar125BlogRoute: Char123LocaleChar125BlogRouteWithChildren,
   Char123LocaleChar125CallingRoute: Char123LocaleChar125CallingRoute,
   Char123LocaleChar125CareersRoute: Char123LocaleChar125CareersRoute,
   Char123LocaleChar125CarrierRegistrationRoute:
