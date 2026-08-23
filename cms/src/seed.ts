@@ -8,6 +8,8 @@ import { pricingPage } from "./seed-data/pricing";
 import { countries, faqs, rates, ratesPage } from "./seed-data/rates";
 import { crmPage, llmInfoPage } from "./seed-data/extra-pages";
 import { contactPage } from "./seed-data/contact";
+import { forms } from "./seed-data/forms";
+import { placeholderArticle } from "./seed-data/articles";
 
 /**
  * Seeds the CMS with the copy that currently ships in the repo, so nothing is
@@ -119,6 +121,36 @@ const run = async () => {
   await payload.updateGlobal({ slug: "llm-info-page", data: llmInfoPage as never });
   await payload.updateGlobal({ slug: "contact-page", data: contactPage as never });
   console.log("seeded rates, CRM and Hey AI page copy");
+
+  for (const form of forms) {
+    const existing = await payload.find({
+      collection: "forms",
+      where: { formType: { equals: form.formType } },
+      limit: 1,
+    });
+    if (existing.docs[0]) {
+      await payload.update({ collection: "forms", id: existing.docs[0].id, data: form as never });
+    } else {
+      await payload.create({ collection: "forms", data: form as never });
+    }
+  }
+  console.log(`seeded ${forms.length} forms`);
+
+  const existingArticle = await payload.find({
+    collection: "articles",
+    where: { slug: { equals: placeholderArticle.slug } },
+    limit: 1,
+  });
+  if (existingArticle.docs[0]) {
+    await payload.update({
+      collection: "articles",
+      id: existingArticle.docs[0].id,
+      data: placeholderArticle as never,
+    });
+  } else {
+    await payload.create({ collection: "articles", data: placeholderArticle as never });
+  }
+  console.log("seeded placeholder article");
 
   process.exit(0);
 };
