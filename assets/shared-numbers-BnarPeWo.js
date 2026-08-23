@@ -1,0 +1,1 @@
+import{n as e}from"./createLucideIcon-BrE3mqFR.js";import{x as t}from"./cms-content-EqjBuIk2.js";import{t as n}from"./MarketingPage-C1N_eGT1.js";var r=e(),i=t[`shared-numbers`],a=()=>(0,r.jsx)(n,{content:i,slug:`shared-numbers`});export{a as component};
