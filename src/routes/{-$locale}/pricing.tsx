@@ -455,6 +455,13 @@ function PricingPage() {
 
                 <p className="mt-3 text-sm text-muted-foreground">{plan.tagline}</p>
                 <p className="mt-3 text-sm">
+                  {plan.name === "Startup"
+                    ? "Minimum 1 user · "
+                    : plan.name === "Business"
+                      ? "Minimum 2 users · "
+                      : plan.name === "Scale"
+                        ? "Minimum 5 users · "
+                        : ""}
                   {annual ? `$${plan.annualMonthly * 12} per user billed yearly` : "Billed monthly"}
                 </p>
                 <p className="mt-2 text-sm text-muted-foreground">

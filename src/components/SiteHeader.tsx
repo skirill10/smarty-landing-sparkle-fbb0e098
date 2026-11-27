@@ -334,9 +334,6 @@ export function SiteHeader() {
               ))}
             </details>
           ))}
-          <a href={lp("/pricing")} className="block py-3 font-display text-base font-bold">
-            {t("Pricing")}
-          </a>
         </nav>
       ) : null}
     </header>
