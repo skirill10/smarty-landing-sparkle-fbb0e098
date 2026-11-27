@@ -177,34 +177,74 @@ export function SiteHeader() {
   const menus = useHeaderMenus(fallbackMenus);
   const [open, setOpen] = useState<string | null>(null);
   const [mobile, setMobile] = useState(false);
-  const wrap = useRef<HTMLDivElement>(null);
+  const wrap = useRef<HTMLElement>(null);
+  const panel = useRef<HTMLDivElement>(null);
   const mobileToggle = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
+    const trigger = () =>
+      wrap.current?.querySelector<HTMLButtonElement>(
+        'button[aria-controls="desktop-navigation"][aria-expanded="true"]',
+      );
     function onKey(e: KeyboardEvent) {
       if (e.key === "Escape") {
+        if (mobile) mobileToggle.current?.focus();
+        else if (open) trigger()?.focus();
         setOpen(null);
         setMobile(false);
-        if (mobile) mobileToggle.current?.focus();
+      }
+      if (e.key !== "Tab" || !open || !panel.current) return;
+      const button = trigger();
+      const links = panel.current.querySelectorAll<HTMLAnchorElement>("a[href]");
+      const first = links[0];
+      const last = links[links.length - 1];
+      if (!button || !first || !last) return;
+      if (document.activeElement === button && !e.shiftKey) {
+        e.preventDefault();
+        first.focus();
+      } else if (document.activeElement === first && e.shiftKey) {
+        e.preventDefault();
+        button.focus();
+      } else if (document.activeElement === last && !e.shiftKey) {
+        const controls = Array.from(
+          wrap.current!.querySelectorAll<HTMLElement>("a[href], button"),
+        ).filter((element) => !panel.current!.contains(element) && element.getClientRects().length);
+        const next = controls[controls.indexOf(button) + 1];
+        if (next) {
+          e.preventDefault();
+          next.focus();
+          setOpen(null);
+        }
+      }
+    }
+    function closeOutside(e: Event) {
+      if (e.target instanceof Node && !wrap.current?.contains(e.target)) {
+        setOpen(null);
+        setMobile(false);
       }
     }
     document.addEventListener("keydown", onKey);
-    return () => document.removeEventListener("keydown", onKey);
-  }, [mobile]);
+    document.addEventListener("pointerdown", closeOutside);
+    document.addEventListener("focusin", closeOutside);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("pointerdown", closeOutside);
+      document.removeEventListener("focusin", closeOutside);
+    };
+  }, [mobile, open]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-md">
-      <div
-        ref={wrap}
-        className="mx-auto flex h-16 max-w-6xl items-center gap-4 px-5"
-        onMouseLeave={() => setOpen(null)}
-      >
+    <header
+      ref={wrap}
+      className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-md"
+    >
+      <div className="mx-auto flex h-16 max-w-6xl items-center gap-4 px-5">
         <a href={lp("/")} className="flex items-center gap-2">
           <img src={mark} alt="Smartytel logo" width={40} height={49} className="h-8 w-auto" />
           <span className="font-display text-xl font-bold tracking-tight">smartytel</span>
         </a>
 
-        <nav className="hidden items-center gap-1 lg:flex">
+        <nav aria-label="Main navigation" className="hidden items-center gap-1 lg:flex">
           {menus.slice(0, 2).map((m) => (
             <MenuTrigger key={m.label} menu={m} open={open} setOpen={setOpen} />
           ))}
@@ -254,9 +294,12 @@ export function SiteHeader() {
       {/* Desktop mega panel */}
       {open ? (
         <div
+          ref={panel}
+          id="desktop-navigation"
+          role="navigation"
+          aria-label={`${open} links`}
           className="absolute inset-x-0 top-16 hidden lg:block"
           onMouseEnter={() => setOpen(open)}
-          onMouseLeave={() => setOpen(null)}
         >
           <div className="mx-auto max-w-6xl px-5">
             <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-xl">
@@ -355,6 +398,7 @@ function MenuTrigger({
     <button
       type="button"
       aria-expanded={active}
+      aria-controls="desktop-navigation"
       onMouseEnter={() => setOpen(menu.label)}
       onClick={() => setOpen(active ? null : menu.label)}
       className={`flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
