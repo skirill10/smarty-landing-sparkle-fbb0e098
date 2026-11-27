@@ -1,0 +1,1 @@
+import{n as e}from"./createLucideIcon-BrE3mqFR.js";import{l as t}from"./cms-BSOlO8v6.js";import{t as n}from"./MarketingPage-CtOf87qC.js";var r=e(),i=t[`voicemail-generator`],a=()=>(0,r.jsx)(n,{content:i,slug:`voicemail-generator`});export{a as component};
