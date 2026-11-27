@@ -6,6 +6,11 @@
   RewriteCond %{REQUEST_URI} ^/\.well-known/
   RewriteRule ^ - [L]
 
+  # Match only the public www host; preserve the path and query string.
+  # Do not canonicalize the separate application and service subdomains.
+  RewriteCond %{HTTP_HOST} ^www\.smarty\.tel(?::[0-9]+)?$ [NC]
+  RewriteRule ^ https://smarty.tel%{REQUEST_URI} [R=301,L,NE]
+
   # Canonical URLs: never expose /public_html/... — redirect it away
   RewriteRule ^public_html/?$ / [R=301,L]
   RewriteRule ^public_html/(.*)$ /$1 [R=301,L]
@@ -38,3 +43,10 @@
 
 DirectoryIndex index.html
 Options -Indexes
+
+# Revalidate HTML on the two marketing hosts while keeping hashed assets cacheable.
+<IfModule mod_headers.c>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, max-age=0, must-revalidate" "expr=%{HTTP_HOST} =~ m#^(www\.)?smarty\.tel$#"
+  </FilesMatch>
+</IfModule>
