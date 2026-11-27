@@ -1,5 +1,5 @@
 import { Fragment, useState } from "react";
-import { z } from "zod";
+import { PayloadForm } from "@/components/PayloadForm";
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@/components/Link";
 import {
@@ -280,7 +280,7 @@ const compareGroups: {
 const faqs: [string, string][] = [
   [
     "Is there a free trial?",
-    "Yes — every plan starts with a 14-day free trial and a demo number. No credit card required, and you pick a real number when you subscribe.",
+    "Public access is invitation-only during early beta. Join the free beta list; registration does not activate a trial or create an account.",
   ],
   [
     "How much does it cost per user?",
@@ -306,9 +306,19 @@ const faqs: [string, string][] = [
 
 function PriceCell({ value }: { value: string | boolean }) {
   if (value === true)
-    return <Check className="mx-auto size-4 text-accent-foreground" aria-hidden="true" />;
+    return (
+      <>
+        <Check className="mx-auto size-4 text-accent-foreground" aria-hidden="true" />
+        <span className="sr-only">Included</span>
+      </>
+    );
   if (value === false)
-    return <Minus className="mx-auto size-4 text-muted-foreground/50" aria-hidden="true" />;
+    return (
+      <>
+        <Minus className="mx-auto size-4 text-muted-foreground/50" aria-hidden="true" />
+        <span className="sr-only">Not included</span>
+      </>
+    );
   return <span className="text-sm text-muted-foreground">{value}</span>;
 }
 
@@ -349,160 +359,15 @@ function FaqList({ items }: { items: [string, string][] }) {
   );
 }
 
-const salesSchema = z.object({
-  name: z.string().trim().min(1, { message: "Please enter your name" }).max(100),
-  email: z.string().trim().email({ message: "Enter a valid work email" }).max(255),
-  company: z.string().trim().min(1, { message: "Please enter your company" }).max(120),
-  phone: z.string().trim().max(30).optional(),
-  seats: z.string().trim().max(40).optional(),
-  message: z.string().trim().max(1000).optional(),
-});
-
 function TalkToSalesSection() {
-  const [errors, setErrors] = useState<Record<string, string>>({});
-  const [sent, setSent] = useState(false);
-
-  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const data = Object.fromEntries(new FormData(event.currentTarget)) as Record<string, string>;
-    const result = salesSchema.safeParse(data);
-    if (!result.success) {
-      const next: Record<string, string> = {};
-      for (const issue of result.error.issues) next[String(issue.path[0])] = issue.message;
-      setErrors(next);
-      return;
-    }
-    setErrors({});
-    setSent(true);
-  };
-
-  const field =
-    "mt-2 w-full rounded-xl border border-border bg-card px-4 py-3 text-sm outline-none focus:border-foreground";
-
   return (
-    <section id="talk-to-sales" className="border-t border-border py-20">
-      <div className="mx-auto grid max-w-6xl gap-12 px-5 md:grid-cols-[1fr_1.1fr]">
-        <div>
-          <p className="font-semibold uppercase tracking-widest text-accent-foreground">
-            Talk to sales
-          </p>
-          <h2 className="mt-4 font-display text-3xl font-bold tracking-tight md:text-4xl">
-            Request a call with our team
-          </h2>
-          <p className="mt-4 text-muted-foreground">
-            Tell us about your team and we will call you back within one business day with pricing,
-            number availability across the US, Canada, the UK and Europe, and a live walkthrough.
-          </p>
-          <ul className="mt-8 space-y-3 text-sm">
-            {[
-              "Volume pricing for 10+ users",
-              "Number porting and country-by-country coverage",
-              "Custom telephony flows and integrations",
-              "Security, GDPR and procurement questions",
-            ].map((item) => (
-              <li key={item} className="flex gap-2">
-                <Check
-                  className="mt-0.5 size-4 shrink-0 text-accent-foreground"
-                  aria-hidden="true"
-                />
-                <span className="text-muted-foreground">{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="rounded-3xl border border-border bg-card p-8">
-          {sent ? (
-            <div className="py-10 text-center">
-              <Check className="mx-auto size-8 text-accent-foreground" aria-hidden="true" />
-              <h3 className="mt-4 font-display text-xl font-semibold">Thanks — request received</h3>
-              <p className="mt-2 text-sm text-muted-foreground">
-                A specialist will call you within one business day.
-              </p>
-            </div>
-          ) : (
-            <form onSubmit={onSubmit} noValidate className="grid gap-5 sm:grid-cols-2">
-              <label className="block text-sm font-semibold sm:col-span-1">
-                Full name
-                <input name="name" maxLength={100} className={field} placeholder="Alex Moreau" />
-                {errors["name"] ? (
-                  <span className="mt-1 block text-xs font-normal text-destructive">
-                    {errors["name"]}
-                  </span>
-                ) : null}
-              </label>
-              <label className="block text-sm font-semibold sm:col-span-1">
-                Work email
-                <input
-                  name="email"
-                  type="email"
-                  maxLength={255}
-                  className={field}
-                  placeholder="alex@company.com"
-                />
-                {errors["email"] ? (
-                  <span className="mt-1 block text-xs font-normal text-destructive">
-                    {errors["email"]}
-                  </span>
-                ) : null}
-              </label>
-              <label className="block text-sm font-semibold sm:col-span-1">
-                Company
-                <input
-                  name="company"
-                  maxLength={120}
-                  className={field}
-                  placeholder="Company name"
-                />
-                {errors["company"] ? (
-                  <span className="mt-1 block text-xs font-normal text-destructive">
-                    {errors["company"]}
-                  </span>
-                ) : null}
-              </label>
-              <label className="block text-sm font-semibold sm:col-span-1">
-                Phone number
-                <input
-                  name="phone"
-                  maxLength={30}
-                  className={field}
-                  placeholder="+1 555 000 1234"
-                />
-              </label>
-              <label className="block text-sm font-semibold sm:col-span-2">
-                Team size
-                <select name="seats" className={field} defaultValue="">
-                  <option value="">Select team size</option>
-                  <option>1–5 users</option>
-                  <option>6–20 users</option>
-                  <option>21–50 users</option>
-                  <option>51–200 users</option>
-                  <option>200+ users</option>
-                </select>
-              </label>
-              <label className="block text-sm font-semibold sm:col-span-2">
-                What would you like to cover?
-                <textarea
-                  name="message"
-                  rows={4}
-                  maxLength={1000}
-                  className={field}
-                  placeholder="Countries you need numbers in, current provider, timeline…"
-                />
-              </label>
-              <button
-                type="submit"
-                className="sm:col-span-2 rounded-md bg-brand px-5 py-3 font-semibold text-brand-foreground transition-colors hover:bg-dark hover:text-dark-foreground"
-              >
-                Request a call
-              </button>
-              <p className="sm:col-span-2 text-xs text-muted-foreground">
-                We only use these details to contact you about Smartytel.
-              </p>
-            </form>
-          )}
-        </div>
-      </div>
+    <section id="talk-to-sales" className="mx-auto max-w-2xl scroll-mt-24 px-5 py-20">
+      <h2 className="font-display text-3xl font-bold">Request a demo or pricing discussion</h2>
+      <p className="my-5 text-muted-foreground">
+        Tell us about your team. A request does not book a call or create an account. We will follow
+        up using the contact details you provide.
+      </p>
+      <PayloadForm formType="demo" />
     </section>
   );
 }
@@ -532,14 +397,15 @@ function PricingPage() {
             One phone system, priced per person
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg text-muted-foreground">
-            Start free for 14 days, then from $12 per user per month. Local calling included across
-            the US, Canada, the UK and every European country — and you only pay for the modules you
-            switch on.
+            Smartytel is in early beta. Registration is free and invitations are subject to
+            availability. The plans below are for discussion with our team; confirm features,
+            coverage and the full cost before subscribing.
           </p>
 
           <div className="mt-9 inline-flex items-center gap-1 rounded-md border border-border bg-card p-1">
             <button
               type="button"
+              aria-pressed={annual}
               onClick={() => setAnnual(true)}
               className={`rounded-md px-4 py-2 text-sm font-semibold transition-colors ${
                 annual ? "bg-brand text-brand-foreground" : "text-muted-foreground"
@@ -549,6 +415,7 @@ function PricingPage() {
             </button>
             <button
               type="button"
+              aria-pressed={!annual}
               onClick={() => setAnnual(false)}
               className={`rounded-md px-4 py-2 text-sm font-semibold transition-colors ${
                 annual ? "text-muted-foreground" : "bg-brand text-brand-foreground"
@@ -561,7 +428,7 @@ function PricingPage() {
 
         {/* Plans */}
         <section className="mx-auto max-w-7xl px-5 pb-20">
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {planList.map((plan) => (
               <article
                 key={plan.name}
@@ -587,15 +454,29 @@ function PricingPage() {
                 </p>
 
                 <p className="mt-3 text-sm text-muted-foreground">{plan.tagline}</p>
+                <p className="mt-3 text-sm">
+                  {plan.name === "Startup"
+                    ? "Minimum 1 user · "
+                    : plan.name === "Business"
+                      ? "Minimum 2 users · "
+                      : plan.name === "Scale"
+                        ? "Minimum 5 users · "
+                        : ""}
+                  {annual ? `$${plan.annualMonthly * 12} per user billed yearly` : "Billed monthly"}
+                </p>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Features marked with a price in the comparison below are paid add-ons, not
+                  included in the base price.
+                </p>
                 <a
-                  href={plan.cta === "Talk to sales" ? "#talk-to-sales" : lp("/pricing")}
+                  href={plan.cta === "Talk to sales" ? "#talk-to-sales" : "/early-access/"}
                   className={
                     plan.featured
                       ? "mt-7 block rounded-md bg-brand px-4 py-3 text-center font-semibold text-brand-foreground transition-colors hover:bg-dark hover:text-dark-foreground"
                       : "mt-7 block rounded-md border border-border px-4 py-3 text-center font-semibold transition-colors hover:bg-dark hover:text-dark-foreground"
                   }
                 >
-                  {plan.cta}
+                  {plan.cta === "Talk to sales" ? "Talk to sales" : "Join free beta"}
                 </a>
                 <ul className="mt-7 space-y-3 text-sm">
                   {plan.perks.map((perk) => (
@@ -696,7 +577,12 @@ function PricingPage() {
           <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">
             Compare every feature
           </h2>
-          <div className="mt-10 overflow-x-auto">
+          <div
+            className="relative mt-10 overflow-x-auto"
+            role="region"
+            aria-label="Plan feature comparison"
+            tabIndex={0}
+          >
             <table className="w-full min-w-[760px] border-collapse text-left">
               <thead>
                 <tr className="border-b border-border">
@@ -744,7 +630,14 @@ function PricingPage() {
             <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">
               Pricing questions
             </h2>
-            <FaqList items={faqList} />
+            <FaqList
+              items={faqList.map(([q, a]) => [
+                q,
+                /free trial/i.test(q)
+                  ? "Public access is invitation-only during early beta. Registration does not activate a trial or create an account."
+                  : a,
+              ])}
+            />
           </div>
         </section>
         <PricingCta />

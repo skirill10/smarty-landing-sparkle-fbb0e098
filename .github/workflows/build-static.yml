@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
@@ -37,6 +37,7 @@ jobs:
         run: |
           bun run typecheck
           bun run lint
+          bun test tests/unit
 
       - name: Build static export
         env:
@@ -80,20 +81,22 @@ jobs:
           REPO: ${{ github.repository }}
         run: |
           set -euo pipefail
-          cd dist/client
-          git init -q -b deploy
+          # Extend deploy history; never force-push the branch linked to hosting.
+          git fetch origin deploy
+          git worktree add --detach "$RUNNER_TEMP/smartytel-deploy" origin/deploy
+          # Overlay generated files only. Keep prior hashed assets for open tabs,
+          # and never delete unrelated hosting files or service directories.
+          cp -a dist/client/. "$RUNNER_TEMP/smartytel-deploy/"
+          cd "$RUNNER_TEMP/smartytel-deploy"
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          # A parent .gitignore must never filter the build output
-          printf '' > .gitignore
           git add -A
           git commit -q --allow-empty -m "chore: static build ${GITHUB_SHA}"
-          git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git"
-          git push --force origin deploy
+          git push origin HEAD:deploy
           LOCAL_SHA="$(git rev-parse HEAD)"
           REMOTE_SHA="$(git ls-remote origin refs/heads/deploy | awk '{print $1}')"
           test "$LOCAL_SHA" = "$REMOTE_SHA" || { echo "::error::Remote deploy branch verification failed"; exit 1; }
-          echo "Pushed ${LOCAL_SHA:0:7} to deploy and verified the remote branch"
+          echo "Published ${LOCAL_SHA:0:7} without rewriting deployment history"
 
       - name: Upload static artifact
         uses: actions/upload-artifact@v4

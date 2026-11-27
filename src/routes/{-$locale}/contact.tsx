@@ -38,14 +38,14 @@ const channelFallback: Channel[] = [
     title: "Talk to sales",
     body: "Connect with our team to see how Smartytel fits your business, understand pricing, or request a live demo.",
     cta: "Contact sales",
-    to: "/pricing",
+    to: "/pricing#talk-to-sales",
   },
   {
     icon: Headphones,
     title: "Customer support",
     body: "Get help from our support team, or browse guides, FAQs and tutorials in the resource center.",
-    cta: "Contact support",
-    href: "mailto:support@smartytel.com",
+    cta: "Get help",
+    href: "https://support.smarty.tel",
   },
   {
     icon: Puzzle,
@@ -115,7 +115,17 @@ function ContactPage() {
 
         <section className="mx-auto max-w-7xl px-5 pb-6">
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {channels.map((channel) => {
+            {channels.map((item, index) => {
+              const channel =
+                index === 1
+                  ? {
+                      ...item,
+                      to: undefined,
+                      href: "https://support.smarty.tel",
+                      cta: "Get help",
+                      body: "Browse guides, submit a ticket or follow your existing support requests.",
+                    }
+                  : item;
               const Icon = channel.icon;
               const cta = (
                 <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand transition-colors group-hover:text-foreground">

@@ -57,12 +57,7 @@ export function PricingCta({
           {content.title}
         </h2>
         <div className="flex flex-col gap-4 sm:flex-row">
-          <ActionCard
-            tone="dark"
-            label={content.primary.label}
-            to={content.primary.to}
-            hash={content.primary.hash}
-          />
+          <ActionCard tone="dark" label="Join free beta" to="/early-access/" />
           <ActionCard
             tone="light"
             label={content.secondary.label}

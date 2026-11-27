@@ -39,6 +39,7 @@ export function MarketingPage({
   });
 
   const page = data ?? content;
+  const isDemo = formType === "demo";
 
   return (
     <div className="min-h-screen bg-background">
@@ -50,15 +51,22 @@ export function MarketingPage({
             {t(page.eyebrow)}
           </p>
           <h1 className="mt-4 max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">
-            {t(page.headline)}
+            {t(isDemo ? "See how Smartytel could work for your team" : page.headline)}
           </h1>
-          <p className="mt-6 max-w-2xl text-lg text-muted-foreground">{t(page.sub)}</p>
+          <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
+            {t(
+              isDemo
+                ? "Tell us about your workflow and the features you want to explore. Our team will follow up to arrange a demo; submitting a request does not book a time or create an account."
+                : page.sub,
+            )}
+          </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
-              to="/pricing"
+              to={formType === "demo" ? "#request-demo" : "/early-access/"}
               className="inline-flex items-center gap-2 rounded-md bg-brand px-6 py-3 text-sm font-semibold text-brand-foreground transition-all hover:-translate-y-0.5 hover:bg-dark hover:text-dark-foreground"
             >
-              {t("Start free trial")} <ArrowRight className="size-4" />
+              {t(formType === "demo" ? "Request a demo" : "Join free beta")}{" "}
+              <ArrowRight className="size-4" />
             </Link>
             <Link
               to="/pricing"
@@ -92,12 +100,12 @@ export function MarketingPage({
           <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr]">
             <div>
               <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">
-                {t("Numbers and calling across the US, Canada, the UK and Europe")}
+                {t("Confirm availability for your workspace")}
               </h2>
               <p className="mt-5 text-muted-foreground">
-                Local and toll-free numbers in every country we serve, priced country by country.
-                Calling, SMS, WhatsApp and Telegram in one shared inbox, on any plan from $12 per
-                user per month.
+                Smartytel is in early beta. Available numbers, countries, channels and integrations
+                depend on your invitation, provider connections and workspace configuration. Confirm
+                the features and costs you need with our team before making a commitment.
               </p>
               <Link
                 to="/pricing"
@@ -107,14 +115,11 @@ export function MarketingPage({
               </Link>
             </div>
             <ul className="grid gap-3 self-start">
-              {(
-                page.proof ?? [
-                  "14-day free trial with a demo number",
-                  "Only pay for the modules you switch on",
-                  "AI notes, transcription and summaries",
-                  "Built-in CRM for $10 per user per month",
-                ]
-              ).map((p) => (
+              {[
+                "Free beta registration; access requires an invitation",
+                "Provider and integration setup may be required",
+                "Confirm calling rates and add-on costs with the team",
+              ].map((p) => (
                 <li
                   key={p}
                   className="flex items-start gap-3 rounded-xl border border-border bg-card px-5 py-4 text-sm font-medium"
@@ -128,7 +133,7 @@ export function MarketingPage({
         </section>
 
         {formType && (
-          <section className="mx-auto max-w-2xl px-5 pb-20">
+          <section id="request-demo" className="mx-auto max-w-2xl scroll-mt-24 px-5 pb-20">
             <div className="rounded-2xl border border-border bg-card p-7 md:p-10">
               <PayloadForm formType={formType} />
             </div>

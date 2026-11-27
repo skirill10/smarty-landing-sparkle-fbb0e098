@@ -148,7 +148,12 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
     () => ({
       locale,
       setLocale,
-      t: (source: string) => messages[source] ?? source,
+      t: (source: string) => {
+        const current = ["Try for free", "Start free trial", "Try Smartytel free"].includes(source)
+          ? "Join free beta"
+          : source;
+        return messages[current] ?? current;
+      },
     }),
     [locale, setLocale, messages],
   );

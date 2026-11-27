@@ -2,6 +2,7 @@ import { Link as RouterLink } from "@tanstack/react-router";
 import type { ComponentProps } from "react";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { localeToPrefix } from "@/i18n/config";
+import { publicDestination } from "@/lib/public-access";
 
 type RouterLinkProps = ComponentProps<typeof RouterLink>;
 
@@ -18,6 +19,10 @@ export type LinkProps = Omit<RouterLinkProps, "to" | "params"> & {
  */
 export function Link({ to, params, ...rest }: LinkProps) {
   const { locale } = useLocale();
+  const destination = publicDestination(to);
+  if (destination !== to || /^(?:https?:|mailto:|tel:|#)/i.test(to) || to === "/early-access/") {
+    return <a href={destination} {...(rest as object)} />;
+  }
   const path = to === "/" ? "" : to;
 
   return (
@@ -38,6 +43,13 @@ export function useLocalePath() {
   const { locale } = useLocale();
   const prefix = localeToPrefix(locale);
   return (path: string) => {
+    const destination = publicDestination(path);
+    if (
+      destination !== path ||
+      /^(?:https?:|mailto:|tel:|#)/i.test(path) ||
+      path === "/early-access/"
+    )
+      return destination;
     if (!prefix) return path;
     return path === "/" ? `/${prefix}` : `/${prefix}${path}`;
   };

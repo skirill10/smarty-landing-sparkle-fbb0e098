@@ -57,13 +57,13 @@ export function IntegrationsSection() {
               Integrations
             </p>
             <h2 className="mt-4 max-w-xl font-display text-3xl font-bold tracking-tight md:text-5xl">
-              Plays nicely with the tools you already run on
+              Plan how your tools connect
             </h2>
           </div>
           <p className="text-lg text-muted-foreground">
-            Sync contacts, log every call and text, and trigger follow-ups automatically — across
-            your CRM, help desk, inbox and automation stack. Build anything else with our API and
-            webhooks.
+            Discuss the contact sync, call logging and follow-up workflows your team needs.
+            Integration availability and setup vary by provider and workspace; confirm your required
+            workflow before joining.
           </p>
         </div>
 
@@ -96,8 +96,9 @@ export function IntegrationsSection() {
             ))}
           </ul>
           <p className="mt-6 text-center text-sm text-muted-foreground">
-            Plus Salesforce, Pipedrive, Microsoft Teams and Outlook — and anything else you can
-            reach with our open API and webhooks.
+            These logos illustrate tools to discuss with our team. They do not confirm that a
+            ready-to-use connector is available. Check the integration requirements and developer
+            documentation.
           </p>
         </div>
 
@@ -109,7 +110,7 @@ export function IntegrationsSection() {
             Explore the built-in CRM <ArrowRight className="size-4" />
           </Link>
           <a
-            href="#integrations"
+            href="/integrations"
             className="inline-flex items-center gap-1.5 rounded-md border border-border px-5 py-3 text-sm font-semibold transition-colors hover:bg-dark hover:text-dark-foreground"
           >
             Browse all integrations

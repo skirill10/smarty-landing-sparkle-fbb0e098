@@ -1,6 +1,5 @@
 import { useLocalePath } from "@/components/Link";
 import { ArrowRight, Phone, Sparkles, Check } from "lucide-react";
-import { useCtaContent } from "@/lib/cms-content";
 
 type CtaBandProps = {
   eyebrow?: string;
@@ -10,25 +9,17 @@ type CtaBandProps = {
   secondaryLabel?: string;
 };
 
-const fallbackProofPoints = ["14-day free trial", "No credit card", "Live in 12 minutes"];
+const fallbackProofPoints = ["Free beta registration", "No credit card", "Invitation required"];
 
 export function CtaBand(props: CtaBandProps) {
   const lp = useLocalePath();
-  const content = useCtaContent({
-    eyebrow: "Ready when they call",
-    title: "Your next customer is calling right now",
-    subtitle:
-      "Spin up a shared number in the US, Canada, the UK or anywhere across Europe, route it to your team, and let AI write the notes. Answer everything from day one.",
-    primaryLabel: "Try Smartytel free",
-    secondaryLabel: "Book a 15-min demo",
-    proofPoints: fallbackProofPoints,
-  });
-  const eyebrow = props.eyebrow ?? content.eyebrow;
-  const title = props.title ?? content.title;
-  const subtitle = props.subtitle ?? content.subtitle;
-  const primaryLabel = props.primaryLabel ?? content.primaryLabel;
-  const secondaryLabel = props.secondaryLabel ?? content.secondaryLabel;
-  const proofPoints = content.proofPoints;
+  const eyebrow = props.eyebrow ?? "Early beta";
+  const title = props.title ?? "Help shape Smartytel";
+  const subtitle =
+    "Join the free beta list. We will contact you when invitations are available. Registration does not create an active account or provide immediate access.";
+  const primaryLabel = "Join free beta";
+  const secondaryLabel = "Request a demo";
+  const proofPoints = fallbackProofPoints;
 
   return (
     <section className="w-full">
@@ -66,7 +57,7 @@ export function CtaBand(props: CtaBandProps) {
 
             <div className="mt-9 flex flex-wrap items-center gap-3">
               <a
-                href={lp("/pricing")}
+                href="/early-access/"
                 className="group inline-flex items-center gap-2 rounded-md bg-brand px-7 py-4 font-display font-bold text-brand-foreground shadow-brand-glow transition-all hover:-translate-y-0.5 hover:bg-dark hover:text-dark-foreground hover:shadow-brand-glow-lg"
               >
                 {primaryLabel}
@@ -76,7 +67,7 @@ export function CtaBand(props: CtaBandProps) {
                 />
               </a>
               <a
-                href={lp("/pricing")}
+                href={lp("/demo#request-demo")}
                 className="inline-flex items-center gap-2 rounded-md border border-primary-foreground/30 px-7 py-4 font-semibold backdrop-blur transition-colors hover:bg-white hover:text-dark"
               >
                 {secondaryLabel}
@@ -93,7 +84,7 @@ export function CtaBand(props: CtaBandProps) {
             </ul>
           </div>
 
-          {/* incoming call card */}
+          {/* Illustrative product preview; not a live service metric. */}
           <div className="relative mx-auto w-full max-w-sm">
             <div className="rounded-3xl border border-primary-foreground/15 bg-primary-foreground/10 p-6 backdrop-blur-xl">
               <div className="flex items-center gap-3">
@@ -105,7 +96,7 @@ export function CtaBand(props: CtaBandProps) {
                   />
                 </span>
                 <div>
-                  <p className="font-display font-bold">Incoming call</p>
+                  <p className="font-display font-bold">Product preview · Incoming call</p>
                   <p className="text-sm text-primary-foreground/65">+1 (415) 555-0138 · New lead</p>
                 </div>
               </div>
@@ -114,7 +105,7 @@ export function CtaBand(props: CtaBandProps) {
                 {[
                   ["Ringing team", "Sales · 3 devices"],
                   ["AI note-taker", "Armed"],
-                  ["Answer time", "1.8s avg"],
+                  ["Availability", "Depends on setup"],
                 ].map(([label, value]) => (
                   <div
                     key={label}
