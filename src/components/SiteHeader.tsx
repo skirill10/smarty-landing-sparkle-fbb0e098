@@ -178,20 +178,25 @@ export function SiteHeader() {
   const [open, setOpen] = useState<string | null>(null);
   const [mobile, setMobile] = useState(false);
   const wrap = useRef<HTMLDivElement>(null);
+  const mobileToggle = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
-      if (e.key === "Escape") setOpen(null);
+      if (e.key === "Escape") {
+        setOpen(null);
+        setMobile(false);
+        if (mobile) mobileToggle.current?.focus();
+      }
     }
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
-  }, []);
+  }, [mobile]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-md">
       <div
         ref={wrap}
-        className="mx-auto flex h-16 max-w-6xl items-center gap-8 px-5"
+        className="mx-auto flex h-16 max-w-6xl items-center gap-4 px-5"
         onMouseLeave={() => setOpen(null)}
       >
         <a href={lp("/")} className="flex items-center gap-2">
@@ -199,7 +204,7 @@ export function SiteHeader() {
           <span className="font-display text-xl font-bold tracking-tight">smartytel</span>
         </a>
 
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-1 lg:flex">
           {menus.slice(0, 2).map((m) => (
             <MenuTrigger key={m.label} menu={m} open={open} setOpen={setOpen} />
           ))}
@@ -214,25 +219,31 @@ export function SiteHeader() {
         </nav>
 
         <div className="ml-auto flex items-center gap-2">
-          <a href={lp("/pricing")} className="hidden px-3 text-sm font-medium sm:block">
-            {t("Log in")}
+          <a
+            href="https://app.smarty.tel/smarty/login"
+            className="hidden whitespace-nowrap px-3 text-sm font-medium lg:block"
+          >
+            {t("Existing users")}
           </a>
           <a
             href={lp("/pricing#talk-to-sales")}
-            className="hidden rounded-md border border-border px-4 py-2 text-sm font-semibold transition-colors hover:bg-dark hover:text-dark-foreground sm:block"
+            className="hidden rounded-md border border-border px-4 py-2 text-sm font-semibold transition-colors hover:bg-dark hover:text-dark-foreground lg:block"
           >
             {t("Talk to sales")}
           </a>
           <a
-            href={lp("/pricing")}
-            className="rounded-md bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground transition-all hover:-translate-y-0.5 hover:bg-dark hover:text-dark-foreground"
+            href="/early-access/"
+            className="whitespace-nowrap rounded-md bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground transition-all hover:-translate-y-0.5 hover:bg-dark hover:text-dark-foreground"
           >
-            {t("Try for free")}
+            {t("Join free beta")}
           </a>
           <button
             type="button"
+            ref={mobileToggle}
             aria-label={t("Toggle menu")}
-            className="rounded-md p-2 md:hidden"
+            aria-expanded={mobile}
+            aria-controls="mobile-navigation"
+            className="flex min-h-11 min-w-11 items-center justify-center rounded-md lg:hidden"
             onClick={() => setMobile((v) => !v)}
           >
             {mobile ? <X className="size-5" /> : <Menu className="size-5" />}
@@ -243,7 +254,7 @@ export function SiteHeader() {
       {/* Desktop mega panel */}
       {open ? (
         <div
-          className="absolute inset-x-0 top-16 hidden md:block"
+          className="absolute inset-x-0 top-16 hidden lg:block"
           onMouseEnter={() => setOpen(open)}
           onMouseLeave={() => setOpen(null)}
         >
@@ -261,14 +272,14 @@ export function SiteHeader() {
                           href={lp("/demo")}
                           className="text-sm font-medium text-brand hover:underline"
                         >
-                          {t("Watch a quick demo →")}
+                          {t("Request a demo →")}
                         </a>
                       </div>
                       <a
-                        href={lp("/pricing")}
+                        href="/early-access/"
                         className="inline-flex items-center gap-1.5 rounded-md bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground transition-colors hover:bg-dark hover:text-dark-foreground"
                       >
-                        Set up your number <ArrowRight className="size-4" />
+                        Join free beta <ArrowRight className="size-4" />
                       </a>
                     </div>
                   </>
@@ -281,10 +292,27 @@ export function SiteHeader() {
 
       {/* Mobile menu */}
       {mobile ? (
-        <div className="max-h-[75vh] overflow-y-auto border-t border-border bg-background px-5 py-4 md:hidden">
+        <nav
+          id="mobile-navigation"
+          aria-label="Mobile navigation"
+          className="max-h-[75vh] overflow-y-auto border-t border-border bg-background px-5 py-4 lg:hidden"
+        >
+          <div className="flex flex-wrap gap-4 border-b pb-3">
+            <a className="min-h-11 py-3" href={lp("/pricing")}>
+              {t("Pricing")}
+            </a>
+            <a className="min-h-11 py-3" href={lp("/demo#request-demo")}>
+              {t("Request a demo")}
+            </a>
+            <a className="min-h-11 py-3" href="https://app.smarty.tel/smarty/login">
+              {t("Existing users")}
+            </a>
+          </div>
           {menus.map((m) => (
-            <div key={m.label} className="border-b border-border/60 py-3 last:border-0">
-              <p className="mb-2 font-display text-base font-bold">{t(m.label)}</p>
+            <details key={m.label} className="border-b border-border/60 py-3 last:border-0">
+              <summary className="min-h-11 cursor-pointer py-3 font-display text-base font-bold">
+                {t(m.label)}
+              </summary>
               {m.groups.map((g) => (
                 <div key={g.heading} className="mb-3">
                   <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
@@ -295,7 +323,7 @@ export function SiteHeader() {
                       <li key={it.label}>
                         <a
                           href={lp(it.to ?? "/pricing")}
-                          className="block py-1 text-sm text-foreground/85"
+                          className="block min-h-11 py-3 text-sm text-foreground/85"
                         >
                           {t(it.label)}
                         </a>
@@ -304,12 +332,12 @@ export function SiteHeader() {
                   </ul>
                 </div>
               ))}
-            </div>
+            </details>
           ))}
           <a href={lp("/pricing")} className="block py-3 font-display text-base font-bold">
             {t("Pricing")}
           </a>
-        </div>
+        </nav>
       ) : null}
     </header>
   );

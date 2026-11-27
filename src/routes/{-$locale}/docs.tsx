@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { MarketingPage } from "@/components/MarketingPage";
-import { pages } from "@/content/pages";
-import { canonicalUrl } from "@/lib/seo";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
+import body from "@/content/developer-docs.html?raw";
 
-const content = pages["docs"]!;
+import { canonicalUrl } from "@/lib/seo";
 
 export const Route = createFileRoute("/{-$locale}/docs")({
   head: ({ params }) => ({
@@ -24,5 +24,11 @@ export const Route = createFileRoute("/{-$locale}/docs")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: () => <MarketingPage content={content} slug="docs" />,
+  component: () => (
+    <div className="min-h-screen bg-background">
+      <SiteHeader />
+      <main dangerouslySetInnerHTML={{ __html: body }} />
+      <SiteFooter />
+    </div>
+  ),
 });

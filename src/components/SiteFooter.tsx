@@ -125,12 +125,16 @@ export function SiteFooter() {
               />
               smartytel
             </Link>
-            <p className="mt-4 max-w-xs text-sm text-muted-foreground">{t(note)}</p>
+            <p className="mt-4 max-w-xs text-sm text-muted-foreground">
+              {t(
+                "Team conversations, calling, CRM and Helpdesk in one workspace. Early beta access requires an invitation.",
+              )}
+            </p>
             <Link
-              to="/pricing"
+              to="/early-access/"
               className="mt-6 inline-flex rounded-md bg-brand px-5 py-3 text-sm font-semibold text-brand-foreground transition-all hover:-translate-y-0.5 hover:bg-dark hover:text-dark-foreground"
             >
-              {t("Start free trial")}
+              {t("Join free beta")}
             </Link>
           </div>
 
@@ -166,7 +170,9 @@ export function SiteFooter() {
             {regions.map((region) => (
               <li key={region}>{t(region)}</li>
             ))}
-            <li className="font-semibold text-foreground">{t("+ all of Europe")}</li>
+            <li className="font-semibold text-foreground">
+              {t("Availability varies by provider and workspace")}
+            </li>
           </ul>
         </div>
 

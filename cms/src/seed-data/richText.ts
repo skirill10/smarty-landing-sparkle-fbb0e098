@@ -15,7 +15,15 @@ export function richText(text: string) {
           indent: 0,
           version: 1,
           children: [
-            { type: "text", text, format: 0, detail: 0, mode: "normal" as const, style: "", version: 1 },
+            {
+              type: "text",
+              text,
+              format: 0,
+              detail: 0,
+              mode: "normal" as const,
+              style: "",
+              version: 1,
+            },
           ],
         },
       ],

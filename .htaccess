@@ -10,6 +10,11 @@
   RewriteRule ^public_html/?$ / [R=301,L]
   RewriteRule ^public_html/(.*)$ /$1 [R=301,L]
 
+  RewriteRule ^(?:(?:en|es|nl|fr|de|sv|pl|el|uk|ja|zh|tr|ar)/)?(?:resources|tutorials|academy)/?$ https://support.smarty.tel [R=302,L]
+  RewriteRule ^(?:(?:en|es|nl|fr|de|sv|pl|el|uk|ja|zh|tr|ar)/)?(?:signup|sign-up|register)/?$ /early-access/ [R=302,L]
+  RewriteRule ^(?:(?:en|es|nl|fr|de|sv|pl|el|uk|ja|zh|tr|ar)/)?login/?$ https://app.smarty.tel/smarty/login [R=302,L]
+  RewriteRule ^(?:(?:en|es|nl|fr|de|sv|pl|el|uk|ja|zh|tr|ar)/)?whats-new/?$ https://doc.smarty.tel/s/kb/doc/whats-new-1ZVswVJlAj [R=302,L]
+
   # Serve real files and directories as-is
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d

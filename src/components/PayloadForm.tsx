@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -87,9 +87,14 @@ function defaultsForFields(fields: FieldBlock[]) {
 
 export function PayloadForm({ formType }: { formType: "contact" | "demo" }) {
   const t = useT();
+  const submitting = useRef(false);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
-  const { data: form } = useQuery({
+  const {
+    data: form,
+    isPending,
+    refetch,
+  } = useQuery({
     queryKey: ["cms-form", formType],
     queryFn: () => fetchForm<PayloadFormDoc>(formType),
     enabled: cmsEnabled,
@@ -103,15 +108,30 @@ export function PayloadForm({ formType }: { formType: "contact" | "demo" }) {
     defaultValues: defaultsForFields(fields),
   });
 
-  if (!cmsEnabled || !form) return null;
+  if (cmsEnabled && isPending) return <p role="status">{t("Loading form…")}</p>;
+  if (!cmsEnabled || !form)
+    return (
+      <div role="alert">
+        <p>{t("The form could not be loaded. Please try again, or visit our support portal.")}</p>
+        <button type="button" className="mt-3 min-h-11 underline" onClick={() => void refetch()}>
+          {t("Try again")}
+        </button>
+        <a className="ml-4 underline" href="https://support.smarty.tel">
+          {t("Get help")}
+        </a>
+      </div>
+    );
 
   async function onSubmit(values: Record<string, unknown>) {
+    if (submitting.current) return;
+    submitting.current = true;
     setStatus("submitting");
     const submissionData = fields.map((field) => ({
       field: field.name,
       value: values[field.name],
     }));
     const ok = await submitForm(form!.id, submissionData);
+    submitting.current = false;
     if (!ok) {
       setStatus("error");
       return;
@@ -124,7 +144,10 @@ export function PayloadForm({ formType }: { formType: "contact" | "demo" }) {
 
   if (status === "success" && form.confirmationType === "message") {
     return (
-      <div className="rounded-2xl border border-border bg-card p-7 text-sm font-medium">
+      <div
+        role="status"
+        className="rounded-2xl border border-border bg-card p-7 text-sm font-medium"
+      >
         {t("Thanks — we'll be in touch shortly.")}
       </div>
     );
@@ -191,7 +214,7 @@ export function PayloadForm({ formType }: { formType: "contact" | "demo" }) {
         ))}
 
         {status === "error" && (
-          <p className="text-sm font-medium text-destructive">
+          <p role="alert" className="text-sm font-medium text-destructive">
             {t("Something went wrong — please try again.")}
           </p>
         )}

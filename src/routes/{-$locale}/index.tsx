@@ -322,6 +322,8 @@ const homeFallback = {
   plans,
 };
 
+const VERIFIED_CUSTOMER_PROOF = false;
+
 function StoriesSlider({ items }: { items: typeof stories }) {
   const t = useT();
   const [index, setIndex] = useState(0);
@@ -434,32 +436,43 @@ function Landing() {
       <main>
         {/* Hero */}
         <section className="mx-auto max-w-6xl px-5 pt-16 text-center md:pt-24">
-          <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-            <Star className="size-4 fill-accent text-accent" aria-hidden="true" />
-            <span className="font-semibold text-foreground">{t(hero.rating)}</span>
-            <span aria-hidden="true">|</span>
-            <span>{t(hero.reviews)}</span>
-          </div>
+          {VERIFIED_CUSTOMER_PROOF && (
+            <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+              <Star className="size-4 fill-accent text-accent" aria-hidden="true" />
+              <span className="font-semibold text-foreground">{t(hero.rating)}</span>
+              <span aria-hidden="true">|</span>
+              <span>{t(hero.reviews)}</span>
+            </div>
+          )}
+          <p className="text-sm font-semibold text-brand">
+            {t("Early beta · Invitations subject to availability")}
+          </p>
           <h1 className="mx-auto mt-8 max-w-4xl font-display text-5xl font-bold leading-[0.95] tracking-tight md:text-7xl">
-            {t(hero.headline)}
+            {t("One workspace for your team’s conversations")}
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">{t(hero.sub)}</p>
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
+            {t(
+              "Explore team chat, calling, CRM and Helpdesk in the Smartytel beta. Join the list and we will contact you when an invitation is available.",
+            )}
+          </p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
             <a
-              href={lp("/pricing")}
+              href="/early-access/"
               className="rounded-md bg-brand px-6 py-3 font-semibold text-brand-foreground transition-all hover:-translate-y-0.5 hover:bg-dark hover:text-dark-foreground"
             >
-              {t(hero.primaryCta)}
+              {t("Join free beta")}
             </a>
             <a
               href="#features"
               className="inline-flex items-center gap-2 rounded-md px-4 py-3 font-medium text-foreground transition-colors hover:bg-dark hover:text-dark-foreground"
             >
-              <Play className="size-4" aria-hidden="true" />
-              {t(hero.secondaryCta)}
+              <ArrowRight className="size-4" aria-hidden="true" />
+              {t("Explore features")}
             </a>
           </div>
-          <p className="mt-8 text-sm text-muted-foreground">{t(hero.platforms)}</p>
+          <p className="mt-8 text-sm text-muted-foreground">
+            {t("Access and features depend on your beta invitation and workspace configuration.")}
+          </p>
 
           <div className="mt-14 rounded-3xl bg-surface p-3 md:p-8">
             <img
@@ -475,30 +488,32 @@ function Landing() {
         </section>
 
         {/* Logos */}
-        <section className="mx-auto max-w-6xl px-5 py-16">
-          <p className="text-center text-sm font-medium text-muted-foreground">
-            {t(logos.heading)}
-          </p>
-          <div className="mt-8 grid grid-cols-2 gap-6 opacity-70 sm:grid-cols-3 md:grid-cols-6">
-            {logos.items.map((name) => (
-              <div
-                key={name}
-                className="text-center font-display text-base font-semibold tracking-tight text-muted-foreground"
-              >
-                {name}
-              </div>
-            ))}
-          </div>
-        </section>
+        {VERIFIED_CUSTOMER_PROOF && (
+          <section className="mx-auto max-w-6xl px-5 py-16">
+            <p className="text-center text-sm font-medium text-muted-foreground">
+              {t(logos.heading)}
+            </p>
+            <div className="mt-8 grid grid-cols-2 gap-6 opacity-70 sm:grid-cols-3 md:grid-cols-6">
+              {logos.items.map((name) => (
+                <div
+                  key={name}
+                  className="text-center font-display text-base font-semibold tracking-tight text-muted-foreground"
+                >
+                  {name}
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Features */}
         <section id="features" className="border-y border-border bg-light-grey py-20 md:py-28">
           <div className="mx-auto max-w-6xl px-5">
             {featureGroupsContent.map(({ heading, cards }) => (
               <div key={heading} className="mt-14">
-                <h3 className="font-display text-2xl font-bold tracking-tight md:text-3xl">
+                <h2 className="font-display text-2xl font-bold tracking-tight md:text-3xl">
                   {t(heading)}
-                </h3>
+                </h2>
                 <div className="mt-6 grid gap-6 md:grid-cols-3">
                   {cards.map(({ icon: Icon, title, body, image, alt }) => (
                     <article
@@ -507,9 +522,9 @@ function Landing() {
                     >
                       <div className="p-7">
                         <Icon className="size-6 text-brand" aria-hidden="true" />
-                        <h4 className="mt-5 font-display text-lg font-semibold tracking-tight">
+                        <h3 className="mt-5 font-display text-lg font-semibold tracking-tight">
                           {t(title)}
-                        </h4>
+                        </h3>
                         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                           {t(body)}
                         </p>
@@ -539,19 +554,28 @@ function Landing() {
             {t(showcaseHeading)}
           </h2>
           <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {showcaseContent.map(({ title, link, image, alt }) => (
+            {showcaseContent.map(({ title, link, image, alt }, i) => (
               <article
                 key={title}
                 className="flex flex-col overflow-hidden rounded-2xl bg-light-grey p-8"
               >
                 <h3 className="font-display text-2xl font-semibold leading-snug tracking-tight">
-                  {t(title)}
+                  {t(i === 0 ? "Explore business numbers for your team" : title)}
                 </h3>
                 <a
-                  href="#features"
+                  href={lp(
+                    [
+                      "/early-access/",
+                      "/shared-numbers",
+                      "/phone-menu",
+                      "/ai-agent",
+                      "/analytics",
+                      "/integrations",
+                    ][i] ?? "/demo",
+                  )}
                   className="mt-5 inline-flex items-center gap-2 font-medium text-foreground hover:text-brand"
                 >
-                  {t(link)}
+                  {t(i === 0 ? "Request beta access" : link)}
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </a>
                 <img
@@ -569,33 +593,37 @@ function Landing() {
         </section>
 
         {/* Business stories */}
-        <section className="bg-dark py-20 text-dark-foreground md:py-28">
-          <div className="mx-auto max-w-6xl px-5">
-            <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
-              <h2 className="max-w-2xl font-display text-4xl font-bold tracking-tight md:text-5xl">
-                {t(storiesHeading)}
-              </h2>
-              <p className="text-dark-foreground/80">{t(storiesSub)}</p>
+        {VERIFIED_CUSTOMER_PROOF && (
+          <section className="bg-dark py-20 text-dark-foreground md:py-28">
+            <div className="mx-auto max-w-6xl px-5">
+              <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+                <h2 className="max-w-2xl font-display text-4xl font-bold tracking-tight md:text-5xl">
+                  {t(storiesHeading)}
+                </h2>
+                <p className="text-dark-foreground/80">{t(storiesSub)}</p>
+              </div>
+              <div className="mt-12">
+                <StoriesSlider items={storiesContent} />
+              </div>
             </div>
-            <div className="mt-12">
-              <StoriesSlider items={storiesContent} />
-            </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* Stats */}
-        <section className="mx-auto grid max-w-6xl gap-10 px-5 py-20 md:grid-cols-3">
-          {[
-            ["38%", "more calls answered in the first month"],
-            ["4 hrs", "saved per rep every week on follow-ups"],
-            ["12 min", "average time to get a number live"],
-          ].map(([stat, label]) => (
-            <div key={stat}>
-              <p className="font-display text-5xl font-bold tracking-tight">{stat}</p>
-              <p className="mt-2 max-w-xs text-muted-foreground">{t(label!)}</p>
-            </div>
-          ))}
-        </section>
+        {VERIFIED_CUSTOMER_PROOF && (
+          <section className="mx-auto grid max-w-6xl gap-10 px-5 py-20 md:grid-cols-3">
+            {[
+              ["38%", "more calls answered in the first month"],
+              ["4 hrs", "saved per rep every week on follow-ups"],
+              ["12 min", "average time to get a number live"],
+            ].map(([stat, label]) => (
+              <div key={stat}>
+                <p className="font-display text-5xl font-bold tracking-tight">{stat}</p>
+                <p className="mt-2 max-w-xs text-muted-foreground">{t(label!)}</p>
+              </div>
+            ))}
+          </section>
+        )}
 
         <BuiltForSection />
 

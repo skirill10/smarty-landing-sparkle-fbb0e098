@@ -1,23 +1,22 @@
 import { useLocalePath } from "@/components/Link";
 import { useEffect, useState } from "react";
 import { Sparkles, X } from "lucide-react";
-import { useAnnouncement } from "@/lib/cms-content";
 
 const STORAGE_KEY = "smartytel-announcement-closed";
 
 const FALLBACK = {
   enabled: true,
-  message: "Introducing Smarty AI Assist: No missed calls, no missed customers.",
-  primaryLabel: "Experience AI",
-  primaryUrl: "/ai-agent",
-  secondaryLabel: "RSVP webinar",
-  secondaryUrl: "/demo",
+  message: "Smartytel early beta: join the list for an invitation.",
+  primaryLabel: "Join free beta",
+  primaryUrl: "/early-access/",
+  secondaryLabel: "Request a demo",
+  secondaryUrl: "/demo#request-demo",
 };
 
 export function AnnouncementBar() {
   const lp = useLocalePath();
   const [dismissed, setDismissed] = useState(false);
-  const content = useAnnouncement(FALLBACK);
+  const content = FALLBACK;
 
   useEffect(() => {
     try {
