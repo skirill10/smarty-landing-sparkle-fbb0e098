@@ -72,7 +72,7 @@ function ArticlePage() {
     <div className="min-h-screen bg-background">
       <SiteHeader />
 
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <article className="mx-auto max-w-2xl px-5 pb-20 pt-16 md:pt-24">
           <Link
             to="/blog"

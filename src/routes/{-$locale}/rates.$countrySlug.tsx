@@ -135,7 +135,7 @@ function CountryRatesPage() {
     <div className="min-h-screen bg-background">
       <SiteHeader />
 
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <section className="border-b border-border bg-light-grey/60">
           <div className="mx-auto max-w-6xl px-5 py-14 md:py-20">
             <nav aria-label="Breadcrumb" className="mb-6 text-sm text-muted-foreground">

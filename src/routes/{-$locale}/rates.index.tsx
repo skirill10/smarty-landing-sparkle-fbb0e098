@@ -183,7 +183,7 @@ function RatesIndexPage() {
     <div className="min-h-screen bg-background">
       <SiteHeader />
 
-      <main>
+      <main id="main-content" tabIndex={-1}>
         {/* Hero */}
         <section className="border-b border-border bg-light-grey/60">
           <div className="mx-auto max-w-7xl px-5 py-16 md:py-24">

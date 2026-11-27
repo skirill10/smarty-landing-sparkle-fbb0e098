@@ -120,7 +120,7 @@ function CrmPage() {
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
 
-      <main>
+      <main id="main-content" tabIndex={-1}>
         {/* Hero */}
         <section className="mx-auto max-w-7xl px-5 pt-16 pb-14 md:pt-24">
           <div className="grid gap-12 lg:grid-cols-[1.05fr_1fr] lg:items-center">

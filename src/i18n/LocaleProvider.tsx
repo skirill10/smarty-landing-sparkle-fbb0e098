@@ -82,7 +82,10 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
   const navigate = useNavigate();
   const urlPrefix = pathname.split("/")[1] || undefined;
   const locale = prefixToLocale(urlPrefix) ?? DEFAULT_LOCALE;
-  const [messages, setMessages] = useState<Record<string, string>>({});
+  const [bundle, setBundle] = useState<{ locale: LocaleCode; messages: Record<string, string> }>({
+    locale: "en",
+    messages: {},
+  });
 
   const goToLocale = useCallback(
     (next: LocaleCode) => {
@@ -90,6 +93,8 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
       navigate({
         to: `/{-$locale}${rest}` as never,
         params: { locale: localeToPrefix(next) } as never,
+        search: true,
+        hash: true,
       });
     },
     [navigate, pathname],
@@ -126,14 +131,14 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     let active = true;
     if (locale === "en") {
-      setMessages({});
+      setBundle({ locale, messages: {} });
     } else {
       loaders[locale]()
         .then((loaded) => {
-          if (active) setMessages(loaded);
+          if (active) setBundle({ locale, messages: loaded });
         })
         .catch(() => {
-          if (active) setMessages({});
+          if (active) setBundle({ locale, messages: {} });
         });
     }
     const def = getLocaleDef(locale);
@@ -152,10 +157,10 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
         const current = ["Try for free", "Start free trial", "Try Smartytel free"].includes(source)
           ? "Join free beta"
           : source;
-        return messages[current] ?? current;
+        return (bundle.locale === locale ? bundle.messages[current] : undefined) ?? current;
       },
     }),
-    [locale, setLocale, messages],
+    [locale, setLocale, bundle],
   );
 
   return <LocaleContext.Provider value={value}>{children}</LocaleContext.Provider>;

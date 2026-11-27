@@ -273,7 +273,7 @@ export function SiteHeader() {
           </a>
           <a
             href="/early-access/"
-            className="whitespace-nowrap rounded-md bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground transition-all hover:-translate-y-0.5 hover:bg-dark hover:text-dark-foreground"
+            className="max-w-[34vw] rounded-md bg-brand px-3 py-2 text-center text-xs font-semibold sm:max-w-none sm:whitespace-nowrap sm:px-4 sm:text-sm text-brand-foreground transition-all hover:-translate-y-0.5 hover:bg-dark hover:text-dark-foreground"
           >
             {t("Join free beta")}
           </a>
@@ -322,7 +322,7 @@ export function SiteHeader() {
                         href="/early-access/"
                         className="inline-flex items-center gap-1.5 rounded-md bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground transition-colors hover:bg-dark hover:text-dark-foreground"
                       >
-                        Join free beta <ArrowRight className="size-4" />
+                        {t("Join free beta")} <ArrowRight className="size-4" />
                       </a>
                     </div>
                   </>
