@@ -17,9 +17,7 @@ test("all language selections keep the current page, query and anchor", async ({
     expect(url.searchParams.get("utm_source")).toBe("locale-test");
     expect(url.hash).toBe("#contact-form");
     if (locale !== "en") {
-      await expect(
-        page.locator("header").getByRole("link", { name: "Join free beta", exact: true }),
-      ).toHaveCount(0);
+      await expect(page.getByRole("link", { name: "Join free beta", exact: true })).toHaveCount(0);
     }
   }
 });

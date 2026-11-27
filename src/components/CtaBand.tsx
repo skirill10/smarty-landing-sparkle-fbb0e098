@@ -1,3 +1,4 @@
+import { useT } from "@/i18n/LocaleProvider";
 import { useLocalePath } from "@/components/Link";
 import { ArrowRight, Phone, Sparkles, Check } from "lucide-react";
 
@@ -13,6 +14,7 @@ const fallbackProofPoints = ["Free beta registration", "No credit card", "Invita
 
 export function CtaBand(props: CtaBandProps) {
   const lp = useLocalePath();
+  const t = useT();
   const eyebrow = props.eyebrow ?? "Early beta";
   const title = props.title ?? "Help shape Smartytel";
   const subtitle =
@@ -60,7 +62,7 @@ export function CtaBand(props: CtaBandProps) {
                 href="/early-access/"
                 className="group inline-flex items-center gap-2 rounded-md bg-brand px-7 py-4 font-display font-bold text-brand-foreground shadow-brand-glow transition-all hover:-translate-y-0.5 hover:bg-dark hover:text-dark-foreground hover:shadow-brand-glow-lg"
               >
-                {primaryLabel}
+                {t(primaryLabel)}
                 <ArrowRight
                   className="size-4 transition-transform group-hover:translate-x-1"
                   aria-hidden="true"
@@ -70,15 +72,15 @@ export function CtaBand(props: CtaBandProps) {
                 href={lp("/demo#request-demo")}
                 className="inline-flex items-center gap-2 rounded-md border border-primary-foreground/30 px-7 py-4 font-semibold backdrop-blur transition-colors hover:bg-white hover:text-dark"
               >
-                {secondaryLabel}
+                {t(secondaryLabel)}
               </a>
             </div>
 
             <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-primary-foreground/70">
               {proofPoints.map((point) => (
-                <li key={point} className="flex items-center gap-2">
+                <li key={t(point)} className="flex items-center gap-2">
                   <Check className="size-4 text-brand" aria-hidden="true" />
-                  {point}
+                  {t(point)}
                 </li>
               ))}
             </ul>
