@@ -1,3 +1,4 @@
+import { useT } from "@/i18n/LocaleProvider";
 import { useLocalePath } from "@/components/Link";
 import { useEffect, useState } from "react";
 import { Sparkles, X } from "lucide-react";
@@ -15,6 +16,7 @@ const FALLBACK = {
 
 export function AnnouncementBar() {
   const lp = useLocalePath();
+  const t = useT();
   const [dismissed, setDismissed] = useState(false);
   const content = FALLBACK;
 
@@ -56,13 +58,13 @@ export function AnnouncementBar() {
             href={lp(content.primaryUrl)}
             className="whitespace-nowrap rounded-[6px] bg-dark px-3 py-2 text-xs font-semibold text-dark-foreground transition-colors hover:bg-dark/90 sm:px-4"
           >
-            {content.primaryLabel}
+            {t(content.primaryLabel)}
           </a>
           <a
             href={lp(content.secondaryUrl)}
             className="hidden whitespace-nowrap rounded-[6px] border border-brand-foreground/40 px-4 py-2 text-xs font-semibold text-brand-foreground transition-colors hover:bg-brand-foreground/10 sm:inline-block"
           >
-            {content.secondaryLabel}
+            {t(content.secondaryLabel)}
           </a>
         </span>
       </div>
