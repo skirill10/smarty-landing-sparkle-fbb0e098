@@ -13,7 +13,10 @@ test("navigation supports keyboard entry, return and dismissal", async ({ page }
     await expect(toggle).toBeFocused();
     await expect(nav).toBeHidden();
     await toggle.press("Enter");
-    await page.locator("h1").click();
+    await page
+      .locator("footer")
+      .getByText(/All rights reserved/)
+      .click();
     await expect(nav).toBeHidden();
     return;
   }
@@ -35,7 +38,10 @@ test("navigation supports keyboard entry, return and dismissal", async ({ page }
   await expect(page.getByRole("button", { name: "Solutions", exact: true })).toBeFocused();
   await expect(panel).toBeHidden();
   await product.press("Enter");
-  await page.locator("h1").click();
+  await page
+    .locator("footer")
+    .getByText(/All rights reserved/)
+    .click();
   await expect(panel).toBeHidden();
   await product.press("Enter");
   await page.locator("footer a").first().focus();
