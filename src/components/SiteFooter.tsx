@@ -102,7 +102,7 @@ const fallbackNote =
 export function SiteFooter() {
   const t = useT();
   const socials = useSocialLinks(fallbackSocials);
-  const { columns, regions, note } = useFooterContent({
+  const { columns, regions } = useFooterContent({
     columns: fallbackColumns,
     regions: fallbackRegions,
     note: fallbackNote,
@@ -146,7 +146,7 @@ export function SiteFooter() {
                 </p>
                 <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
                   {column.links.map((link) => (
-                    <li key={link.label}>
+                    <li key={link.to ?? link.label}>
                       {link.to ? (
                         <Link to={link.to} className="transition-colors hover:text-foreground">
                           {t(link.label)}

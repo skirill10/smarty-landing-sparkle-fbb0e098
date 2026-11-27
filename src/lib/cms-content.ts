@@ -1,3 +1,4 @@
+import { mergeFooterLinks, isAvailableSocialDestination } from "./footer-links";
 import { useQuery } from "@tanstack/react-query";
 import {
   cmsEnabled,
@@ -336,10 +337,7 @@ export function useFooterContent<
     columns: overlay(fallback.columns, cms.footerColumns, (column, doc) => ({
       ...column,
       heading: text(doc.heading, column.heading),
-      links: overlay(column.links, doc.links, (link, linkDoc) => {
-        const to = text(linkDoc.to, link.to ?? "") || link.to;
-        return { ...link, label: text(linkDoc.label, link.label), ...(to ? { to } : {}) };
-      }),
+      links: mergeFooterLinks(column.links, doc.links),
     })),
     regions: list(cms.regions, fallback.regions),
     note: text(cms.footerNote, fallback.note),
@@ -456,11 +454,14 @@ export function useSocialLinks<Social extends { name: string; href: string }>(
   fallback: Social[],
 ): Social[] {
   const cms = useSite();
-  return overlay(fallback, cms?.socials, (social, doc) => ({
-    ...social,
-    name: text(doc.label, social.name),
-    href: text(doc.url, social.href),
-  }));
+  return fallback
+    .map((social) => {
+      const doc = cms?.socials?.find(
+        (item) => item.label?.toLowerCase() === social.name.toLowerCase(),
+      );
+      return { ...social, href: text(doc?.url, social.href) };
+    })
+    .filter((social) => isAvailableSocialDestination(social.href));
 }
 
 /* ------------------------------ pricing CTA ------------------------------- */
