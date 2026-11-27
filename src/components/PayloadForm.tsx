@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -54,7 +54,7 @@ type PayloadFormDoc = {
 function schemaForField(field: FieldBlock) {
   switch (field.blockType) {
     case "email": {
-      const f = z.string().email();
+      const f = z.string().trim().email();
       return field.required ? f : f.optional().or(z.literal(""));
     }
     case "checkbox":
@@ -62,7 +62,7 @@ function schemaForField(field: FieldBlock) {
         ? z.boolean().refine((v) => v === true, { message: "Required" })
         : z.boolean().optional();
     default: {
-      const f = z.string();
+      const f = z.string().trim();
       return field.required ? f.min(1, "Required") : f.optional();
     }
   }
@@ -88,6 +88,7 @@ function defaultsForFields(fields: FieldBlock[]) {
 export function PayloadForm({ formType }: { formType: "contact" | "demo" }) {
   const t = useT();
   const submitting = useRef(false);
+  const initializedForm = useRef<string | null>(null);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
   const {
@@ -107,6 +108,15 @@ export function PayloadForm({ formType }: { formType: "contact" | "demo" }) {
     resolver: zodResolver(schema),
     defaultValues: defaultsForFields(fields),
   });
+
+  // The definition arrives after the first render; initialize its defaults once.
+  // Background CMS refreshes must not erase an enquiry already being typed.
+  useEffect(() => {
+    if (form && initializedForm.current !== form.id) {
+      rhf.reset(defaultsForFields(form.fields));
+      initializedForm.current = form.id;
+    }
+  }, [form, rhf]);
 
   if (cmsEnabled && isPending) return <p role="status">{t("Loading form…")}</p>;
   if (!cmsEnabled || !form)

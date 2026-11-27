@@ -10,17 +10,17 @@ export const Route = createFileRoute("/{-$locale}/demo")({
     links: [{ rel: "canonical", href: canonicalUrl("/demo", params.locale) }],
     meta: [
       { property: "og:url", content: canonicalUrl("/demo", params.locale) },
-      { title: "See Smartytel in ten minutes | Smartytel" },
+      { title: "Request a Smartytel demo | Smartytel" },
       {
         name: "description",
         content:
-          "A walkthrough of shared numbers, routing, the AI agent, the built-in CRM and reporting.",
+          "Request a walkthrough for your team. We will follow up to arrange a demo and confirm the features available for your workspace.",
       },
-      { property: "og:title", content: "See Smartytel in ten minutes | Smartytel" },
+      { property: "og:title", content: "Request a Smartytel demo | Smartytel" },
       {
         property: "og:description",
         content:
-          "A walkthrough of shared numbers, routing, the AI agent, the built-in CRM and reporting.",
+          "Request a walkthrough for your team. We will follow up to arrange a demo and confirm the features available for your workspace.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

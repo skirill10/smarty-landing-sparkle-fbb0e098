@@ -52,12 +52,12 @@ const channelFallback: Channel[] = [
     title: "Become a partner",
     body: "Have an idea for partnering with us, or unsure which partner program fits best? Let's talk it through.",
     cta: "Contact partnerships",
-    to: "/partners",
+    to: "#contact-form",
   },
   {
     icon: Settings,
     title: "Developer support",
-    body: "Resources built for developers integrating with the Smartytel API, webhooks and SDKs.",
+    body: "Resources built for developers integrating with the Smartytel API, webhooks.",
     cta: "Visit developer docs",
     to: "/docs",
   },
@@ -65,8 +65,8 @@ const channelFallback: Channel[] = [
     icon: Newspaper,
     title: "Press inquiries",
     body: "Reach our media team for press information, company facts and interview requests.",
-    cta: "Email the press team",
-    href: "mailto:press@smartytel.com",
+    cta: "Send a press enquiry",
+    to: "#contact-form",
   },
   {
     icon: Users,
@@ -116,16 +116,26 @@ function ContactPage() {
         <section className="mx-auto max-w-7xl px-5 pb-6">
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {channels.map((item, index) => {
-              const channel =
-                index === 1
+              // Operational destinations are stable even when CMS copy is refreshed.
+              const { to: _cmsTo, href: _cmsHref, ...copy } = item;
+              const destination = channelFallback[index];
+              const channel: Channel = {
+                ...copy,
+                ...(destination?.to ? { to: destination.to } : {}),
+                ...(destination?.href ? { href: destination.href } : {}),
+                ...(index === 1
                   ? {
-                      ...item,
-                      to: undefined,
-                      href: "https://support.smarty.tel",
                       cta: "Get help",
                       body: "Browse guides, submit a ticket or follow your existing support requests.",
                     }
-                  : item;
+                  : {}),
+                ...(index === 4
+                  ? {
+                      cta: "Send a press enquiry",
+                      body: "Use our contact form for press information, company facts and interview requests.",
+                    }
+                  : {}),
+              };
               const Icon = channel.icon;
               const cta = (
                 <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand transition-colors group-hover:text-foreground">
@@ -175,13 +185,13 @@ function ContactPage() {
               className="inline-flex items-center gap-2 rounded-md border border-border px-5 py-3 text-sm font-semibold transition-all hover:-translate-y-0.5 hover:bg-dark hover:text-dark-foreground"
             >
               <Activity className="size-4" />
-              {t("Check system status")}
+              {t("Service help and status information")}
               <ArrowRight className="size-4" />
             </Link>
           </div>
         </section>
 
-        <section className="mx-auto max-w-2xl px-5 py-16">
+        <section id="contact-form" className="mx-auto max-w-2xl scroll-mt-24 px-5 py-16">
           <div className="rounded-2xl border border-border bg-card p-7 md:p-10">
             <h2 className="font-display text-2xl font-bold tracking-tight md:text-3xl">
               {t("Send us a message")}
