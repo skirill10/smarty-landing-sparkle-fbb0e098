@@ -41,3 +41,43 @@ test("navigation supports keyboard entry, return and dismissal", async ({ page }
   await page.locator("footer a").first().focus();
   await expect(panel).toBeHidden();
 });
+
+test("homepage feature cards retain their matching destinations after CMS hydration", async ({
+  page,
+}) => {
+  await page.route("https://cms.smarty.tel/api/globals/home?**", (route) =>
+    route.fulfill({
+      json: {
+        showcase: {
+          items: [
+            { title: "Share one number and stay aligned with your team", link: "Shared numbers" },
+            { title: "Route incoming calls the right person instantly", link: "Call routing" },
+            {
+              title: "Never miss a lead. Let AI answer when your team can't",
+              link: "Smarty AI agent",
+            },
+            { title: "Spot issues before they cost your business", link: "Analytics" },
+            { title: "Sync calls and texts with your favorite tools", link: "Integrations" },
+          ],
+        },
+      },
+      headers: { "Access-Control-Allow-Origin": "*" },
+    }),
+  );
+  await page.goto("/", { waitUntil: "networkidle" });
+  const cards = page.locator("article").filter({ has: page.locator('img[width="928"]') });
+  await expect(cards).toHaveCount(6);
+  for (const [label, href] of [
+    ["Request beta access", "/early-access/"],
+    ["Shared numbers", "/shared-numbers"],
+    ["Call routing", "/phone-menu"],
+    ["Smarty AI agent", "/ai-agent"],
+    ["Analytics", "/analytics"],
+    ["Integrations", "/integrations"],
+  ]) {
+    await expect(cards.getByRole("link", { name: label, exact: true })).toHaveAttribute(
+      "href",
+      href,
+    );
+  }
+});

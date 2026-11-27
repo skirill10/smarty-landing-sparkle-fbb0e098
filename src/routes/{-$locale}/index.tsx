@@ -50,38 +50,44 @@ import { canonicalUrl } from "@/lib/seo";
 
 const showcase = [
   {
-    title: "Set up a business number in minutes",
-    link: "Get a number",
+    title: "Explore business numbers for your team",
+    link: "Request beta access",
+    to: "/early-access/",
     image: showcaseNumbers,
     alt: "List of available local and toll-free business phone numbers",
   },
   {
     title: "Share one number and stay aligned with your team",
     link: "Shared numbers",
+    to: "/shared-numbers",
     image: showcaseShared,
     alt: "Shared team inbox with call and message threads",
   },
   {
     title: "Route incoming calls the right person instantly",
     link: "Call routing",
+    to: "/phone-menu",
     image: showcaseRouting,
     alt: "Call routing flow with business hours and team ring groups",
   },
   {
     title: "Never miss a lead. Let AI answer when your team can't",
     link: "Smarty AI agent",
+    to: "/ai-agent",
     image: showcaseAi,
     alt: "AI generated summary of a new inbound lead",
   },
   {
     title: "Spot issues before they cost your business",
     link: "Analytics",
+    to: "/analytics",
     image: showcaseAnalytics,
     alt: "Call volume analytics chart with missed and answered calls",
   },
   {
     title: "Sync calls and texts with your favorite tools",
     link: "Integrations",
+    to: "/integrations",
     image: showcaseIntegrations,
     alt: "Grid of app integration logos",
   },
@@ -554,28 +560,19 @@ function Landing() {
             {t(showcaseHeading)}
           </h2>
           <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {showcaseContent.map(({ title, link, image, alt }, i) => (
+            {showcaseContent.map(({ title, link, to, image, alt }) => (
               <article
                 key={title}
                 className="flex flex-col overflow-hidden rounded-2xl bg-light-grey p-8"
               >
                 <h3 className="font-display text-2xl font-semibold leading-snug tracking-tight">
-                  {t(i === 0 ? "Explore business numbers for your team" : title)}
+                  {t(title)}
                 </h3>
                 <a
-                  href={lp(
-                    [
-                      "/early-access/",
-                      "/shared-numbers",
-                      "/phone-menu",
-                      "/ai-agent",
-                      "/analytics",
-                      "/integrations",
-                    ][i] ?? "/demo",
-                  )}
+                  href={lp(to)}
                   className="mt-5 inline-flex items-center gap-2 font-medium text-foreground hover:text-brand"
                 >
-                  {t(i === 0 ? "Request beta access" : link)}
+                  {t(link)}
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </a>
                 <img
