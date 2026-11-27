@@ -35,6 +35,11 @@ describe("footer destination records", () => {
       false,
     );
     expect(isAvailableSocialDestination("https://www.youtube.com/@confirmed-channel")).toBe(true);
-    expect(isAvailableSocialDestination("https://www.linkedin.com/company/smartytel")).toBe(true);
+    for (const href of [
+      "https://www.linkedin.com/company/smartytel",
+      "https://www.reddit.com/r/smartytel",
+      "https://www.instagram.com/smartytel",
+    ])
+      expect(isAvailableSocialDestination(href)).toBe(false);
   });
 });

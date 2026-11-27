@@ -181,23 +181,25 @@ export function SiteFooter() {
             © {new Date().getFullYear()} Smartytel. {t("All rights reserved.")}
           </span>
 
-          <ul className="flex items-center gap-3" aria-label="Smartytel on social media">
-            {socials.map((social) => (
-              <li key={social.name}>
-                <a
-                  href={social.href}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  aria-label={`Smartytel on ${social.name}`}
-                  className="grid size-9 place-items-center rounded-md border border-border text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
-                >
-                  <svg viewBox="0 0 24 24" className="size-4 fill-current" aria-hidden="true">
-                    <path d={social.path} />
-                  </svg>
-                </a>
-              </li>
-            ))}
-          </ul>
+          {socials.length > 0 && (
+            <ul className="flex items-center gap-3" aria-label="Smartytel on social media">
+              {socials.map((social) => (
+                <li key={social.name}>
+                  <a
+                    href={social.href}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    aria-label={`Smartytel on ${social.name}`}
+                    className="grid size-9 place-items-center rounded-md border border-border text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
+                  >
+                    <svg viewBox="0 0 24 24" className="size-4 fill-current" aria-hidden="true">
+                      <path d={social.path} />
+                    </svg>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
 
           <LanguageSelector />
 

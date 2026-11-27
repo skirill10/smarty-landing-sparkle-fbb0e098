@@ -40,7 +40,10 @@ export function isAvailableSocialDestination(href: string): boolean {
     const path = url.pathname.replace(/\/$/, "").toLowerCase();
     return !(
       (host === "x.com" && path === "/smartytel") ||
-      (host === "youtube.com" && path === "/@smartytel")
+      (host === "youtube.com" && path === "/@smartytel") ||
+      (host === "linkedin.com" && path === "/company/smartytel") ||
+      (host === "reddit.com" && path === "/r/smartytel") ||
+      (host === "instagram.com" && path === "/smartytel")
     );
   } catch {
     return false;

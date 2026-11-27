@@ -37,7 +37,9 @@ test("footer retains downloads and a single status link after CMS hydration", as
     "https://support.smarty.tel",
   );
   await expect(
-    page.locator('a[href="https://x.com/smartytel"], a[href="https://www.youtube.com/@smartytel"]'),
+    page.locator(
+      'a[href="https://x.com/smartytel"], a[href="https://www.youtube.com/@smartytel"], a[href="https://www.linkedin.com/company/smartytel"], a[href="https://www.reddit.com/r/smartytel"], a[href="https://www.instagram.com/smartytel"]',
+    ),
   ).toHaveCount(0);
   await footer.getByRole("link", { name: "Downloads", exact: true }).click();
   await expect(page).toHaveURL(/\/downloads\/?$/);
