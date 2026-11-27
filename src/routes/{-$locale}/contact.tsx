@@ -57,7 +57,7 @@ const channelFallback: Channel[] = [
   {
     icon: Settings,
     title: "Developer support",
-    body: "Resources built for developers integrating with the Smartytel API, webhooks.",
+    body: "Resources built for developers integrating with the Smartytel API and webhooks.",
     cta: "Visit developer docs",
     to: "/docs",
   },

@@ -71,7 +71,15 @@ for (const { name, path } of pages) {
 
 test("contact page exposes contact channels", async ({ page }) => {
   await page.goto("/contact/", { waitUntil: "load" });
-  await expect(page.locator('a[href^="mailto:"]').first()).toBeVisible();
+  await expect(page.getByRole("link", { name: /Customer support/ })).toHaveAttribute(
+    "href",
+    "https://support.smarty.tel",
+  );
+  await expect(page.getByRole("link", { name: /Press inquiries/ })).toHaveAttribute(
+    "href",
+    "#contact-form",
+  );
+  await expect(page.locator("#contact-form")).toBeVisible();
 });
 
 test("home page navigates to contact", async ({ page }) => {
