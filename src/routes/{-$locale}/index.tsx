@@ -439,7 +439,7 @@ function Landing() {
     <div className="min-h-screen bg-background font-sans text-foreground antialiased">
       <SiteHeader />
 
-      <main>
+      <main id="main-content" tabIndex={-1}>
         {/* Hero */}
         <section className="mx-auto max-w-6xl px-5 pt-16 text-center md:pt-24">
           {VERIFIED_CUSTOMER_PROOF && (

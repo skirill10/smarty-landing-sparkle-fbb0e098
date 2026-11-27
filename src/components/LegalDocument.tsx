@@ -28,7 +28,7 @@ export function LegalDocument({ doc, slug }: { doc: LegalDoc; slug: string }) {
     <div className="min-h-screen bg-background">
       <SiteHeader />
 
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <section className="mx-auto max-w-3xl px-5 pb-10 pt-16 md:pt-24">
           <p className="text-sm font-semibold uppercase tracking-widest text-brand">
             {t(content.eyebrow)}

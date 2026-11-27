@@ -22,7 +22,7 @@ function DownloadsPage() {
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
-      <main className="mx-auto max-w-6xl px-5 py-16 md:py-24">
+      <main id="main-content" tabIndex={-1} className="mx-auto max-w-6xl px-5 py-16 md:py-24">
         <p className="font-semibold uppercase tracking-widest text-brand">Apps and access</p>
         <h1 className="mt-4 max-w-3xl font-display text-4xl font-bold tracking-tight md:text-6xl">
           Get access to Smartytel

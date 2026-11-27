@@ -27,7 +27,7 @@ export const Route = createFileRoute("/{-$locale}/docs")({
   component: () => (
     <div className="min-h-screen bg-background">
       <SiteHeader />
-      <main dangerouslySetInnerHTML={{ __html: body }} />
+      <main id="main-content" tabIndex={-1} dangerouslySetInnerHTML={{ __html: body }} />
       <SiteFooter />
     </div>
   ),

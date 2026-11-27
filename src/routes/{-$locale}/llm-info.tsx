@@ -138,7 +138,7 @@ function LlmInfoPage() {
     <div className="min-h-screen bg-background">
       <SiteHeader />
 
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <section className="border-b border-border bg-light-grey/60">
           <div className="mx-auto max-w-5xl px-5 py-20 md:py-28">
             <p className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-brand">
