@@ -146,11 +146,10 @@ export function useHomeContent<
       })),
     })),
     showcaseHeading: text(cms.showcase?.heading, fallback.showcaseHeading),
-    showcase: overlay(fallback.showcase, cms.showcase?.items, (item, doc) => ({
-      ...item,
-      title: text(doc.title, item.title),
-      link: text(doc.link, item.link),
-    })),
+    // These cards bundle copy with source-owned images and destinations. The CMS
+    // currently omits the number card; positional overlays shift every CTA.
+    // Keep the complete records together until the CMS supplies stable feature keys.
+    showcase: fallback.showcase,
     storiesHeading: text(cms.stories?.heading, fallback.storiesHeading),
     storiesSub: text(cms.stories?.sub, fallback.storiesSub),
     stories: overlay(fallback.stories, cms.stories?.items, (story, doc) => ({
