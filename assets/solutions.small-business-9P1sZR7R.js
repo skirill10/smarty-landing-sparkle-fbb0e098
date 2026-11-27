@@ -1,0 +1,1 @@
+import{n as e}from"./createLucideIcon-BrE3mqFR.js";import{l as t}from"./cms-BSOlO8v6.js";import{t as n}from"./MarketingPage-BuTXR2gH.js";var r=e(),i=t[`solutions/small-business`],a=()=>(0,r.jsx)(n,{content:i,slug:`solutions/small-business`});export{a as component};
