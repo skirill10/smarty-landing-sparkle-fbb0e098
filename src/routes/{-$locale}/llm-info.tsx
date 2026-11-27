@@ -34,13 +34,6 @@ export const Route = createFileRoute("/{-$locale}/llm-info")({
           url: "https://smarty.tel/",
           description:
             "Smartytel is a business phone system and UCaaS platform with calling, SMS, WhatsApp, phone menus, a built-in CRM and Smarty AI Assist, covering the US, Canada, the UK and Europe.",
-          sameAs: [
-            "https://www.linkedin.com/company/smartytel",
-            "https://x.com/smartytel",
-            "https://www.youtube.com/@smartytel",
-            "https://www.instagram.com/smartytel",
-            "https://www.reddit.com/r/smartytel",
-          ],
         }),
       },
     ],

@@ -1,3 +1,4 @@
+import { isAvailableSocialDestination } from "@/lib/footer-links";
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -119,6 +120,7 @@ function ContactPage() {
               // Operational destinations are stable even when CMS copy is refreshed.
               const { to: _cmsTo, href: _cmsHref, ...copy } = item;
               const destination = channelFallback[index];
+              if (destination?.href && !isAvailableSocialDestination(destination.href)) return null;
               const channel: Channel = {
                 ...copy,
                 ...(destination?.to ? { to: destination.to } : {}),
@@ -205,33 +207,35 @@ function ContactPage() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-5 py-16">
-          <div className="rounded-2xl border border-border bg-surface px-6 py-12 text-center md:px-12">
-            <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">
-              {t("Connect with us")}
-            </h2>
-            <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-              {t("Follow us on social media to stay updated on all the latest Smartytel news.")}
-            </p>
-            <ul className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              {socials.map((social) => (
-                <li key={social.name}>
-                  <a
-                    href={social.href}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-5 py-3 text-sm font-semibold transition-all hover:-translate-y-0.5 hover:bg-dark hover:text-dark-foreground"
-                  >
-                    <svg viewBox="0 0 24 24" className="size-4 fill-current" aria-hidden="true">
-                      <path d={social.path} />
-                    </svg>
-                    {t(social.name)}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
+        {socials.length > 0 && (
+          <section className="mx-auto max-w-7xl px-5 py-16">
+            <div className="rounded-2xl border border-border bg-surface px-6 py-12 text-center md:px-12">
+              <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">
+                {t("Connect with us")}
+              </h2>
+              <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
+                {t("Follow us on social media to stay updated on all the latest Smartytel news.")}
+              </p>
+              <ul className="mt-8 flex flex-wrap items-center justify-center gap-3">
+                {socials.map((social) => (
+                  <li key={social.name}>
+                    <a
+                      href={social.href}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-5 py-3 text-sm font-semibold transition-all hover:-translate-y-0.5 hover:bg-dark hover:text-dark-foreground"
+                    >
+                      <svg viewBox="0 0 24 24" className="size-4 fill-current" aria-hidden="true">
+                        <path d={social.path} />
+                      </svg>
+                      {t(social.name)}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        )}
 
         <CtaBand />
       </main>
