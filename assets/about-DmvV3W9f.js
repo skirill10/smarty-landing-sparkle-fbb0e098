@@ -1,0 +1,1 @@
+import{n as e}from"./createLucideIcon-BrE3mqFR.js";import{l as t}from"./cms-BSOlO8v6.js";import{t as n}from"./MarketingPage-DD5AZYhg.js";var r=e(),i=t.about,a=()=>(0,r.jsx)(n,{content:i,slug:`about`});export{a as component};
